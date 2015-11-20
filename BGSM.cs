@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Material_Editor
 {
@@ -8,106 +10,119 @@ namespace Material_Editor
         public float Red;
         public float Green;
         public float Blue;
+
+        public ColorRGB(float r, float g, float b)
+        {
+            Red = r;
+            Green = g;
+            Blue = b;
+        }
     }
 
     class BGSM
     {
-        string header;
-        uint unk1;
-        uint unk2;
-        uint unk3;
-        uint unk4;
+        string header = "BGSM";
+        public uint unk1;
+        public uint unk2;
+        public uint unk3;
+        public uint unk4;
 
-        float unkF1;
-        float unkF2;
-        float unkF3;
+        public float unkF1;
+        public float unkF2;
+        public float unkF3;
 
-        uint flags1;
-        uint flags2;
+        public uint flags1 = 1536;
+        public uint flags2 = 1792;
 
-        byte mysteryB1;
-        byte mysteryB2;
-        bool useAlpha;
-        byte mysteryB4;
-        byte mysteryB5;
-        byte mysteryB6;
-        byte mysteryB7;
-        byte mysteryB8;
-        bool useDoubleSided;
-        byte mysteryB10;
-        byte mysteryB11;
-        byte mysteryB12;
-        byte mysteryB13;
-        byte mysteryB14;
-        byte mysteryB15;
-        byte mysteryB16;
-        byte mysteryB17;
-        byte mysteryB18;
-        byte mysteryB19;
-        byte mysteryB20;
-        byte mysteryB21;
-        byte mysteryB22;
-        byte mysteryB23;
+        public byte mysteryB1;
+        public byte mysteryB2;
+        public bool useAlpha = false;
+        public byte mysteryB4;
+        public byte mysteryB5;
+        public byte mysteryB6;
+        public byte mysteryB7;
+        public byte mysteryB8;
+        public bool useDoubleSided = false;
+        public byte mysteryB10;
+        public byte mysteryB11;
+        public byte mysteryB12;
+        public byte mysteryB13;
+        public byte mysteryB14;
+        public byte mysteryB15;
+        public byte mysteryB16;
+        public byte mysteryB17;
+        public byte mysteryB18;
+        public byte mysteryB19;
+        public byte mysteryB20;
+        public byte mysteryB21;
+        public byte mysteryB22;
+        public byte mysteryB23;
 
-        string[] textures = new string[9];
+        public List<string> textures = Enumerable.Repeat(string.Empty, 9).ToList();
 
-        byte unkB1;
-        byte unkB2;
+        public byte unkB1;
+        public byte unkB2;
 
-        float unkF4;
-        float unkF5;
+        public float unkF4;
+        public float unkF5;
 
-        byte unkB3;
-        float unkF6;
+        public byte unkB3;
+        public float unkF6;
 
-        bool useWet;
+        public bool useWet = true;
 
-        ColorRGB unkColor1;
-        float specularStrength;
+        public ColorRGB unkColor1 = new ColorRGB(1.0f, 1.0f, 1.0f);
+        public float specularStrength = 1.0f;
 
-        float unkF7_5;
-        float unkF7_6;
-        float unkF7_7;
-        float unkF7_8;
-        float unkF7_9;
-        float unkF7_10;
-        float unkF7_11;
-        float unkF7_12;
+        public float unkF7_5;
+        public float unkF7_6;
+        public float unkF7_7;
+        public float unkF7_8;
+        public float unkF7_9;
+        public float unkF7_10;
+        public float unkF7_11;
+        public float unkF7_12;
 
-        string template;
+        public string template = "";
 
-        byte unkB5;
-        byte unkB6;
-        float unkF8;
+        public byte unkB5;
+        public byte unkB6;
+        public float unkF8;
 
-        byte unkB7;
-        byte unkB8;
-        byte unkB9;
-        byte unkB10;
-        byte unkB11;
-        byte unkB12;
-        byte unkB13;
-        byte unkB14;
-        byte unkB15;
-        byte unkB16;
-        byte unkB17;
-        byte unkB18;
+        public byte unkB7;
+        public byte unkB8;
+        public byte unkB9;
+        public byte unkB10;
+        public byte unkB11;
+        public byte unkB12;
+        public byte unkB13;
+        public byte unkB14;
+        public byte unkB15;
+        public byte unkB16;
+        public byte unkB17;
+        public byte unkB18;
 
-        ColorRGB unkColor2;
+        public ColorRGB unkColor2 = new ColorRGB(1.0f, 1.0f, 1.0f);
 
-        byte unkB19;
-        byte unkB20;
-        bool skinColor;
-        byte unkB21;
+        public byte unkB19;
+        public byte unkB20;
+        public bool skinColor = false;
+        public byte unkB21;
 
-        float unkF12;
-        float unkF13;
-        float unkF14;
-        float unkF15;
-        float unkF16;
-        float unkF17;
+        public float unkF12;
+        public float unkF13;
+        public float unkF14;
+        public float unkF15;
+        public float unkF16;
+        public float unkF17;
 
-        byte unkB22;
+        public byte unkB22;
+
+        public BGSM(string fileName = null)
+        {
+            if (!string.IsNullOrEmpty(fileName))
+                Open(fileName);
+        }
 
         public bool Open(string fileName)
         {
@@ -160,6 +175,7 @@ namespace Material_Editor
                             {
                                 uint length = reader.ReadUInt32();
                                 textures[i] = new string(reader.ReadChars((int)length));
+                                textures[i] = textures[i].Remove(textures[i].Length - 1, 1);
                             }
 
                             unkB1 = reader.ReadByte();
@@ -189,10 +205,11 @@ namespace Material_Editor
 
                             uint templateLength = reader.ReadUInt32();
                             template = new string(reader.ReadChars((int)templateLength));
+                            template = template.Remove(template.Length - 1, 1);
 
                             unkB5 = reader.ReadByte();
                             unkB6 = reader.ReadByte();
-                            unkF8 = reader.ReadByte();
+                            unkF8 = reader.ReadSingle();
 
                             unkB7 = reader.ReadByte();
                             unkB8 = reader.ReadByte();
@@ -224,6 +241,7 @@ namespace Material_Editor
                             unkF17 = reader.ReadSingle();
 
                             unkB22 = reader.ReadByte();
+                            reader.Close();
                         }
                         else
                         {
@@ -288,9 +306,12 @@ namespace Material_Editor
 
                         for (int i = 0; i < 9; ++i)
                         {
-                            int length = textures[i].Length;
-                            writer.Write(length);
-                            writer.Write(textures[i]);
+                            writer.Write(textures[i].Length + 1);
+                            if (textures[i].Length > 0)
+                            {
+                                writer.Write(textures[i].ToCharArray());
+                            }
+                            writer.Write('\0');
                         }
 
                         writer.Write(unkB1);
@@ -318,9 +339,12 @@ namespace Material_Editor
                         writer.Write(unkF7_11);
                         writer.Write(unkF7_12);
 
-                        int templateLength = template.Length;
-                        writer.Write(templateLength);
-                        writer.Write(template);
+                        writer.Write(template.Length + 1);
+                        if (template.Length > 0)
+                        {
+                            writer.Write(template.ToCharArray());
+                        }
+                        writer.Write('\0');
 
                         writer.Write(unkB5);
                         writer.Write(unkB6);
@@ -356,6 +380,7 @@ namespace Material_Editor
                         writer.Write(unkF17);
 
                         writer.Write(unkB22);
+                        writer.Close();
                     }
                 }
             }
