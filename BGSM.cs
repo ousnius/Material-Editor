@@ -106,7 +106,7 @@ namespace Material_Editor
 
         public byte unkB19;
         public byte unkB20;
-        public bool skinColor = false;
+        public bool useSkinColor = false;
         public byte unkB21;
 
         public float unkF12;
@@ -230,7 +230,7 @@ namespace Material_Editor
 
                             unkB19 = reader.ReadByte();
                             unkB20 = reader.ReadByte();
-                            skinColor = reader.ReadBoolean();
+                            useSkinColor = reader.ReadBoolean();
                             unkB21 = reader.ReadByte();
 
                             unkF12 = reader.ReadSingle();
@@ -369,7 +369,7 @@ namespace Material_Editor
 
                         writer.Write(unkB19);
                         writer.Write(unkB20);
-                        writer.Write(skinColor);
+                        writer.Write(useSkinColor);
                         writer.Write(unkB21);
 
                         writer.Write(unkF12);
