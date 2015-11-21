@@ -372,6 +372,16 @@ namespace Material_Editor
             }
         }
 
+        private void Main_ResizeBegin(object sender, EventArgs e)
+        {
+            SuspendLayout();
+        }
+
+        private void Main_ResizeEnd(object sender, EventArgs e)
+        {
+            ResumeLayout(true);
+        }
+
         private void btColor1_Click(object sender, EventArgs e)
         {
             colorDialog.Color = btColor1.BackColor;
