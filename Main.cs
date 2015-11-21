@@ -271,17 +271,30 @@ namespace Material_Editor
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                workMaterial = new BGSM(openFileDialog.FileName);
-                workFileName = openFileDialog.FileName;
-
-                saveToolStripMenuItem.Enabled = true;
-                saveAsToolStripMenuItem.Enabled = true;
-                closeToolStripMenuItem.Enabled = true;
-                tableLayoutPanel.Enabled = true;
-                this.Text = openFileDialog.SafeFileName;
-
-                SetUIFromMaterial(ref workMaterial);
+                OpenBGSM(openFileDialog.FileName);
             }
+        }
+
+        private void OpenBGSM(string fileName)
+        {
+            workMaterial = new BGSM();
+            if (!workMaterial.Open(fileName))
+            {
+                MessageBox.Show("Failed to open BGSM file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            workFileName = fileName;
+
+            saveToolStripMenuItem.Enabled = true;
+            saveAsToolStripMenuItem.Enabled = true;
+            closeToolStripMenuItem.Enabled = true;
+            tableLayoutPanel.Enabled = true;
+
+            int nameIndex = fileName.LastIndexOf('\\');
+            this.Text = fileName.Substring(nameIndex + 1, fileName.Length - nameIndex -1);
+
+            SetUIFromMaterial(ref workMaterial);
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -289,7 +302,11 @@ namespace Material_Editor
             if (workMaterial != null)
             {
                 SetMaterialFromUI(ref workMaterial);
-                workMaterial.Save(workFileName);
+                if (!workMaterial.Save(workFileName))
+                {
+                    MessageBox.Show("Failed to save BGSM file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
         }
 
@@ -304,7 +321,11 @@ namespace Material_Editor
                     SetMaterialFromUI(ref workMaterial);
 
                     workFileName = saveFileDialog.FileName;
-                    workMaterial.Save(workFileName);
+                    if (!workMaterial.Save(workFileName))
+                    {
+                        MessageBox.Show("Failed to save BGSM file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
         }
@@ -324,6 +345,31 @@ namespace Material_Editor
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void Main_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+        }
+
+        private void Main_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length > 0)
+            {
+                string file = files[0];
+                if (file.EndsWith(".bgsm"))
+                {
+                    OpenBGSM(file);
+                }
+                else
+                {
+                    MessageBox.Show("Format not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btColor1_Click(object sender, EventArgs e)

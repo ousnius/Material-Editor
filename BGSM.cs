@@ -118,12 +118,6 @@ namespace Material_Editor
 
         public byte unkB22;
 
-        public BGSM(string fileName = null)
-        {
-            if (!string.IsNullOrEmpty(fileName))
-                Open(fileName);
-        }
-
         public bool Open(string fileName)
         {
             try
