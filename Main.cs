@@ -11,6 +11,20 @@ namespace Material_Editor
         public Main()
         {
             InitializeComponent();
+
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length > 1 && !string.IsNullOrEmpty(args[1]))
+            {
+                string fileName = args[1];
+                if (fileName.EndsWith(".bgsm"))
+                {
+                    OpenMaterial(fileName, BGSM.Signature);
+                }
+                else if (fileName.EndsWith(".bgem"))
+                {
+                    OpenMaterial(fileName, BGEM.Signature);
+                }
+            }
         }
 
         #region UI
