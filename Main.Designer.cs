@@ -37,6 +37,8 @@
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
@@ -247,8 +249,6 @@
             this.cbBloodEnabled = new System.Windows.Forms.CheckBox();
             this.numEnvmapMinLOD = new System.Windows.Forms.NumericUpDown();
             this.numBaseColorScale = new System.Windows.Forms.NumericUpDown();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -331,14 +331,14 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -346,7 +346,7 @@
             // 
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -354,7 +354,7 @@
             // 
             this.saveAsToolStripMenuItem.Enabled = false;
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -362,25 +362,40 @@
             // 
             this.closeToolStripMenuItem.Enabled = false;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
+            this.toolStripMenuItem1.Text = "?";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
             // openFileDialog
             // 
-            this.openFileDialog.Filter = "Shader Material (.bgsm)|*.bgsm";
+            this.openFileDialog.Filter = "Material (.bgsm)|*.bgsm|Effect (.bgem)|*.bgem|All Files (*.*)|*.*";
             this.openFileDialog.Title = "Choose a material file...";
             // 
             // saveFileDialog
             // 
-            this.saveFileDialog.Filter = "Shader Material (.bgsm)|*.bgsm";
+            this.saveFileDialog.Filter = "Material (.bgsm)|*.bgsm|Effect (.bgem)|*.bgem";
             this.saveFileDialog.Title = "Save material file to...";
             // 
             // colorDialog
@@ -412,6 +427,7 @@
             this.tabPageGeneral.TabIndex = 2;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
+            this.tabPageGeneral.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabScroll);
             // 
             // splitContainerGeneral
             // 
@@ -1082,6 +1098,7 @@
             this.tabPageMaterial.TabIndex = 0;
             this.tabPageMaterial.Text = "Material";
             this.tabPageMaterial.UseVisualStyleBackColor = true;
+            this.tabPageMaterial.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabScroll);
             // 
             // splitContainerMaterial
             // 
@@ -1212,7 +1229,7 @@
             this.splitContainerMaterial.Panel2.Controls.Add(this.cbEnableEditorAlphaRef);
             this.splitContainerMaterial.Panel2.Padding = new System.Windows.Forms.Padding(10);
             this.splitContainerMaterial.Panel2MinSize = 165;
-            this.splitContainerMaterial.Size = new System.Drawing.Size(452, 1068);
+            this.splitContainerMaterial.Size = new System.Drawing.Size(469, 1068);
             this.splitContainerMaterial.SplitterDistance = 165;
             this.splitContainerMaterial.TabIndex = 2;
             // 
@@ -1846,7 +1863,7 @@
             0,
             -2147483648});
             this.numGrayscaleToPaletteScale.Name = "numGrayscaleToPaletteScale";
-            this.numGrayscaleToPaletteScale.Size = new System.Drawing.Size(254, 20);
+            this.numGrayscaleToPaletteScale.Size = new System.Drawing.Size(271, 20);
             this.numGrayscaleToPaletteScale.TabIndex = 55;
             // 
             // numTessellationFadeDistance
@@ -1866,7 +1883,7 @@
             0,
             -2147483648});
             this.numTessellationFadeDistance.Name = "numTessellationFadeDistance";
-            this.numTessellationFadeDistance.Size = new System.Drawing.Size(254, 20);
+            this.numTessellationFadeDistance.Size = new System.Drawing.Size(271, 20);
             this.numTessellationFadeDistance.TabIndex = 54;
             // 
             // numTessellationBaseFactor
@@ -1886,7 +1903,7 @@
             0,
             -2147483648});
             this.numTessellationBaseFactor.Name = "numTessellationBaseFactor";
-            this.numTessellationBaseFactor.Size = new System.Drawing.Size(254, 20);
+            this.numTessellationBaseFactor.Size = new System.Drawing.Size(271, 20);
             this.numTessellationBaseFactor.TabIndex = 53;
             // 
             // numTessellationPNScale
@@ -1906,7 +1923,7 @@
             0,
             -2147483648});
             this.numTessellationPNScale.Name = "numTessellationPNScale";
-            this.numTessellationPNScale.Size = new System.Drawing.Size(254, 20);
+            this.numTessellationPNScale.Size = new System.Drawing.Size(271, 20);
             this.numTessellationPNScale.TabIndex = 52;
             // 
             // numDisplacementTexScale
@@ -1926,7 +1943,7 @@
             0,
             -2147483648});
             this.numDisplacementTexScale.Name = "numDisplacementTexScale";
-            this.numDisplacementTexScale.Size = new System.Drawing.Size(254, 20);
+            this.numDisplacementTexScale.Size = new System.Drawing.Size(271, 20);
             this.numDisplacementTexScale.TabIndex = 51;
             // 
             // numDisplacementTexBias
@@ -1946,7 +1963,7 @@
             0,
             -2147483648});
             this.numDisplacementTexBias.Name = "numDisplacementTexBias";
-            this.numDisplacementTexBias.Size = new System.Drawing.Size(254, 20);
+            this.numDisplacementTexBias.Size = new System.Drawing.Size(271, 20);
             this.numDisplacementTexBias.TabIndex = 50;
             // 
             // cbTessellate
@@ -1989,7 +2006,7 @@
             this.btHairTintColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btHairTintColor.Location = new System.Drawing.Point(13, 826);
             this.btHairTintColor.Name = "btHairTintColor";
-            this.btHairTintColor.Size = new System.Drawing.Size(254, 20);
+            this.btHairTintColor.Size = new System.Drawing.Size(271, 20);
             this.btHairTintColor.TabIndex = 45;
             this.btHairTintColor.UseVisualStyleBackColor = false;
             this.btHairTintColor.Click += new System.EventHandler(this.ColorClicked);
@@ -2107,7 +2124,7 @@
             0,
             -2147483648});
             this.numEmittanceMultiplier.Name = "numEmittanceMultiplier";
-            this.numEmittanceMultiplier.Size = new System.Drawing.Size(254, 20);
+            this.numEmittanceMultiplier.Size = new System.Drawing.Size(271, 20);
             this.numEmittanceMultiplier.TabIndex = 32;
             // 
             // btEmittanceColor
@@ -2118,7 +2135,7 @@
             this.btEmittanceColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btEmittanceColor.Location = new System.Drawing.Point(13, 560);
             this.btEmittanceColor.Name = "btEmittanceColor";
-            this.btEmittanceColor.Size = new System.Drawing.Size(254, 20);
+            this.btEmittanceColor.Size = new System.Drawing.Size(271, 20);
             this.btEmittanceColor.TabIndex = 31;
             this.btEmittanceColor.UseVisualStyleBackColor = false;
             this.btEmittanceColor.Click += new System.EventHandler(this.ColorClicked);
@@ -2146,7 +2163,7 @@
             this.tbRootMaterialPath.Location = new System.Drawing.Point(13, 504);
             this.tbRootMaterialPath.MaxLength = 260;
             this.tbRootMaterialPath.Name = "tbRootMaterialPath";
-            this.tbRootMaterialPath.Size = new System.Drawing.Size(254, 20);
+            this.tbRootMaterialPath.Size = new System.Drawing.Size(271, 20);
             this.tbRootMaterialPath.TabIndex = 28;
             // 
             // numWetMetalness
@@ -2166,7 +2183,7 @@
             0,
             -2147483648});
             this.numWetMetalness.Name = "numWetMetalness";
-            this.numWetMetalness.Size = new System.Drawing.Size(254, 20);
+            this.numWetMetalness.Size = new System.Drawing.Size(271, 20);
             this.numWetMetalness.TabIndex = 27;
             // 
             // numWetFresnelPower
@@ -2186,7 +2203,7 @@
             0,
             -2147483648});
             this.numWetFresnelPower.Name = "numWetFresnelPower";
-            this.numWetFresnelPower.Size = new System.Drawing.Size(254, 20);
+            this.numWetFresnelPower.Size = new System.Drawing.Size(271, 20);
             this.numWetFresnelPower.TabIndex = 26;
             // 
             // numWetEnvMapScale
@@ -2206,7 +2223,7 @@
             0,
             -2147483648});
             this.numWetEnvMapScale.Name = "numWetEnvMapScale";
-            this.numWetEnvMapScale.Size = new System.Drawing.Size(254, 20);
+            this.numWetEnvMapScale.Size = new System.Drawing.Size(271, 20);
             this.numWetEnvMapScale.TabIndex = 25;
             // 
             // numWetSpecMinVar
@@ -2226,7 +2243,7 @@
             0,
             -2147483648});
             this.numWetSpecMinVar.Name = "numWetSpecMinVar";
-            this.numWetSpecMinVar.Size = new System.Drawing.Size(254, 20);
+            this.numWetSpecMinVar.Size = new System.Drawing.Size(271, 20);
             this.numWetSpecMinVar.TabIndex = 24;
             // 
             // numWetSpecPowerScale
@@ -2246,7 +2263,7 @@
             0,
             -2147483648});
             this.numWetSpecPowerScale.Name = "numWetSpecPowerScale";
-            this.numWetSpecPowerScale.Size = new System.Drawing.Size(254, 20);
+            this.numWetSpecPowerScale.Size = new System.Drawing.Size(271, 20);
             this.numWetSpecPowerScale.TabIndex = 23;
             // 
             // numWetSpecScale
@@ -2266,7 +2283,7 @@
             0,
             -2147483648});
             this.numWetSpecScale.Name = "numWetSpecScale";
-            this.numWetSpecScale.Size = new System.Drawing.Size(254, 20);
+            this.numWetSpecScale.Size = new System.Drawing.Size(271, 20);
             this.numWetSpecScale.TabIndex = 22;
             // 
             // numFresnelPower
@@ -2286,7 +2303,7 @@
             0,
             -2147483648});
             this.numFresnelPower.Name = "numFresnelPower";
-            this.numFresnelPower.Size = new System.Drawing.Size(254, 20);
+            this.numFresnelPower.Size = new System.Drawing.Size(271, 20);
             this.numFresnelPower.TabIndex = 21;
             // 
             // numSmoothness
@@ -2306,7 +2323,7 @@
             0,
             -2147483648});
             this.numSmoothness.Name = "numSmoothness";
-            this.numSmoothness.Size = new System.Drawing.Size(254, 20);
+            this.numSmoothness.Size = new System.Drawing.Size(271, 20);
             this.numSmoothness.TabIndex = 20;
             // 
             // numSpecularMultiplier
@@ -2326,7 +2343,7 @@
             0,
             -2147483648});
             this.numSpecularMultiplier.Name = "numSpecularMultiplier";
-            this.numSpecularMultiplier.Size = new System.Drawing.Size(254, 20);
+            this.numSpecularMultiplier.Size = new System.Drawing.Size(271, 20);
             this.numSpecularMultiplier.TabIndex = 19;
             // 
             // btSpecularColor
@@ -2337,7 +2354,7 @@
             this.btSpecularColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSpecularColor.Location = new System.Drawing.Point(13, 313);
             this.btSpecularColor.Name = "btSpecularColor";
-            this.btSpecularColor.Size = new System.Drawing.Size(254, 20);
+            this.btSpecularColor.Size = new System.Drawing.Size(271, 20);
             this.btSpecularColor.TabIndex = 18;
             this.btSpecularColor.UseVisualStyleBackColor = false;
             this.btSpecularColor.Click += new System.EventHandler(this.ColorClicked);
@@ -2367,7 +2384,7 @@
             0,
             -2147483648});
             this.numSubsurfaceLightingRolloff.Name = "numSubsurfaceLightingRolloff";
-            this.numSubsurfaceLightingRolloff.Size = new System.Drawing.Size(254, 20);
+            this.numSubsurfaceLightingRolloff.Size = new System.Drawing.Size(271, 20);
             this.numSubsurfaceLightingRolloff.TabIndex = 16;
             // 
             // cbSubsurfaceLighting
@@ -2395,7 +2412,7 @@
             0,
             -2147483648});
             this.numBacklightPower.Name = "numBacklightPower";
-            this.numBacklightPower.Size = new System.Drawing.Size(254, 20);
+            this.numBacklightPower.Size = new System.Drawing.Size(271, 20);
             this.numBacklightPower.TabIndex = 14;
             // 
             // cbRimLighting
@@ -2413,7 +2430,7 @@
             this.tbDisplacementTexture.Location = new System.Drawing.Point(13, 162);
             this.tbDisplacementTexture.MaxLength = 260;
             this.tbDisplacementTexture.Name = "tbDisplacementTexture";
-            this.tbDisplacementTexture.Size = new System.Drawing.Size(254, 20);
+            this.tbDisplacementTexture.Size = new System.Drawing.Size(271, 20);
             this.tbDisplacementTexture.TabIndex = 12;
             // 
             // tbWrinklesTexture
@@ -2423,7 +2440,7 @@
             this.tbWrinklesTexture.Location = new System.Drawing.Point(13, 143);
             this.tbWrinklesTexture.MaxLength = 260;
             this.tbWrinklesTexture.Name = "tbWrinklesTexture";
-            this.tbWrinklesTexture.Size = new System.Drawing.Size(254, 20);
+            this.tbWrinklesTexture.Size = new System.Drawing.Size(271, 20);
             this.tbWrinklesTexture.TabIndex = 11;
             // 
             // tbInnerLayerTexture
@@ -2433,7 +2450,7 @@
             this.tbInnerLayerTexture.Location = new System.Drawing.Point(13, 124);
             this.tbInnerLayerTexture.MaxLength = 260;
             this.tbInnerLayerTexture.Name = "tbInnerLayerTexture";
-            this.tbInnerLayerTexture.Size = new System.Drawing.Size(254, 20);
+            this.tbInnerLayerTexture.Size = new System.Drawing.Size(271, 20);
             this.tbInnerLayerTexture.TabIndex = 10;
             // 
             // tbGlowTexture
@@ -2443,7 +2460,7 @@
             this.tbGlowTexture.Location = new System.Drawing.Point(13, 105);
             this.tbGlowTexture.MaxLength = 260;
             this.tbGlowTexture.Name = "tbGlowTexture";
-            this.tbGlowTexture.Size = new System.Drawing.Size(254, 20);
+            this.tbGlowTexture.Size = new System.Drawing.Size(271, 20);
             this.tbGlowTexture.TabIndex = 9;
             // 
             // tbEnvironmentMapTexture
@@ -2453,7 +2470,7 @@
             this.tbEnvironmentMapTexture.Location = new System.Drawing.Point(13, 86);
             this.tbEnvironmentMapTexture.MaxLength = 260;
             this.tbEnvironmentMapTexture.Name = "tbEnvironmentMapTexture";
-            this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(254, 20);
+            this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(271, 20);
             this.tbEnvironmentMapTexture.TabIndex = 8;
             // 
             // tbGreyscaleTexture
@@ -2463,7 +2480,7 @@
             this.tbGreyscaleTexture.Location = new System.Drawing.Point(13, 67);
             this.tbGreyscaleTexture.MaxLength = 260;
             this.tbGreyscaleTexture.Name = "tbGreyscaleTexture";
-            this.tbGreyscaleTexture.Size = new System.Drawing.Size(254, 20);
+            this.tbGreyscaleTexture.Size = new System.Drawing.Size(271, 20);
             this.tbGreyscaleTexture.TabIndex = 7;
             // 
             // tbSmoothSpecularTexture
@@ -2473,7 +2490,7 @@
             this.tbSmoothSpecularTexture.Location = new System.Drawing.Point(13, 48);
             this.tbSmoothSpecularTexture.MaxLength = 260;
             this.tbSmoothSpecularTexture.Name = "tbSmoothSpecularTexture";
-            this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(254, 20);
+            this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(271, 20);
             this.tbSmoothSpecularTexture.TabIndex = 6;
             // 
             // tbNormalTexture
@@ -2483,7 +2500,7 @@
             this.tbNormalTexture.Location = new System.Drawing.Point(13, 29);
             this.tbNormalTexture.MaxLength = 260;
             this.tbNormalTexture.Name = "tbNormalTexture";
-            this.tbNormalTexture.Size = new System.Drawing.Size(254, 20);
+            this.tbNormalTexture.Size = new System.Drawing.Size(271, 20);
             this.tbNormalTexture.TabIndex = 5;
             // 
             // tbDiffuseTexture
@@ -2493,7 +2510,7 @@
             this.tbDiffuseTexture.Location = new System.Drawing.Point(13, 10);
             this.tbDiffuseTexture.MaxLength = 260;
             this.tbDiffuseTexture.Name = "tbDiffuseTexture";
-            this.tbDiffuseTexture.Size = new System.Drawing.Size(254, 20);
+            this.tbDiffuseTexture.Size = new System.Drawing.Size(271, 20);
             this.tbDiffuseTexture.TabIndex = 4;
             // 
             // numRimPower
@@ -2513,7 +2530,7 @@
             0,
             -2147483648});
             this.numRimPower.Name = "numRimPower";
-            this.numRimPower.Size = new System.Drawing.Size(254, 20);
+            this.numRimPower.Size = new System.Drawing.Size(271, 20);
             this.numRimPower.TabIndex = 3;
             // 
             // cbEnableEditorAlphaRef
@@ -2535,6 +2552,7 @@
             this.tabPageEffect.TabIndex = 1;
             this.tabPageEffect.Text = "Effect";
             this.tabPageEffect.UseVisualStyleBackColor = true;
+            this.tabPageEffect.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabScroll);
             // 
             // splitContainerEffect
             // 
@@ -3088,21 +3106,6 @@
             this.numBaseColorScale.Name = "numBaseColorScale";
             this.numBaseColorScale.Size = new System.Drawing.Size(272, 20);
             this.numBaseColorScale.TabIndex = 3;
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
-            this.toolStripMenuItem1.Text = "?";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // Main
             // 

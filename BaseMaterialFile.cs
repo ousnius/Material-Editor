@@ -276,7 +276,47 @@ namespace Material_Editor
 
         public virtual void Serialize(BinaryWriter output)
         {
-            throw new NotImplementedException();
+            output.Write(this._Signature);
+            output.Write(this._Version);
+
+            var tileFlags = Convert.ToUInt32(this._TileU | this._TileV);
+            output.Write(tileFlags);
+
+            output.Write(this._UOffset);
+            output.Write(this._VOffset);
+            output.Write(this._UScale);
+            output.Write(this._VScale);
+
+            output.Write(this._Alpha);
+
+            byte alphaBlendMode0 = 0;
+            uint alphaBlendMode1 = 0;
+            uint alphaBlendMode2 = 0;
+            ConvertAlphaBlendMode(this._AlphaBlendMode, ref alphaBlendMode0, ref alphaBlendMode1, ref alphaBlendMode2);
+            output.Write(alphaBlendMode0);
+            output.Write(alphaBlendMode1);
+            output.Write(alphaBlendMode2);
+
+            output.Write(this._AlphaTestRef);
+            output.Write(this._AlphaTest);
+
+            output.Write(this._ZBufferWrite);
+            output.Write(this._ZBufferTest);
+            output.Write(this._ScreenSpaceReflections);
+            output.Write(this._WetnessControlScreenSpaceReflections);
+            output.Write(this._Decal);
+            output.Write(this._TwoSided);
+            output.Write(this._DecalNoFade);
+            output.Write(this._NonOccluder);
+
+            output.Write(this._Refraction);
+            output.Write(this._RefractionFalloff);
+            output.Write(this._RefractionPower);
+
+            output.Write(this._EnvironmentMapping);
+            output.Write(this._EnvironmentMappingMaskScale);
+
+            output.Write(this._GrayscaleToPaletteColor);
         }
 
         public bool Open(string fileName)
@@ -371,6 +411,42 @@ namespace Material_Editor
             }
 
             throw new NotSupportedException();
+        }
+
+        private static void ConvertAlphaBlendMode(AlphaBlendModeType type, ref byte a, ref uint b, ref uint c)
+        {
+            if (type == AlphaBlendModeType.Unknown)
+            {
+                a = 0;
+                b = 6;
+                c = 7;
+            }
+            else if (type == AlphaBlendModeType.None)
+            {
+                a = 0;
+                b = 0;
+                c = 0;
+            }
+            else if (type == AlphaBlendModeType.Standard)
+            {
+                a = 1;
+                b = 6;
+                c = 7;
+            }
+            else if (type == AlphaBlendModeType.Additive)
+            {
+                a = 1;
+                b = 6;
+                c = 0;
+            }
+            else if (type == AlphaBlendModeType.Multiplicative)
+            {
+                a = 1;
+                b = 4;
+                c = 1;
+            }
+            else
+                throw new NotSupportedException();
         }
 
         protected struct Color

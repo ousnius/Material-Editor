@@ -525,7 +525,74 @@ namespace Material_Editor
         public override void Serialize(BinaryWriter output)
         {
             base.Serialize(output);
-            throw new NotImplementedException();
+
+            WriteString(output, this._DiffuseTexture);
+            WriteString(output, this._NormalTexture);
+            WriteString(output, this._SmoothSpecTexture);
+            WriteString(output, this._GreyscaleTexture);
+            WriteString(output, this._EnvmapTexture);
+            WriteString(output, this._GlowTexture);
+            WriteString(output, this._InnerLayerTexture);
+            WriteString(output, this._WrinklesTexture);
+            WriteString(output, this._DisplacementTexture);
+
+            output.Write(this._EnableEditorAlphaRef);
+            output.Write(this._RimLighting);
+            output.Write(this._RimPower);
+            output.Write(this._BackLightPower);
+
+            output.Write(this._SubsurfaceLighting);
+            output.Write(this._SubsurfaceLightingRolloff);
+
+            output.Write(this._SpecularEnabled);
+            Color.FromUInt32(this._SpecularColor).Write(output);
+            output.Write(this._SpecularMult);
+            output.Write(this._Smoothness);
+            output.Write(this._FresnelPower);
+            output.Write(this._WetnessControlSpecScale);
+            output.Write(this._WetnessControlSpecPowerScale);
+            output.Write(this._WetnessControlSpecMinvar);
+            output.Write(this._WetnessControlEnvMapScale);
+            output.Write(this._WetnessControlFresnelPower);
+            output.Write(this._WetnessControlMetalness);
+
+            WriteString(output, this._RootMaterialPath);
+
+            output.Write(this._AnisoLighting);
+            output.Write(this._EmitEnabled);
+            if (this._EmitEnabled)
+                Color.FromUInt32(this._EmittanceColor).Write(output);
+
+            output.Write(this._EmittanceMult);
+            output.Write(this._ModelSpaceNormals);
+            output.Write(this._ExternalEmittance);
+            output.Write(this._BackLighting);
+
+            output.Write(this._ReceiveShadows);
+            output.Write(this._HideSecret);
+            output.Write(this._CastShadows);
+            output.Write(this._DissolveFade);
+            output.Write(this._AssumeShadowmask);
+
+            output.Write(this._Glowmap);
+            output.Write(this._EnvironmentMappingWindow);
+            output.Write(this._EnvironmentMappingEye);
+            output.Write(this._Hair);
+            Color.FromUInt32(this._HairTintColor).Write(output);
+            output.Write(this._Tree);
+            output.Write(this._Facegen);
+            output.Write(this._SkinTint);
+
+            output.Write(this._Tessellate);
+            output.Write(this._DisplacementTextureBias);
+            output.Write(this._DisplacementTextureScale);
+            output.Write(this._TessellationPNScale);
+            output.Write(this._TessellationBaseFactor);
+            output.Write(this._TessellationFadeDistance);
+
+            output.Write(this._GrayscaleToPaletteScale);
+            if (this.Version >= 1)
+                output.Write(this._SkewSpecularAlpha);
         }
     }
 }

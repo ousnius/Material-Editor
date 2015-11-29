@@ -223,7 +223,28 @@ namespace Material_Editor
         public override void Serialize(BinaryWriter output)
         {
             base.Serialize(output);
-            throw new NotImplementedException();
+
+            WriteString(output, this._BaseTexture);
+            WriteString(output, this._GrayscaleTexture);
+            WriteString(output, this._EnvmapTexture);
+            WriteString(output, this._NormalTexture);
+            WriteString(output, this._EnvmapMaskTexture);
+
+            output.Write(this._BloodEnabled);
+            output.Write(this._EffectLightingEnabled);
+            output.Write(this._FalloffEnabled);
+            output.Write(this._FalloffColorEnabled);
+            output.Write(this._GrayscaleToPaletteAlpha);
+            output.Write(this._SoftEnabled);
+            Color.FromUInt32(this._BaseColor).Write(output);
+            output.Write(this._BaseColorScale);
+            output.Write(this._FalloffStartAngle);
+            output.Write(this._FalloffStopAngle);
+            output.Write(this._FalloffStartOpacity);
+            output.Write(this._FalloffStopOpacity);
+            output.Write(this._LightingInfluence);
+            output.Write(this._EnvmapMinLOD);
+            output.Write(this._SoftDepth);
         }
     }
 }
