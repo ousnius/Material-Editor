@@ -113,6 +113,12 @@ namespace Material_Editor
             Close();
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutDialog about = new AboutDialog();
+            about.ShowDialog();
+        }
+
         private void ColorClicked(object sender, EventArgs e)
         {
             Button btColor = (Button)sender;

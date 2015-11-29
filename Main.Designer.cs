@@ -247,6 +247,8 @@
             this.cbBloodEnabled = new System.Windows.Forms.CheckBox();
             this.numEnvmapMinLOD = new System.Windows.Forms.NumericUpDown();
             this.numBaseColorScale = new System.Windows.Forms.NumericUpDown();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -305,7 +307,8 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(484, 24);
@@ -328,14 +331,14 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -343,7 +346,7 @@
             // 
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -351,7 +354,7 @@
             // 
             this.saveAsToolStripMenuItem.Enabled = false;
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -359,14 +362,14 @@
             // 
             this.closeToolStripMenuItem.Enabled = false;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -409,7 +412,6 @@
             this.tabPageGeneral.TabIndex = 2;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
-            this.tabPageGeneral.Scroll += TabScroll;
             // 
             // splitContainerGeneral
             // 
@@ -761,12 +763,9 @@
             // 
             // cbGrayscaleToPaletteColor
             // 
-            this.cbGrayscaleToPaletteColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbGrayscaleToPaletteColor.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbGrayscaleToPaletteColor.Location = new System.Drawing.Point(13, 470);
             this.cbGrayscaleToPaletteColor.Name = "cbGrayscaleToPaletteColor";
-            this.cbGrayscaleToPaletteColor.Size = new System.Drawing.Size(256, 13);
+            this.cbGrayscaleToPaletteColor.Size = new System.Drawing.Size(100, 13);
             this.cbGrayscaleToPaletteColor.TabIndex = 24;
             this.cbGrayscaleToPaletteColor.UseVisualStyleBackColor = true;
             // 
@@ -789,16 +788,12 @@
             this.numEnvironmentMaskScale.Name = "numEnvironmentMaskScale";
             this.numEnvironmentMaskScale.Size = new System.Drawing.Size(272, 20);
             this.numEnvironmentMaskScale.TabIndex = 23;
-            this.numEnvironmentMaskScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbEnvironmentMapping
             // 
-            this.cbEnvironmentMapping.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbEnvironmentMapping.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbEnvironmentMapping.Location = new System.Drawing.Point(13, 432);
             this.cbEnvironmentMapping.Name = "cbEnvironmentMapping";
-            this.cbEnvironmentMapping.Size = new System.Drawing.Size(256, 13);
+            this.cbEnvironmentMapping.Size = new System.Drawing.Size(100, 13);
             this.cbEnvironmentMapping.TabIndex = 22;
             this.cbEnvironmentMapping.UseVisualStyleBackColor = true;
             // 
@@ -821,126 +816,92 @@
             this.numRefractionPower.Name = "numRefractionPower";
             this.numRefractionPower.Size = new System.Drawing.Size(272, 20);
             this.numRefractionPower.TabIndex = 21;
-            this.numRefractionPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbRefractionFalloff
             // 
-            this.cbRefractionFalloff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbRefractionFalloff.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbRefractionFalloff.Location = new System.Drawing.Point(13, 394);
             this.cbRefractionFalloff.Name = "cbRefractionFalloff";
-            this.cbRefractionFalloff.Size = new System.Drawing.Size(256, 13);
+            this.cbRefractionFalloff.Size = new System.Drawing.Size(100, 13);
             this.cbRefractionFalloff.TabIndex = 20;
             this.cbRefractionFalloff.UseVisualStyleBackColor = true;
             // 
             // cbRefraction
             // 
-            this.cbRefraction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbRefraction.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbRefraction.Location = new System.Drawing.Point(13, 375);
             this.cbRefraction.Name = "cbRefraction";
-            this.cbRefraction.Size = new System.Drawing.Size(256, 13);
+            this.cbRefraction.Size = new System.Drawing.Size(100, 13);
             this.cbRefraction.TabIndex = 19;
             this.cbRefraction.UseVisualStyleBackColor = true;
             // 
             // cbNonOccluder
             // 
-            this.cbNonOccluder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbNonOccluder.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbNonOccluder.Location = new System.Drawing.Point(13, 356);
             this.cbNonOccluder.Name = "cbNonOccluder";
-            this.cbNonOccluder.Size = new System.Drawing.Size(256, 13);
+            this.cbNonOccluder.Size = new System.Drawing.Size(100, 13);
             this.cbNonOccluder.TabIndex = 18;
             this.cbNonOccluder.UseVisualStyleBackColor = true;
             // 
             // cbDecalNoFade
             // 
-            this.cbDecalNoFade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbDecalNoFade.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbDecalNoFade.Location = new System.Drawing.Point(13, 337);
             this.cbDecalNoFade.Name = "cbDecalNoFade";
-            this.cbDecalNoFade.Size = new System.Drawing.Size(256, 13);
+            this.cbDecalNoFade.Size = new System.Drawing.Size(100, 13);
             this.cbDecalNoFade.TabIndex = 17;
             this.cbDecalNoFade.UseVisualStyleBackColor = true;
             // 
             // cbTwoSided
             // 
-            this.cbTwoSided.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTwoSided.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbTwoSided.Location = new System.Drawing.Point(13, 318);
             this.cbTwoSided.Name = "cbTwoSided";
-            this.cbTwoSided.Size = new System.Drawing.Size(256, 13);
+            this.cbTwoSided.Size = new System.Drawing.Size(100, 13);
             this.cbTwoSided.TabIndex = 16;
             this.cbTwoSided.UseVisualStyleBackColor = true;
             // 
             // cbDecal
             // 
-            this.cbDecal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbDecal.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbDecal.Location = new System.Drawing.Point(13, 299);
             this.cbDecal.Name = "cbDecal";
-            this.cbDecal.Size = new System.Drawing.Size(256, 13);
+            this.cbDecal.Size = new System.Drawing.Size(100, 13);
             this.cbDecal.TabIndex = 15;
             this.cbDecal.UseVisualStyleBackColor = true;
             // 
             // cbWetnessControlSSR
             // 
-            this.cbWetnessControlSSR.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbWetnessControlSSR.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbWetnessControlSSR.Location = new System.Drawing.Point(13, 280);
             this.cbWetnessControlSSR.Name = "cbWetnessControlSSR";
-            this.cbWetnessControlSSR.Size = new System.Drawing.Size(256, 13);
+            this.cbWetnessControlSSR.Size = new System.Drawing.Size(100, 13);
             this.cbWetnessControlSSR.TabIndex = 14;
             this.cbWetnessControlSSR.UseVisualStyleBackColor = true;
             // 
             // cbScreenSpaceReflections
             // 
-            this.cbScreenSpaceReflections.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbScreenSpaceReflections.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbScreenSpaceReflections.Location = new System.Drawing.Point(13, 261);
             this.cbScreenSpaceReflections.Name = "cbScreenSpaceReflections";
-            this.cbScreenSpaceReflections.Size = new System.Drawing.Size(256, 13);
+            this.cbScreenSpaceReflections.Size = new System.Drawing.Size(100, 13);
             this.cbScreenSpaceReflections.TabIndex = 13;
             this.cbScreenSpaceReflections.UseVisualStyleBackColor = true;
             // 
             // cbZBufferTest
             // 
-            this.cbZBufferTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbZBufferTest.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbZBufferTest.Location = new System.Drawing.Point(13, 242);
             this.cbZBufferTest.Name = "cbZBufferTest";
-            this.cbZBufferTest.Size = new System.Drawing.Size(256, 13);
+            this.cbZBufferTest.Size = new System.Drawing.Size(100, 13);
             this.cbZBufferTest.TabIndex = 12;
             this.cbZBufferTest.UseVisualStyleBackColor = true;
             // 
             // cbZBufferWrite
             // 
-            this.cbZBufferWrite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbZBufferWrite.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbZBufferWrite.Location = new System.Drawing.Point(13, 223);
             this.cbZBufferWrite.Name = "cbZBufferWrite";
-            this.cbZBufferWrite.Size = new System.Drawing.Size(256, 13);
+            this.cbZBufferWrite.Size = new System.Drawing.Size(100, 13);
             this.cbZBufferWrite.TabIndex = 11;
             this.cbZBufferWrite.UseVisualStyleBackColor = true;
             // 
             // cbAlphaTest
             // 
-            this.cbAlphaTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbAlphaTest.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbAlphaTest.Location = new System.Drawing.Point(13, 204);
             this.cbAlphaTest.Name = "cbAlphaTest";
-            this.cbAlphaTest.Size = new System.Drawing.Size(256, 13);
+            this.cbAlphaTest.Size = new System.Drawing.Size(100, 13);
             this.cbAlphaTest.TabIndex = 10;
             this.cbAlphaTest.UseVisualStyleBackColor = true;
             // 
@@ -962,7 +923,6 @@
             this.numAlphaTestReference.Name = "numAlphaTestReference";
             this.numAlphaTestReference.Size = new System.Drawing.Size(272, 20);
             this.numAlphaTestReference.TabIndex = 9;
-            this.numAlphaTestReference.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // selAlphaBlendMode
             // 
@@ -1000,7 +960,6 @@
             this.numAlpha.Name = "numAlpha";
             this.numAlpha.Size = new System.Drawing.Size(272, 20);
             this.numAlpha.TabIndex = 7;
-            this.numAlpha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numScaleV
             // 
@@ -1021,7 +980,6 @@
             this.numScaleV.Name = "numScaleV";
             this.numScaleV.Size = new System.Drawing.Size(272, 20);
             this.numScaleV.TabIndex = 6;
-            this.numScaleV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numScaleU
             // 
@@ -1042,7 +1000,6 @@
             this.numScaleU.Name = "numScaleU";
             this.numScaleU.Size = new System.Drawing.Size(272, 20);
             this.numScaleU.TabIndex = 5;
-            this.numScaleU.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numOffsetV
             // 
@@ -1063,7 +1020,6 @@
             this.numOffsetV.Name = "numOffsetV";
             this.numOffsetV.Size = new System.Drawing.Size(272, 20);
             this.numOffsetV.TabIndex = 4;
-            this.numOffsetV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numOffsetU
             // 
@@ -1084,27 +1040,20 @@
             this.numOffsetU.Name = "numOffsetU";
             this.numOffsetU.Size = new System.Drawing.Size(272, 20);
             this.numOffsetU.TabIndex = 3;
-            this.numOffsetU.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbTileV
             // 
-            this.cbTileV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTileV.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbTileV.Location = new System.Drawing.Point(13, 52);
             this.cbTileV.Name = "cbTileV";
-            this.cbTileV.Size = new System.Drawing.Size(256, 13);
+            this.cbTileV.Size = new System.Drawing.Size(100, 13);
             this.cbTileV.TabIndex = 2;
             this.cbTileV.UseVisualStyleBackColor = true;
             // 
             // cbTileU
             // 
-            this.cbTileU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTileU.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbTileU.Location = new System.Drawing.Point(13, 33);
             this.cbTileU.Name = "cbTileU";
-            this.cbTileU.Size = new System.Drawing.Size(256, 13);
+            this.cbTileU.Size = new System.Drawing.Size(100, 13);
             this.cbTileU.TabIndex = 1;
             this.cbTileU.UseVisualStyleBackColor = true;
             // 
@@ -1121,7 +1070,6 @@
             this.numVersion.Name = "numVersion";
             this.numVersion.Size = new System.Drawing.Size(272, 20);
             this.numVersion.TabIndex = 0;
-            this.numVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabPageMaterial
             // 
@@ -1134,7 +1082,6 @@
             this.tabPageMaterial.TabIndex = 0;
             this.tabPageMaterial.Text = "Material";
             this.tabPageMaterial.UseVisualStyleBackColor = true;
-            this.tabPageMaterial.Scroll += TabScroll;
             // 
             // splitContainerMaterial
             // 
@@ -1265,7 +1212,7 @@
             this.splitContainerMaterial.Panel2.Controls.Add(this.cbEnableEditorAlphaRef);
             this.splitContainerMaterial.Panel2.Padding = new System.Windows.Forms.Padding(10);
             this.splitContainerMaterial.Panel2MinSize = 165;
-            this.splitContainerMaterial.Size = new System.Drawing.Size(469, 1068);
+            this.splitContainerMaterial.Size = new System.Drawing.Size(452, 1068);
             this.splitContainerMaterial.SplitterDistance = 165;
             this.splitContainerMaterial.TabIndex = 2;
             // 
@@ -1876,12 +1823,9 @@
             // 
             // cbSkewSpecularAlpha
             // 
-            this.cbSkewSpecularAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbSkewSpecularAlpha.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbSkewSpecularAlpha.Location = new System.Drawing.Point(13, 1040);
             this.cbSkewSpecularAlpha.Name = "cbSkewSpecularAlpha";
-            this.cbSkewSpecularAlpha.Size = new System.Drawing.Size(255, 13);
+            this.cbSkewSpecularAlpha.Size = new System.Drawing.Size(100, 13);
             this.cbSkewSpecularAlpha.TabIndex = 56;
             this.cbSkewSpecularAlpha.UseVisualStyleBackColor = true;
             // 
@@ -1902,9 +1846,8 @@
             0,
             -2147483648});
             this.numGrayscaleToPaletteScale.Name = "numGrayscaleToPaletteScale";
-            this.numGrayscaleToPaletteScale.Size = new System.Drawing.Size(271, 20);
+            this.numGrayscaleToPaletteScale.Size = new System.Drawing.Size(254, 20);
             this.numGrayscaleToPaletteScale.TabIndex = 55;
-            this.numGrayscaleToPaletteScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numTessellationFadeDistance
             // 
@@ -1923,9 +1866,8 @@
             0,
             -2147483648});
             this.numTessellationFadeDistance.Name = "numTessellationFadeDistance";
-            this.numTessellationFadeDistance.Size = new System.Drawing.Size(271, 20);
+            this.numTessellationFadeDistance.Size = new System.Drawing.Size(254, 20);
             this.numTessellationFadeDistance.TabIndex = 54;
-            this.numTessellationFadeDistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numTessellationBaseFactor
             // 
@@ -1944,9 +1886,8 @@
             0,
             -2147483648});
             this.numTessellationBaseFactor.Name = "numTessellationBaseFactor";
-            this.numTessellationBaseFactor.Size = new System.Drawing.Size(271, 20);
+            this.numTessellationBaseFactor.Size = new System.Drawing.Size(254, 20);
             this.numTessellationBaseFactor.TabIndex = 53;
-            this.numTessellationBaseFactor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numTessellationPNScale
             // 
@@ -1965,9 +1906,8 @@
             0,
             -2147483648});
             this.numTessellationPNScale.Name = "numTessellationPNScale";
-            this.numTessellationPNScale.Size = new System.Drawing.Size(271, 20);
+            this.numTessellationPNScale.Size = new System.Drawing.Size(254, 20);
             this.numTessellationPNScale.TabIndex = 52;
-            this.numTessellationPNScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numDisplacementTexScale
             // 
@@ -1986,9 +1926,8 @@
             0,
             -2147483648});
             this.numDisplacementTexScale.Name = "numDisplacementTexScale";
-            this.numDisplacementTexScale.Size = new System.Drawing.Size(271, 20);
+            this.numDisplacementTexScale.Size = new System.Drawing.Size(254, 20);
             this.numDisplacementTexScale.TabIndex = 51;
-            this.numDisplacementTexScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numDisplacementTexBias
             // 
@@ -2007,51 +1946,38 @@
             0,
             -2147483648});
             this.numDisplacementTexBias.Name = "numDisplacementTexBias";
-            this.numDisplacementTexBias.Size = new System.Drawing.Size(271, 20);
+            this.numDisplacementTexBias.Size = new System.Drawing.Size(254, 20);
             this.numDisplacementTexBias.TabIndex = 50;
-            this.numDisplacementTexBias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbTessellate
             // 
-            this.cbTessellate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTessellate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbTessellate.Location = new System.Drawing.Point(13, 907);
             this.cbTessellate.Name = "cbTessellate";
-            this.cbTessellate.Size = new System.Drawing.Size(255, 13);
+            this.cbTessellate.Size = new System.Drawing.Size(100, 13);
             this.cbTessellate.TabIndex = 49;
             this.cbTessellate.UseVisualStyleBackColor = true;
             // 
             // cbSkinTint
             // 
-            this.cbSkinTint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbSkinTint.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbSkinTint.Location = new System.Drawing.Point(13, 888);
             this.cbSkinTint.Name = "cbSkinTint";
-            this.cbSkinTint.Size = new System.Drawing.Size(255, 13);
+            this.cbSkinTint.Size = new System.Drawing.Size(100, 13);
             this.cbSkinTint.TabIndex = 48;
             this.cbSkinTint.UseVisualStyleBackColor = true;
             // 
             // cbFacegen
             // 
-            this.cbFacegen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbFacegen.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbFacegen.Location = new System.Drawing.Point(13, 869);
             this.cbFacegen.Name = "cbFacegen";
-            this.cbFacegen.Size = new System.Drawing.Size(255, 13);
+            this.cbFacegen.Size = new System.Drawing.Size(100, 13);
             this.cbFacegen.TabIndex = 47;
             this.cbFacegen.UseVisualStyleBackColor = true;
             // 
             // cbTree
             // 
-            this.cbTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTree.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbTree.Location = new System.Drawing.Point(13, 850);
             this.cbTree.Name = "cbTree";
-            this.cbTree.Size = new System.Drawing.Size(255, 13);
+            this.cbTree.Size = new System.Drawing.Size(100, 13);
             this.cbTree.TabIndex = 46;
             this.cbTree.UseVisualStyleBackColor = true;
             // 
@@ -2063,140 +1989,104 @@
             this.btHairTintColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btHairTintColor.Location = new System.Drawing.Point(13, 826);
             this.btHairTintColor.Name = "btHairTintColor";
-            this.btHairTintColor.Size = new System.Drawing.Size(271, 20);
+            this.btHairTintColor.Size = new System.Drawing.Size(254, 20);
             this.btHairTintColor.TabIndex = 45;
             this.btHairTintColor.UseVisualStyleBackColor = false;
             this.btHairTintColor.Click += new System.EventHandler(this.ColorClicked);
             // 
             // cbHair
             // 
-            this.cbHair.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbHair.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbHair.Location = new System.Drawing.Point(13, 812);
             this.cbHair.Name = "cbHair";
-            this.cbHair.Size = new System.Drawing.Size(255, 13);
+            this.cbHair.Size = new System.Drawing.Size(100, 13);
             this.cbHair.TabIndex = 44;
             this.cbHair.UseVisualStyleBackColor = true;
             // 
             // cbEnvironmentMapEye
             // 
-            this.cbEnvironmentMapEye.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbEnvironmentMapEye.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbEnvironmentMapEye.Location = new System.Drawing.Point(13, 793);
             this.cbEnvironmentMapEye.Name = "cbEnvironmentMapEye";
-            this.cbEnvironmentMapEye.Size = new System.Drawing.Size(255, 13);
+            this.cbEnvironmentMapEye.Size = new System.Drawing.Size(100, 13);
             this.cbEnvironmentMapEye.TabIndex = 43;
             this.cbEnvironmentMapEye.UseVisualStyleBackColor = true;
             // 
             // cbEnvironmentMapWindow
             // 
-            this.cbEnvironmentMapWindow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbEnvironmentMapWindow.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbEnvironmentMapWindow.Location = new System.Drawing.Point(13, 774);
             this.cbEnvironmentMapWindow.Name = "cbEnvironmentMapWindow";
-            this.cbEnvironmentMapWindow.Size = new System.Drawing.Size(255, 13);
+            this.cbEnvironmentMapWindow.Size = new System.Drawing.Size(100, 13);
             this.cbEnvironmentMapWindow.TabIndex = 42;
             this.cbEnvironmentMapWindow.UseVisualStyleBackColor = true;
             // 
             // cbGlowmap
             // 
-            this.cbGlowmap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbGlowmap.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbGlowmap.Location = new System.Drawing.Point(13, 755);
             this.cbGlowmap.Name = "cbGlowmap";
-            this.cbGlowmap.Size = new System.Drawing.Size(255, 13);
+            this.cbGlowmap.Size = new System.Drawing.Size(100, 13);
             this.cbGlowmap.TabIndex = 41;
             this.cbGlowmap.UseVisualStyleBackColor = true;
             // 
             // cbAssumeShadowmask
             // 
-            this.cbAssumeShadowmask.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbAssumeShadowmask.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbAssumeShadowmask.Location = new System.Drawing.Point(13, 736);
             this.cbAssumeShadowmask.Name = "cbAssumeShadowmask";
-            this.cbAssumeShadowmask.Size = new System.Drawing.Size(255, 13);
+            this.cbAssumeShadowmask.Size = new System.Drawing.Size(100, 13);
             this.cbAssumeShadowmask.TabIndex = 40;
             this.cbAssumeShadowmask.UseVisualStyleBackColor = true;
             // 
             // cbDissolveFade
             // 
-            this.cbDissolveFade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbDissolveFade.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbDissolveFade.Location = new System.Drawing.Point(13, 717);
             this.cbDissolveFade.Name = "cbDissolveFade";
-            this.cbDissolveFade.Size = new System.Drawing.Size(255, 13);
+            this.cbDissolveFade.Size = new System.Drawing.Size(100, 13);
             this.cbDissolveFade.TabIndex = 39;
             this.cbDissolveFade.UseVisualStyleBackColor = true;
             // 
             // cbCastShadows
             // 
-            this.cbCastShadows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbCastShadows.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbCastShadows.Location = new System.Drawing.Point(13, 698);
             this.cbCastShadows.Name = "cbCastShadows";
-            this.cbCastShadows.Size = new System.Drawing.Size(255, 13);
+            this.cbCastShadows.Size = new System.Drawing.Size(100, 13);
             this.cbCastShadows.TabIndex = 38;
             this.cbCastShadows.UseVisualStyleBackColor = true;
             // 
             // cbHideSecret
             // 
-            this.cbHideSecret.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbHideSecret.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbHideSecret.Location = new System.Drawing.Point(13, 679);
             this.cbHideSecret.Name = "cbHideSecret";
-            this.cbHideSecret.Size = new System.Drawing.Size(255, 13);
+            this.cbHideSecret.Size = new System.Drawing.Size(100, 13);
             this.cbHideSecret.TabIndex = 37;
             this.cbHideSecret.UseVisualStyleBackColor = true;
             // 
             // cbReceiveShadows
             // 
-            this.cbReceiveShadows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbReceiveShadows.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbReceiveShadows.Location = new System.Drawing.Point(13, 660);
             this.cbReceiveShadows.Name = "cbReceiveShadows";
-            this.cbReceiveShadows.Size = new System.Drawing.Size(255, 13);
+            this.cbReceiveShadows.Size = new System.Drawing.Size(100, 13);
             this.cbReceiveShadows.TabIndex = 36;
             this.cbReceiveShadows.UseVisualStyleBackColor = true;
             // 
             // cbBackLighting
             // 
-            this.cbBackLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbBackLighting.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbBackLighting.Location = new System.Drawing.Point(13, 641);
             this.cbBackLighting.Name = "cbBackLighting";
-            this.cbBackLighting.Size = new System.Drawing.Size(255, 13);
+            this.cbBackLighting.Size = new System.Drawing.Size(100, 13);
             this.cbBackLighting.TabIndex = 35;
             this.cbBackLighting.UseVisualStyleBackColor = true;
             // 
             // cbExternalEmittance
             // 
-            this.cbExternalEmittance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbExternalEmittance.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbExternalEmittance.Location = new System.Drawing.Point(13, 622);
             this.cbExternalEmittance.Name = "cbExternalEmittance";
-            this.cbExternalEmittance.Size = new System.Drawing.Size(255, 13);
+            this.cbExternalEmittance.Size = new System.Drawing.Size(100, 13);
             this.cbExternalEmittance.TabIndex = 34;
             this.cbExternalEmittance.UseVisualStyleBackColor = true;
             // 
             // cbModelSpaceNormals
             // 
-            this.cbModelSpaceNormals.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbModelSpaceNormals.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbModelSpaceNormals.Location = new System.Drawing.Point(13, 603);
             this.cbModelSpaceNormals.Name = "cbModelSpaceNormals";
-            this.cbModelSpaceNormals.Size = new System.Drawing.Size(255, 13);
+            this.cbModelSpaceNormals.Size = new System.Drawing.Size(100, 13);
             this.cbModelSpaceNormals.TabIndex = 33;
             this.cbModelSpaceNormals.UseVisualStyleBackColor = true;
             // 
@@ -2217,9 +2107,8 @@
             0,
             -2147483648});
             this.numEmittanceMultiplier.Name = "numEmittanceMultiplier";
-            this.numEmittanceMultiplier.Size = new System.Drawing.Size(271, 20);
+            this.numEmittanceMultiplier.Size = new System.Drawing.Size(254, 20);
             this.numEmittanceMultiplier.TabIndex = 32;
-            this.numEmittanceMultiplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btEmittanceColor
             // 
@@ -2229,30 +2118,24 @@
             this.btEmittanceColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btEmittanceColor.Location = new System.Drawing.Point(13, 560);
             this.btEmittanceColor.Name = "btEmittanceColor";
-            this.btEmittanceColor.Size = new System.Drawing.Size(271, 20);
+            this.btEmittanceColor.Size = new System.Drawing.Size(254, 20);
             this.btEmittanceColor.TabIndex = 31;
             this.btEmittanceColor.UseVisualStyleBackColor = false;
             this.btEmittanceColor.Click += new System.EventHandler(this.ColorClicked);
             // 
             // cbEmittanceEnabled
             // 
-            this.cbEmittanceEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbEmittanceEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbEmittanceEnabled.Location = new System.Drawing.Point(13, 546);
             this.cbEmittanceEnabled.Name = "cbEmittanceEnabled";
-            this.cbEmittanceEnabled.Size = new System.Drawing.Size(255, 13);
+            this.cbEmittanceEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbEmittanceEnabled.TabIndex = 30;
             this.cbEmittanceEnabled.UseVisualStyleBackColor = true;
             // 
             // cbAnisoLighting
             // 
-            this.cbAnisoLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbAnisoLighting.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbAnisoLighting.Location = new System.Drawing.Point(13, 527);
             this.cbAnisoLighting.Name = "cbAnisoLighting";
-            this.cbAnisoLighting.Size = new System.Drawing.Size(255, 13);
+            this.cbAnisoLighting.Size = new System.Drawing.Size(100, 13);
             this.cbAnisoLighting.TabIndex = 29;
             this.cbAnisoLighting.UseVisualStyleBackColor = true;
             // 
@@ -2263,7 +2146,7 @@
             this.tbRootMaterialPath.Location = new System.Drawing.Point(13, 504);
             this.tbRootMaterialPath.MaxLength = 260;
             this.tbRootMaterialPath.Name = "tbRootMaterialPath";
-            this.tbRootMaterialPath.Size = new System.Drawing.Size(271, 20);
+            this.tbRootMaterialPath.Size = new System.Drawing.Size(254, 20);
             this.tbRootMaterialPath.TabIndex = 28;
             // 
             // numWetMetalness
@@ -2283,9 +2166,8 @@
             0,
             -2147483648});
             this.numWetMetalness.Name = "numWetMetalness";
-            this.numWetMetalness.Size = new System.Drawing.Size(271, 20);
+            this.numWetMetalness.Size = new System.Drawing.Size(254, 20);
             this.numWetMetalness.TabIndex = 27;
-            this.numWetMetalness.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numWetFresnelPower
             // 
@@ -2304,9 +2186,8 @@
             0,
             -2147483648});
             this.numWetFresnelPower.Name = "numWetFresnelPower";
-            this.numWetFresnelPower.Size = new System.Drawing.Size(271, 20);
+            this.numWetFresnelPower.Size = new System.Drawing.Size(254, 20);
             this.numWetFresnelPower.TabIndex = 26;
-            this.numWetFresnelPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numWetEnvMapScale
             // 
@@ -2325,9 +2206,8 @@
             0,
             -2147483648});
             this.numWetEnvMapScale.Name = "numWetEnvMapScale";
-            this.numWetEnvMapScale.Size = new System.Drawing.Size(271, 20);
+            this.numWetEnvMapScale.Size = new System.Drawing.Size(254, 20);
             this.numWetEnvMapScale.TabIndex = 25;
-            this.numWetEnvMapScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numWetSpecMinVar
             // 
@@ -2346,9 +2226,8 @@
             0,
             -2147483648});
             this.numWetSpecMinVar.Name = "numWetSpecMinVar";
-            this.numWetSpecMinVar.Size = new System.Drawing.Size(271, 20);
+            this.numWetSpecMinVar.Size = new System.Drawing.Size(254, 20);
             this.numWetSpecMinVar.TabIndex = 24;
-            this.numWetSpecMinVar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numWetSpecPowerScale
             // 
@@ -2367,9 +2246,8 @@
             0,
             -2147483648});
             this.numWetSpecPowerScale.Name = "numWetSpecPowerScale";
-            this.numWetSpecPowerScale.Size = new System.Drawing.Size(271, 20);
+            this.numWetSpecPowerScale.Size = new System.Drawing.Size(254, 20);
             this.numWetSpecPowerScale.TabIndex = 23;
-            this.numWetSpecPowerScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numWetSpecScale
             // 
@@ -2388,9 +2266,8 @@
             0,
             -2147483648});
             this.numWetSpecScale.Name = "numWetSpecScale";
-            this.numWetSpecScale.Size = new System.Drawing.Size(271, 20);
+            this.numWetSpecScale.Size = new System.Drawing.Size(254, 20);
             this.numWetSpecScale.TabIndex = 22;
-            this.numWetSpecScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numFresnelPower
             // 
@@ -2409,9 +2286,8 @@
             0,
             -2147483648});
             this.numFresnelPower.Name = "numFresnelPower";
-            this.numFresnelPower.Size = new System.Drawing.Size(271, 20);
+            this.numFresnelPower.Size = new System.Drawing.Size(254, 20);
             this.numFresnelPower.TabIndex = 21;
-            this.numFresnelPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numSmoothness
             // 
@@ -2430,9 +2306,8 @@
             0,
             -2147483648});
             this.numSmoothness.Name = "numSmoothness";
-            this.numSmoothness.Size = new System.Drawing.Size(271, 20);
+            this.numSmoothness.Size = new System.Drawing.Size(254, 20);
             this.numSmoothness.TabIndex = 20;
-            this.numSmoothness.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numSpecularMultiplier
             // 
@@ -2451,9 +2326,8 @@
             0,
             -2147483648});
             this.numSpecularMultiplier.Name = "numSpecularMultiplier";
-            this.numSpecularMultiplier.Size = new System.Drawing.Size(271, 20);
+            this.numSpecularMultiplier.Size = new System.Drawing.Size(254, 20);
             this.numSpecularMultiplier.TabIndex = 19;
-            this.numSpecularMultiplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btSpecularColor
             // 
@@ -2463,19 +2337,16 @@
             this.btSpecularColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSpecularColor.Location = new System.Drawing.Point(13, 313);
             this.btSpecularColor.Name = "btSpecularColor";
-            this.btSpecularColor.Size = new System.Drawing.Size(271, 20);
+            this.btSpecularColor.Size = new System.Drawing.Size(254, 20);
             this.btSpecularColor.TabIndex = 18;
             this.btSpecularColor.UseVisualStyleBackColor = false;
             this.btSpecularColor.Click += new System.EventHandler(this.ColorClicked);
             // 
             // cbSpecularEnabled
             // 
-            this.cbSpecularEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbSpecularEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbSpecularEnabled.Location = new System.Drawing.Point(13, 299);
             this.cbSpecularEnabled.Name = "cbSpecularEnabled";
-            this.cbSpecularEnabled.Size = new System.Drawing.Size(255, 13);
+            this.cbSpecularEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbSpecularEnabled.TabIndex = 17;
             this.cbSpecularEnabled.UseVisualStyleBackColor = true;
             // 
@@ -2496,18 +2367,14 @@
             0,
             -2147483648});
             this.numSubsurfaceLightingRolloff.Name = "numSubsurfaceLightingRolloff";
-            this.numSubsurfaceLightingRolloff.Size = new System.Drawing.Size(271, 20);
+            this.numSubsurfaceLightingRolloff.Size = new System.Drawing.Size(254, 20);
             this.numSubsurfaceLightingRolloff.TabIndex = 16;
-            this.numSubsurfaceLightingRolloff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbSubsurfaceLighting
             // 
-            this.cbSubsurfaceLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbSubsurfaceLighting.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbSubsurfaceLighting.Location = new System.Drawing.Point(13, 261);
             this.cbSubsurfaceLighting.Name = "cbSubsurfaceLighting";
-            this.cbSubsurfaceLighting.Size = new System.Drawing.Size(255, 13);
+            this.cbSubsurfaceLighting.Size = new System.Drawing.Size(100, 13);
             this.cbSubsurfaceLighting.TabIndex = 15;
             this.cbSubsurfaceLighting.UseVisualStyleBackColor = true;
             // 
@@ -2528,18 +2395,14 @@
             0,
             -2147483648});
             this.numBacklightPower.Name = "numBacklightPower";
-            this.numBacklightPower.Size = new System.Drawing.Size(271, 20);
+            this.numBacklightPower.Size = new System.Drawing.Size(254, 20);
             this.numBacklightPower.TabIndex = 14;
-            this.numBacklightPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbRimLighting
             // 
-            this.cbRimLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbRimLighting.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbRimLighting.Location = new System.Drawing.Point(13, 204);
             this.cbRimLighting.Name = "cbRimLighting";
-            this.cbRimLighting.Size = new System.Drawing.Size(255, 13);
+            this.cbRimLighting.Size = new System.Drawing.Size(100, 13);
             this.cbRimLighting.TabIndex = 13;
             this.cbRimLighting.UseVisualStyleBackColor = true;
             // 
@@ -2550,7 +2413,7 @@
             this.tbDisplacementTexture.Location = new System.Drawing.Point(13, 162);
             this.tbDisplacementTexture.MaxLength = 260;
             this.tbDisplacementTexture.Name = "tbDisplacementTexture";
-            this.tbDisplacementTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbDisplacementTexture.Size = new System.Drawing.Size(254, 20);
             this.tbDisplacementTexture.TabIndex = 12;
             // 
             // tbWrinklesTexture
@@ -2560,7 +2423,7 @@
             this.tbWrinklesTexture.Location = new System.Drawing.Point(13, 143);
             this.tbWrinklesTexture.MaxLength = 260;
             this.tbWrinklesTexture.Name = "tbWrinklesTexture";
-            this.tbWrinklesTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbWrinklesTexture.Size = new System.Drawing.Size(254, 20);
             this.tbWrinklesTexture.TabIndex = 11;
             // 
             // tbInnerLayerTexture
@@ -2570,7 +2433,7 @@
             this.tbInnerLayerTexture.Location = new System.Drawing.Point(13, 124);
             this.tbInnerLayerTexture.MaxLength = 260;
             this.tbInnerLayerTexture.Name = "tbInnerLayerTexture";
-            this.tbInnerLayerTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbInnerLayerTexture.Size = new System.Drawing.Size(254, 20);
             this.tbInnerLayerTexture.TabIndex = 10;
             // 
             // tbGlowTexture
@@ -2580,7 +2443,7 @@
             this.tbGlowTexture.Location = new System.Drawing.Point(13, 105);
             this.tbGlowTexture.MaxLength = 260;
             this.tbGlowTexture.Name = "tbGlowTexture";
-            this.tbGlowTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbGlowTexture.Size = new System.Drawing.Size(254, 20);
             this.tbGlowTexture.TabIndex = 9;
             // 
             // tbEnvironmentMapTexture
@@ -2590,7 +2453,7 @@
             this.tbEnvironmentMapTexture.Location = new System.Drawing.Point(13, 86);
             this.tbEnvironmentMapTexture.MaxLength = 260;
             this.tbEnvironmentMapTexture.Name = "tbEnvironmentMapTexture";
-            this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(254, 20);
             this.tbEnvironmentMapTexture.TabIndex = 8;
             // 
             // tbGreyscaleTexture
@@ -2600,7 +2463,7 @@
             this.tbGreyscaleTexture.Location = new System.Drawing.Point(13, 67);
             this.tbGreyscaleTexture.MaxLength = 260;
             this.tbGreyscaleTexture.Name = "tbGreyscaleTexture";
-            this.tbGreyscaleTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbGreyscaleTexture.Size = new System.Drawing.Size(254, 20);
             this.tbGreyscaleTexture.TabIndex = 7;
             // 
             // tbSmoothSpecularTexture
@@ -2610,7 +2473,7 @@
             this.tbSmoothSpecularTexture.Location = new System.Drawing.Point(13, 48);
             this.tbSmoothSpecularTexture.MaxLength = 260;
             this.tbSmoothSpecularTexture.Name = "tbSmoothSpecularTexture";
-            this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(254, 20);
             this.tbSmoothSpecularTexture.TabIndex = 6;
             // 
             // tbNormalTexture
@@ -2620,7 +2483,7 @@
             this.tbNormalTexture.Location = new System.Drawing.Point(13, 29);
             this.tbNormalTexture.MaxLength = 260;
             this.tbNormalTexture.Name = "tbNormalTexture";
-            this.tbNormalTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbNormalTexture.Size = new System.Drawing.Size(254, 20);
             this.tbNormalTexture.TabIndex = 5;
             // 
             // tbDiffuseTexture
@@ -2630,7 +2493,7 @@
             this.tbDiffuseTexture.Location = new System.Drawing.Point(13, 10);
             this.tbDiffuseTexture.MaxLength = 260;
             this.tbDiffuseTexture.Name = "tbDiffuseTexture";
-            this.tbDiffuseTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbDiffuseTexture.Size = new System.Drawing.Size(254, 20);
             this.tbDiffuseTexture.TabIndex = 4;
             // 
             // numRimPower
@@ -2650,18 +2513,14 @@
             0,
             -2147483648});
             this.numRimPower.Name = "numRimPower";
-            this.numRimPower.Size = new System.Drawing.Size(271, 20);
+            this.numRimPower.Size = new System.Drawing.Size(254, 20);
             this.numRimPower.TabIndex = 3;
-            this.numRimPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbEnableEditorAlphaRef
             // 
-            this.cbEnableEditorAlphaRef.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbEnableEditorAlphaRef.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbEnableEditorAlphaRef.Location = new System.Drawing.Point(13, 185);
             this.cbEnableEditorAlphaRef.Name = "cbEnableEditorAlphaRef";
-            this.cbEnableEditorAlphaRef.Size = new System.Drawing.Size(255, 13);
+            this.cbEnableEditorAlphaRef.Size = new System.Drawing.Size(100, 13);
             this.cbEnableEditorAlphaRef.TabIndex = 1;
             this.cbEnableEditorAlphaRef.UseVisualStyleBackColor = true;
             // 
@@ -2676,7 +2535,6 @@
             this.tabPageEffect.TabIndex = 1;
             this.tabPageEffect.Text = "Effect";
             this.tabPageEffect.UseVisualStyleBackColor = true;
-            this.tabPageEffect.Scroll += TabScroll;
             // 
             // splitContainerEffect
             // 
@@ -2980,7 +2838,6 @@
             this.numSoftDepth.Name = "numSoftDepth";
             this.numSoftDepth.Size = new System.Drawing.Size(272, 20);
             this.numSoftDepth.TabIndex = 39;
-            this.numSoftDepth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numLightingInfluence
             // 
@@ -3001,7 +2858,6 @@
             this.numLightingInfluence.Name = "numLightingInfluence";
             this.numLightingInfluence.Size = new System.Drawing.Size(272, 20);
             this.numLightingInfluence.TabIndex = 38;
-            this.numLightingInfluence.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numFalloffStopOpacity
             // 
@@ -3022,7 +2878,6 @@
             this.numFalloffStopOpacity.Name = "numFalloffStopOpacity";
             this.numFalloffStopOpacity.Size = new System.Drawing.Size(272, 20);
             this.numFalloffStopOpacity.TabIndex = 37;
-            this.numFalloffStopOpacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numFalloffStartOpacity
             // 
@@ -3043,7 +2898,6 @@
             this.numFalloffStartOpacity.Name = "numFalloffStartOpacity";
             this.numFalloffStartOpacity.Size = new System.Drawing.Size(272, 20);
             this.numFalloffStartOpacity.TabIndex = 36;
-            this.numFalloffStartOpacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numFalloffStopAngle
             // 
@@ -3064,7 +2918,6 @@
             this.numFalloffStopAngle.Name = "numFalloffStopAngle";
             this.numFalloffStopAngle.Size = new System.Drawing.Size(272, 20);
             this.numFalloffStopAngle.TabIndex = 35;
-            this.numFalloffStopAngle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numFalloffStartAngle
             // 
@@ -3085,7 +2938,6 @@
             this.numFalloffStartAngle.Name = "numFalloffStartAngle";
             this.numFalloffStartAngle.Size = new System.Drawing.Size(272, 20);
             this.numFalloffStartAngle.TabIndex = 34;
-            this.numFalloffStartAngle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btBaseColor
             // 
@@ -3102,56 +2954,41 @@
             // 
             // cbSoftEnabled
             // 
-            this.cbSoftEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbSoftEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbSoftEnabled.Location = new System.Drawing.Point(13, 204);
             this.cbSoftEnabled.Name = "cbSoftEnabled";
-            this.cbSoftEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbSoftEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbSoftEnabled.TabIndex = 32;
             this.cbSoftEnabled.UseVisualStyleBackColor = true;
             // 
             // cbGrayscaleToPaletteAlpha
             // 
-            this.cbGrayscaleToPaletteAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbGrayscaleToPaletteAlpha.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbGrayscaleToPaletteAlpha.Location = new System.Drawing.Point(13, 185);
             this.cbGrayscaleToPaletteAlpha.Name = "cbGrayscaleToPaletteAlpha";
-            this.cbGrayscaleToPaletteAlpha.Size = new System.Drawing.Size(256, 13);
+            this.cbGrayscaleToPaletteAlpha.Size = new System.Drawing.Size(100, 13);
             this.cbGrayscaleToPaletteAlpha.TabIndex = 31;
             this.cbGrayscaleToPaletteAlpha.UseVisualStyleBackColor = true;
             // 
             // cbFalloffColorEnabled
             // 
-            this.cbFalloffColorEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbFalloffColorEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbFalloffColorEnabled.Location = new System.Drawing.Point(13, 166);
             this.cbFalloffColorEnabled.Name = "cbFalloffColorEnabled";
-            this.cbFalloffColorEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbFalloffColorEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbFalloffColorEnabled.TabIndex = 30;
             this.cbFalloffColorEnabled.UseVisualStyleBackColor = true;
             // 
             // cbFalloffEnabled
             // 
-            this.cbFalloffEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbFalloffEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbFalloffEnabled.Location = new System.Drawing.Point(13, 147);
             this.cbFalloffEnabled.Name = "cbFalloffEnabled";
-            this.cbFalloffEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbFalloffEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbFalloffEnabled.TabIndex = 29;
             this.cbFalloffEnabled.UseVisualStyleBackColor = true;
             // 
             // cbEffectLightingEnabled
             // 
-            this.cbEffectLightingEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbEffectLightingEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbEffectLightingEnabled.Location = new System.Drawing.Point(13, 128);
             this.cbEffectLightingEnabled.Name = "cbEffectLightingEnabled";
-            this.cbEffectLightingEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbEffectLightingEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbEffectLightingEnabled.TabIndex = 28;
             this.cbEffectLightingEnabled.UseVisualStyleBackColor = true;
             // 
@@ -3207,12 +3044,9 @@
             // 
             // cbBloodEnabled
             // 
-            this.cbBloodEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbBloodEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.cbBloodEnabled.Location = new System.Drawing.Point(13, 109);
             this.cbBloodEnabled.Name = "cbBloodEnabled";
-            this.cbBloodEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbBloodEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbBloodEnabled.TabIndex = 22;
             this.cbBloodEnabled.UseVisualStyleBackColor = true;
             // 
@@ -3234,7 +3068,6 @@
             this.numEnvmapMinLOD.Name = "numEnvmapMinLOD";
             this.numEnvmapMinLOD.Size = new System.Drawing.Size(272, 20);
             this.numEnvmapMinLOD.TabIndex = 9;
-            this.numEnvmapMinLOD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // numBaseColorScale
             // 
@@ -3255,7 +3088,21 @@
             this.numBaseColorScale.Name = "numBaseColorScale";
             this.numBaseColorScale.Size = new System.Drawing.Size(272, 20);
             this.numBaseColorScale.TabIndex = 3;
-            this.numBaseColorScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
+            this.toolStripMenuItem1.Text = "?";
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -3556,6 +3403,8 @@
         private System.Windows.Forms.NumericUpDown numFalloffStartOpacity;
         private System.Windows.Forms.NumericUpDown numFalloffStopAngle;
         private System.Windows.Forms.NumericUpDown numFalloffStartAngle;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 
     }
 }
