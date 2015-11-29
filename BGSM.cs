@@ -1,389 +1,531 @@
-﻿using System;
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
+ * 
+ * This software is provided 'as-is', without any express or implied
+ * warranty. In no event will the authors be held liable for any damages
+ * arising from the use of this software.
+ * 
+ * Permission is granted to anyone to use this software for any purpose,
+ * including commercial applications, and to alter it and redistribute it
+ * freely, subject to the following restrictions:
+ * 
+ * 1. The origin of this software must not be misrepresented; you must not
+ *    claim that you wrote the original software. If you use this software
+ *    in a product, an acknowledgment in the product documentation would
+ *    be appreciated but is not required.
+ * 
+ * 2. Altered source versions must be plainly marked as such, and must not
+ *    be misrepresented as being the original software.
+ * 
+ * 3. This notice may not be removed or altered from any source
+ *    distribution.
+ */
+
+/* Modified by ousnius
+ * - removed Json (de)serialization and dependency
+ * - removed Gibbed.IO dependency
+ * - added binary serialization
+ */
+
+using System;
+using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace Material_Editor
 {
-    struct ColorRGB
+    public class BGSM : BaseMaterialFile
     {
-        public float Red;
-        public float Green;
-        public float Blue;
+        public const uint Signature = 0x4D534742;
 
-        public ColorRGB(float r, float g, float b)
+        #region Fields
+        private string _DiffuseTexture = "";
+        private string _NormalTexture = "";
+        private string _SmoothSpecTexture = "";
+        private string _GreyscaleTexture = "";
+        private string _EnvmapTexture = "";
+        private string _GlowTexture = "";
+        private string _InnerLayerTexture = "";
+        private string _WrinklesTexture = "";
+        private string _DisplacementTexture = "";
+        private bool _EnableEditorAlphaRef;
+        private bool _RimLighting;
+        private float _RimPower;
+        private float _BackLightPower;
+        private bool _SubsurfaceLighting;
+        private float _SubsurfaceLightingRolloff;
+        private bool _SpecularEnabled;
+        private uint _SpecularColor;
+        private float _SpecularMult;
+        private float _Smoothness = 1.0f;
+        private float _FresnelPower = 5.0f;
+        private float _WetnessControlSpecScale = -1.0f;
+        private float _WetnessControlSpecPowerScale = -1.0f;
+        private float _WetnessControlSpecMinvar = -1.0f;
+        private float _WetnessControlEnvMapScale = -1.0f;
+        private float _WetnessControlFresnelPower = -1.0f;
+        private float _WetnessControlMetalness = -1.0f;
+        private string _RootMaterialPath = "";
+        private bool _AnisoLighting;
+        private bool _EmitEnabled;
+        private uint _EmittanceColor;
+        private float _EmittanceMult = 1.0f;
+        private bool _ModelSpaceNormals;
+        private bool _ExternalEmittance;
+        private bool _BackLighting;
+        private bool _ReceiveShadows;
+        private bool _HideSecret;
+        private bool _CastShadows;
+        private bool _DissolveFade;
+        private bool _AssumeShadowmask;
+        private bool _Glowmap;
+        private bool _EnvironmentMappingWindow;
+        private bool _EnvironmentMappingEye;
+        private bool _Hair;
+        private uint _HairTintColor = 0x808080;
+        private bool _Tree;
+        private bool _Facegen;
+        private bool _SkinTint;
+        private bool _Tessellate;
+        private float _DisplacementTextureBias;
+        private float _DisplacementTextureScale;
+        private float _TessellationPNScale;
+        private float _TessellationBaseFactor;
+        private float _TessellationFadeDistance;
+        private float _GrayscaleToPaletteScale = 1.0f;
+        private bool _SkewSpecularAlpha;
+        #endregion
+
+        public BGSM()
+            : base(Signature)
         {
-            Red = r;
-            Green = g;
-            Blue = b;
-        }
-    }
-
-    class BGSM
-    {
-        string header = "BGSM";
-        public uint unk1;
-        public uint unk2;
-        public uint unk3;
-        public uint unk4;
-
-        public float unkF1;
-        public float unkF2;
-        public float unkF3;
-
-        public uint flags1 = 1536;
-        public uint flags2 = 1792;
-
-        public byte mysteryB1;
-        public byte mysteryB2;
-        public bool useAlpha = false;
-        public byte mysteryB4;
-        public byte mysteryB5;
-        public byte mysteryB6;
-        public byte mysteryB7;
-        public byte mysteryB8;
-        public bool useDoubleSided = false;
-        public byte mysteryB10;
-        public byte mysteryB11;
-        public byte mysteryB12;
-        public byte mysteryB13;
-        public byte mysteryB14;
-        public byte mysteryB15;
-        public byte mysteryB16;
-        public byte mysteryB17;
-        public byte mysteryB18;
-        public byte mysteryB19;
-        public byte mysteryB20;
-        public byte mysteryB21;
-        public byte mysteryB22;
-        public byte mysteryB23;
-
-        public List<string> textures = Enumerable.Repeat(string.Empty, 9).ToList();
-
-        public byte unkB1;
-        public byte unkB2;
-
-        public float unkF4;
-        public float unkF5;
-
-        public byte unkB3;
-        public float unkF6;
-
-        public bool useWet = true;
-
-        public ColorRGB unkColor1 = new ColorRGB(1.0f, 1.0f, 1.0f);
-        public float specularStrength = 1.0f;
-
-        public float unkF7_5;
-        public float unkF7_6;
-        public float unkF7_7;
-        public float unkF7_8;
-        public float unkF7_9;
-        public float unkF7_10;
-        public float unkF7_11;
-        public float unkF7_12;
-
-        public string template = "";
-
-        public byte unkB5;
-        public byte unkB6;
-        public float unkF8;
-
-        public byte unkB7;
-        public byte unkB8;
-        public byte unkB9;
-        public byte unkB10;
-        public byte unkB11;
-        public byte unkB12;
-        public byte unkB13;
-        public byte unkB14;
-        public byte unkB15;
-        public byte unkB16;
-        public byte unkB17;
-        public byte unkB18;
-
-        public ColorRGB unkColor2 = new ColorRGB(1.0f, 1.0f, 1.0f);
-
-        public byte unkB19;
-        public byte unkB20;
-        public bool useSkinColor = false;
-        public byte unkB21;
-
-        public float unkF12;
-        public float unkF13;
-        public float unkF14;
-        public float unkF15;
-        public float unkF16;
-        public float unkF17;
-
-        public byte unkB22;
-
-        public bool Open(string fileName)
-        {
-            try
-            {
-                using (FileStream file = new FileStream(fileName, FileMode.Open))
-                {
-                    using (BinaryReader reader = new BinaryReader(file))
-                    {
-                        header = new string(reader.ReadChars(4));
-                        if (header == "BGSM")
-                        {
-                            unk1 = reader.ReadUInt32();
-                            unk2 = reader.ReadUInt32();
-                            unk3 = reader.ReadUInt32();
-                            unk4 = reader.ReadUInt32();
-
-                            unkF1 = reader.ReadSingle();
-                            unkF2 = reader.ReadSingle();
-                            unkF3 = reader.ReadSingle();
-
-                            flags1 = reader.ReadUInt32();
-                            flags2 = reader.ReadUInt32();
-
-                            mysteryB1 = reader.ReadByte();
-                            mysteryB2 = reader.ReadByte();
-                            useAlpha = reader.ReadBoolean();
-                            mysteryB4 = reader.ReadByte();
-                            mysteryB5 = reader.ReadByte();
-                            mysteryB6 = reader.ReadByte();
-                            mysteryB7 = reader.ReadByte();
-                            mysteryB8 = reader.ReadByte();
-                            useDoubleSided = reader.ReadBoolean();
-                            mysteryB10 = reader.ReadByte();
-                            mysteryB11 = reader.ReadByte();
-                            mysteryB12 = reader.ReadByte();
-                            mysteryB13 = reader.ReadByte();
-                            mysteryB14 = reader.ReadByte();
-                            mysteryB15 = reader.ReadByte();
-                            mysteryB16 = reader.ReadByte();
-                            mysteryB17 = reader.ReadByte();
-                            mysteryB18 = reader.ReadByte();
-                            mysteryB19 = reader.ReadByte();
-                            mysteryB20 = reader.ReadByte();
-                            mysteryB21 = reader.ReadByte();
-                            mysteryB22 = reader.ReadByte();
-                            mysteryB23 = reader.ReadByte();
-
-                            for (int i = 0; i < 9; ++i)
-                            {
-                                uint length = reader.ReadUInt32();
-                                textures[i] = new string(reader.ReadChars((int)length));
-                                textures[i] = textures[i].Remove(textures[i].Length - 1, 1);
-                            }
-
-                            unkB1 = reader.ReadByte();
-                            unkB2 = reader.ReadByte();
-
-                            unkF4 = reader.ReadSingle();
-                            unkF5 = reader.ReadSingle();
-
-                            unkB3 = reader.ReadByte();
-                            unkF6 = reader.ReadSingle();
-
-                            useWet = reader.ReadBoolean();
-
-                            unkColor1.Red = reader.ReadSingle();
-                            unkColor1.Green = reader.ReadSingle();
-                            unkColor1.Blue = reader.ReadSingle();
-                            specularStrength = reader.ReadSingle();
-
-                            unkF7_5 = reader.ReadSingle();
-                            unkF7_6 = reader.ReadSingle();
-                            unkF7_7 = reader.ReadSingle();
-                            unkF7_8 = reader.ReadSingle();
-                            unkF7_9 = reader.ReadSingle();
-                            unkF7_10 = reader.ReadSingle();
-                            unkF7_11 = reader.ReadSingle();
-                            unkF7_12 = reader.ReadSingle();
-
-                            uint templateLength = reader.ReadUInt32();
-                            template = new string(reader.ReadChars((int)templateLength));
-                            template = template.Remove(template.Length - 1, 1);
-
-                            unkB5 = reader.ReadByte();
-                            unkB6 = reader.ReadByte();
-                            unkF8 = reader.ReadSingle();
-
-                            unkB7 = reader.ReadByte();
-                            unkB8 = reader.ReadByte();
-                            unkB9 = reader.ReadByte();
-                            unkB10 = reader.ReadByte();
-                            unkB11 = reader.ReadByte();
-                            unkB12 = reader.ReadByte();
-                            unkB13 = reader.ReadByte();
-                            unkB14 = reader.ReadByte();
-                            unkB15 = reader.ReadByte();
-                            unkB16 = reader.ReadByte();
-                            unkB17 = reader.ReadByte();
-                            unkB18 = reader.ReadByte();
-
-                            unkColor2.Red = reader.ReadSingle();
-                            unkColor2.Green = reader.ReadSingle();
-                            unkColor2.Blue = reader.ReadSingle();
-
-                            unkB19 = reader.ReadByte();
-                            unkB20 = reader.ReadByte();
-                            useSkinColor = reader.ReadBoolean();
-                            unkB21 = reader.ReadByte();
-
-                            unkF12 = reader.ReadSingle();
-                            unkF13 = reader.ReadSingle();
-                            unkF14 = reader.ReadSingle();
-                            unkF15 = reader.ReadSingle();
-                            unkF16 = reader.ReadSingle();
-                            unkF17 = reader.ReadSingle();
-
-                            unkB22 = reader.ReadByte();
-                            reader.Close();
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
         }
 
-        public bool Save(string fileName)
+        #region Properties
+        [DefaultValue("")]
+        public string DiffuseTexture
         {
-            try
-            {
-                using (FileStream file = new FileStream(fileName, FileMode.Create))
-                {
-                    using (BinaryWriter writer = new BinaryWriter(file))
-                    {
-                        writer.Write(header.ToCharArray(), 0, 4);
+            get { return this._DiffuseTexture; }
+            set { this._DiffuseTexture = value; }
+        }
 
-                        writer.Write(unk1);
-                        writer.Write(unk2);
-                        writer.Write(unk3);
-                        writer.Write(unk4);
+        [DefaultValue("")]
+        public string NormalTexture
+        {
+            get { return this._NormalTexture; }
+            set { this._NormalTexture = value; }
+        }
 
-                        writer.Write(unkF1);
-                        writer.Write(unkF2);
-                        writer.Write(unkF3);
+        [DefaultValue("")]
+        public string SmoothSpecTexture
+        {
+            get { return this._SmoothSpecTexture; }
+            set { this._SmoothSpecTexture = value; }
+        }
 
-                        writer.Write(flags1);
-                        writer.Write(flags2);
+        [DefaultValue("")]
+        public string GreyscaleTexture
+        {
+            get { return this._GreyscaleTexture; }
+            set { this._GreyscaleTexture = value; }
+        }
 
-                        writer.Write(mysteryB1);
-                        writer.Write(mysteryB2);
-                        writer.Write(useAlpha);
-                        writer.Write(mysteryB4);
-                        writer.Write(mysteryB5);
-                        writer.Write(mysteryB6);
-                        writer.Write(mysteryB7);
-                        writer.Write(mysteryB8);
-                        writer.Write(useDoubleSided);
-                        writer.Write(mysteryB10);
-                        writer.Write(mysteryB11);
-                        writer.Write(mysteryB12);
-                        writer.Write(mysteryB13);
-                        writer.Write(mysteryB14);
-                        writer.Write(mysteryB15);
-                        writer.Write(mysteryB16);
-                        writer.Write(mysteryB17);
-                        writer.Write(mysteryB18);
-                        writer.Write(mysteryB19);
-                        writer.Write(mysteryB20);
-                        writer.Write(mysteryB21);
-                        writer.Write(mysteryB22);
-                        writer.Write(mysteryB23);
+        [DefaultValue("")]
+        public string EnvmapTexture
+        {
+            get { return this._EnvmapTexture; }
+            set { this._EnvmapTexture = value; }
+        }
 
-                        for (int i = 0; i < 9; ++i)
-                        {
-                            writer.Write(textures[i].Length + 1);
-                            if (textures[i].Length > 0)
-                            {
-                                writer.Write(textures[i].ToCharArray());
-                            }
-                            writer.Write('\0');
-                        }
+        [DefaultValue("")]
+        public string GlowTexture
+        {
+            get { return this._GlowTexture; }
+            set { this._GlowTexture = value; }
+        }
 
-                        writer.Write(unkB1);
-                        writer.Write(unkB2);
+        [DefaultValue("")]
+        public string InnerLayerTexture
+        {
+            get { return this._InnerLayerTexture; }
+            set { this._InnerLayerTexture = value; }
+        }
 
-                        writer.Write(unkF4);
-                        writer.Write(unkF5);
+        [DefaultValue("")]
+        public string WrinklesTexture
+        {
+            get { return this._WrinklesTexture; }
+            set { this._WrinklesTexture = value; }
+        }
 
-                        writer.Write(unkB3);
-                        writer.Write(unkF6);
+        [DefaultValue("")]
+        public string DisplacementTexture
+        {
+            get { return this._DisplacementTexture; }
+            set { this._DisplacementTexture = value; }
+        }
 
-                        writer.Write(useWet);
+        public bool EnableEditorAlphaRef
+        {
+            get { return this._EnableEditorAlphaRef; }
+            set { this._EnableEditorAlphaRef = value; }
+        }
 
-                        writer.Write(unkColor1.Red);
-                        writer.Write(unkColor1.Green);
-                        writer.Write(unkColor1.Blue);
-                        writer.Write(specularStrength);
+        public bool RimLighting
+        {
+            get { return this._RimLighting; }
+            set { this._RimLighting = value; }
+        }
 
-                        writer.Write(unkF7_5);
-                        writer.Write(unkF7_6);
-                        writer.Write(unkF7_7);
-                        writer.Write(unkF7_8);
-                        writer.Write(unkF7_9);
-                        writer.Write(unkF7_10);
-                        writer.Write(unkF7_11);
-                        writer.Write(unkF7_12);
+        public float RimPower
+        {
+            get { return this._RimPower; }
+            set { this._RimPower = value; }
+        }
 
-                        writer.Write(template.Length + 1);
-                        if (template.Length > 0)
-                        {
-                            writer.Write(template.ToCharArray());
-                        }
-                        writer.Write('\0');
+        public float BackLightPower
+        {
+            get { return this._BackLightPower; }
+            set { this._BackLightPower = value; }
+        }
 
-                        writer.Write(unkB5);
-                        writer.Write(unkB6);
-                        writer.Write(unkF8);
+        public bool SubsurfaceLighting
+        {
+            get { return this._SubsurfaceLighting; }
+            set { this._SubsurfaceLighting = value; }
+        }
 
-                        writer.Write(unkB7);
-                        writer.Write(unkB8);
-                        writer.Write(unkB9);
-                        writer.Write(unkB10);
-                        writer.Write(unkB11);
-                        writer.Write(unkB12);
-                        writer.Write(unkB13);
-                        writer.Write(unkB14);
-                        writer.Write(unkB15);
-                        writer.Write(unkB16);
-                        writer.Write(unkB17);
-                        writer.Write(unkB18);
+        public float SubsurfaceLightingRolloff
+        {
+            get { return this._SubsurfaceLightingRolloff; }
+            set { this._SubsurfaceLightingRolloff = value; }
+        }
 
-                        writer.Write(unkColor2.Red);
-                        writer.Write(unkColor2.Green);
-                        writer.Write(unkColor2.Blue);
+        public bool SpecularEnabled
+        {
+            get { return this._SpecularEnabled; }
+            set { this._SpecularEnabled = value; }
+        }
 
-                        writer.Write(unkB19);
-                        writer.Write(unkB20);
-                        writer.Write(useSkinColor);
-                        writer.Write(unkB21);
+        public uint SpecularColor
+        {
+            get { return this._SpecularColor; }
+            set { this._SpecularColor = value; }
+        }
 
-                        writer.Write(unkF12);
-                        writer.Write(unkF13);
-                        writer.Write(unkF14);
-                        writer.Write(unkF15);
-                        writer.Write(unkF16);
-                        writer.Write(unkF17);
+        public float SpecularMult
+        {
+            get { return this._SpecularMult; }
+            set { this._SpecularMult = value; }
+        }
 
-                        writer.Write(unkB22);
-                        writer.Close();
-                    }
-                }
-            }
-            catch
-            {
-                return false;
-            }
+        [DefaultValue(1.0f)]
+        public float Smoothness
+        {
+            get { return this._Smoothness; }
+            set { this._Smoothness = value; }
+        }
 
-            return true;
+        [DefaultValue(5.0f)]
+        public float FresnelPower
+        {
+            get { return this._FresnelPower; }
+            set { this._FresnelPower = value; }
+        }
+
+        [DefaultValue(-1.0f)]
+        public float WetnessControlSpecScale
+        {
+            get { return this._WetnessControlSpecScale; }
+            set { this._WetnessControlSpecScale = value; }
+        }
+
+        [DefaultValue(-1.0f)]
+        public float WetnessControlSpecPowerScale
+        {
+            get { return this._WetnessControlSpecPowerScale; }
+            set { this._WetnessControlSpecPowerScale = value; }
+        }
+
+        [DefaultValue(-1.0f)]
+        public float WetnessControlSpecMinvar
+        {
+            get { return this._WetnessControlSpecMinvar; }
+            set { this._WetnessControlSpecMinvar = value; }
+        }
+
+        [DefaultValue(-1.0f)]
+        public float WetnessControlEnvMapScale
+        {
+            get { return this._WetnessControlEnvMapScale; }
+            set { this._WetnessControlEnvMapScale = value; }
+        }
+
+        [DefaultValue(-1.0f)]
+        public float WetnessControlFresnelPower
+        {
+            get { return this._WetnessControlFresnelPower; }
+            set { this._WetnessControlFresnelPower = value; }
+        }
+
+        [DefaultValue(-1.0f)]
+        public float WetnessControlMetalness
+        {
+            get { return this._WetnessControlMetalness; }
+            set { this._WetnessControlMetalness = value; }
+        }
+
+        public string RootMaterialPath
+        {
+            get { return this._RootMaterialPath; }
+            set { this._RootMaterialPath = value; }
+        }
+
+        public bool AnisoLighting
+        {
+            get { return this._AnisoLighting; }
+            set { this._AnisoLighting = value; }
+        }
+
+        public bool EmitEnabled
+        {
+            get { return this._EmitEnabled; }
+            set { this._EmitEnabled = value; }
+        }
+
+        public uint EmittanceColor
+        {
+            get { return this._EmittanceColor; }
+            set { this._EmittanceColor = value; }
+        }
+
+        [DefaultValue(1.0f)]
+        public float EmittanceMult
+        {
+            get { return this._EmittanceMult; }
+            set { this._EmittanceMult = value; }
+        }
+
+        public bool ModelSpaceNormals
+        {
+            get { return this._ModelSpaceNormals; }
+            set { this._ModelSpaceNormals = value; }
+        }
+
+        public bool ExternalEmittance
+        {
+            get { return this._ExternalEmittance; }
+            set { this._ExternalEmittance = value; }
+        }
+
+        public bool BackLighting
+        {
+            get { return this._BackLighting; }
+            set { this._BackLighting = value; }
+        }
+
+        public bool ReceiveShadows
+        {
+            get { return this._ReceiveShadows; }
+            set { this._ReceiveShadows = value; }
+        }
+
+        public bool HideSecret
+        {
+            get { return this._HideSecret; }
+            set { this._HideSecret = value; }
+        }
+
+        public bool CastShadows
+        {
+            get { return this._CastShadows; }
+            set { this._CastShadows = value; }
+        }
+
+        public bool DissolveFade
+        {
+            get { return this._DissolveFade; }
+            set { this._DissolveFade = value; }
+        }
+
+        public bool AssumeShadowmask
+        {
+            get { return this._AssumeShadowmask; }
+            set { this._AssumeShadowmask = value; }
+        }
+
+        public bool Glowmap
+        {
+            get { return this._Glowmap; }
+            set { this._Glowmap = value; }
+        }
+
+        public bool EnvironmentMappingWindow
+        {
+            get { return this._EnvironmentMappingWindow; }
+            set { this._EnvironmentMappingWindow = value; }
+        }
+
+        public bool EnvironmentMappingEye
+        {
+            get { return this._EnvironmentMappingEye; }
+            set { this._EnvironmentMappingEye = value; }
+        }
+
+        public bool Hair
+        {
+            get { return this._Hair; }
+            set { this._Hair = value; }
+        }
+
+        [DefaultValue(0x808080u)]
+        public uint HairTintColor
+        {
+            get { return this._HairTintColor; }
+            set { this._HairTintColor = value; }
+        }
+
+        public bool Tree
+        {
+            get { return this._Tree; }
+            set { this._Tree = value; }
+        }
+
+        public bool Facegen
+        {
+            get { return this._Facegen; }
+            set { this._Facegen = value; }
+        }
+
+        public bool SkinTint
+        {
+            get { return this._SkinTint; }
+            set { this._SkinTint = value; }
+        }
+
+        public bool Tessellate
+        {
+            get { return this._Tessellate; }
+            set { this._Tessellate = value; }
+        }
+
+        public float DisplacementTextureBias
+        {
+            get { return this._DisplacementTextureBias; }
+            set { this._DisplacementTextureBias = value; }
+        }
+
+        public float DisplacementTextureScale
+        {
+            get { return this._DisplacementTextureScale; }
+            set { this._DisplacementTextureScale = value; }
+        }
+
+        public float TessellationPnScale
+        {
+            get { return this._TessellationPNScale; }
+            set { this._TessellationPNScale = value; }
+        }
+
+        public float TessellationBaseFactor
+        {
+            get { return this._TessellationBaseFactor; }
+            set { this._TessellationBaseFactor = value; }
+        }
+
+        public float TessellationFadeDistance
+        {
+            get { return this._TessellationFadeDistance; }
+            set { this._TessellationFadeDistance = value; }
+        }
+
+        [DefaultValue(1.0f)]
+        public float GrayscaleToPaletteScale
+        {
+            get { return this._GrayscaleToPaletteScale; }
+            set { this._GrayscaleToPaletteScale = value; }
+        }
+
+        public bool SkewSpecularAlpha
+        {
+            get { return this._SkewSpecularAlpha; }
+            set { this._SkewSpecularAlpha = value; }
+        }
+        #endregion
+
+        public override void Deserialize(BinaryReader input)
+        {
+            base.Deserialize(input);
+            var version = this.Version;
+
+            this._DiffuseTexture = ReadString(input);
+            this._NormalTexture = ReadString(input);
+            this._SmoothSpecTexture = ReadString(input);
+            this._GreyscaleTexture = ReadString(input);
+            this._EnvmapTexture = ReadString(input);
+            this._GlowTexture = ReadString(input);
+            this._InnerLayerTexture = ReadString(input);
+            this._WrinklesTexture = ReadString(input);
+            this._DisplacementTexture = ReadString(input);
+
+            this._EnableEditorAlphaRef = input.ReadBoolean();
+            this._RimLighting = input.ReadBoolean();
+            this._RimPower = input.ReadSingle();
+            this._BackLightPower = input.ReadSingle();
+
+            this._SubsurfaceLighting = input.ReadBoolean();
+            this._SubsurfaceLightingRolloff = input.ReadSingle();
+
+            this._SpecularEnabled = input.ReadBoolean();
+            this._SpecularColor = Color.Read(input).ToUInt32();
+            this._SpecularMult = input.ReadSingle();
+            this._Smoothness = input.ReadSingle();
+            this._FresnelPower = input.ReadSingle();
+            this._WetnessControlSpecScale = input.ReadSingle();
+            this._WetnessControlSpecPowerScale = input.ReadSingle();
+            this._WetnessControlSpecMinvar = input.ReadSingle();
+            this._WetnessControlEnvMapScale = input.ReadSingle();
+            this._WetnessControlFresnelPower = input.ReadSingle();
+            this._WetnessControlMetalness = input.ReadSingle();
+
+            this._RootMaterialPath = ReadString(input);
+
+            this._AnisoLighting = input.ReadBoolean();
+            this._EmitEnabled = input.ReadBoolean();
+            this._EmittanceColor = this._EmitEnabled == true ? Color.Read(input).ToUInt32() : 0;
+            this._EmittanceMult = input.ReadSingle();
+            this._ModelSpaceNormals = input.ReadBoolean();
+            this._ExternalEmittance = input.ReadBoolean();
+            this._BackLighting = input.ReadBoolean();
+
+            this._ReceiveShadows = input.ReadBoolean();
+            this._HideSecret = input.ReadBoolean();
+            this._CastShadows = input.ReadBoolean();
+            this._DissolveFade = input.ReadBoolean();
+            this._AssumeShadowmask = input.ReadBoolean();
+
+            this._Glowmap = input.ReadBoolean();
+            this._EnvironmentMappingWindow = input.ReadBoolean();
+            this._EnvironmentMappingEye = input.ReadBoolean();
+            this._Hair = input.ReadBoolean();
+            this._HairTintColor = Color.Read(input).ToUInt32();
+            this._Tree = input.ReadBoolean();
+            this._Facegen = input.ReadBoolean();
+            this._SkinTint = input.ReadBoolean();
+
+            this._Tessellate = input.ReadBoolean();
+            this._DisplacementTextureBias = input.ReadSingle();
+            this._DisplacementTextureScale = input.ReadSingle();
+            this._TessellationPNScale = input.ReadSingle();
+            this._TessellationBaseFactor = input.ReadSingle();
+            this._TessellationFadeDistance = input.ReadSingle();
+
+            this._GrayscaleToPaletteScale = input.ReadSingle();
+            this._SkewSpecularAlpha = version >= 1 && input.ReadBoolean();
+        }
+
+        public override void Serialize(BinaryWriter output)
+        {
+            base.Serialize(output);
+            throw new NotImplementedException();
         }
     }
 }

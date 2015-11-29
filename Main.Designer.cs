@@ -40,254 +40,266 @@
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
-            this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.numByte22 = new System.Windows.Forms.NumericUpDown();
-            this.lbByte22 = new System.Windows.Forms.Label();
-            this.numFloat17 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat16 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat15 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat14 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat13 = new System.Windows.Forms.NumericUpDown();
-            this.lbFloat17 = new System.Windows.Forms.Label();
-            this.lbFloat16 = new System.Windows.Forms.Label();
-            this.lbFloat15 = new System.Windows.Forms.Label();
-            this.lbFloat14 = new System.Windows.Forms.Label();
-            this.lbFloat13 = new System.Windows.Forms.Label();
-            this.numFloat12 = new System.Windows.Forms.NumericUpDown();
-            this.lbFloat12 = new System.Windows.Forms.Label();
-            this.numByte21 = new System.Windows.Forms.NumericUpDown();
-            this.lbByte21 = new System.Windows.Forms.Label();
-            this.numByte20 = new System.Windows.Forms.NumericUpDown();
-            this.numByte19 = new System.Windows.Forms.NumericUpDown();
-            this.lbByte20 = new System.Windows.Forms.Label();
-            this.lbByte19 = new System.Windows.Forms.Label();
-            this.numByte18 = new System.Windows.Forms.NumericUpDown();
-            this.numByte17 = new System.Windows.Forms.NumericUpDown();
-            this.numByte16 = new System.Windows.Forms.NumericUpDown();
-            this.lbByte18 = new System.Windows.Forms.Label();
-            this.lbByte16 = new System.Windows.Forms.Label();
-            this.lbByte17 = new System.Windows.Forms.Label();
-            this.lbByte15 = new System.Windows.Forms.Label();
-            this.lbByte14 = new System.Windows.Forms.Label();
-            this.lbByte13 = new System.Windows.Forms.Label();
-            this.lbByte12 = new System.Windows.Forms.Label();
-            this.lbByte11 = new System.Windows.Forms.Label();
-            this.lbByte10 = new System.Windows.Forms.Label();
-            this.lbByte9 = new System.Windows.Forms.Label();
-            this.lbByte8 = new System.Windows.Forms.Label();
-            this.lbByte7 = new System.Windows.Forms.Label();
-            this.numFloat8 = new System.Windows.Forms.NumericUpDown();
-            this.lbFloat8 = new System.Windows.Forms.Label();
-            this.numByte6 = new System.Windows.Forms.NumericUpDown();
-            this.numByte5 = new System.Windows.Forms.NumericUpDown();
-            this.lbByte6 = new System.Windows.Forms.Label();
-            this.lbByte5 = new System.Windows.Forms.Label();
-            this.numFloat7_13 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat7_12 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat7_11 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat7_10 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat7_9 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat7_8 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat7_7 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat7_6 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat7_5 = new System.Windows.Forms.NumericUpDown();
-            this.lbFloat7_13 = new System.Windows.Forms.Label();
-            this.lbFloat7_12 = new System.Windows.Forms.Label();
-            this.lbFloat7_11 = new System.Windows.Forms.Label();
-            this.lbFloat7_10 = new System.Windows.Forms.Label();
-            this.lbFloat7_9 = new System.Windows.Forms.Label();
-            this.lbFloat7_8 = new System.Windows.Forms.Label();
-            this.lbFloat7_7 = new System.Windows.Forms.Label();
-            this.lbFloat7_6 = new System.Windows.Forms.Label();
-            this.lbFloat7_5 = new System.Windows.Forms.Label();
-            this.cbUseSkinColor = new System.Windows.Forms.CheckBox();
-            this.lbUseSkinColor = new System.Windows.Forms.Label();
-            this.tbTemplate = new System.Windows.Forms.TextBox();
-            this.lbTemplate = new System.Windows.Forms.Label();
-            this.cbUseWet = new System.Windows.Forms.CheckBox();
-            this.lbUseWet = new System.Windows.Forms.Label();
-            this.numFloat6 = new System.Windows.Forms.NumericUpDown();
-            this.lbFloat6 = new System.Windows.Forms.Label();
-            this.numByte3 = new System.Windows.Forms.NumericUpDown();
-            this.lbByte3 = new System.Windows.Forms.Label();
-            this.numByte2 = new System.Windows.Forms.NumericUpDown();
-            this.numByte1 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat4 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat5 = new System.Windows.Forms.NumericUpDown();
-            this.lbFloat5 = new System.Windows.Forms.Label();
-            this.lbFloat4 = new System.Windows.Forms.Label();
-            this.lbByte2 = new System.Windows.Forms.Label();
-            this.lbByte1 = new System.Windows.Forms.Label();
-            this.tbTexture9 = new System.Windows.Forms.TextBox();
-            this.tbTexture8 = new System.Windows.Forms.TextBox();
-            this.tbTexture7 = new System.Windows.Forms.TextBox();
-            this.tbTexture6 = new System.Windows.Forms.TextBox();
-            this.tbTexture5 = new System.Windows.Forms.TextBox();
-            this.tbTexture4 = new System.Windows.Forms.TextBox();
-            this.tbTexture3 = new System.Windows.Forms.TextBox();
-            this.tbTexture2 = new System.Windows.Forms.TextBox();
-            this.lbTexture9 = new System.Windows.Forms.Label();
-            this.lbTexture8 = new System.Windows.Forms.Label();
-            this.lbTexture7 = new System.Windows.Forms.Label();
-            this.lbTexture6 = new System.Windows.Forms.Label();
-            this.lbTexture5 = new System.Windows.Forms.Label();
-            this.lbTexture4 = new System.Windows.Forms.Label();
-            this.lbTexture3 = new System.Windows.Forms.Label();
-            this.lbTexture2 = new System.Windows.Forms.Label();
-            this.lbTexture1 = new System.Windows.Forms.Label();
-            this.numMysteryByte23 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte22 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte21 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte20 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte19 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte18 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte17 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte16 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte15 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte14 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte13 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte12 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte11 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte10 = new System.Windows.Forms.NumericUpDown();
-            this.lbMysteryByte23 = new System.Windows.Forms.Label();
-            this.lbMysteryByte22 = new System.Windows.Forms.Label();
-            this.lbMysteryByte21 = new System.Windows.Forms.Label();
-            this.lbMysteryByte20 = new System.Windows.Forms.Label();
-            this.lbMysteryByte19 = new System.Windows.Forms.Label();
-            this.lbMysteryByte18 = new System.Windows.Forms.Label();
-            this.lbMysteryByte17 = new System.Windows.Forms.Label();
-            this.lbMysteryByte16 = new System.Windows.Forms.Label();
-            this.lbMysteryByte15 = new System.Windows.Forms.Label();
-            this.lbMysteryByte14 = new System.Windows.Forms.Label();
-            this.lbMysteryByte13 = new System.Windows.Forms.Label();
-            this.lbMysteryByte12 = new System.Windows.Forms.Label();
-            this.lbMysteryByte11 = new System.Windows.Forms.Label();
-            this.lbMysteryByte10 = new System.Windows.Forms.Label();
-            this.cbUseDoubleSided = new System.Windows.Forms.CheckBox();
-            this.lbUseDoubleSided = new System.Windows.Forms.Label();
-            this.numMysteryByte8 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte7 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte6 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte5 = new System.Windows.Forms.NumericUpDown();
-            this.numMysteryByte4 = new System.Windows.Forms.NumericUpDown();
-            this.lbMysteryByte8 = new System.Windows.Forms.Label();
-            this.lbMysteryByte7 = new System.Windows.Forms.Label();
-            this.lbMysteryByte6 = new System.Windows.Forms.Label();
-            this.lbMysteryByte5 = new System.Windows.Forms.Label();
-            this.lbMysteryByte4 = new System.Windows.Forms.Label();
-            this.lbUseAlpha = new System.Windows.Forms.Label();
-            this.numMysteryByte2 = new System.Windows.Forms.NumericUpDown();
-            this.lbMysteryByte2 = new System.Windows.Forms.Label();
-            this.numMysteryByte1 = new System.Windows.Forms.NumericUpDown();
-            this.lbMysteryByte1 = new System.Windows.Forms.Label();
-            this.numFloat3 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat2 = new System.Windows.Forms.NumericUpDown();
-            this.numFloat1 = new System.Windows.Forms.NumericUpDown();
-            this.lbFloat3 = new System.Windows.Forms.Label();
-            this.lbFloat2 = new System.Windows.Forms.Label();
-            this.lbFloat1 = new System.Windows.Forms.Label();
-            this.numInt4 = new System.Windows.Forms.NumericUpDown();
-            this.numInt3 = new System.Windows.Forms.NumericUpDown();
-            this.numInt2 = new System.Windows.Forms.NumericUpDown();
-            this.numInt1 = new System.Windows.Forms.NumericUpDown();
-            this.lbInt4 = new System.Windows.Forms.Label();
-            this.lbInt3 = new System.Windows.Forms.Label();
-            this.lbInt2 = new System.Windows.Forms.Label();
-            this.lbInt1 = new System.Windows.Forms.Label();
-            this.numFlags2 = new System.Windows.Forms.NumericUpDown();
-            this.numFlags1 = new System.Windows.Forms.NumericUpDown();
-            this.lbFlags2 = new System.Windows.Forms.Label();
-            this.lbFlags1 = new System.Windows.Forms.Label();
-            this.lbSpecularStrength = new System.Windows.Forms.Label();
-            this.btColor2 = new System.Windows.Forms.Button();
-            this.lbColor2 = new System.Windows.Forms.Label();
-            this.btColor1 = new System.Windows.Forms.Button();
-            this.lbColor1 = new System.Windows.Forms.Label();
-            this.numSpecularStrength = new System.Windows.Forms.NumericUpDown();
-            this.cbUseAlpha = new System.Windows.Forms.CheckBox();
-            this.tbTexture1 = new System.Windows.Forms.TextBox();
-            this.numByte7 = new System.Windows.Forms.NumericUpDown();
-            this.numByte8 = new System.Windows.Forms.NumericUpDown();
-            this.numByte9 = new System.Windows.Forms.NumericUpDown();
-            this.numByte10 = new System.Windows.Forms.NumericUpDown();
-            this.numByte11 = new System.Windows.Forms.NumericUpDown();
-            this.numByte12 = new System.Windows.Forms.NumericUpDown();
-            this.numByte13 = new System.Windows.Forms.NumericUpDown();
-            this.numByte14 = new System.Windows.Forms.NumericUpDown();
-            this.numByte15 = new System.Windows.Forms.NumericUpDown();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.tabPageGeneral = new System.Windows.Forms.TabPage();
+            this.splitContainerGeneral = new System.Windows.Forms.SplitContainer();
+            this.lbGrayscaleToPaletteColor = new System.Windows.Forms.Label();
+            this.lbEnvironmentMaskScale = new System.Windows.Forms.Label();
+            this.lbEnvironmentMapping = new System.Windows.Forms.Label();
+            this.lbRefractionPower = new System.Windows.Forms.Label();
+            this.lbRefractionFalloff = new System.Windows.Forms.Label();
+            this.lbRefraction = new System.Windows.Forms.Label();
+            this.lbNonOccluder = new System.Windows.Forms.Label();
+            this.lbDecalNoFade = new System.Windows.Forms.Label();
+            this.lbTwoSided = new System.Windows.Forms.Label();
+            this.lbDecal = new System.Windows.Forms.Label();
+            this.lbWetnessControlSSR = new System.Windows.Forms.Label();
+            this.lbScreenSpaceReflections = new System.Windows.Forms.Label();
+            this.lbZBufferTest = new System.Windows.Forms.Label();
+            this.lbZBufferWrite = new System.Windows.Forms.Label();
+            this.lbAlphaTest = new System.Windows.Forms.Label();
+            this.lbAlphaTestReference = new System.Windows.Forms.Label();
+            this.lbAlphaBlendMode = new System.Windows.Forms.Label();
+            this.lbAlpha = new System.Windows.Forms.Label();
+            this.lbScaleV = new System.Windows.Forms.Label();
+            this.lbScaleU = new System.Windows.Forms.Label();
+            this.lbOffsetV = new System.Windows.Forms.Label();
+            this.lbOffsetU = new System.Windows.Forms.Label();
+            this.lbTileV = new System.Windows.Forms.Label();
+            this.lbTileU = new System.Windows.Forms.Label();
+            this.lbVersion = new System.Windows.Forms.Label();
+            this.cbGrayscaleToPaletteColor = new System.Windows.Forms.CheckBox();
+            this.numEnvironmentMaskScale = new System.Windows.Forms.NumericUpDown();
+            this.cbEnvironmentMapping = new System.Windows.Forms.CheckBox();
+            this.numRefractionPower = new System.Windows.Forms.NumericUpDown();
+            this.cbRefractionFalloff = new System.Windows.Forms.CheckBox();
+            this.cbRefraction = new System.Windows.Forms.CheckBox();
+            this.cbNonOccluder = new System.Windows.Forms.CheckBox();
+            this.cbDecalNoFade = new System.Windows.Forms.CheckBox();
+            this.cbTwoSided = new System.Windows.Forms.CheckBox();
+            this.cbDecal = new System.Windows.Forms.CheckBox();
+            this.cbWetnessControlSSR = new System.Windows.Forms.CheckBox();
+            this.cbScreenSpaceReflections = new System.Windows.Forms.CheckBox();
+            this.cbZBufferTest = new System.Windows.Forms.CheckBox();
+            this.cbZBufferWrite = new System.Windows.Forms.CheckBox();
+            this.cbAlphaTest = new System.Windows.Forms.CheckBox();
+            this.numAlphaTestReference = new System.Windows.Forms.NumericUpDown();
+            this.selAlphaBlendMode = new System.Windows.Forms.ComboBox();
+            this.numAlpha = new System.Windows.Forms.NumericUpDown();
+            this.numScaleV = new System.Windows.Forms.NumericUpDown();
+            this.numScaleU = new System.Windows.Forms.NumericUpDown();
+            this.numOffsetV = new System.Windows.Forms.NumericUpDown();
+            this.numOffsetU = new System.Windows.Forms.NumericUpDown();
+            this.cbTileV = new System.Windows.Forms.CheckBox();
+            this.cbTileU = new System.Windows.Forms.CheckBox();
+            this.numVersion = new System.Windows.Forms.NumericUpDown();
+            this.tabPageMaterial = new System.Windows.Forms.TabPage();
+            this.splitContainerMaterial = new System.Windows.Forms.SplitContainer();
+            this.lbSkewSpecularAlpha = new System.Windows.Forms.Label();
+            this.lbGrayscaleToPaletteScale = new System.Windows.Forms.Label();
+            this.lbTessellationFadeDistance = new System.Windows.Forms.Label();
+            this.lbTessellationBaseFactor = new System.Windows.Forms.Label();
+            this.lbTessellationPNScale = new System.Windows.Forms.Label();
+            this.lbDisplacementTexScale = new System.Windows.Forms.Label();
+            this.lbDisplacementTexBias = new System.Windows.Forms.Label();
+            this.lbTessellate = new System.Windows.Forms.Label();
+            this.lbSkinTint = new System.Windows.Forms.Label();
+            this.lbFacegen = new System.Windows.Forms.Label();
+            this.lbTree = new System.Windows.Forms.Label();
+            this.lbHairTintColor = new System.Windows.Forms.Label();
+            this.lbHair = new System.Windows.Forms.Label();
+            this.lbEnvironmentMapEye = new System.Windows.Forms.Label();
+            this.lbEnvironmentMapWindow = new System.Windows.Forms.Label();
+            this.lbGlowmap = new System.Windows.Forms.Label();
+            this.lbAssumeShadowmask = new System.Windows.Forms.Label();
+            this.lbDissolveFade = new System.Windows.Forms.Label();
+            this.lbCastShadows = new System.Windows.Forms.Label();
+            this.lbHideSecret = new System.Windows.Forms.Label();
+            this.lbReceiveShadows = new System.Windows.Forms.Label();
+            this.lbBackLighting = new System.Windows.Forms.Label();
+            this.lbExternalEmittance = new System.Windows.Forms.Label();
+            this.lbModelSpaceNormals = new System.Windows.Forms.Label();
+            this.lbEmittanceMultiplier = new System.Windows.Forms.Label();
+            this.lbEmittanceColor = new System.Windows.Forms.Label();
+            this.lbEmittanceEnabled = new System.Windows.Forms.Label();
+            this.lbAnisoLighting = new System.Windows.Forms.Label();
+            this.lbRootMaterialPath = new System.Windows.Forms.Label();
+            this.lbWetMetalness = new System.Windows.Forms.Label();
+            this.lbWetFresnelPower = new System.Windows.Forms.Label();
+            this.lbWetEnvMapScale = new System.Windows.Forms.Label();
+            this.lbWetSpecMinVar = new System.Windows.Forms.Label();
+            this.lbWetSpecPowerScale = new System.Windows.Forms.Label();
+            this.lbWetSpecScale = new System.Windows.Forms.Label();
+            this.lbFresnelPower = new System.Windows.Forms.Label();
+            this.lbSmoothness = new System.Windows.Forms.Label();
+            this.lbSpecularMult = new System.Windows.Forms.Label();
+            this.lbSpecularColor = new System.Windows.Forms.Label();
+            this.lbSpecularEnabled = new System.Windows.Forms.Label();
+            this.lbSubsurfaceLightingRolloff = new System.Windows.Forms.Label();
+            this.lbSubsurfaceLighting = new System.Windows.Forms.Label();
+            this.lbBacklightPower = new System.Windows.Forms.Label();
+            this.lbRimPower = new System.Windows.Forms.Label();
+            this.lbRimLighting = new System.Windows.Forms.Label();
+            this.lbEnableEditorAlphaRef = new System.Windows.Forms.Label();
+            this.lbDisplacementTexture = new System.Windows.Forms.Label();
+            this.lbWrinklesTexture = new System.Windows.Forms.Label();
+            this.lbInnerLayerTexture = new System.Windows.Forms.Label();
+            this.lbGlowTexture = new System.Windows.Forms.Label();
+            this.lbEnvironmentMapTexture = new System.Windows.Forms.Label();
+            this.lbGreyscaleTexture = new System.Windows.Forms.Label();
+            this.lbSmoothSpecularTexture = new System.Windows.Forms.Label();
+            this.lbNormalTexture = new System.Windows.Forms.Label();
+            this.lbDiffuseTexture = new System.Windows.Forms.Label();
+            this.cbSkewSpecularAlpha = new System.Windows.Forms.CheckBox();
+            this.numGrayscaleToPaletteScale = new System.Windows.Forms.NumericUpDown();
+            this.numTessellationFadeDistance = new System.Windows.Forms.NumericUpDown();
+            this.numTessellationBaseFactor = new System.Windows.Forms.NumericUpDown();
+            this.numTessellationPNScale = new System.Windows.Forms.NumericUpDown();
+            this.numDisplacementTexScale = new System.Windows.Forms.NumericUpDown();
+            this.numDisplacementTexBias = new System.Windows.Forms.NumericUpDown();
+            this.cbTessellate = new System.Windows.Forms.CheckBox();
+            this.cbSkinTint = new System.Windows.Forms.CheckBox();
+            this.cbFacegen = new System.Windows.Forms.CheckBox();
+            this.cbTree = new System.Windows.Forms.CheckBox();
+            this.btHairTintColor = new System.Windows.Forms.Button();
+            this.cbHair = new System.Windows.Forms.CheckBox();
+            this.cbEnvironmentMapEye = new System.Windows.Forms.CheckBox();
+            this.cbEnvironmentMapWindow = new System.Windows.Forms.CheckBox();
+            this.cbGlowmap = new System.Windows.Forms.CheckBox();
+            this.cbAssumeShadowmask = new System.Windows.Forms.CheckBox();
+            this.cbDissolveFade = new System.Windows.Forms.CheckBox();
+            this.cbCastShadows = new System.Windows.Forms.CheckBox();
+            this.cbHideSecret = new System.Windows.Forms.CheckBox();
+            this.cbReceiveShadows = new System.Windows.Forms.CheckBox();
+            this.cbBackLighting = new System.Windows.Forms.CheckBox();
+            this.cbExternalEmittance = new System.Windows.Forms.CheckBox();
+            this.cbModelSpaceNormals = new System.Windows.Forms.CheckBox();
+            this.numEmittanceMultiplier = new System.Windows.Forms.NumericUpDown();
+            this.btEmittanceColor = new System.Windows.Forms.Button();
+            this.cbEmittanceEnabled = new System.Windows.Forms.CheckBox();
+            this.cbAnisoLighting = new System.Windows.Forms.CheckBox();
+            this.tbRootMaterialPath = new System.Windows.Forms.TextBox();
+            this.numWetMetalness = new System.Windows.Forms.NumericUpDown();
+            this.numWetFresnelPower = new System.Windows.Forms.NumericUpDown();
+            this.numWetEnvMapScale = new System.Windows.Forms.NumericUpDown();
+            this.numWetSpecMinVar = new System.Windows.Forms.NumericUpDown();
+            this.numWetSpecPowerScale = new System.Windows.Forms.NumericUpDown();
+            this.numWetSpecScale = new System.Windows.Forms.NumericUpDown();
+            this.numFresnelPower = new System.Windows.Forms.NumericUpDown();
+            this.numSmoothness = new System.Windows.Forms.NumericUpDown();
+            this.numSpecularMultiplier = new System.Windows.Forms.NumericUpDown();
+            this.btSpecularColor = new System.Windows.Forms.Button();
+            this.cbSpecularEnabled = new System.Windows.Forms.CheckBox();
+            this.numSubsurfaceLightingRolloff = new System.Windows.Forms.NumericUpDown();
+            this.cbSubsurfaceLighting = new System.Windows.Forms.CheckBox();
+            this.numBacklightPower = new System.Windows.Forms.NumericUpDown();
+            this.cbRimLighting = new System.Windows.Forms.CheckBox();
+            this.tbDisplacementTexture = new System.Windows.Forms.TextBox();
+            this.tbWrinklesTexture = new System.Windows.Forms.TextBox();
+            this.tbInnerLayerTexture = new System.Windows.Forms.TextBox();
+            this.tbGlowTexture = new System.Windows.Forms.TextBox();
+            this.tbEnvironmentMapTexture = new System.Windows.Forms.TextBox();
+            this.tbGreyscaleTexture = new System.Windows.Forms.TextBox();
+            this.tbSmoothSpecularTexture = new System.Windows.Forms.TextBox();
+            this.tbNormalTexture = new System.Windows.Forms.TextBox();
+            this.tbDiffuseTexture = new System.Windows.Forms.TextBox();
+            this.numRimPower = new System.Windows.Forms.NumericUpDown();
+            this.cbEnableEditorAlphaRef = new System.Windows.Forms.CheckBox();
+            this.tabPageEffect = new System.Windows.Forms.TabPage();
+            this.splitContainerEffect = new System.Windows.Forms.SplitContainer();
+            this.lbSoftDepth = new System.Windows.Forms.Label();
+            this.lbEnvmapMinLOD = new System.Windows.Forms.Label();
+            this.lbLightingInfluence = new System.Windows.Forms.Label();
+            this.lbFalloffStopOpacity = new System.Windows.Forms.Label();
+            this.lbFalloffStartOpacity = new System.Windows.Forms.Label();
+            this.lbFalloffStopAngle = new System.Windows.Forms.Label();
+            this.lbFalloffStartAngle = new System.Windows.Forms.Label();
+            this.lbBaseColorScale = new System.Windows.Forms.Label();
+            this.lbBaseColor = new System.Windows.Forms.Label();
+            this.lbSoftEnabled = new System.Windows.Forms.Label();
+            this.lbGrayscaleToPaletteAlpha = new System.Windows.Forms.Label();
+            this.lbFalloffColorEnabled = new System.Windows.Forms.Label();
+            this.lbFalloffEnabled = new System.Windows.Forms.Label();
+            this.lbEffectLightingEnabled = new System.Windows.Forms.Label();
+            this.lbBloodEnabled = new System.Windows.Forms.Label();
+            this.lbEnvmapMaskTexture = new System.Windows.Forms.Label();
+            this.lbNormalTexture_effect = new System.Windows.Forms.Label();
+            this.lbEnvmapTexture = new System.Windows.Forms.Label();
+            this.lbGrayscaleTexture = new System.Windows.Forms.Label();
+            this.lbBaseTexture = new System.Windows.Forms.Label();
+            this.numSoftDepth = new System.Windows.Forms.NumericUpDown();
+            this.numLightingInfluence = new System.Windows.Forms.NumericUpDown();
+            this.numFalloffStopOpacity = new System.Windows.Forms.NumericUpDown();
+            this.numFalloffStartOpacity = new System.Windows.Forms.NumericUpDown();
+            this.numFalloffStopAngle = new System.Windows.Forms.NumericUpDown();
+            this.numFalloffStartAngle = new System.Windows.Forms.NumericUpDown();
+            this.btBaseColor = new System.Windows.Forms.Button();
+            this.cbSoftEnabled = new System.Windows.Forms.CheckBox();
+            this.cbGrayscaleToPaletteAlpha = new System.Windows.Forms.CheckBox();
+            this.cbFalloffColorEnabled = new System.Windows.Forms.CheckBox();
+            this.cbFalloffEnabled = new System.Windows.Forms.CheckBox();
+            this.cbEffectLightingEnabled = new System.Windows.Forms.CheckBox();
+            this.tbEnvmapMaskTexture = new System.Windows.Forms.TextBox();
+            this.tbNormalTexture_effect = new System.Windows.Forms.TextBox();
+            this.tbEnvmapTexture = new System.Windows.Forms.TextBox();
+            this.tbGrayscaleTexture = new System.Windows.Forms.TextBox();
+            this.tbBaseTexture = new System.Windows.Forms.TextBox();
+            this.cbBloodEnabled = new System.Windows.Forms.CheckBox();
+            this.numEnvmapMinLOD = new System.Windows.Forms.NumericUpDown();
+            this.numBaseColorScale = new System.Windows.Forms.NumericUpDown();
             this.menuStrip.SuspendLayout();
-            this.tableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte19)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte18)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInt4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInt3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInt2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInt1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFlags2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFlags1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSpecularStrength)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte15)).BeginInit();
+            this.tabControl.SuspendLayout();
+            this.tabPageGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerGeneral)).BeginInit();
+            this.splitContainerGeneral.Panel1.SuspendLayout();
+            this.splitContainerGeneral.Panel2.SuspendLayout();
+            this.splitContainerGeneral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnvironmentMaskScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRefractionPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAlphaTestReference)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAlpha)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numScaleV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numScaleU)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOffsetV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOffsetU)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVersion)).BeginInit();
+            this.tabPageMaterial.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMaterial)).BeginInit();
+            this.splitContainerMaterial.Panel1.SuspendLayout();
+            this.splitContainerMaterial.Panel2.SuspendLayout();
+            this.splitContainerMaterial.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numGrayscaleToPaletteScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTessellationFadeDistance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTessellationBaseFactor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTessellationPNScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDisplacementTexScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDisplacementTexBias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEmittanceMultiplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetMetalness)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetFresnelPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetEnvMapScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetSpecMinVar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetSpecPowerScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetSpecScale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFresnelPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSmoothness)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSpecularMultiplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSubsurfaceLightingRolloff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBacklightPower)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRimPower)).BeginInit();
+            this.tabPageEffect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerEffect)).BeginInit();
+            this.splitContainerEffect.Panel1.SuspendLayout();
+            this.splitContainerEffect.Panel2.SuspendLayout();
+            this.splitContainerEffect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numSoftDepth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numLightingInfluence)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFalloffStopOpacity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFalloffStartOpacity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFalloffStopAngle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFalloffStartAngle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnvmapMinLOD)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBaseColorScale)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -296,7 +308,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(485, 24);
+            this.menuStrip.Size = new System.Drawing.Size(484, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -372,2572 +384,2891 @@
             // 
             this.colorDialog.FullOpen = true;
             // 
-            // tableLayoutPanel
+            // tabControl
             // 
-            this.tableLayoutPanel.AutoScroll = true;
-            this.tableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanel.ColumnCount = 2;
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.66667F));
-            this.tableLayoutPanel.Controls.Add(this.numByte22, 1, 86);
-            this.tableLayoutPanel.Controls.Add(this.lbByte22, 0, 86);
-            this.tableLayoutPanel.Controls.Add(this.numFloat17, 1, 85);
-            this.tableLayoutPanel.Controls.Add(this.numFloat16, 1, 84);
-            this.tableLayoutPanel.Controls.Add(this.numFloat15, 1, 83);
-            this.tableLayoutPanel.Controls.Add(this.numFloat14, 1, 82);
-            this.tableLayoutPanel.Controls.Add(this.numFloat13, 1, 81);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat17, 0, 85);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat16, 0, 84);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat15, 0, 83);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat14, 0, 82);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat13, 0, 81);
-            this.tableLayoutPanel.Controls.Add(this.numFloat12, 1, 80);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat12, 0, 80);
-            this.tableLayoutPanel.Controls.Add(this.numByte21, 1, 79);
-            this.tableLayoutPanel.Controls.Add(this.lbByte21, 0, 79);
-            this.tableLayoutPanel.Controls.Add(this.numByte20, 1, 77);
-            this.tableLayoutPanel.Controls.Add(this.numByte19, 1, 76);
-            this.tableLayoutPanel.Controls.Add(this.lbByte20, 0, 77);
-            this.tableLayoutPanel.Controls.Add(this.lbByte19, 0, 76);
-            this.tableLayoutPanel.Controls.Add(this.numByte18, 1, 74);
-            this.tableLayoutPanel.Controls.Add(this.numByte17, 1, 73);
-            this.tableLayoutPanel.Controls.Add(this.numByte16, 1, 72);
-            this.tableLayoutPanel.Controls.Add(this.lbByte18, 0, 74);
-            this.tableLayoutPanel.Controls.Add(this.lbByte16, 0, 72);
-            this.tableLayoutPanel.Controls.Add(this.lbByte17, 0, 73);
-            this.tableLayoutPanel.Controls.Add(this.lbByte15, 0, 71);
-            this.tableLayoutPanel.Controls.Add(this.lbByte14, 0, 70);
-            this.tableLayoutPanel.Controls.Add(this.lbByte13, 0, 69);
-            this.tableLayoutPanel.Controls.Add(this.lbByte12, 0, 68);
-            this.tableLayoutPanel.Controls.Add(this.lbByte11, 0, 67);
-            this.tableLayoutPanel.Controls.Add(this.lbByte10, 0, 66);
-            this.tableLayoutPanel.Controls.Add(this.lbByte9, 0, 65);
-            this.tableLayoutPanel.Controls.Add(this.lbByte8, 0, 64);
-            this.tableLayoutPanel.Controls.Add(this.lbByte7, 0, 63);
-            this.tableLayoutPanel.Controls.Add(this.numFloat8, 1, 62);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat8, 0, 62);
-            this.tableLayoutPanel.Controls.Add(this.numByte6, 1, 61);
-            this.tableLayoutPanel.Controls.Add(this.numByte5, 1, 60);
-            this.tableLayoutPanel.Controls.Add(this.lbByte6, 0, 61);
-            this.tableLayoutPanel.Controls.Add(this.lbByte5, 0, 60);
-            this.tableLayoutPanel.Controls.Add(this.numFloat7_13, 1, 58);
-            this.tableLayoutPanel.Controls.Add(this.numFloat7_12, 1, 57);
-            this.tableLayoutPanel.Controls.Add(this.numFloat7_11, 1, 56);
-            this.tableLayoutPanel.Controls.Add(this.numFloat7_10, 1, 55);
-            this.tableLayoutPanel.Controls.Add(this.numFloat7_9, 1, 54);
-            this.tableLayoutPanel.Controls.Add(this.numFloat7_8, 1, 53);
-            this.tableLayoutPanel.Controls.Add(this.numFloat7_7, 1, 52);
-            this.tableLayoutPanel.Controls.Add(this.numFloat7_6, 1, 51);
-            this.tableLayoutPanel.Controls.Add(this.numFloat7_5, 1, 50);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat7_13, 0, 58);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat7_12, 0, 57);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat7_11, 0, 56);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat7_10, 0, 55);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat7_9, 0, 54);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat7_8, 0, 53);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat7_7, 0, 52);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat7_6, 0, 51);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat7_5, 0, 50);
-            this.tableLayoutPanel.Controls.Add(this.cbUseSkinColor, 1, 78);
-            this.tableLayoutPanel.Controls.Add(this.lbUseSkinColor, 0, 78);
-            this.tableLayoutPanel.Controls.Add(this.tbTemplate, 1, 59);
-            this.tableLayoutPanel.Controls.Add(this.lbTemplate, 0, 59);
-            this.tableLayoutPanel.Controls.Add(this.cbUseWet, 1, 47);
-            this.tableLayoutPanel.Controls.Add(this.lbUseWet, 0, 47);
-            this.tableLayoutPanel.Controls.Add(this.numFloat6, 1, 46);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat6, 0, 46);
-            this.tableLayoutPanel.Controls.Add(this.numByte3, 1, 45);
-            this.tableLayoutPanel.Controls.Add(this.lbByte3, 0, 45);
-            this.tableLayoutPanel.Controls.Add(this.numByte2, 1, 42);
-            this.tableLayoutPanel.Controls.Add(this.numByte1, 1, 41);
-            this.tableLayoutPanel.Controls.Add(this.numFloat4, 1, 43);
-            this.tableLayoutPanel.Controls.Add(this.numFloat5, 1, 44);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat5, 0, 44);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat4, 0, 43);
-            this.tableLayoutPanel.Controls.Add(this.lbByte2, 0, 42);
-            this.tableLayoutPanel.Controls.Add(this.lbByte1, 0, 41);
-            this.tableLayoutPanel.Controls.Add(this.tbTexture9, 1, 40);
-            this.tableLayoutPanel.Controls.Add(this.tbTexture8, 1, 39);
-            this.tableLayoutPanel.Controls.Add(this.tbTexture7, 1, 38);
-            this.tableLayoutPanel.Controls.Add(this.tbTexture6, 1, 37);
-            this.tableLayoutPanel.Controls.Add(this.tbTexture5, 1, 36);
-            this.tableLayoutPanel.Controls.Add(this.tbTexture4, 1, 35);
-            this.tableLayoutPanel.Controls.Add(this.tbTexture3, 1, 34);
-            this.tableLayoutPanel.Controls.Add(this.tbTexture2, 1, 33);
-            this.tableLayoutPanel.Controls.Add(this.lbTexture9, 0, 40);
-            this.tableLayoutPanel.Controls.Add(this.lbTexture8, 0, 39);
-            this.tableLayoutPanel.Controls.Add(this.lbTexture7, 0, 38);
-            this.tableLayoutPanel.Controls.Add(this.lbTexture6, 0, 37);
-            this.tableLayoutPanel.Controls.Add(this.lbTexture5, 0, 36);
-            this.tableLayoutPanel.Controls.Add(this.lbTexture4, 0, 35);
-            this.tableLayoutPanel.Controls.Add(this.lbTexture3, 0, 34);
-            this.tableLayoutPanel.Controls.Add(this.lbTexture2, 0, 33);
-            this.tableLayoutPanel.Controls.Add(this.lbTexture1, 0, 32);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte23, 1, 31);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte22, 1, 30);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte21, 1, 29);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte20, 1, 28);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte19, 1, 27);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte18, 1, 26);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte17, 1, 25);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte16, 1, 24);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte15, 1, 23);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte14, 1, 22);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte13, 1, 21);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte12, 1, 20);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte11, 1, 19);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte10, 1, 18);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte23, 0, 31);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte22, 0, 30);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte21, 0, 29);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte20, 0, 28);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte19, 0, 27);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte18, 0, 26);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte17, 0, 25);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte16, 0, 24);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte15, 0, 23);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte14, 0, 22);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte13, 0, 21);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte12, 0, 20);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte11, 0, 19);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte10, 0, 18);
-            this.tableLayoutPanel.Controls.Add(this.cbUseDoubleSided, 1, 17);
-            this.tableLayoutPanel.Controls.Add(this.lbUseDoubleSided, 0, 17);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte8, 1, 16);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte7, 1, 15);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte6, 1, 14);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte5, 1, 13);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte4, 1, 12);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte8, 0, 16);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte7, 0, 15);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte6, 0, 14);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte5, 0, 13);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte4, 0, 12);
-            this.tableLayoutPanel.Controls.Add(this.lbUseAlpha, 0, 11);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte2, 1, 10);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte2, 0, 10);
-            this.tableLayoutPanel.Controls.Add(this.numMysteryByte1, 1, 9);
-            this.tableLayoutPanel.Controls.Add(this.lbMysteryByte1, 0, 9);
-            this.tableLayoutPanel.Controls.Add(this.numFloat3, 1, 6);
-            this.tableLayoutPanel.Controls.Add(this.numFloat2, 1, 5);
-            this.tableLayoutPanel.Controls.Add(this.numFloat1, 1, 4);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat3, 0, 6);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat2, 0, 5);
-            this.tableLayoutPanel.Controls.Add(this.lbFloat1, 0, 4);
-            this.tableLayoutPanel.Controls.Add(this.numInt4, 1, 3);
-            this.tableLayoutPanel.Controls.Add(this.numInt3, 1, 2);
-            this.tableLayoutPanel.Controls.Add(this.numInt2, 1, 1);
-            this.tableLayoutPanel.Controls.Add(this.numInt1, 1, 0);
-            this.tableLayoutPanel.Controls.Add(this.lbInt4, 0, 3);
-            this.tableLayoutPanel.Controls.Add(this.lbInt3, 0, 2);
-            this.tableLayoutPanel.Controls.Add(this.lbInt2, 0, 1);
-            this.tableLayoutPanel.Controls.Add(this.lbInt1, 0, 0);
-            this.tableLayoutPanel.Controls.Add(this.numFlags2, 1, 8);
-            this.tableLayoutPanel.Controls.Add(this.numFlags1, 1, 7);
-            this.tableLayoutPanel.Controls.Add(this.lbFlags2, 0, 8);
-            this.tableLayoutPanel.Controls.Add(this.lbFlags1, 0, 7);
-            this.tableLayoutPanel.Controls.Add(this.lbSpecularStrength, 0, 49);
-            this.tableLayoutPanel.Controls.Add(this.btColor2, 1, 75);
-            this.tableLayoutPanel.Controls.Add(this.lbColor2, 0, 75);
-            this.tableLayoutPanel.Controls.Add(this.btColor1, 1, 48);
-            this.tableLayoutPanel.Controls.Add(this.lbColor1, 0, 48);
-            this.tableLayoutPanel.Controls.Add(this.numSpecularStrength, 1, 49);
-            this.tableLayoutPanel.Controls.Add(this.cbUseAlpha, 1, 11);
-            this.tableLayoutPanel.Controls.Add(this.tbTexture1, 1, 32);
-            this.tableLayoutPanel.Controls.Add(this.numByte7, 1, 63);
-            this.tableLayoutPanel.Controls.Add(this.numByte8, 1, 64);
-            this.tableLayoutPanel.Controls.Add(this.numByte9, 1, 65);
-            this.tableLayoutPanel.Controls.Add(this.numByte10, 1, 66);
-            this.tableLayoutPanel.Controls.Add(this.numByte11, 1, 67);
-            this.tableLayoutPanel.Controls.Add(this.numByte12, 1, 68);
-            this.tableLayoutPanel.Controls.Add(this.numByte13, 1, 69);
-            this.tableLayoutPanel.Controls.Add(this.numByte14, 1, 70);
-            this.tableLayoutPanel.Controls.Add(this.numByte15, 1, 71);
-            this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel.Name = "tableLayoutPanel";
-            this.tableLayoutPanel.RowCount = 87;
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(485, 522);
-            this.tableLayoutPanel.TabIndex = 1;
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl.Controls.Add(this.tabPageGeneral);
+            this.tabControl.Controls.Add(this.tabPageMaterial);
+            this.tabControl.Controls.Add(this.tabPageEffect);
+            this.tabControl.Enabled = false;
+            this.tabControl.Location = new System.Drawing.Point(0, 27);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(484, 533);
+            this.tabControl.TabIndex = 2;
             // 
-            // numByte22
+            // tabPageGeneral
             // 
-            this.numByte22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte22.Location = new System.Drawing.Point(159, 2670);
-            this.numByte22.Maximum = new decimal(new int[] {
-            255,
+            this.tabPageGeneral.AutoScroll = true;
+            this.tabPageGeneral.Controls.Add(this.splitContainerGeneral);
+            this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
+            this.tabPageGeneral.Name = "tabPageGeneral";
+            this.tabPageGeneral.Size = new System.Drawing.Size(476, 507);
+            this.tabPageGeneral.TabIndex = 2;
+            this.tabPageGeneral.Text = "General";
+            this.tabPageGeneral.UseVisualStyleBackColor = true;
+            this.tabPageGeneral.Scroll += TabScroll;
+            // 
+            // splitContainerGeneral
+            // 
+            this.splitContainerGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainerGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainerGeneral.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerGeneral.IsSplitterFixed = true;
+            this.splitContainerGeneral.Location = new System.Drawing.Point(4, 4);
+            this.splitContainerGeneral.Name = "splitContainerGeneral";
+            // 
+            // splitContainerGeneral.Panel1
+            // 
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbGrayscaleToPaletteColor);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbEnvironmentMaskScale);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbEnvironmentMapping);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbRefractionPower);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbRefractionFalloff);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbRefraction);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbNonOccluder);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbDecalNoFade);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbTwoSided);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbDecal);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbWetnessControlSSR);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbScreenSpaceReflections);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbZBufferTest);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbZBufferWrite);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbAlphaTest);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbAlphaTestReference);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbAlphaBlendMode);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbAlpha);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbScaleV);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbScaleU);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbOffsetV);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbOffsetU);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbTileV);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbTileU);
+            this.splitContainerGeneral.Panel1.Controls.Add(this.lbVersion);
+            this.splitContainerGeneral.Panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.splitContainerGeneral.Panel1MinSize = 165;
+            // 
+            // splitContainerGeneral.Panel2
+            // 
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbGrayscaleToPaletteColor);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.numEnvironmentMaskScale);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbEnvironmentMapping);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.numRefractionPower);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbRefractionFalloff);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbRefraction);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbNonOccluder);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbDecalNoFade);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbTwoSided);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbDecal);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbWetnessControlSSR);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbScreenSpaceReflections);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbZBufferTest);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbZBufferWrite);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbAlphaTest);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.numAlphaTestReference);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.selAlphaBlendMode);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.numAlpha);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.numScaleV);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.numScaleU);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.numOffsetV);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.numOffsetU);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbTileV);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.cbTileU);
+            this.splitContainerGeneral.Panel2.Controls.Add(this.numVersion);
+            this.splitContainerGeneral.Panel2.Padding = new System.Windows.Forms.Padding(10);
+            this.splitContainerGeneral.Panel2MinSize = 165;
+            this.splitContainerGeneral.Size = new System.Drawing.Size(469, 492);
+            this.splitContainerGeneral.SplitterDistance = 165;
+            this.splitContainerGeneral.TabIndex = 1;
+            // 
+            // lbGrayscaleToPaletteColor
+            // 
+            this.lbGrayscaleToPaletteColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbGrayscaleToPaletteColor.Location = new System.Drawing.Point(13, 469);
+            this.lbGrayscaleToPaletteColor.Margin = new System.Windows.Forms.Padding(3);
+            this.lbGrayscaleToPaletteColor.Name = "lbGrayscaleToPaletteColor";
+            this.lbGrayscaleToPaletteColor.Size = new System.Drawing.Size(135, 13);
+            this.lbGrayscaleToPaletteColor.TabIndex = 24;
+            this.lbGrayscaleToPaletteColor.Text = "Grayscale To Palette Color";
+            // 
+            // lbEnvironmentMaskScale
+            // 
+            this.lbEnvironmentMaskScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnvironmentMaskScale.Location = new System.Drawing.Point(13, 450);
+            this.lbEnvironmentMaskScale.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEnvironmentMaskScale.Name = "lbEnvironmentMaskScale";
+            this.lbEnvironmentMaskScale.Size = new System.Drawing.Size(135, 13);
+            this.lbEnvironmentMaskScale.TabIndex = 23;
+            this.lbEnvironmentMaskScale.Text = "Environment Mask Scale";
+            // 
+            // lbEnvironmentMapping
+            // 
+            this.lbEnvironmentMapping.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnvironmentMapping.Location = new System.Drawing.Point(13, 431);
+            this.lbEnvironmentMapping.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEnvironmentMapping.Name = "lbEnvironmentMapping";
+            this.lbEnvironmentMapping.Size = new System.Drawing.Size(135, 13);
+            this.lbEnvironmentMapping.TabIndex = 22;
+            this.lbEnvironmentMapping.Text = "Environment Mapping";
+            // 
+            // lbRefractionPower
+            // 
+            this.lbRefractionPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRefractionPower.Location = new System.Drawing.Point(13, 412);
+            this.lbRefractionPower.Margin = new System.Windows.Forms.Padding(3);
+            this.lbRefractionPower.Name = "lbRefractionPower";
+            this.lbRefractionPower.Size = new System.Drawing.Size(135, 13);
+            this.lbRefractionPower.TabIndex = 21;
+            this.lbRefractionPower.Text = "Refraction Power";
+            // 
+            // lbRefractionFalloff
+            // 
+            this.lbRefractionFalloff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRefractionFalloff.Location = new System.Drawing.Point(13, 393);
+            this.lbRefractionFalloff.Margin = new System.Windows.Forms.Padding(3);
+            this.lbRefractionFalloff.Name = "lbRefractionFalloff";
+            this.lbRefractionFalloff.Size = new System.Drawing.Size(135, 13);
+            this.lbRefractionFalloff.TabIndex = 20;
+            this.lbRefractionFalloff.Text = "Refraction Falloff";
+            // 
+            // lbRefraction
+            // 
+            this.lbRefraction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRefraction.Location = new System.Drawing.Point(13, 374);
+            this.lbRefraction.Margin = new System.Windows.Forms.Padding(3);
+            this.lbRefraction.Name = "lbRefraction";
+            this.lbRefraction.Size = new System.Drawing.Size(135, 13);
+            this.lbRefraction.TabIndex = 19;
+            this.lbRefraction.Text = "Refraction";
+            // 
+            // lbNonOccluder
+            // 
+            this.lbNonOccluder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNonOccluder.Location = new System.Drawing.Point(13, 355);
+            this.lbNonOccluder.Margin = new System.Windows.Forms.Padding(3);
+            this.lbNonOccluder.Name = "lbNonOccluder";
+            this.lbNonOccluder.Size = new System.Drawing.Size(135, 13);
+            this.lbNonOccluder.TabIndex = 18;
+            this.lbNonOccluder.Text = "Non Occluder";
+            // 
+            // lbDecalNoFade
+            // 
+            this.lbDecalNoFade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDecalNoFade.Location = new System.Drawing.Point(13, 336);
+            this.lbDecalNoFade.Margin = new System.Windows.Forms.Padding(3);
+            this.lbDecalNoFade.Name = "lbDecalNoFade";
+            this.lbDecalNoFade.Size = new System.Drawing.Size(135, 13);
+            this.lbDecalNoFade.TabIndex = 17;
+            this.lbDecalNoFade.Text = "Decal No Fade";
+            // 
+            // lbTwoSided
+            // 
+            this.lbTwoSided.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTwoSided.Location = new System.Drawing.Point(13, 317);
+            this.lbTwoSided.Margin = new System.Windows.Forms.Padding(3);
+            this.lbTwoSided.Name = "lbTwoSided";
+            this.lbTwoSided.Size = new System.Drawing.Size(135, 13);
+            this.lbTwoSided.TabIndex = 16;
+            this.lbTwoSided.Text = "Two Sided";
+            // 
+            // lbDecal
+            // 
+            this.lbDecal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDecal.Location = new System.Drawing.Point(13, 298);
+            this.lbDecal.Margin = new System.Windows.Forms.Padding(3);
+            this.lbDecal.Name = "lbDecal";
+            this.lbDecal.Size = new System.Drawing.Size(135, 13);
+            this.lbDecal.TabIndex = 15;
+            this.lbDecal.Text = "Decal";
+            // 
+            // lbWetnessControlSSR
+            // 
+            this.lbWetnessControlSSR.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWetnessControlSSR.Location = new System.Drawing.Point(13, 279);
+            this.lbWetnessControlSSR.Margin = new System.Windows.Forms.Padding(3);
+            this.lbWetnessControlSSR.Name = "lbWetnessControlSSR";
+            this.lbWetnessControlSSR.Size = new System.Drawing.Size(135, 13);
+            this.lbWetnessControlSSR.TabIndex = 14;
+            this.lbWetnessControlSSR.Text = "Wetness Control SSR";
+            // 
+            // lbScreenSpaceReflections
+            // 
+            this.lbScreenSpaceReflections.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbScreenSpaceReflections.Location = new System.Drawing.Point(13, 260);
+            this.lbScreenSpaceReflections.Margin = new System.Windows.Forms.Padding(3);
+            this.lbScreenSpaceReflections.Name = "lbScreenSpaceReflections";
+            this.lbScreenSpaceReflections.Size = new System.Drawing.Size(135, 13);
+            this.lbScreenSpaceReflections.TabIndex = 13;
+            this.lbScreenSpaceReflections.Text = "Screen Space Reflections";
+            // 
+            // lbZBufferTest
+            // 
+            this.lbZBufferTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbZBufferTest.Location = new System.Drawing.Point(13, 241);
+            this.lbZBufferTest.Margin = new System.Windows.Forms.Padding(3);
+            this.lbZBufferTest.Name = "lbZBufferTest";
+            this.lbZBufferTest.Size = new System.Drawing.Size(135, 13);
+            this.lbZBufferTest.TabIndex = 12;
+            this.lbZBufferTest.Text = "Z Buffer Test";
+            // 
+            // lbZBufferWrite
+            // 
+            this.lbZBufferWrite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbZBufferWrite.Location = new System.Drawing.Point(13, 222);
+            this.lbZBufferWrite.Margin = new System.Windows.Forms.Padding(3);
+            this.lbZBufferWrite.Name = "lbZBufferWrite";
+            this.lbZBufferWrite.Size = new System.Drawing.Size(135, 13);
+            this.lbZBufferWrite.TabIndex = 11;
+            this.lbZBufferWrite.Text = "Z Buffer Write";
+            // 
+            // lbAlphaTest
+            // 
+            this.lbAlphaTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbAlphaTest.Location = new System.Drawing.Point(13, 203);
+            this.lbAlphaTest.Margin = new System.Windows.Forms.Padding(3);
+            this.lbAlphaTest.Name = "lbAlphaTest";
+            this.lbAlphaTest.Size = new System.Drawing.Size(135, 13);
+            this.lbAlphaTest.TabIndex = 10;
+            this.lbAlphaTest.Text = "Alpha Test";
+            // 
+            // lbAlphaTestReference
+            // 
+            this.lbAlphaTestReference.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbAlphaTestReference.Location = new System.Drawing.Point(13, 184);
+            this.lbAlphaTestReference.Margin = new System.Windows.Forms.Padding(3);
+            this.lbAlphaTestReference.Name = "lbAlphaTestReference";
+            this.lbAlphaTestReference.Size = new System.Drawing.Size(135, 13);
+            this.lbAlphaTestReference.TabIndex = 9;
+            this.lbAlphaTestReference.Text = "Alpha Test Reference";
+            // 
+            // lbAlphaBlendMode
+            // 
+            this.lbAlphaBlendMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbAlphaBlendMode.Location = new System.Drawing.Point(13, 165);
+            this.lbAlphaBlendMode.Margin = new System.Windows.Forms.Padding(3);
+            this.lbAlphaBlendMode.Name = "lbAlphaBlendMode";
+            this.lbAlphaBlendMode.Size = new System.Drawing.Size(135, 13);
+            this.lbAlphaBlendMode.TabIndex = 8;
+            this.lbAlphaBlendMode.Text = "Alpha Blend Mode";
+            // 
+            // lbAlpha
+            // 
+            this.lbAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbAlpha.Location = new System.Drawing.Point(13, 146);
+            this.lbAlpha.Margin = new System.Windows.Forms.Padding(3);
+            this.lbAlpha.Name = "lbAlpha";
+            this.lbAlpha.Size = new System.Drawing.Size(135, 13);
+            this.lbAlpha.TabIndex = 7;
+            this.lbAlpha.Text = "Alpha";
+            // 
+            // lbScaleV
+            // 
+            this.lbScaleV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbScaleV.Location = new System.Drawing.Point(13, 127);
+            this.lbScaleV.Margin = new System.Windows.Forms.Padding(3);
+            this.lbScaleV.Name = "lbScaleV";
+            this.lbScaleV.Size = new System.Drawing.Size(135, 13);
+            this.lbScaleV.TabIndex = 6;
+            this.lbScaleV.Text = "Scale V";
+            // 
+            // lbScaleU
+            // 
+            this.lbScaleU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbScaleU.Location = new System.Drawing.Point(13, 108);
+            this.lbScaleU.Margin = new System.Windows.Forms.Padding(3);
+            this.lbScaleU.Name = "lbScaleU";
+            this.lbScaleU.Size = new System.Drawing.Size(135, 13);
+            this.lbScaleU.TabIndex = 5;
+            this.lbScaleU.Text = "Scale U";
+            // 
+            // lbOffsetV
+            // 
+            this.lbOffsetV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbOffsetV.Location = new System.Drawing.Point(13, 89);
+            this.lbOffsetV.Margin = new System.Windows.Forms.Padding(3);
+            this.lbOffsetV.Name = "lbOffsetV";
+            this.lbOffsetV.Size = new System.Drawing.Size(135, 13);
+            this.lbOffsetV.TabIndex = 4;
+            this.lbOffsetV.Text = "Offset V";
+            // 
+            // lbOffsetU
+            // 
+            this.lbOffsetU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbOffsetU.Location = new System.Drawing.Point(13, 70);
+            this.lbOffsetU.Margin = new System.Windows.Forms.Padding(3);
+            this.lbOffsetU.Name = "lbOffsetU";
+            this.lbOffsetU.Size = new System.Drawing.Size(135, 13);
+            this.lbOffsetU.TabIndex = 3;
+            this.lbOffsetU.Text = "Offset U";
+            // 
+            // lbTileV
+            // 
+            this.lbTileV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTileV.Location = new System.Drawing.Point(13, 51);
+            this.lbTileV.Margin = new System.Windows.Forms.Padding(3);
+            this.lbTileV.Name = "lbTileV";
+            this.lbTileV.Size = new System.Drawing.Size(135, 13);
+            this.lbTileV.TabIndex = 2;
+            this.lbTileV.Text = "Tile V";
+            // 
+            // lbTileU
+            // 
+            this.lbTileU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTileU.Location = new System.Drawing.Point(13, 32);
+            this.lbTileU.Margin = new System.Windows.Forms.Padding(3);
+            this.lbTileU.Name = "lbTileU";
+            this.lbTileU.Size = new System.Drawing.Size(135, 13);
+            this.lbTileU.TabIndex = 1;
+            this.lbTileU.Text = "Tile U";
+            // 
+            // lbVersion
+            // 
+            this.lbVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbVersion.Location = new System.Drawing.Point(13, 13);
+            this.lbVersion.Margin = new System.Windows.Forms.Padding(3);
+            this.lbVersion.Name = "lbVersion";
+            this.lbVersion.Size = new System.Drawing.Size(135, 13);
+            this.lbVersion.TabIndex = 0;
+            this.lbVersion.Text = "Version";
+            // 
+            // cbGrayscaleToPaletteColor
+            // 
+            this.cbGrayscaleToPaletteColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbGrayscaleToPaletteColor.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbGrayscaleToPaletteColor.Location = new System.Drawing.Point(13, 470);
+            this.cbGrayscaleToPaletteColor.Name = "cbGrayscaleToPaletteColor";
+            this.cbGrayscaleToPaletteColor.Size = new System.Drawing.Size(256, 13);
+            this.cbGrayscaleToPaletteColor.TabIndex = 24;
+            this.cbGrayscaleToPaletteColor.UseVisualStyleBackColor = true;
+            // 
+            // numEnvironmentMaskScale
+            // 
+            this.numEnvironmentMaskScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numEnvironmentMaskScale.DecimalPlaces = 5;
+            this.numEnvironmentMaskScale.Location = new System.Drawing.Point(13, 448);
+            this.numEnvironmentMaskScale.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte22.Name = "numByte22";
-            this.numByte22.Size = new System.Drawing.Size(305, 20);
-            this.numByte22.TabIndex = 185;
-            this.numByte22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbByte22
-            // 
-            this.lbByte22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte22.Location = new System.Drawing.Point(4, 2667);
-            this.lbByte22.Name = "lbByte22";
-            this.lbByte22.Size = new System.Drawing.Size(148, 30);
-            this.lbByte22.TabIndex = 184;
-            this.lbByte22.Text = "Unknown Byte 22";
-            this.lbByte22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numFloat17
-            // 
-            this.numFloat17.DecimalPlaces = 5;
-            this.numFloat17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat17.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat17.Location = new System.Drawing.Point(159, 2639);
-            this.numFloat17.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat17.Minimum = new decimal(new int[] {
-            10000000,
+            this.numEnvironmentMaskScale.Minimum = new decimal(new int[] {
+            100000000,
             0,
             0,
             -2147483648});
-            this.numFloat17.Name = "numFloat17";
-            this.numFloat17.Size = new System.Drawing.Size(305, 20);
-            this.numFloat17.TabIndex = 183;
-            this.numFloat17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numEnvironmentMaskScale.Name = "numEnvironmentMaskScale";
+            this.numEnvironmentMaskScale.Size = new System.Drawing.Size(272, 20);
+            this.numEnvironmentMaskScale.TabIndex = 23;
+            this.numEnvironmentMaskScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numFloat16
+            // cbEnvironmentMapping
             // 
-            this.numFloat16.DecimalPlaces = 5;
-            this.numFloat16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat16.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat16.Location = new System.Drawing.Point(159, 2608);
-            this.numFloat16.Maximum = new decimal(new int[] {
-            10000000,
+            this.cbEnvironmentMapping.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEnvironmentMapping.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbEnvironmentMapping.Location = new System.Drawing.Point(13, 432);
+            this.cbEnvironmentMapping.Name = "cbEnvironmentMapping";
+            this.cbEnvironmentMapping.Size = new System.Drawing.Size(256, 13);
+            this.cbEnvironmentMapping.TabIndex = 22;
+            this.cbEnvironmentMapping.UseVisualStyleBackColor = true;
+            // 
+            // numRefractionPower
+            // 
+            this.numRefractionPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numRefractionPower.DecimalPlaces = 5;
+            this.numRefractionPower.Location = new System.Drawing.Point(13, 410);
+            this.numRefractionPower.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numFloat16.Minimum = new decimal(new int[] {
-            10000000,
+            this.numRefractionPower.Minimum = new decimal(new int[] {
+            100000000,
             0,
             0,
             -2147483648});
-            this.numFloat16.Name = "numFloat16";
-            this.numFloat16.Size = new System.Drawing.Size(305, 20);
-            this.numFloat16.TabIndex = 182;
-            this.numFloat16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numRefractionPower.Name = "numRefractionPower";
+            this.numRefractionPower.Size = new System.Drawing.Size(272, 20);
+            this.numRefractionPower.TabIndex = 21;
+            this.numRefractionPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numFloat15
+            // cbRefractionFalloff
             // 
-            this.numFloat15.DecimalPlaces = 5;
-            this.numFloat15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat15.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat15.Location = new System.Drawing.Point(159, 2577);
-            this.numFloat15.Maximum = new decimal(new int[] {
-            10000000,
+            this.cbRefractionFalloff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbRefractionFalloff.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbRefractionFalloff.Location = new System.Drawing.Point(13, 394);
+            this.cbRefractionFalloff.Name = "cbRefractionFalloff";
+            this.cbRefractionFalloff.Size = new System.Drawing.Size(256, 13);
+            this.cbRefractionFalloff.TabIndex = 20;
+            this.cbRefractionFalloff.UseVisualStyleBackColor = true;
+            // 
+            // cbRefraction
+            // 
+            this.cbRefraction.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbRefraction.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbRefraction.Location = new System.Drawing.Point(13, 375);
+            this.cbRefraction.Name = "cbRefraction";
+            this.cbRefraction.Size = new System.Drawing.Size(256, 13);
+            this.cbRefraction.TabIndex = 19;
+            this.cbRefraction.UseVisualStyleBackColor = true;
+            // 
+            // cbNonOccluder
+            // 
+            this.cbNonOccluder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbNonOccluder.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbNonOccluder.Location = new System.Drawing.Point(13, 356);
+            this.cbNonOccluder.Name = "cbNonOccluder";
+            this.cbNonOccluder.Size = new System.Drawing.Size(256, 13);
+            this.cbNonOccluder.TabIndex = 18;
+            this.cbNonOccluder.UseVisualStyleBackColor = true;
+            // 
+            // cbDecalNoFade
+            // 
+            this.cbDecalNoFade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbDecalNoFade.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbDecalNoFade.Location = new System.Drawing.Point(13, 337);
+            this.cbDecalNoFade.Name = "cbDecalNoFade";
+            this.cbDecalNoFade.Size = new System.Drawing.Size(256, 13);
+            this.cbDecalNoFade.TabIndex = 17;
+            this.cbDecalNoFade.UseVisualStyleBackColor = true;
+            // 
+            // cbTwoSided
+            // 
+            this.cbTwoSided.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTwoSided.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbTwoSided.Location = new System.Drawing.Point(13, 318);
+            this.cbTwoSided.Name = "cbTwoSided";
+            this.cbTwoSided.Size = new System.Drawing.Size(256, 13);
+            this.cbTwoSided.TabIndex = 16;
+            this.cbTwoSided.UseVisualStyleBackColor = true;
+            // 
+            // cbDecal
+            // 
+            this.cbDecal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbDecal.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbDecal.Location = new System.Drawing.Point(13, 299);
+            this.cbDecal.Name = "cbDecal";
+            this.cbDecal.Size = new System.Drawing.Size(256, 13);
+            this.cbDecal.TabIndex = 15;
+            this.cbDecal.UseVisualStyleBackColor = true;
+            // 
+            // cbWetnessControlSSR
+            // 
+            this.cbWetnessControlSSR.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbWetnessControlSSR.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbWetnessControlSSR.Location = new System.Drawing.Point(13, 280);
+            this.cbWetnessControlSSR.Name = "cbWetnessControlSSR";
+            this.cbWetnessControlSSR.Size = new System.Drawing.Size(256, 13);
+            this.cbWetnessControlSSR.TabIndex = 14;
+            this.cbWetnessControlSSR.UseVisualStyleBackColor = true;
+            // 
+            // cbScreenSpaceReflections
+            // 
+            this.cbScreenSpaceReflections.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbScreenSpaceReflections.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbScreenSpaceReflections.Location = new System.Drawing.Point(13, 261);
+            this.cbScreenSpaceReflections.Name = "cbScreenSpaceReflections";
+            this.cbScreenSpaceReflections.Size = new System.Drawing.Size(256, 13);
+            this.cbScreenSpaceReflections.TabIndex = 13;
+            this.cbScreenSpaceReflections.UseVisualStyleBackColor = true;
+            // 
+            // cbZBufferTest
+            // 
+            this.cbZBufferTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbZBufferTest.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbZBufferTest.Location = new System.Drawing.Point(13, 242);
+            this.cbZBufferTest.Name = "cbZBufferTest";
+            this.cbZBufferTest.Size = new System.Drawing.Size(256, 13);
+            this.cbZBufferTest.TabIndex = 12;
+            this.cbZBufferTest.UseVisualStyleBackColor = true;
+            // 
+            // cbZBufferWrite
+            // 
+            this.cbZBufferWrite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbZBufferWrite.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbZBufferWrite.Location = new System.Drawing.Point(13, 223);
+            this.cbZBufferWrite.Name = "cbZBufferWrite";
+            this.cbZBufferWrite.Size = new System.Drawing.Size(256, 13);
+            this.cbZBufferWrite.TabIndex = 11;
+            this.cbZBufferWrite.UseVisualStyleBackColor = true;
+            // 
+            // cbAlphaTest
+            // 
+            this.cbAlphaTest.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbAlphaTest.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbAlphaTest.Location = new System.Drawing.Point(13, 204);
+            this.cbAlphaTest.Name = "cbAlphaTest";
+            this.cbAlphaTest.Size = new System.Drawing.Size(256, 13);
+            this.cbAlphaTest.TabIndex = 10;
+            this.cbAlphaTest.UseVisualStyleBackColor = true;
+            // 
+            // numAlphaTestReference
+            // 
+            this.numAlphaTestReference.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numAlphaTestReference.Location = new System.Drawing.Point(13, 182);
+            this.numAlphaTestReference.Maximum = new decimal(new int[] {
+            128,
             0,
             0,
             0});
-            this.numFloat15.Minimum = new decimal(new int[] {
-            10000000,
+            this.numAlphaTestReference.Minimum = new decimal(new int[] {
+            128,
             0,
             0,
             -2147483648});
-            this.numFloat15.Name = "numFloat15";
-            this.numFloat15.Size = new System.Drawing.Size(305, 20);
-            this.numFloat15.TabIndex = 181;
-            this.numFloat15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numAlphaTestReference.Name = "numAlphaTestReference";
+            this.numAlphaTestReference.Size = new System.Drawing.Size(272, 20);
+            this.numAlphaTestReference.TabIndex = 9;
+            this.numAlphaTestReference.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numFloat14
+            // selAlphaBlendMode
             // 
-            this.numFloat14.DecimalPlaces = 5;
-            this.numFloat14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat14.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat14.Location = new System.Drawing.Point(159, 2546);
-            this.numFloat14.Maximum = new decimal(new int[] {
-            10000000,
+            this.selAlphaBlendMode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.selAlphaBlendMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.selAlphaBlendMode.FormattingEnabled = true;
+            this.selAlphaBlendMode.Items.AddRange(new object[] {
+            "Unknown",
+            "None",
+            "Standard",
+            "Additive",
+            "Multiplicative"});
+            this.selAlphaBlendMode.Location = new System.Drawing.Point(13, 163);
+            this.selAlphaBlendMode.Name = "selAlphaBlendMode";
+            this.selAlphaBlendMode.Size = new System.Drawing.Size(272, 21);
+            this.selAlphaBlendMode.TabIndex = 8;
+            // 
+            // numAlpha
+            // 
+            this.numAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numAlpha.DecimalPlaces = 5;
+            this.numAlpha.Location = new System.Drawing.Point(13, 144);
+            this.numAlpha.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numFloat14.Minimum = new decimal(new int[] {
-            10000000,
+            this.numAlpha.Minimum = new decimal(new int[] {
+            100000000,
             0,
             0,
             -2147483648});
-            this.numFloat14.Name = "numFloat14";
-            this.numFloat14.Size = new System.Drawing.Size(305, 20);
-            this.numFloat14.TabIndex = 180;
-            this.numFloat14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numAlpha.Name = "numAlpha";
+            this.numAlpha.Size = new System.Drawing.Size(272, 20);
+            this.numAlpha.TabIndex = 7;
+            this.numAlpha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numFloat13
+            // numScaleV
             // 
-            this.numFloat13.DecimalPlaces = 5;
-            this.numFloat13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat13.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat13.Location = new System.Drawing.Point(159, 2515);
-            this.numFloat13.Maximum = new decimal(new int[] {
-            10000000,
+            this.numScaleV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numScaleV.DecimalPlaces = 5;
+            this.numScaleV.Location = new System.Drawing.Point(13, 125);
+            this.numScaleV.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numFloat13.Minimum = new decimal(new int[] {
-            10000000,
+            this.numScaleV.Minimum = new decimal(new int[] {
+            100000000,
             0,
             0,
             -2147483648});
-            this.numFloat13.Name = "numFloat13";
-            this.numFloat13.Size = new System.Drawing.Size(305, 20);
-            this.numFloat13.TabIndex = 179;
-            this.numFloat13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numScaleV.Name = "numScaleV";
+            this.numScaleV.Size = new System.Drawing.Size(272, 20);
+            this.numScaleV.TabIndex = 6;
+            this.numScaleV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lbFloat17
+            // numScaleU
             // 
-            this.lbFloat17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat17.Location = new System.Drawing.Point(4, 2636);
-            this.lbFloat17.Name = "lbFloat17";
-            this.lbFloat17.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat17.TabIndex = 178;
-            this.lbFloat17.Text = "Unknown Float 17";
-            this.lbFloat17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat16
-            // 
-            this.lbFloat16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat16.Location = new System.Drawing.Point(4, 2605);
-            this.lbFloat16.Name = "lbFloat16";
-            this.lbFloat16.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat16.TabIndex = 177;
-            this.lbFloat16.Text = "Unknown Float 16";
-            this.lbFloat16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat15
-            // 
-            this.lbFloat15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat15.Location = new System.Drawing.Point(4, 2574);
-            this.lbFloat15.Name = "lbFloat15";
-            this.lbFloat15.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat15.TabIndex = 176;
-            this.lbFloat15.Text = "Unknown Float 15";
-            this.lbFloat15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat14
-            // 
-            this.lbFloat14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat14.Location = new System.Drawing.Point(4, 2543);
-            this.lbFloat14.Name = "lbFloat14";
-            this.lbFloat14.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat14.TabIndex = 175;
-            this.lbFloat14.Text = "Unknown Float 14";
-            this.lbFloat14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat13
-            // 
-            this.lbFloat13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat13.Location = new System.Drawing.Point(4, 2512);
-            this.lbFloat13.Name = "lbFloat13";
-            this.lbFloat13.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat13.TabIndex = 174;
-            this.lbFloat13.Text = "Unknown Float 13";
-            this.lbFloat13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numFloat12
-            // 
-            this.numFloat12.DecimalPlaces = 5;
-            this.numFloat12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat12.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat12.Location = new System.Drawing.Point(159, 2484);
-            this.numFloat12.Maximum = new decimal(new int[] {
-            10000000,
+            this.numScaleU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numScaleU.DecimalPlaces = 5;
+            this.numScaleU.Location = new System.Drawing.Point(13, 106);
+            this.numScaleU.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numFloat12.Minimum = new decimal(new int[] {
-            10000000,
+            this.numScaleU.Minimum = new decimal(new int[] {
+            100000000,
             0,
             0,
             -2147483648});
-            this.numFloat12.Name = "numFloat12";
-            this.numFloat12.Size = new System.Drawing.Size(305, 20);
-            this.numFloat12.TabIndex = 173;
-            this.numFloat12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numScaleU.Name = "numScaleU";
+            this.numScaleU.Size = new System.Drawing.Size(272, 20);
+            this.numScaleU.TabIndex = 5;
+            this.numScaleU.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lbFloat12
+            // numOffsetV
             // 
-            this.lbFloat12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat12.Location = new System.Drawing.Point(4, 2481);
-            this.lbFloat12.Name = "lbFloat12";
-            this.lbFloat12.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat12.TabIndex = 172;
-            this.lbFloat12.Text = "Unknown Float 12";
-            this.lbFloat12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numByte21
-            // 
-            this.numByte21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte21.Location = new System.Drawing.Point(159, 2453);
-            this.numByte21.Maximum = new decimal(new int[] {
-            255,
+            this.numOffsetV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numOffsetV.DecimalPlaces = 5;
+            this.numOffsetV.Location = new System.Drawing.Point(13, 87);
+            this.numOffsetV.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte21.Name = "numByte21";
-            this.numByte21.Size = new System.Drawing.Size(305, 20);
-            this.numByte21.TabIndex = 171;
-            this.numByte21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbByte21
-            // 
-            this.lbByte21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte21.Location = new System.Drawing.Point(4, 2450);
-            this.lbByte21.Name = "lbByte21";
-            this.lbByte21.Size = new System.Drawing.Size(148, 30);
-            this.lbByte21.TabIndex = 170;
-            this.lbByte21.Text = "Unknown Byte 21";
-            this.lbByte21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numByte20
-            // 
-            this.numByte20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte20.Location = new System.Drawing.Point(159, 2391);
-            this.numByte20.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numByte20.Name = "numByte20";
-            this.numByte20.Size = new System.Drawing.Size(305, 20);
-            this.numByte20.TabIndex = 169;
-            this.numByte20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numByte19
-            // 
-            this.numByte19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte19.Location = new System.Drawing.Point(159, 2360);
-            this.numByte19.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numByte19.Name = "numByte19";
-            this.numByte19.Size = new System.Drawing.Size(305, 20);
-            this.numByte19.TabIndex = 168;
-            this.numByte19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbByte20
-            // 
-            this.lbByte20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte20.Location = new System.Drawing.Point(4, 2388);
-            this.lbByte20.Name = "lbByte20";
-            this.lbByte20.Size = new System.Drawing.Size(148, 30);
-            this.lbByte20.TabIndex = 167;
-            this.lbByte20.Text = "Unknown Byte 20";
-            this.lbByte20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte19
-            // 
-            this.lbByte19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte19.Location = new System.Drawing.Point(4, 2357);
-            this.lbByte19.Name = "lbByte19";
-            this.lbByte19.Size = new System.Drawing.Size(148, 30);
-            this.lbByte19.TabIndex = 166;
-            this.lbByte19.Text = "Unknown Byte 19";
-            this.lbByte19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numByte18
-            // 
-            this.numByte18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte18.Location = new System.Drawing.Point(159, 2298);
-            this.numByte18.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numByte18.Name = "numByte18";
-            this.numByte18.Size = new System.Drawing.Size(305, 20);
-            this.numByte18.TabIndex = 165;
-            this.numByte18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numByte17
-            // 
-            this.numByte17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte17.Location = new System.Drawing.Point(159, 2267);
-            this.numByte17.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numByte17.Name = "numByte17";
-            this.numByte17.Size = new System.Drawing.Size(305, 20);
-            this.numByte17.TabIndex = 164;
-            this.numByte17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numByte16
-            // 
-            this.numByte16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte16.Location = new System.Drawing.Point(159, 2236);
-            this.numByte16.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numByte16.Name = "numByte16";
-            this.numByte16.Size = new System.Drawing.Size(305, 20);
-            this.numByte16.TabIndex = 163;
-            this.numByte16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbByte18
-            // 
-            this.lbByte18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte18.Location = new System.Drawing.Point(4, 2295);
-            this.lbByte18.Name = "lbByte18";
-            this.lbByte18.Size = new System.Drawing.Size(148, 30);
-            this.lbByte18.TabIndex = 162;
-            this.lbByte18.Text = "Unknown Byte 18";
-            this.lbByte18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte16
-            // 
-            this.lbByte16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte16.Location = new System.Drawing.Point(4, 2233);
-            this.lbByte16.Name = "lbByte16";
-            this.lbByte16.Size = new System.Drawing.Size(148, 30);
-            this.lbByte16.TabIndex = 161;
-            this.lbByte16.Text = "Unknown Byte 16";
-            this.lbByte16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte17
-            // 
-            this.lbByte17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte17.Location = new System.Drawing.Point(4, 2264);
-            this.lbByte17.Name = "lbByte17";
-            this.lbByte17.Size = new System.Drawing.Size(148, 30);
-            this.lbByte17.TabIndex = 160;
-            this.lbByte17.Text = "Unknown Byte 17";
-            this.lbByte17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte15
-            // 
-            this.lbByte15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte15.Location = new System.Drawing.Point(4, 2202);
-            this.lbByte15.Name = "lbByte15";
-            this.lbByte15.Size = new System.Drawing.Size(148, 30);
-            this.lbByte15.TabIndex = 150;
-            this.lbByte15.Text = "Unknown Byte 15";
-            this.lbByte15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte14
-            // 
-            this.lbByte14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte14.Location = new System.Drawing.Point(4, 2171);
-            this.lbByte14.Name = "lbByte14";
-            this.lbByte14.Size = new System.Drawing.Size(148, 30);
-            this.lbByte14.TabIndex = 149;
-            this.lbByte14.Text = "Unknown Byte 14";
-            this.lbByte14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte13
-            // 
-            this.lbByte13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte13.Location = new System.Drawing.Point(4, 2140);
-            this.lbByte13.Name = "lbByte13";
-            this.lbByte13.Size = new System.Drawing.Size(148, 30);
-            this.lbByte13.TabIndex = 148;
-            this.lbByte13.Text = "Unknown Byte 13";
-            this.lbByte13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte12
-            // 
-            this.lbByte12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte12.Location = new System.Drawing.Point(4, 2109);
-            this.lbByte12.Name = "lbByte12";
-            this.lbByte12.Size = new System.Drawing.Size(148, 30);
-            this.lbByte12.TabIndex = 147;
-            this.lbByte12.Text = "Unknown Byte 12";
-            this.lbByte12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte11
-            // 
-            this.lbByte11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte11.Location = new System.Drawing.Point(4, 2078);
-            this.lbByte11.Name = "lbByte11";
-            this.lbByte11.Size = new System.Drawing.Size(148, 30);
-            this.lbByte11.TabIndex = 146;
-            this.lbByte11.Text = "Unknown Byte 11";
-            this.lbByte11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte10
-            // 
-            this.lbByte10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte10.Location = new System.Drawing.Point(4, 2047);
-            this.lbByte10.Name = "lbByte10";
-            this.lbByte10.Size = new System.Drawing.Size(148, 30);
-            this.lbByte10.TabIndex = 145;
-            this.lbByte10.Text = "Unknown Byte 10";
-            this.lbByte10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte9
-            // 
-            this.lbByte9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte9.Location = new System.Drawing.Point(4, 2016);
-            this.lbByte9.Name = "lbByte9";
-            this.lbByte9.Size = new System.Drawing.Size(148, 30);
-            this.lbByte9.TabIndex = 144;
-            this.lbByte9.Text = "Unknown Byte 9";
-            this.lbByte9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte8
-            // 
-            this.lbByte8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte8.Location = new System.Drawing.Point(4, 1985);
-            this.lbByte8.Name = "lbByte8";
-            this.lbByte8.Size = new System.Drawing.Size(148, 30);
-            this.lbByte8.TabIndex = 143;
-            this.lbByte8.Text = "Unknown Byte 8";
-            this.lbByte8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte7
-            // 
-            this.lbByte7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte7.Location = new System.Drawing.Point(4, 1954);
-            this.lbByte7.Name = "lbByte7";
-            this.lbByte7.Size = new System.Drawing.Size(148, 30);
-            this.lbByte7.TabIndex = 142;
-            this.lbByte7.Text = "Unknown Byte 7";
-            this.lbByte7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numFloat8
-            // 
-            this.numFloat8.DecimalPlaces = 5;
-            this.numFloat8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat8.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat8.Location = new System.Drawing.Point(159, 1926);
-            this.numFloat8.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat8.Minimum = new decimal(new int[] {
-            10000000,
+            this.numOffsetV.Minimum = new decimal(new int[] {
+            100000000,
             0,
             0,
             -2147483648});
-            this.numFloat8.Name = "numFloat8";
-            this.numFloat8.Size = new System.Drawing.Size(305, 20);
-            this.numFloat8.TabIndex = 141;
-            this.numFloat8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numOffsetV.Name = "numOffsetV";
+            this.numOffsetV.Size = new System.Drawing.Size(272, 20);
+            this.numOffsetV.TabIndex = 4;
+            this.numOffsetV.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lbFloat8
+            // numOffsetU
             // 
-            this.lbFloat8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat8.Location = new System.Drawing.Point(4, 1923);
-            this.lbFloat8.Name = "lbFloat8";
-            this.lbFloat8.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat8.TabIndex = 140;
-            this.lbFloat8.Text = "Unknown Float 8";
-            this.lbFloat8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numByte6
-            // 
-            this.numByte6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte6.Location = new System.Drawing.Point(159, 1895);
-            this.numByte6.Maximum = new decimal(new int[] {
-            255,
+            this.numOffsetU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numOffsetU.DecimalPlaces = 5;
+            this.numOffsetU.Location = new System.Drawing.Point(13, 68);
+            this.numOffsetU.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte6.Name = "numByte6";
-            this.numByte6.Size = new System.Drawing.Size(305, 20);
-            this.numByte6.TabIndex = 139;
-            this.numByte6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numByte5
-            // 
-            this.numByte5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte5.Location = new System.Drawing.Point(159, 1864);
-            this.numByte5.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numByte5.Name = "numByte5";
-            this.numByte5.Size = new System.Drawing.Size(305, 20);
-            this.numByte5.TabIndex = 138;
-            this.numByte5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbByte6
-            // 
-            this.lbByte6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte6.Location = new System.Drawing.Point(4, 1892);
-            this.lbByte6.Name = "lbByte6";
-            this.lbByte6.Size = new System.Drawing.Size(148, 30);
-            this.lbByte6.TabIndex = 137;
-            this.lbByte6.Text = "Unknown Byte 6";
-            this.lbByte6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte5
-            // 
-            this.lbByte5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte5.Location = new System.Drawing.Point(4, 1861);
-            this.lbByte5.Name = "lbByte5";
-            this.lbByte5.Size = new System.Drawing.Size(148, 30);
-            this.lbByte5.TabIndex = 136;
-            this.lbByte5.Text = "Unknown Byte 5";
-            this.lbByte5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numFloat7_13
-            // 
-            this.numFloat7_13.DecimalPlaces = 5;
-            this.numFloat7_13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat7_13.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat7_13.Location = new System.Drawing.Point(159, 1802);
-            this.numFloat7_13.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat7_13.Minimum = new decimal(new int[] {
-            10000000,
+            this.numOffsetU.Minimum = new decimal(new int[] {
+            100000000,
             0,
             0,
             -2147483648});
-            this.numFloat7_13.Name = "numFloat7_13";
-            this.numFloat7_13.Size = new System.Drawing.Size(305, 20);
-            this.numFloat7_13.TabIndex = 135;
-            this.numFloat7_13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat7_12
-            // 
-            this.numFloat7_12.DecimalPlaces = 5;
-            this.numFloat7_12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat7_12.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat7_12.Location = new System.Drawing.Point(159, 1771);
-            this.numFloat7_12.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat7_12.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat7_12.Name = "numFloat7_12";
-            this.numFloat7_12.Size = new System.Drawing.Size(305, 20);
-            this.numFloat7_12.TabIndex = 134;
-            this.numFloat7_12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat7_11
-            // 
-            this.numFloat7_11.DecimalPlaces = 5;
-            this.numFloat7_11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat7_11.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat7_11.Location = new System.Drawing.Point(159, 1740);
-            this.numFloat7_11.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat7_11.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat7_11.Name = "numFloat7_11";
-            this.numFloat7_11.Size = new System.Drawing.Size(305, 20);
-            this.numFloat7_11.TabIndex = 133;
-            this.numFloat7_11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat7_10
-            // 
-            this.numFloat7_10.DecimalPlaces = 5;
-            this.numFloat7_10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat7_10.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat7_10.Location = new System.Drawing.Point(159, 1709);
-            this.numFloat7_10.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat7_10.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat7_10.Name = "numFloat7_10";
-            this.numFloat7_10.Size = new System.Drawing.Size(305, 20);
-            this.numFloat7_10.TabIndex = 132;
-            this.numFloat7_10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat7_9
-            // 
-            this.numFloat7_9.DecimalPlaces = 5;
-            this.numFloat7_9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat7_9.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat7_9.Location = new System.Drawing.Point(159, 1678);
-            this.numFloat7_9.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat7_9.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat7_9.Name = "numFloat7_9";
-            this.numFloat7_9.Size = new System.Drawing.Size(305, 20);
-            this.numFloat7_9.TabIndex = 131;
-            this.numFloat7_9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat7_8
-            // 
-            this.numFloat7_8.DecimalPlaces = 5;
-            this.numFloat7_8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat7_8.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat7_8.Location = new System.Drawing.Point(159, 1647);
-            this.numFloat7_8.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat7_8.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat7_8.Name = "numFloat7_8";
-            this.numFloat7_8.Size = new System.Drawing.Size(305, 20);
-            this.numFloat7_8.TabIndex = 130;
-            this.numFloat7_8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat7_7
-            // 
-            this.numFloat7_7.DecimalPlaces = 5;
-            this.numFloat7_7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat7_7.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat7_7.Location = new System.Drawing.Point(159, 1616);
-            this.numFloat7_7.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat7_7.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat7_7.Name = "numFloat7_7";
-            this.numFloat7_7.Size = new System.Drawing.Size(305, 20);
-            this.numFloat7_7.TabIndex = 129;
-            this.numFloat7_7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat7_6
-            // 
-            this.numFloat7_6.DecimalPlaces = 5;
-            this.numFloat7_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat7_6.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat7_6.Location = new System.Drawing.Point(159, 1585);
-            this.numFloat7_6.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat7_6.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat7_6.Name = "numFloat7_6";
-            this.numFloat7_6.Size = new System.Drawing.Size(305, 20);
-            this.numFloat7_6.TabIndex = 128;
-            this.numFloat7_6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat7_5
-            // 
-            this.numFloat7_5.DecimalPlaces = 5;
-            this.numFloat7_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat7_5.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat7_5.Location = new System.Drawing.Point(159, 1554);
-            this.numFloat7_5.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat7_5.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat7_5.Name = "numFloat7_5";
-            this.numFloat7_5.Size = new System.Drawing.Size(305, 20);
-            this.numFloat7_5.TabIndex = 127;
-            this.numFloat7_5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbFloat7_13
-            // 
-            this.lbFloat7_13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat7_13.Location = new System.Drawing.Point(4, 1799);
-            this.lbFloat7_13.Name = "lbFloat7_13";
-            this.lbFloat7_13.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat7_13.TabIndex = 126;
-            this.lbFloat7_13.Text = "Unknown Float 7_13";
-            this.lbFloat7_13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat7_12
-            // 
-            this.lbFloat7_12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat7_12.Location = new System.Drawing.Point(4, 1768);
-            this.lbFloat7_12.Name = "lbFloat7_12";
-            this.lbFloat7_12.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat7_12.TabIndex = 125;
-            this.lbFloat7_12.Text = "Unknown Float 7_12";
-            this.lbFloat7_12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat7_11
-            // 
-            this.lbFloat7_11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat7_11.Location = new System.Drawing.Point(4, 1737);
-            this.lbFloat7_11.Name = "lbFloat7_11";
-            this.lbFloat7_11.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat7_11.TabIndex = 124;
-            this.lbFloat7_11.Text = "Unknown Float 7_11";
-            this.lbFloat7_11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat7_10
-            // 
-            this.lbFloat7_10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat7_10.Location = new System.Drawing.Point(4, 1706);
-            this.lbFloat7_10.Name = "lbFloat7_10";
-            this.lbFloat7_10.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat7_10.TabIndex = 123;
-            this.lbFloat7_10.Text = "Unknown Float 7_10";
-            this.lbFloat7_10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat7_9
-            // 
-            this.lbFloat7_9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat7_9.Location = new System.Drawing.Point(4, 1675);
-            this.lbFloat7_9.Name = "lbFloat7_9";
-            this.lbFloat7_9.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat7_9.TabIndex = 122;
-            this.lbFloat7_9.Text = "Unknown Float 7_9";
-            this.lbFloat7_9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat7_8
-            // 
-            this.lbFloat7_8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat7_8.Location = new System.Drawing.Point(4, 1644);
-            this.lbFloat7_8.Name = "lbFloat7_8";
-            this.lbFloat7_8.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat7_8.TabIndex = 121;
-            this.lbFloat7_8.Text = "Unknown Float 7_8";
-            this.lbFloat7_8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat7_7
-            // 
-            this.lbFloat7_7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat7_7.Location = new System.Drawing.Point(4, 1613);
-            this.lbFloat7_7.Name = "lbFloat7_7";
-            this.lbFloat7_7.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat7_7.TabIndex = 120;
-            this.lbFloat7_7.Text = "Unknown Float 7_7";
-            this.lbFloat7_7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat7_6
-            // 
-            this.lbFloat7_6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat7_6.Location = new System.Drawing.Point(4, 1582);
-            this.lbFloat7_6.Name = "lbFloat7_6";
-            this.lbFloat7_6.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat7_6.TabIndex = 119;
-            this.lbFloat7_6.Text = "Unknown Float 7_6";
-            this.lbFloat7_6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat7_5
-            // 
-            this.lbFloat7_5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat7_5.Location = new System.Drawing.Point(4, 1551);
-            this.lbFloat7_5.Name = "lbFloat7_5";
-            this.lbFloat7_5.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat7_5.TabIndex = 118;
-            this.lbFloat7_5.Text = "Unknown Float 7_5";
-            this.lbFloat7_5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbUseSkinColor
-            // 
-            this.cbUseSkinColor.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbUseSkinColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbUseSkinColor.Location = new System.Drawing.Point(159, 2422);
-            this.cbUseSkinColor.Name = "cbUseSkinColor";
-            this.cbUseSkinColor.Size = new System.Drawing.Size(305, 24);
-            this.cbUseSkinColor.TabIndex = 117;
-            this.cbUseSkinColor.UseVisualStyleBackColor = true;
-            // 
-            // lbUseSkinColor
-            // 
-            this.lbUseSkinColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbUseSkinColor.Location = new System.Drawing.Point(4, 2419);
-            this.lbUseSkinColor.Name = "lbUseSkinColor";
-            this.lbUseSkinColor.Size = new System.Drawing.Size(148, 30);
-            this.lbUseSkinColor.TabIndex = 116;
-            this.lbUseSkinColor.Text = "Use Skin Color";
-            this.lbUseSkinColor.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbTemplate
-            // 
-            this.tbTemplate.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTemplate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTemplate.Location = new System.Drawing.Point(159, 1833);
-            this.tbTemplate.MaxLength = 260;
-            this.tbTemplate.Name = "tbTemplate";
-            this.tbTemplate.Size = new System.Drawing.Size(305, 20);
-            this.tbTemplate.TabIndex = 115;
-            // 
-            // lbTemplate
-            // 
-            this.lbTemplate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTemplate.Location = new System.Drawing.Point(4, 1830);
-            this.lbTemplate.Name = "lbTemplate";
-            this.lbTemplate.Size = new System.Drawing.Size(148, 30);
-            this.lbTemplate.TabIndex = 114;
-            this.lbTemplate.Text = "Template";
-            this.lbTemplate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbUseWet
-            // 
-            this.cbUseWet.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbUseWet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbUseWet.Location = new System.Drawing.Point(159, 1461);
-            this.cbUseWet.Name = "cbUseWet";
-            this.cbUseWet.Size = new System.Drawing.Size(305, 24);
-            this.cbUseWet.TabIndex = 113;
-            this.cbUseWet.UseVisualStyleBackColor = true;
-            // 
-            // lbUseWet
-            // 
-            this.lbUseWet.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbUseWet.Location = new System.Drawing.Point(4, 1458);
-            this.lbUseWet.Name = "lbUseWet";
-            this.lbUseWet.Size = new System.Drawing.Size(148, 30);
-            this.lbUseWet.TabIndex = 112;
-            this.lbUseWet.Text = "Use Wetness";
-            this.lbUseWet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numFloat6
-            // 
-            this.numFloat6.DecimalPlaces = 5;
-            this.numFloat6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat6.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat6.Location = new System.Drawing.Point(159, 1430);
-            this.numFloat6.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat6.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat6.Name = "numFloat6";
-            this.numFloat6.Size = new System.Drawing.Size(305, 20);
-            this.numFloat6.TabIndex = 111;
-            this.numFloat6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbFloat6
-            // 
-            this.lbFloat6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat6.Location = new System.Drawing.Point(4, 1427);
-            this.lbFloat6.Name = "lbFloat6";
-            this.lbFloat6.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat6.TabIndex = 110;
-            this.lbFloat6.Text = "Unknown Float 6";
-            this.lbFloat6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numByte3
-            // 
-            this.numByte3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte3.Location = new System.Drawing.Point(159, 1399);
-            this.numByte3.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numByte3.Name = "numByte3";
-            this.numByte3.Size = new System.Drawing.Size(305, 20);
-            this.numByte3.TabIndex = 109;
-            this.numByte3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbByte3
-            // 
-            this.lbByte3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte3.Location = new System.Drawing.Point(4, 1396);
-            this.lbByte3.Name = "lbByte3";
-            this.lbByte3.Size = new System.Drawing.Size(148, 30);
-            this.lbByte3.TabIndex = 108;
-            this.lbByte3.Text = "Unknown Byte 3";
-            this.lbByte3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numByte2
-            // 
-            this.numByte2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte2.Location = new System.Drawing.Point(159, 1306);
-            this.numByte2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numByte2.Name = "numByte2";
-            this.numByte2.Size = new System.Drawing.Size(305, 20);
-            this.numByte2.TabIndex = 107;
-            this.numByte2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numByte1
-            // 
-            this.numByte1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte1.Location = new System.Drawing.Point(159, 1275);
-            this.numByte1.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numByte1.Name = "numByte1";
-            this.numByte1.Size = new System.Drawing.Size(305, 20);
-            this.numByte1.TabIndex = 106;
-            this.numByte1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat4
-            // 
-            this.numFloat4.DecimalPlaces = 5;
-            this.numFloat4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat4.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat4.Location = new System.Drawing.Point(159, 1337);
-            this.numFloat4.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat4.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat4.Name = "numFloat4";
-            this.numFloat4.Size = new System.Drawing.Size(305, 20);
-            this.numFloat4.TabIndex = 105;
-            this.numFloat4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat5
-            // 
-            this.numFloat5.DecimalPlaces = 5;
-            this.numFloat5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat5.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat5.Location = new System.Drawing.Point(159, 1368);
-            this.numFloat5.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat5.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat5.Name = "numFloat5";
-            this.numFloat5.Size = new System.Drawing.Size(305, 20);
-            this.numFloat5.TabIndex = 103;
-            this.numFloat5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbFloat5
-            // 
-            this.lbFloat5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat5.Location = new System.Drawing.Point(4, 1365);
-            this.lbFloat5.Name = "lbFloat5";
-            this.lbFloat5.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat5.TabIndex = 104;
-            this.lbFloat5.Text = "Unknown Float 5";
-            this.lbFloat5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat4
-            // 
-            this.lbFloat4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat4.Location = new System.Drawing.Point(4, 1334);
-            this.lbFloat4.Name = "lbFloat4";
-            this.lbFloat4.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat4.TabIndex = 102;
-            this.lbFloat4.Text = "Unknown Float 4";
-            this.lbFloat4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte2
-            // 
-            this.lbByte2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte2.Location = new System.Drawing.Point(4, 1303);
-            this.lbByte2.Name = "lbByte2";
-            this.lbByte2.Size = new System.Drawing.Size(148, 30);
-            this.lbByte2.TabIndex = 101;
-            this.lbByte2.Text = "Unknown Byte 2";
-            this.lbByte2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbByte1
-            // 
-            this.lbByte1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbByte1.Location = new System.Drawing.Point(4, 1272);
-            this.lbByte1.Name = "lbByte1";
-            this.lbByte1.Size = new System.Drawing.Size(148, 30);
-            this.lbByte1.TabIndex = 100;
-            this.lbByte1.Text = "Unknown Byte 1";
-            this.lbByte1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tbTexture9
-            // 
-            this.tbTexture9.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTexture9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTexture9.Location = new System.Drawing.Point(159, 1244);
-            this.tbTexture9.MaxLength = 260;
-            this.tbTexture9.Name = "tbTexture9";
-            this.tbTexture9.Size = new System.Drawing.Size(305, 20);
-            this.tbTexture9.TabIndex = 99;
-            // 
-            // tbTexture8
-            // 
-            this.tbTexture8.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTexture8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTexture8.Location = new System.Drawing.Point(159, 1213);
-            this.tbTexture8.MaxLength = 260;
-            this.tbTexture8.Name = "tbTexture8";
-            this.tbTexture8.Size = new System.Drawing.Size(305, 20);
-            this.tbTexture8.TabIndex = 98;
-            // 
-            // tbTexture7
-            // 
-            this.tbTexture7.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTexture7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTexture7.Location = new System.Drawing.Point(159, 1182);
-            this.tbTexture7.MaxLength = 260;
-            this.tbTexture7.Name = "tbTexture7";
-            this.tbTexture7.Size = new System.Drawing.Size(305, 20);
-            this.tbTexture7.TabIndex = 97;
-            // 
-            // tbTexture6
-            // 
-            this.tbTexture6.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTexture6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTexture6.Location = new System.Drawing.Point(159, 1151);
-            this.tbTexture6.MaxLength = 260;
-            this.tbTexture6.Name = "tbTexture6";
-            this.tbTexture6.Size = new System.Drawing.Size(305, 20);
-            this.tbTexture6.TabIndex = 96;
-            // 
-            // tbTexture5
-            // 
-            this.tbTexture5.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTexture5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTexture5.Location = new System.Drawing.Point(159, 1120);
-            this.tbTexture5.MaxLength = 260;
-            this.tbTexture5.Name = "tbTexture5";
-            this.tbTexture5.Size = new System.Drawing.Size(305, 20);
-            this.tbTexture5.TabIndex = 95;
-            // 
-            // tbTexture4
-            // 
-            this.tbTexture4.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTexture4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTexture4.Location = new System.Drawing.Point(159, 1089);
-            this.tbTexture4.MaxLength = 260;
-            this.tbTexture4.Name = "tbTexture4";
-            this.tbTexture4.Size = new System.Drawing.Size(305, 20);
-            this.tbTexture4.TabIndex = 94;
-            // 
-            // tbTexture3
-            // 
-            this.tbTexture3.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTexture3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTexture3.Location = new System.Drawing.Point(159, 1058);
-            this.tbTexture3.MaxLength = 260;
-            this.tbTexture3.Name = "tbTexture3";
-            this.tbTexture3.Size = new System.Drawing.Size(305, 20);
-            this.tbTexture3.TabIndex = 93;
-            // 
-            // tbTexture2
-            // 
-            this.tbTexture2.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTexture2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTexture2.Location = new System.Drawing.Point(159, 1027);
-            this.tbTexture2.MaxLength = 260;
-            this.tbTexture2.Name = "tbTexture2";
-            this.tbTexture2.Size = new System.Drawing.Size(305, 20);
-            this.tbTexture2.TabIndex = 92;
-            // 
-            // lbTexture9
-            // 
-            this.lbTexture9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTexture9.Location = new System.Drawing.Point(4, 1241);
-            this.lbTexture9.Name = "lbTexture9";
-            this.lbTexture9.Size = new System.Drawing.Size(148, 30);
-            this.lbTexture9.TabIndex = 90;
-            this.lbTexture9.Text = "Texture 9";
-            this.lbTexture9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTexture8
-            // 
-            this.lbTexture8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTexture8.Location = new System.Drawing.Point(4, 1210);
-            this.lbTexture8.Name = "lbTexture8";
-            this.lbTexture8.Size = new System.Drawing.Size(148, 30);
-            this.lbTexture8.TabIndex = 89;
-            this.lbTexture8.Text = "Texture 8";
-            this.lbTexture8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTexture7
-            // 
-            this.lbTexture7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTexture7.Location = new System.Drawing.Point(4, 1179);
-            this.lbTexture7.Name = "lbTexture7";
-            this.lbTexture7.Size = new System.Drawing.Size(148, 30);
-            this.lbTexture7.TabIndex = 88;
-            this.lbTexture7.Text = "Texture 7";
-            this.lbTexture7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTexture6
-            // 
-            this.lbTexture6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTexture6.Location = new System.Drawing.Point(4, 1148);
-            this.lbTexture6.Name = "lbTexture6";
-            this.lbTexture6.Size = new System.Drawing.Size(148, 30);
-            this.lbTexture6.TabIndex = 87;
-            this.lbTexture6.Text = "Texture 6";
-            this.lbTexture6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTexture5
-            // 
-            this.lbTexture5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTexture5.Location = new System.Drawing.Point(4, 1117);
-            this.lbTexture5.Name = "lbTexture5";
-            this.lbTexture5.Size = new System.Drawing.Size(148, 30);
-            this.lbTexture5.TabIndex = 86;
-            this.lbTexture5.Text = "Texture 5";
-            this.lbTexture5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTexture4
-            // 
-            this.lbTexture4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTexture4.Location = new System.Drawing.Point(4, 1086);
-            this.lbTexture4.Name = "lbTexture4";
-            this.lbTexture4.Size = new System.Drawing.Size(148, 30);
-            this.lbTexture4.TabIndex = 85;
-            this.lbTexture4.Text = "Texture 4";
-            this.lbTexture4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTexture3
-            // 
-            this.lbTexture3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTexture3.Location = new System.Drawing.Point(4, 1055);
-            this.lbTexture3.Name = "lbTexture3";
-            this.lbTexture3.Size = new System.Drawing.Size(148, 30);
-            this.lbTexture3.TabIndex = 84;
-            this.lbTexture3.Text = "Texture 3";
-            this.lbTexture3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTexture2
-            // 
-            this.lbTexture2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTexture2.Location = new System.Drawing.Point(4, 1024);
-            this.lbTexture2.Name = "lbTexture2";
-            this.lbTexture2.Size = new System.Drawing.Size(148, 30);
-            this.lbTexture2.TabIndex = 83;
-            this.lbTexture2.Text = "Texture 2";
-            this.lbTexture2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTexture1
-            // 
-            this.lbTexture1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTexture1.Location = new System.Drawing.Point(4, 993);
-            this.lbTexture1.Name = "lbTexture1";
-            this.lbTexture1.Size = new System.Drawing.Size(148, 30);
-            this.lbTexture1.TabIndex = 82;
-            this.lbTexture1.Text = "Texture 1";
-            this.lbTexture1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numMysteryByte23
-            // 
-            this.numMysteryByte23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte23.Location = new System.Drawing.Point(159, 965);
-            this.numMysteryByte23.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte23.Name = "numMysteryByte23";
-            this.numMysteryByte23.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte23.TabIndex = 81;
-            this.numMysteryByte23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte22
-            // 
-            this.numMysteryByte22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte22.Location = new System.Drawing.Point(159, 934);
-            this.numMysteryByte22.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte22.Name = "numMysteryByte22";
-            this.numMysteryByte22.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte22.TabIndex = 80;
-            this.numMysteryByte22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte21
-            // 
-            this.numMysteryByte21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte21.Location = new System.Drawing.Point(159, 903);
-            this.numMysteryByte21.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte21.Name = "numMysteryByte21";
-            this.numMysteryByte21.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte21.TabIndex = 79;
-            this.numMysteryByte21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte20
-            // 
-            this.numMysteryByte20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte20.Location = new System.Drawing.Point(159, 872);
-            this.numMysteryByte20.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte20.Name = "numMysteryByte20";
-            this.numMysteryByte20.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte20.TabIndex = 78;
-            this.numMysteryByte20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte19
-            // 
-            this.numMysteryByte19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte19.Location = new System.Drawing.Point(159, 841);
-            this.numMysteryByte19.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte19.Name = "numMysteryByte19";
-            this.numMysteryByte19.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte19.TabIndex = 77;
-            this.numMysteryByte19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte18
-            // 
-            this.numMysteryByte18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte18.Location = new System.Drawing.Point(159, 810);
-            this.numMysteryByte18.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte18.Name = "numMysteryByte18";
-            this.numMysteryByte18.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte18.TabIndex = 76;
-            this.numMysteryByte18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte17
-            // 
-            this.numMysteryByte17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte17.Location = new System.Drawing.Point(159, 779);
-            this.numMysteryByte17.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte17.Name = "numMysteryByte17";
-            this.numMysteryByte17.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte17.TabIndex = 75;
-            this.numMysteryByte17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte16
-            // 
-            this.numMysteryByte16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte16.Location = new System.Drawing.Point(159, 748);
-            this.numMysteryByte16.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte16.Name = "numMysteryByte16";
-            this.numMysteryByte16.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte16.TabIndex = 74;
-            this.numMysteryByte16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte15
-            // 
-            this.numMysteryByte15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte15.Location = new System.Drawing.Point(159, 717);
-            this.numMysteryByte15.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte15.Name = "numMysteryByte15";
-            this.numMysteryByte15.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte15.TabIndex = 73;
-            this.numMysteryByte15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte14
-            // 
-            this.numMysteryByte14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte14.Location = new System.Drawing.Point(159, 686);
-            this.numMysteryByte14.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte14.Name = "numMysteryByte14";
-            this.numMysteryByte14.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte14.TabIndex = 72;
-            this.numMysteryByte14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte13
-            // 
-            this.numMysteryByte13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte13.Location = new System.Drawing.Point(159, 655);
-            this.numMysteryByte13.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte13.Name = "numMysteryByte13";
-            this.numMysteryByte13.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte13.TabIndex = 71;
-            this.numMysteryByte13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte12
-            // 
-            this.numMysteryByte12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte12.Location = new System.Drawing.Point(159, 624);
-            this.numMysteryByte12.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte12.Name = "numMysteryByte12";
-            this.numMysteryByte12.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte12.TabIndex = 70;
-            this.numMysteryByte12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte11
-            // 
-            this.numMysteryByte11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte11.Location = new System.Drawing.Point(159, 593);
-            this.numMysteryByte11.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte11.Name = "numMysteryByte11";
-            this.numMysteryByte11.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte11.TabIndex = 69;
-            this.numMysteryByte11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte10
-            // 
-            this.numMysteryByte10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte10.Location = new System.Drawing.Point(159, 562);
-            this.numMysteryByte10.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte10.Name = "numMysteryByte10";
-            this.numMysteryByte10.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte10.TabIndex = 68;
-            this.numMysteryByte10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbMysteryByte23
-            // 
-            this.lbMysteryByte23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte23.Location = new System.Drawing.Point(4, 962);
-            this.lbMysteryByte23.Name = "lbMysteryByte23";
-            this.lbMysteryByte23.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte23.TabIndex = 67;
-            this.lbMysteryByte23.Text = "Mystery Byte 23";
-            this.lbMysteryByte23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte22
-            // 
-            this.lbMysteryByte22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte22.Location = new System.Drawing.Point(4, 931);
-            this.lbMysteryByte22.Name = "lbMysteryByte22";
-            this.lbMysteryByte22.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte22.TabIndex = 66;
-            this.lbMysteryByte22.Text = "Mystery Byte 22";
-            this.lbMysteryByte22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte21
-            // 
-            this.lbMysteryByte21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte21.Location = new System.Drawing.Point(4, 900);
-            this.lbMysteryByte21.Name = "lbMysteryByte21";
-            this.lbMysteryByte21.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte21.TabIndex = 65;
-            this.lbMysteryByte21.Text = "Mystery Byte 21";
-            this.lbMysteryByte21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte20
-            // 
-            this.lbMysteryByte20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte20.Location = new System.Drawing.Point(4, 869);
-            this.lbMysteryByte20.Name = "lbMysteryByte20";
-            this.lbMysteryByte20.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte20.TabIndex = 64;
-            this.lbMysteryByte20.Text = "Mystery Byte 20";
-            this.lbMysteryByte20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte19
-            // 
-            this.lbMysteryByte19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte19.Location = new System.Drawing.Point(4, 838);
-            this.lbMysteryByte19.Name = "lbMysteryByte19";
-            this.lbMysteryByte19.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte19.TabIndex = 63;
-            this.lbMysteryByte19.Text = "Mystery Byte 19";
-            this.lbMysteryByte19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte18
-            // 
-            this.lbMysteryByte18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte18.Location = new System.Drawing.Point(4, 807);
-            this.lbMysteryByte18.Name = "lbMysteryByte18";
-            this.lbMysteryByte18.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte18.TabIndex = 62;
-            this.lbMysteryByte18.Text = "Mystery Byte 18";
-            this.lbMysteryByte18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte17
-            // 
-            this.lbMysteryByte17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte17.Location = new System.Drawing.Point(4, 776);
-            this.lbMysteryByte17.Name = "lbMysteryByte17";
-            this.lbMysteryByte17.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte17.TabIndex = 61;
-            this.lbMysteryByte17.Text = "Mystery Byte 17";
-            this.lbMysteryByte17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte16
-            // 
-            this.lbMysteryByte16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte16.Location = new System.Drawing.Point(4, 745);
-            this.lbMysteryByte16.Name = "lbMysteryByte16";
-            this.lbMysteryByte16.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte16.TabIndex = 60;
-            this.lbMysteryByte16.Text = "Mystery Byte 16";
-            this.lbMysteryByte16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte15
-            // 
-            this.lbMysteryByte15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte15.Location = new System.Drawing.Point(4, 714);
-            this.lbMysteryByte15.Name = "lbMysteryByte15";
-            this.lbMysteryByte15.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte15.TabIndex = 59;
-            this.lbMysteryByte15.Text = "Mystery Byte 15";
-            this.lbMysteryByte15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte14
-            // 
-            this.lbMysteryByte14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte14.Location = new System.Drawing.Point(4, 683);
-            this.lbMysteryByte14.Name = "lbMysteryByte14";
-            this.lbMysteryByte14.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte14.TabIndex = 58;
-            this.lbMysteryByte14.Text = "Mystery Byte 14";
-            this.lbMysteryByte14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte13
-            // 
-            this.lbMysteryByte13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte13.Location = new System.Drawing.Point(4, 652);
-            this.lbMysteryByte13.Name = "lbMysteryByte13";
-            this.lbMysteryByte13.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte13.TabIndex = 57;
-            this.lbMysteryByte13.Text = "Mystery Byte 13";
-            this.lbMysteryByte13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte12
-            // 
-            this.lbMysteryByte12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte12.Location = new System.Drawing.Point(4, 621);
-            this.lbMysteryByte12.Name = "lbMysteryByte12";
-            this.lbMysteryByte12.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte12.TabIndex = 56;
-            this.lbMysteryByte12.Text = "Mystery Byte 12";
-            this.lbMysteryByte12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte11
-            // 
-            this.lbMysteryByte11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte11.Location = new System.Drawing.Point(4, 590);
-            this.lbMysteryByte11.Name = "lbMysteryByte11";
-            this.lbMysteryByte11.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte11.TabIndex = 55;
-            this.lbMysteryByte11.Text = "Mystery Byte 11";
-            this.lbMysteryByte11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte10
-            // 
-            this.lbMysteryByte10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte10.Location = new System.Drawing.Point(4, 559);
-            this.lbMysteryByte10.Name = "lbMysteryByte10";
-            this.lbMysteryByte10.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte10.TabIndex = 54;
-            this.lbMysteryByte10.Text = "Mystery Byte 10";
-            this.lbMysteryByte10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbUseDoubleSided
-            // 
-            this.cbUseDoubleSided.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbUseDoubleSided.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbUseDoubleSided.Location = new System.Drawing.Point(159, 531);
-            this.cbUseDoubleSided.Name = "cbUseDoubleSided";
-            this.cbUseDoubleSided.Size = new System.Drawing.Size(305, 24);
-            this.cbUseDoubleSided.TabIndex = 53;
-            this.cbUseDoubleSided.UseVisualStyleBackColor = true;
-            // 
-            // lbUseDoubleSided
-            // 
-            this.lbUseDoubleSided.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbUseDoubleSided.Location = new System.Drawing.Point(4, 528);
-            this.lbUseDoubleSided.Name = "lbUseDoubleSided";
-            this.lbUseDoubleSided.Size = new System.Drawing.Size(148, 30);
-            this.lbUseDoubleSided.TabIndex = 52;
-            this.lbUseDoubleSided.Text = "Use Double Sided";
-            this.lbUseDoubleSided.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numMysteryByte8
-            // 
-            this.numMysteryByte8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte8.Location = new System.Drawing.Point(159, 500);
-            this.numMysteryByte8.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte8.Name = "numMysteryByte8";
-            this.numMysteryByte8.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte8.TabIndex = 51;
-            this.numMysteryByte8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte7
-            // 
-            this.numMysteryByte7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte7.Location = new System.Drawing.Point(159, 469);
-            this.numMysteryByte7.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte7.Name = "numMysteryByte7";
-            this.numMysteryByte7.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte7.TabIndex = 50;
-            this.numMysteryByte7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte6
-            // 
-            this.numMysteryByte6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte6.Location = new System.Drawing.Point(159, 438);
-            this.numMysteryByte6.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte6.Name = "numMysteryByte6";
-            this.numMysteryByte6.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte6.TabIndex = 49;
-            this.numMysteryByte6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte5
-            // 
-            this.numMysteryByte5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte5.Location = new System.Drawing.Point(159, 407);
-            this.numMysteryByte5.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte5.Name = "numMysteryByte5";
-            this.numMysteryByte5.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte5.TabIndex = 48;
-            this.numMysteryByte5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numMysteryByte4
-            // 
-            this.numMysteryByte4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte4.Location = new System.Drawing.Point(159, 376);
-            this.numMysteryByte4.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte4.Name = "numMysteryByte4";
-            this.numMysteryByte4.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte4.TabIndex = 47;
-            this.numMysteryByte4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbMysteryByte8
-            // 
-            this.lbMysteryByte8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte8.Location = new System.Drawing.Point(4, 497);
-            this.lbMysteryByte8.Name = "lbMysteryByte8";
-            this.lbMysteryByte8.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte8.TabIndex = 46;
-            this.lbMysteryByte8.Text = "Mystery Byte 8";
-            this.lbMysteryByte8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte7
-            // 
-            this.lbMysteryByte7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte7.Location = new System.Drawing.Point(4, 466);
-            this.lbMysteryByte7.Name = "lbMysteryByte7";
-            this.lbMysteryByte7.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte7.TabIndex = 45;
-            this.lbMysteryByte7.Text = "Mystery Byte 7";
-            this.lbMysteryByte7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte6
-            // 
-            this.lbMysteryByte6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte6.Location = new System.Drawing.Point(4, 435);
-            this.lbMysteryByte6.Name = "lbMysteryByte6";
-            this.lbMysteryByte6.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte6.TabIndex = 44;
-            this.lbMysteryByte6.Text = "Mystery Byte 6";
-            this.lbMysteryByte6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte5
-            // 
-            this.lbMysteryByte5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte5.Location = new System.Drawing.Point(4, 404);
-            this.lbMysteryByte5.Name = "lbMysteryByte5";
-            this.lbMysteryByte5.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte5.TabIndex = 43;
-            this.lbMysteryByte5.Text = "Mystery Byte 5";
-            this.lbMysteryByte5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbMysteryByte4
-            // 
-            this.lbMysteryByte4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte4.Location = new System.Drawing.Point(4, 373);
-            this.lbMysteryByte4.Name = "lbMysteryByte4";
-            this.lbMysteryByte4.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte4.TabIndex = 42;
-            this.lbMysteryByte4.Text = "Mystery Byte 4";
-            this.lbMysteryByte4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbUseAlpha
-            // 
-            this.lbUseAlpha.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbUseAlpha.Location = new System.Drawing.Point(4, 342);
-            this.lbUseAlpha.Name = "lbUseAlpha";
-            this.lbUseAlpha.Size = new System.Drawing.Size(148, 30);
-            this.lbUseAlpha.TabIndex = 40;
-            this.lbUseAlpha.Text = "Use Alpha";
-            this.lbUseAlpha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numMysteryByte2
-            // 
-            this.numMysteryByte2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte2.Location = new System.Drawing.Point(159, 314);
-            this.numMysteryByte2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte2.Name = "numMysteryByte2";
-            this.numMysteryByte2.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte2.TabIndex = 39;
-            this.numMysteryByte2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbMysteryByte2
-            // 
-            this.lbMysteryByte2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte2.Location = new System.Drawing.Point(4, 311);
-            this.lbMysteryByte2.Name = "lbMysteryByte2";
-            this.lbMysteryByte2.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte2.TabIndex = 38;
-            this.lbMysteryByte2.Text = "Mystery Byte 2";
-            this.lbMysteryByte2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numMysteryByte1
-            // 
-            this.numMysteryByte1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numMysteryByte1.Location = new System.Drawing.Point(159, 283);
-            this.numMysteryByte1.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numMysteryByte1.Name = "numMysteryByte1";
-            this.numMysteryByte1.Size = new System.Drawing.Size(305, 20);
-            this.numMysteryByte1.TabIndex = 37;
-            this.numMysteryByte1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbMysteryByte1
-            // 
-            this.lbMysteryByte1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbMysteryByte1.Location = new System.Drawing.Point(4, 280);
-            this.lbMysteryByte1.Name = "lbMysteryByte1";
-            this.lbMysteryByte1.Size = new System.Drawing.Size(148, 30);
-            this.lbMysteryByte1.TabIndex = 36;
-            this.lbMysteryByte1.Text = "Mystery Byte 1";
-            this.lbMysteryByte1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numFloat3
-            // 
-            this.numFloat3.DecimalPlaces = 5;
-            this.numFloat3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat3.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat3.Location = new System.Drawing.Point(159, 190);
-            this.numFloat3.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat3.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat3.Name = "numFloat3";
-            this.numFloat3.Size = new System.Drawing.Size(305, 20);
-            this.numFloat3.TabIndex = 15;
-            this.numFloat3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat2
-            // 
-            this.numFloat2.DecimalPlaces = 5;
-            this.numFloat2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat2.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat2.Location = new System.Drawing.Point(159, 159);
-            this.numFloat2.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat2.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat2.Name = "numFloat2";
-            this.numFloat2.Size = new System.Drawing.Size(305, 20);
-            this.numFloat2.TabIndex = 13;
-            this.numFloat2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFloat1
-            // 
-            this.numFloat1.DecimalPlaces = 5;
-            this.numFloat1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFloat1.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numFloat1.Location = new System.Drawing.Point(159, 128);
-            this.numFloat1.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numFloat1.Minimum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            -2147483648});
-            this.numFloat1.Name = "numFloat1";
-            this.numFloat1.Size = new System.Drawing.Size(305, 20);
-            this.numFloat1.TabIndex = 11;
-            this.numFloat1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbFloat3
-            // 
-            this.lbFloat3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat3.Location = new System.Drawing.Point(4, 187);
-            this.lbFloat3.Name = "lbFloat3";
-            this.lbFloat3.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat3.TabIndex = 14;
-            this.lbFloat3.Text = "Unknown Float 3";
-            this.lbFloat3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat2
-            // 
-            this.lbFloat2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat2.Location = new System.Drawing.Point(4, 156);
-            this.lbFloat2.Name = "lbFloat2";
-            this.lbFloat2.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat2.TabIndex = 12;
-            this.lbFloat2.Text = "Unknown Float 2";
-            this.lbFloat2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFloat1
-            // 
-            this.lbFloat1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFloat1.Location = new System.Drawing.Point(4, 125);
-            this.lbFloat1.Name = "lbFloat1";
-            this.lbFloat1.Size = new System.Drawing.Size(148, 30);
-            this.lbFloat1.TabIndex = 10;
-            this.lbFloat1.Text = "Unknown Float 1";
-            this.lbFloat1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numInt4
-            // 
-            this.numInt4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numInt4.Location = new System.Drawing.Point(159, 97);
-            this.numInt4.Maximum = new decimal(new int[] {
+            this.numOffsetU.Name = "numOffsetU";
+            this.numOffsetU.Size = new System.Drawing.Size(272, 20);
+            this.numOffsetU.TabIndex = 3;
+            this.numOffsetU.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbTileV
+            // 
+            this.cbTileV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTileV.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbTileV.Location = new System.Drawing.Point(13, 52);
+            this.cbTileV.Name = "cbTileV";
+            this.cbTileV.Size = new System.Drawing.Size(256, 13);
+            this.cbTileV.TabIndex = 2;
+            this.cbTileV.UseVisualStyleBackColor = true;
+            // 
+            // cbTileU
+            // 
+            this.cbTileU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTileU.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbTileU.Location = new System.Drawing.Point(13, 33);
+            this.cbTileU.Name = "cbTileU";
+            this.cbTileU.Size = new System.Drawing.Size(256, 13);
+            this.cbTileU.TabIndex = 1;
+            this.cbTileU.UseVisualStyleBackColor = true;
+            // 
+            // numVersion
+            // 
+            this.numVersion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numVersion.Location = new System.Drawing.Point(13, 11);
+            this.numVersion.Maximum = new decimal(new int[] {
             -1,
             0,
             0,
             0});
-            this.numInt4.Name = "numInt4";
-            this.numInt4.Size = new System.Drawing.Size(305, 20);
-            this.numInt4.TabIndex = 9;
-            this.numInt4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numVersion.Name = "numVersion";
+            this.numVersion.Size = new System.Drawing.Size(272, 20);
+            this.numVersion.TabIndex = 0;
+            this.numVersion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numInt3
+            // tabPageMaterial
             // 
-            this.numInt3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numInt3.Location = new System.Drawing.Point(159, 66);
-            this.numInt3.Maximum = new decimal(new int[] {
-            -1,
+            this.tabPageMaterial.AutoScroll = true;
+            this.tabPageMaterial.Controls.Add(this.splitContainerMaterial);
+            this.tabPageMaterial.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMaterial.Name = "tabPageMaterial";
+            this.tabPageMaterial.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageMaterial.Size = new System.Drawing.Size(476, 507);
+            this.tabPageMaterial.TabIndex = 0;
+            this.tabPageMaterial.Text = "Material";
+            this.tabPageMaterial.UseVisualStyleBackColor = true;
+            this.tabPageMaterial.Scroll += TabScroll;
+            // 
+            // splitContainerMaterial
+            // 
+            this.splitContainerMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainerMaterial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainerMaterial.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerMaterial.IsSplitterFixed = true;
+            this.splitContainerMaterial.Location = new System.Drawing.Point(4, 4);
+            this.splitContainerMaterial.Name = "splitContainerMaterial";
+            // 
+            // splitContainerMaterial.Panel1
+            // 
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbSkewSpecularAlpha);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbGrayscaleToPaletteScale);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbTessellationFadeDistance);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbTessellationBaseFactor);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbTessellationPNScale);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbDisplacementTexScale);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbDisplacementTexBias);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbTessellate);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbSkinTint);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbFacegen);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbTree);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbHairTintColor);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbHair);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbEnvironmentMapEye);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbEnvironmentMapWindow);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbGlowmap);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbAssumeShadowmask);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbDissolveFade);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbCastShadows);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbHideSecret);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbReceiveShadows);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbBackLighting);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbExternalEmittance);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbModelSpaceNormals);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbEmittanceMultiplier);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbEmittanceColor);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbEmittanceEnabled);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbAnisoLighting);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbRootMaterialPath);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbWetMetalness);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbWetFresnelPower);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbWetEnvMapScale);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbWetSpecMinVar);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbWetSpecPowerScale);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbWetSpecScale);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbFresnelPower);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbSmoothness);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbSpecularMult);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbSpecularColor);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbSpecularEnabled);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbSubsurfaceLightingRolloff);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbSubsurfaceLighting);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbBacklightPower);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbRimPower);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbRimLighting);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbEnableEditorAlphaRef);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbDisplacementTexture);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbWrinklesTexture);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbInnerLayerTexture);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbGlowTexture);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbEnvironmentMapTexture);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbGreyscaleTexture);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbSmoothSpecularTexture);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbNormalTexture);
+            this.splitContainerMaterial.Panel1.Controls.Add(this.lbDiffuseTexture);
+            this.splitContainerMaterial.Panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.splitContainerMaterial.Panel1MinSize = 165;
+            // 
+            // splitContainerMaterial.Panel2
+            // 
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbSkewSpecularAlpha);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numGrayscaleToPaletteScale);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numTessellationFadeDistance);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numTessellationBaseFactor);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numTessellationPNScale);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numDisplacementTexScale);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numDisplacementTexBias);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbTessellate);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbSkinTint);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbFacegen);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbTree);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btHairTintColor);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbHair);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbEnvironmentMapEye);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbEnvironmentMapWindow);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbGlowmap);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbAssumeShadowmask);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbDissolveFade);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbCastShadows);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbHideSecret);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbReceiveShadows);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbBackLighting);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbExternalEmittance);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbModelSpaceNormals);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numEmittanceMultiplier);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btEmittanceColor);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbEmittanceEnabled);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbAnisoLighting);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbRootMaterialPath);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numWetMetalness);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numWetFresnelPower);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numWetEnvMapScale);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numWetSpecMinVar);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numWetSpecPowerScale);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numWetSpecScale);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numFresnelPower);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numSmoothness);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numSpecularMultiplier);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btSpecularColor);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbSpecularEnabled);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numSubsurfaceLightingRolloff);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbSubsurfaceLighting);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numBacklightPower);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbRimLighting);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbDisplacementTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbWrinklesTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbInnerLayerTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbGlowTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbEnvironmentMapTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbGreyscaleTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbSmoothSpecularTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbNormalTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.tbDiffuseTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.numRimPower);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.cbEnableEditorAlphaRef);
+            this.splitContainerMaterial.Panel2.Padding = new System.Windows.Forms.Padding(10);
+            this.splitContainerMaterial.Panel2MinSize = 165;
+            this.splitContainerMaterial.Size = new System.Drawing.Size(469, 1068);
+            this.splitContainerMaterial.SplitterDistance = 165;
+            this.splitContainerMaterial.TabIndex = 2;
+            // 
+            // lbSkewSpecularAlpha
+            // 
+            this.lbSkewSpecularAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSkewSpecularAlpha.Location = new System.Drawing.Point(13, 1039);
+            this.lbSkewSpecularAlpha.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSkewSpecularAlpha.Name = "lbSkewSpecularAlpha";
+            this.lbSkewSpecularAlpha.Size = new System.Drawing.Size(135, 13);
+            this.lbSkewSpecularAlpha.TabIndex = 54;
+            this.lbSkewSpecularAlpha.Text = "Skew Specular Alpha";
+            // 
+            // lbGrayscaleToPaletteScale
+            // 
+            this.lbGrayscaleToPaletteScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbGrayscaleToPaletteScale.Location = new System.Drawing.Point(13, 1020);
+            this.lbGrayscaleToPaletteScale.Margin = new System.Windows.Forms.Padding(3);
+            this.lbGrayscaleToPaletteScale.Name = "lbGrayscaleToPaletteScale";
+            this.lbGrayscaleToPaletteScale.Size = new System.Drawing.Size(137, 13);
+            this.lbGrayscaleToPaletteScale.TabIndex = 53;
+            this.lbGrayscaleToPaletteScale.Text = "Grayscale To Palette Scale";
+            // 
+            // lbTessellationFadeDistance
+            // 
+            this.lbTessellationFadeDistance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTessellationFadeDistance.Location = new System.Drawing.Point(13, 1001);
+            this.lbTessellationFadeDistance.Margin = new System.Windows.Forms.Padding(3);
+            this.lbTessellationFadeDistance.Name = "lbTessellationFadeDistance";
+            this.lbTessellationFadeDistance.Size = new System.Drawing.Size(135, 13);
+            this.lbTessellationFadeDistance.TabIndex = 52;
+            this.lbTessellationFadeDistance.Text = "Tessellation Fade Distance";
+            // 
+            // lbTessellationBaseFactor
+            // 
+            this.lbTessellationBaseFactor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTessellationBaseFactor.Location = new System.Drawing.Point(13, 982);
+            this.lbTessellationBaseFactor.Margin = new System.Windows.Forms.Padding(3);
+            this.lbTessellationBaseFactor.Name = "lbTessellationBaseFactor";
+            this.lbTessellationBaseFactor.Size = new System.Drawing.Size(135, 13);
+            this.lbTessellationBaseFactor.TabIndex = 51;
+            this.lbTessellationBaseFactor.Text = "Tessellation Base Factor";
+            // 
+            // lbTessellationPNScale
+            // 
+            this.lbTessellationPNScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTessellationPNScale.Location = new System.Drawing.Point(13, 963);
+            this.lbTessellationPNScale.Margin = new System.Windows.Forms.Padding(3);
+            this.lbTessellationPNScale.Name = "lbTessellationPNScale";
+            this.lbTessellationPNScale.Size = new System.Drawing.Size(135, 13);
+            this.lbTessellationPNScale.TabIndex = 50;
+            this.lbTessellationPNScale.Text = "Tessellation PN Scale";
+            // 
+            // lbDisplacementTexScale
+            // 
+            this.lbDisplacementTexScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDisplacementTexScale.Location = new System.Drawing.Point(13, 944);
+            this.lbDisplacementTexScale.Margin = new System.Windows.Forms.Padding(3);
+            this.lbDisplacementTexScale.Name = "lbDisplacementTexScale";
+            this.lbDisplacementTexScale.Size = new System.Drawing.Size(135, 13);
+            this.lbDisplacementTexScale.TabIndex = 49;
+            this.lbDisplacementTexScale.Text = "Displacement Tex Scale";
+            // 
+            // lbDisplacementTexBias
+            // 
+            this.lbDisplacementTexBias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDisplacementTexBias.Location = new System.Drawing.Point(13, 925);
+            this.lbDisplacementTexBias.Margin = new System.Windows.Forms.Padding(3);
+            this.lbDisplacementTexBias.Name = "lbDisplacementTexBias";
+            this.lbDisplacementTexBias.Size = new System.Drawing.Size(135, 13);
+            this.lbDisplacementTexBias.TabIndex = 48;
+            this.lbDisplacementTexBias.Text = "Displacement Tex Bias";
+            // 
+            // lbTessellate
+            // 
+            this.lbTessellate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTessellate.Location = new System.Drawing.Point(13, 906);
+            this.lbTessellate.Margin = new System.Windows.Forms.Padding(3);
+            this.lbTessellate.Name = "lbTessellate";
+            this.lbTessellate.Size = new System.Drawing.Size(135, 13);
+            this.lbTessellate.TabIndex = 47;
+            this.lbTessellate.Text = "Tessellate";
+            // 
+            // lbSkinTint
+            // 
+            this.lbSkinTint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSkinTint.Location = new System.Drawing.Point(13, 887);
+            this.lbSkinTint.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSkinTint.Name = "lbSkinTint";
+            this.lbSkinTint.Size = new System.Drawing.Size(135, 13);
+            this.lbSkinTint.TabIndex = 46;
+            this.lbSkinTint.Text = "Skin Tint";
+            // 
+            // lbFacegen
+            // 
+            this.lbFacegen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFacegen.Location = new System.Drawing.Point(13, 868);
+            this.lbFacegen.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFacegen.Name = "lbFacegen";
+            this.lbFacegen.Size = new System.Drawing.Size(135, 13);
+            this.lbFacegen.TabIndex = 45;
+            this.lbFacegen.Text = "Facegen";
+            // 
+            // lbTree
+            // 
+            this.lbTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTree.Location = new System.Drawing.Point(13, 849);
+            this.lbTree.Margin = new System.Windows.Forms.Padding(3);
+            this.lbTree.Name = "lbTree";
+            this.lbTree.Size = new System.Drawing.Size(135, 13);
+            this.lbTree.TabIndex = 44;
+            this.lbTree.Text = "Tree";
+            // 
+            // lbHairTintColor
+            // 
+            this.lbHairTintColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbHairTintColor.Location = new System.Drawing.Point(13, 830);
+            this.lbHairTintColor.Margin = new System.Windows.Forms.Padding(3);
+            this.lbHairTintColor.Name = "lbHairTintColor";
+            this.lbHairTintColor.Size = new System.Drawing.Size(135, 13);
+            this.lbHairTintColor.TabIndex = 43;
+            this.lbHairTintColor.Text = "Hair Tint Color";
+            // 
+            // lbHair
+            // 
+            this.lbHair.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbHair.Location = new System.Drawing.Point(13, 811);
+            this.lbHair.Margin = new System.Windows.Forms.Padding(3);
+            this.lbHair.Name = "lbHair";
+            this.lbHair.Size = new System.Drawing.Size(135, 13);
+            this.lbHair.TabIndex = 42;
+            this.lbHair.Text = "Hair";
+            // 
+            // lbEnvironmentMapEye
+            // 
+            this.lbEnvironmentMapEye.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnvironmentMapEye.Location = new System.Drawing.Point(13, 792);
+            this.lbEnvironmentMapEye.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEnvironmentMapEye.Name = "lbEnvironmentMapEye";
+            this.lbEnvironmentMapEye.Size = new System.Drawing.Size(135, 13);
+            this.lbEnvironmentMapEye.TabIndex = 41;
+            this.lbEnvironmentMapEye.Text = "Environment Map Eye";
+            // 
+            // lbEnvironmentMapWindow
+            // 
+            this.lbEnvironmentMapWindow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnvironmentMapWindow.Location = new System.Drawing.Point(13, 773);
+            this.lbEnvironmentMapWindow.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEnvironmentMapWindow.Name = "lbEnvironmentMapWindow";
+            this.lbEnvironmentMapWindow.Size = new System.Drawing.Size(135, 13);
+            this.lbEnvironmentMapWindow.TabIndex = 40;
+            this.lbEnvironmentMapWindow.Text = "Environment Map Window";
+            // 
+            // lbGlowmap
+            // 
+            this.lbGlowmap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbGlowmap.Location = new System.Drawing.Point(13, 754);
+            this.lbGlowmap.Margin = new System.Windows.Forms.Padding(3);
+            this.lbGlowmap.Name = "lbGlowmap";
+            this.lbGlowmap.Size = new System.Drawing.Size(135, 13);
+            this.lbGlowmap.TabIndex = 39;
+            this.lbGlowmap.Text = "Glowmap";
+            // 
+            // lbAssumeShadowmask
+            // 
+            this.lbAssumeShadowmask.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbAssumeShadowmask.Location = new System.Drawing.Point(13, 735);
+            this.lbAssumeShadowmask.Margin = new System.Windows.Forms.Padding(3);
+            this.lbAssumeShadowmask.Name = "lbAssumeShadowmask";
+            this.lbAssumeShadowmask.Size = new System.Drawing.Size(135, 13);
+            this.lbAssumeShadowmask.TabIndex = 38;
+            this.lbAssumeShadowmask.Text = "Assume Shadowmask";
+            // 
+            // lbDissolveFade
+            // 
+            this.lbDissolveFade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDissolveFade.Location = new System.Drawing.Point(13, 716);
+            this.lbDissolveFade.Margin = new System.Windows.Forms.Padding(3);
+            this.lbDissolveFade.Name = "lbDissolveFade";
+            this.lbDissolveFade.Size = new System.Drawing.Size(135, 13);
+            this.lbDissolveFade.TabIndex = 37;
+            this.lbDissolveFade.Text = "Dissolve Fade";
+            // 
+            // lbCastShadows
+            // 
+            this.lbCastShadows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbCastShadows.Location = new System.Drawing.Point(13, 697);
+            this.lbCastShadows.Margin = new System.Windows.Forms.Padding(3);
+            this.lbCastShadows.Name = "lbCastShadows";
+            this.lbCastShadows.Size = new System.Drawing.Size(135, 13);
+            this.lbCastShadows.TabIndex = 36;
+            this.lbCastShadows.Text = "Cast Shadows";
+            // 
+            // lbHideSecret
+            // 
+            this.lbHideSecret.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbHideSecret.Location = new System.Drawing.Point(13, 678);
+            this.lbHideSecret.Margin = new System.Windows.Forms.Padding(3);
+            this.lbHideSecret.Name = "lbHideSecret";
+            this.lbHideSecret.Size = new System.Drawing.Size(135, 13);
+            this.lbHideSecret.TabIndex = 35;
+            this.lbHideSecret.Text = "Hide Secret";
+            // 
+            // lbReceiveShadows
+            // 
+            this.lbReceiveShadows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbReceiveShadows.Location = new System.Drawing.Point(13, 659);
+            this.lbReceiveShadows.Margin = new System.Windows.Forms.Padding(3);
+            this.lbReceiveShadows.Name = "lbReceiveShadows";
+            this.lbReceiveShadows.Size = new System.Drawing.Size(135, 13);
+            this.lbReceiveShadows.TabIndex = 34;
+            this.lbReceiveShadows.Text = "Receive Shadows";
+            // 
+            // lbBackLighting
+            // 
+            this.lbBackLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbBackLighting.Location = new System.Drawing.Point(13, 640);
+            this.lbBackLighting.Margin = new System.Windows.Forms.Padding(3);
+            this.lbBackLighting.Name = "lbBackLighting";
+            this.lbBackLighting.Size = new System.Drawing.Size(135, 13);
+            this.lbBackLighting.TabIndex = 33;
+            this.lbBackLighting.Text = "Back Lighting";
+            // 
+            // lbExternalEmittance
+            // 
+            this.lbExternalEmittance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbExternalEmittance.Location = new System.Drawing.Point(13, 621);
+            this.lbExternalEmittance.Margin = new System.Windows.Forms.Padding(3);
+            this.lbExternalEmittance.Name = "lbExternalEmittance";
+            this.lbExternalEmittance.Size = new System.Drawing.Size(135, 13);
+            this.lbExternalEmittance.TabIndex = 32;
+            this.lbExternalEmittance.Text = "External Emittance";
+            // 
+            // lbModelSpaceNormals
+            // 
+            this.lbModelSpaceNormals.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbModelSpaceNormals.Location = new System.Drawing.Point(13, 602);
+            this.lbModelSpaceNormals.Margin = new System.Windows.Forms.Padding(3);
+            this.lbModelSpaceNormals.Name = "lbModelSpaceNormals";
+            this.lbModelSpaceNormals.Size = new System.Drawing.Size(135, 13);
+            this.lbModelSpaceNormals.TabIndex = 31;
+            this.lbModelSpaceNormals.Text = "Model Space Normals";
+            // 
+            // lbEmittanceMultiplier
+            // 
+            this.lbEmittanceMultiplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEmittanceMultiplier.Location = new System.Drawing.Point(13, 583);
+            this.lbEmittanceMultiplier.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEmittanceMultiplier.Name = "lbEmittanceMultiplier";
+            this.lbEmittanceMultiplier.Size = new System.Drawing.Size(135, 13);
+            this.lbEmittanceMultiplier.TabIndex = 30;
+            this.lbEmittanceMultiplier.Text = "Emittance Multiplier";
+            // 
+            // lbEmittanceColor
+            // 
+            this.lbEmittanceColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEmittanceColor.Location = new System.Drawing.Point(13, 564);
+            this.lbEmittanceColor.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEmittanceColor.Name = "lbEmittanceColor";
+            this.lbEmittanceColor.Size = new System.Drawing.Size(135, 13);
+            this.lbEmittanceColor.TabIndex = 29;
+            this.lbEmittanceColor.Text = "Emittance Color";
+            // 
+            // lbEmittanceEnabled
+            // 
+            this.lbEmittanceEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEmittanceEnabled.Location = new System.Drawing.Point(13, 545);
+            this.lbEmittanceEnabled.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEmittanceEnabled.Name = "lbEmittanceEnabled";
+            this.lbEmittanceEnabled.Size = new System.Drawing.Size(135, 13);
+            this.lbEmittanceEnabled.TabIndex = 28;
+            this.lbEmittanceEnabled.Text = "Emittance Enabled";
+            // 
+            // lbAnisoLighting
+            // 
+            this.lbAnisoLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbAnisoLighting.Location = new System.Drawing.Point(13, 526);
+            this.lbAnisoLighting.Margin = new System.Windows.Forms.Padding(3);
+            this.lbAnisoLighting.Name = "lbAnisoLighting";
+            this.lbAnisoLighting.Size = new System.Drawing.Size(135, 13);
+            this.lbAnisoLighting.TabIndex = 27;
+            this.lbAnisoLighting.Text = "Aniso Lighting";
+            // 
+            // lbRootMaterialPath
+            // 
+            this.lbRootMaterialPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRootMaterialPath.Location = new System.Drawing.Point(13, 507);
+            this.lbRootMaterialPath.Margin = new System.Windows.Forms.Padding(3);
+            this.lbRootMaterialPath.Name = "lbRootMaterialPath";
+            this.lbRootMaterialPath.Size = new System.Drawing.Size(135, 13);
+            this.lbRootMaterialPath.TabIndex = 26;
+            this.lbRootMaterialPath.Text = "Root Material Path";
+            // 
+            // lbWetMetalness
+            // 
+            this.lbWetMetalness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWetMetalness.Location = new System.Drawing.Point(13, 488);
+            this.lbWetMetalness.Margin = new System.Windows.Forms.Padding(3);
+            this.lbWetMetalness.Name = "lbWetMetalness";
+            this.lbWetMetalness.Size = new System.Drawing.Size(135, 13);
+            this.lbWetMetalness.TabIndex = 25;
+            this.lbWetMetalness.Text = "Wet Metalness";
+            // 
+            // lbWetFresnelPower
+            // 
+            this.lbWetFresnelPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWetFresnelPower.Location = new System.Drawing.Point(13, 469);
+            this.lbWetFresnelPower.Margin = new System.Windows.Forms.Padding(3);
+            this.lbWetFresnelPower.Name = "lbWetFresnelPower";
+            this.lbWetFresnelPower.Size = new System.Drawing.Size(135, 13);
+            this.lbWetFresnelPower.TabIndex = 24;
+            this.lbWetFresnelPower.Text = "Wet Fresnel Power";
+            // 
+            // lbWetEnvMapScale
+            // 
+            this.lbWetEnvMapScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWetEnvMapScale.Location = new System.Drawing.Point(13, 450);
+            this.lbWetEnvMapScale.Margin = new System.Windows.Forms.Padding(3);
+            this.lbWetEnvMapScale.Name = "lbWetEnvMapScale";
+            this.lbWetEnvMapScale.Size = new System.Drawing.Size(135, 13);
+            this.lbWetEnvMapScale.TabIndex = 23;
+            this.lbWetEnvMapScale.Text = "Wet Env Map Scale";
+            // 
+            // lbWetSpecMinVar
+            // 
+            this.lbWetSpecMinVar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWetSpecMinVar.Location = new System.Drawing.Point(13, 431);
+            this.lbWetSpecMinVar.Margin = new System.Windows.Forms.Padding(3);
+            this.lbWetSpecMinVar.Name = "lbWetSpecMinVar";
+            this.lbWetSpecMinVar.Size = new System.Drawing.Size(135, 13);
+            this.lbWetSpecMinVar.TabIndex = 22;
+            this.lbWetSpecMinVar.Text = "Wet Spec Min Var";
+            // 
+            // lbWetSpecPowerScale
+            // 
+            this.lbWetSpecPowerScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWetSpecPowerScale.Location = new System.Drawing.Point(13, 412);
+            this.lbWetSpecPowerScale.Margin = new System.Windows.Forms.Padding(3);
+            this.lbWetSpecPowerScale.Name = "lbWetSpecPowerScale";
+            this.lbWetSpecPowerScale.Size = new System.Drawing.Size(135, 13);
+            this.lbWetSpecPowerScale.TabIndex = 21;
+            this.lbWetSpecPowerScale.Text = "Wet Spec Power Scale";
+            // 
+            // lbWetSpecScale
+            // 
+            this.lbWetSpecScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWetSpecScale.Location = new System.Drawing.Point(13, 393);
+            this.lbWetSpecScale.Margin = new System.Windows.Forms.Padding(3);
+            this.lbWetSpecScale.Name = "lbWetSpecScale";
+            this.lbWetSpecScale.Size = new System.Drawing.Size(135, 13);
+            this.lbWetSpecScale.TabIndex = 20;
+            this.lbWetSpecScale.Text = "Wet Spec Scale";
+            // 
+            // lbFresnelPower
+            // 
+            this.lbFresnelPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFresnelPower.Location = new System.Drawing.Point(13, 374);
+            this.lbFresnelPower.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFresnelPower.Name = "lbFresnelPower";
+            this.lbFresnelPower.Size = new System.Drawing.Size(135, 13);
+            this.lbFresnelPower.TabIndex = 19;
+            this.lbFresnelPower.Text = "Fresnel Power";
+            // 
+            // lbSmoothness
+            // 
+            this.lbSmoothness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSmoothness.Location = new System.Drawing.Point(13, 355);
+            this.lbSmoothness.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSmoothness.Name = "lbSmoothness";
+            this.lbSmoothness.Size = new System.Drawing.Size(135, 13);
+            this.lbSmoothness.TabIndex = 18;
+            this.lbSmoothness.Text = "Smoothness";
+            // 
+            // lbSpecularMult
+            // 
+            this.lbSpecularMult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSpecularMult.Location = new System.Drawing.Point(13, 336);
+            this.lbSpecularMult.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSpecularMult.Name = "lbSpecularMult";
+            this.lbSpecularMult.Size = new System.Drawing.Size(135, 13);
+            this.lbSpecularMult.TabIndex = 17;
+            this.lbSpecularMult.Text = "Specular Multiplier";
+            // 
+            // lbSpecularColor
+            // 
+            this.lbSpecularColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSpecularColor.Location = new System.Drawing.Point(13, 317);
+            this.lbSpecularColor.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSpecularColor.Name = "lbSpecularColor";
+            this.lbSpecularColor.Size = new System.Drawing.Size(135, 13);
+            this.lbSpecularColor.TabIndex = 16;
+            this.lbSpecularColor.Text = "Specular Color";
+            // 
+            // lbSpecularEnabled
+            // 
+            this.lbSpecularEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSpecularEnabled.Location = new System.Drawing.Point(13, 298);
+            this.lbSpecularEnabled.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSpecularEnabled.Name = "lbSpecularEnabled";
+            this.lbSpecularEnabled.Size = new System.Drawing.Size(135, 13);
+            this.lbSpecularEnabled.TabIndex = 15;
+            this.lbSpecularEnabled.Text = "Specular Enabled";
+            // 
+            // lbSubsurfaceLightingRolloff
+            // 
+            this.lbSubsurfaceLightingRolloff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSubsurfaceLightingRolloff.Location = new System.Drawing.Point(13, 279);
+            this.lbSubsurfaceLightingRolloff.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSubsurfaceLightingRolloff.Name = "lbSubsurfaceLightingRolloff";
+            this.lbSubsurfaceLightingRolloff.Size = new System.Drawing.Size(135, 13);
+            this.lbSubsurfaceLightingRolloff.TabIndex = 14;
+            this.lbSubsurfaceLightingRolloff.Text = "Subsurface Lighting Rolloff";
+            // 
+            // lbSubsurfaceLighting
+            // 
+            this.lbSubsurfaceLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSubsurfaceLighting.Location = new System.Drawing.Point(13, 260);
+            this.lbSubsurfaceLighting.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSubsurfaceLighting.Name = "lbSubsurfaceLighting";
+            this.lbSubsurfaceLighting.Size = new System.Drawing.Size(135, 13);
+            this.lbSubsurfaceLighting.TabIndex = 13;
+            this.lbSubsurfaceLighting.Text = "Subsurface Lighting";
+            // 
+            // lbBacklightPower
+            // 
+            this.lbBacklightPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbBacklightPower.Location = new System.Drawing.Point(13, 241);
+            this.lbBacklightPower.Margin = new System.Windows.Forms.Padding(3);
+            this.lbBacklightPower.Name = "lbBacklightPower";
+            this.lbBacklightPower.Size = new System.Drawing.Size(135, 13);
+            this.lbBacklightPower.TabIndex = 12;
+            this.lbBacklightPower.Text = "Backlight Power";
+            // 
+            // lbRimPower
+            // 
+            this.lbRimPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRimPower.Location = new System.Drawing.Point(13, 222);
+            this.lbRimPower.Margin = new System.Windows.Forms.Padding(3);
+            this.lbRimPower.Name = "lbRimPower";
+            this.lbRimPower.Size = new System.Drawing.Size(135, 13);
+            this.lbRimPower.TabIndex = 11;
+            this.lbRimPower.Text = "Rim Power";
+            // 
+            // lbRimLighting
+            // 
+            this.lbRimLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRimLighting.Location = new System.Drawing.Point(13, 203);
+            this.lbRimLighting.Margin = new System.Windows.Forms.Padding(3);
+            this.lbRimLighting.Name = "lbRimLighting";
+            this.lbRimLighting.Size = new System.Drawing.Size(135, 13);
+            this.lbRimLighting.TabIndex = 10;
+            this.lbRimLighting.Text = "Rim Lighting";
+            // 
+            // lbEnableEditorAlphaRef
+            // 
+            this.lbEnableEditorAlphaRef.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnableEditorAlphaRef.Location = new System.Drawing.Point(13, 184);
+            this.lbEnableEditorAlphaRef.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEnableEditorAlphaRef.Name = "lbEnableEditorAlphaRef";
+            this.lbEnableEditorAlphaRef.Size = new System.Drawing.Size(135, 13);
+            this.lbEnableEditorAlphaRef.TabIndex = 9;
+            this.lbEnableEditorAlphaRef.Text = "Enable Editor Alpha Ref";
+            // 
+            // lbDisplacementTexture
+            // 
+            this.lbDisplacementTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDisplacementTexture.Location = new System.Drawing.Point(13, 165);
+            this.lbDisplacementTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbDisplacementTexture.Name = "lbDisplacementTexture";
+            this.lbDisplacementTexture.Size = new System.Drawing.Size(135, 13);
+            this.lbDisplacementTexture.TabIndex = 8;
+            this.lbDisplacementTexture.Text = "Displacement Texture";
+            // 
+            // lbWrinklesTexture
+            // 
+            this.lbWrinklesTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbWrinklesTexture.Location = new System.Drawing.Point(13, 146);
+            this.lbWrinklesTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbWrinklesTexture.Name = "lbWrinklesTexture";
+            this.lbWrinklesTexture.Size = new System.Drawing.Size(135, 13);
+            this.lbWrinklesTexture.TabIndex = 7;
+            this.lbWrinklesTexture.Text = "Wrinkles Texture";
+            // 
+            // lbInnerLayerTexture
+            // 
+            this.lbInnerLayerTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbInnerLayerTexture.Location = new System.Drawing.Point(13, 127);
+            this.lbInnerLayerTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbInnerLayerTexture.Name = "lbInnerLayerTexture";
+            this.lbInnerLayerTexture.Size = new System.Drawing.Size(135, 13);
+            this.lbInnerLayerTexture.TabIndex = 6;
+            this.lbInnerLayerTexture.Text = "Inner Layer Texture";
+            // 
+            // lbGlowTexture
+            // 
+            this.lbGlowTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbGlowTexture.Location = new System.Drawing.Point(13, 108);
+            this.lbGlowTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbGlowTexture.Name = "lbGlowTexture";
+            this.lbGlowTexture.Size = new System.Drawing.Size(135, 13);
+            this.lbGlowTexture.TabIndex = 5;
+            this.lbGlowTexture.Text = "Glow Texture";
+            // 
+            // lbEnvironmentMapTexture
+            // 
+            this.lbEnvironmentMapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnvironmentMapTexture.Location = new System.Drawing.Point(13, 89);
+            this.lbEnvironmentMapTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEnvironmentMapTexture.Name = "lbEnvironmentMapTexture";
+            this.lbEnvironmentMapTexture.Size = new System.Drawing.Size(135, 13);
+            this.lbEnvironmentMapTexture.TabIndex = 4;
+            this.lbEnvironmentMapTexture.Text = "Environment Map Texture";
+            // 
+            // lbGreyscaleTexture
+            // 
+            this.lbGreyscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbGreyscaleTexture.Location = new System.Drawing.Point(13, 70);
+            this.lbGreyscaleTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbGreyscaleTexture.Name = "lbGreyscaleTexture";
+            this.lbGreyscaleTexture.Size = new System.Drawing.Size(135, 13);
+            this.lbGreyscaleTexture.TabIndex = 3;
+            this.lbGreyscaleTexture.Text = "Greyscale Texture";
+            // 
+            // lbSmoothSpecularTexture
+            // 
+            this.lbSmoothSpecularTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSmoothSpecularTexture.Location = new System.Drawing.Point(13, 51);
+            this.lbSmoothSpecularTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSmoothSpecularTexture.Name = "lbSmoothSpecularTexture";
+            this.lbSmoothSpecularTexture.Size = new System.Drawing.Size(135, 13);
+            this.lbSmoothSpecularTexture.TabIndex = 2;
+            this.lbSmoothSpecularTexture.Text = "Smooth Specular Texture";
+            // 
+            // lbNormalTexture
+            // 
+            this.lbNormalTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNormalTexture.Location = new System.Drawing.Point(13, 32);
+            this.lbNormalTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbNormalTexture.Name = "lbNormalTexture";
+            this.lbNormalTexture.Size = new System.Drawing.Size(135, 13);
+            this.lbNormalTexture.TabIndex = 1;
+            this.lbNormalTexture.Text = "Normal Texture";
+            // 
+            // lbDiffuseTexture
+            // 
+            this.lbDiffuseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDiffuseTexture.Location = new System.Drawing.Point(13, 13);
+            this.lbDiffuseTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbDiffuseTexture.Name = "lbDiffuseTexture";
+            this.lbDiffuseTexture.Size = new System.Drawing.Size(135, 13);
+            this.lbDiffuseTexture.TabIndex = 0;
+            this.lbDiffuseTexture.Text = "Diffuse Texture";
+            // 
+            // cbSkewSpecularAlpha
+            // 
+            this.cbSkewSpecularAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSkewSpecularAlpha.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbSkewSpecularAlpha.Location = new System.Drawing.Point(13, 1040);
+            this.cbSkewSpecularAlpha.Name = "cbSkewSpecularAlpha";
+            this.cbSkewSpecularAlpha.Size = new System.Drawing.Size(255, 13);
+            this.cbSkewSpecularAlpha.TabIndex = 56;
+            this.cbSkewSpecularAlpha.UseVisualStyleBackColor = true;
+            // 
+            // numGrayscaleToPaletteScale
+            // 
+            this.numGrayscaleToPaletteScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numGrayscaleToPaletteScale.DecimalPlaces = 5;
+            this.numGrayscaleToPaletteScale.Location = new System.Drawing.Point(13, 1018);
+            this.numGrayscaleToPaletteScale.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numInt3.Name = "numInt3";
-            this.numInt3.Size = new System.Drawing.Size(305, 20);
-            this.numInt3.TabIndex = 7;
-            this.numInt3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numInt2
-            // 
-            this.numInt2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numInt2.Location = new System.Drawing.Point(159, 35);
-            this.numInt2.Maximum = new decimal(new int[] {
-            -1,
-            0,
-            0,
-            0});
-            this.numInt2.Name = "numInt2";
-            this.numInt2.Size = new System.Drawing.Size(305, 20);
-            this.numInt2.TabIndex = 5;
-            this.numInt2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numInt1
-            // 
-            this.numInt1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numInt1.Location = new System.Drawing.Point(159, 4);
-            this.numInt1.Maximum = new decimal(new int[] {
-            -1,
-            0,
-            0,
-            0});
-            this.numInt1.Name = "numInt1";
-            this.numInt1.Size = new System.Drawing.Size(305, 20);
-            this.numInt1.TabIndex = 3;
-            this.numInt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbInt4
-            // 
-            this.lbInt4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbInt4.Location = new System.Drawing.Point(4, 94);
-            this.lbInt4.Name = "lbInt4";
-            this.lbInt4.Size = new System.Drawing.Size(148, 30);
-            this.lbInt4.TabIndex = 8;
-            this.lbInt4.Text = "Unknown Int 4";
-            this.lbInt4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbInt3
-            // 
-            this.lbInt3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbInt3.Location = new System.Drawing.Point(4, 63);
-            this.lbInt3.Name = "lbInt3";
-            this.lbInt3.Size = new System.Drawing.Size(148, 30);
-            this.lbInt3.TabIndex = 6;
-            this.lbInt3.Text = "Unknown Int 3";
-            this.lbInt3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbInt2
-            // 
-            this.lbInt2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbInt2.Location = new System.Drawing.Point(4, 32);
-            this.lbInt2.Name = "lbInt2";
-            this.lbInt2.Size = new System.Drawing.Size(148, 30);
-            this.lbInt2.TabIndex = 4;
-            this.lbInt2.Text = "Unknown Int 2";
-            this.lbInt2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbInt1
-            // 
-            this.lbInt1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbInt1.Location = new System.Drawing.Point(4, 1);
-            this.lbInt1.Name = "lbInt1";
-            this.lbInt1.Size = new System.Drawing.Size(148, 30);
-            this.lbInt1.TabIndex = 2;
-            this.lbInt1.Text = "Unknown Int 1";
-            this.lbInt1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numFlags2
-            // 
-            this.numFlags2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFlags2.Location = new System.Drawing.Point(159, 252);
-            this.numFlags2.Maximum = new decimal(new int[] {
-            -1,
-            0,
-            0,
-            0});
-            this.numFlags2.Name = "numFlags2";
-            this.numFlags2.Size = new System.Drawing.Size(305, 20);
-            this.numFlags2.TabIndex = 19;
-            this.numFlags2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // numFlags1
-            // 
-            this.numFlags1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numFlags1.Location = new System.Drawing.Point(159, 221);
-            this.numFlags1.Maximum = new decimal(new int[] {
-            -1,
-            0,
-            0,
-            0});
-            this.numFlags1.Name = "numFlags1";
-            this.numFlags1.Size = new System.Drawing.Size(305, 20);
-            this.numFlags1.TabIndex = 17;
-            this.numFlags1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbFlags2
-            // 
-            this.lbFlags2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFlags2.Location = new System.Drawing.Point(4, 249);
-            this.lbFlags2.Name = "lbFlags2";
-            this.lbFlags2.Size = new System.Drawing.Size(148, 30);
-            this.lbFlags2.TabIndex = 18;
-            this.lbFlags2.Text = "Unknown Flags 2";
-            this.lbFlags2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbFlags1
-            // 
-            this.lbFlags1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbFlags1.Location = new System.Drawing.Point(4, 218);
-            this.lbFlags1.Name = "lbFlags1";
-            this.lbFlags1.Size = new System.Drawing.Size(148, 30);
-            this.lbFlags1.TabIndex = 16;
-            this.lbFlags1.Text = "Unknown Flags 1";
-            this.lbFlags1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbSpecularStrength
-            // 
-            this.lbSpecularStrength.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbSpecularStrength.Location = new System.Drawing.Point(4, 1520);
-            this.lbSpecularStrength.Name = "lbSpecularStrength";
-            this.lbSpecularStrength.Size = new System.Drawing.Size(148, 30);
-            this.lbSpecularStrength.TabIndex = 32;
-            this.lbSpecularStrength.Text = "Specular Strength";
-            this.lbSpecularStrength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btColor2
-            // 
-            this.btColor2.BackColor = System.Drawing.Color.Black;
-            this.btColor2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btColor2.Location = new System.Drawing.Point(159, 2329);
-            this.btColor2.Name = "btColor2";
-            this.btColor2.Size = new System.Drawing.Size(305, 24);
-            this.btColor2.TabIndex = 35;
-            this.btColor2.UseVisualStyleBackColor = false;
-            this.btColor2.Click += new System.EventHandler(this.btColor2_Click);
-            // 
-            // lbColor2
-            // 
-            this.lbColor2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbColor2.Location = new System.Drawing.Point(4, 2326);
-            this.lbColor2.Name = "lbColor2";
-            this.lbColor2.Size = new System.Drawing.Size(148, 30);
-            this.lbColor2.TabIndex = 34;
-            this.lbColor2.Text = "Unknown Color 2";
-            this.lbColor2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btColor1
-            // 
-            this.btColor1.BackColor = System.Drawing.Color.Black;
-            this.btColor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btColor1.Location = new System.Drawing.Point(159, 1492);
-            this.btColor1.Name = "btColor1";
-            this.btColor1.Size = new System.Drawing.Size(305, 24);
-            this.btColor1.TabIndex = 31;
-            this.btColor1.UseVisualStyleBackColor = false;
-            this.btColor1.Click += new System.EventHandler(this.btColor1_Click);
-            // 
-            // lbColor1
-            // 
-            this.lbColor1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbColor1.Location = new System.Drawing.Point(4, 1489);
-            this.lbColor1.Name = "lbColor1";
-            this.lbColor1.Size = new System.Drawing.Size(148, 30);
-            this.lbColor1.TabIndex = 30;
-            this.lbColor1.Text = "Unknown Color 1";
-            this.lbColor1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // numSpecularStrength
-            // 
-            this.numSpecularStrength.DecimalPlaces = 5;
-            this.numSpecularStrength.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numSpecularStrength.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numSpecularStrength.Location = new System.Drawing.Point(159, 1523);
-            this.numSpecularStrength.Maximum = new decimal(new int[] {
-            10000000,
-            0,
-            0,
-            0});
-            this.numSpecularStrength.Minimum = new decimal(new int[] {
-            10000000,
+            this.numGrayscaleToPaletteScale.Minimum = new decimal(new int[] {
+            100000000,
             0,
             0,
             -2147483648});
-            this.numSpecularStrength.Name = "numSpecularStrength";
-            this.numSpecularStrength.Size = new System.Drawing.Size(305, 20);
-            this.numSpecularStrength.TabIndex = 33;
-            this.numSpecularStrength.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numGrayscaleToPaletteScale.Name = "numGrayscaleToPaletteScale";
+            this.numGrayscaleToPaletteScale.Size = new System.Drawing.Size(271, 20);
+            this.numGrayscaleToPaletteScale.TabIndex = 55;
+            this.numGrayscaleToPaletteScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cbUseAlpha
+            // numTessellationFadeDistance
             // 
-            this.cbUseAlpha.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbUseAlpha.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbUseAlpha.Location = new System.Drawing.Point(159, 345);
-            this.cbUseAlpha.Name = "cbUseAlpha";
-            this.cbUseAlpha.Size = new System.Drawing.Size(305, 24);
-            this.cbUseAlpha.TabIndex = 41;
-            this.cbUseAlpha.UseVisualStyleBackColor = true;
-            // 
-            // tbTexture1
-            // 
-            this.tbTexture1.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.tbTexture1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbTexture1.Location = new System.Drawing.Point(159, 996);
-            this.tbTexture1.MaxLength = 260;
-            this.tbTexture1.Name = "tbTexture1";
-            this.tbTexture1.Size = new System.Drawing.Size(305, 20);
-            this.tbTexture1.TabIndex = 91;
-            // 
-            // numByte7
-            // 
-            this.numByte7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte7.Location = new System.Drawing.Point(159, 1957);
-            this.numByte7.Maximum = new decimal(new int[] {
-            255,
+            this.numTessellationFadeDistance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numTessellationFadeDistance.DecimalPlaces = 5;
+            this.numTessellationFadeDistance.Location = new System.Drawing.Point(13, 999);
+            this.numTessellationFadeDistance.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte7.Name = "numByte7";
-            this.numByte7.Size = new System.Drawing.Size(305, 20);
-            this.numByte7.TabIndex = 151;
-            this.numByte7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numTessellationFadeDistance.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numTessellationFadeDistance.Name = "numTessellationFadeDistance";
+            this.numTessellationFadeDistance.Size = new System.Drawing.Size(271, 20);
+            this.numTessellationFadeDistance.TabIndex = 54;
+            this.numTessellationFadeDistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numByte8
+            // numTessellationBaseFactor
             // 
-            this.numByte8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte8.Location = new System.Drawing.Point(159, 1988);
-            this.numByte8.Maximum = new decimal(new int[] {
-            255,
+            this.numTessellationBaseFactor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numTessellationBaseFactor.DecimalPlaces = 5;
+            this.numTessellationBaseFactor.Location = new System.Drawing.Point(13, 980);
+            this.numTessellationBaseFactor.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte8.Name = "numByte8";
-            this.numByte8.Size = new System.Drawing.Size(305, 20);
-            this.numByte8.TabIndex = 152;
-            this.numByte8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numTessellationBaseFactor.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numTessellationBaseFactor.Name = "numTessellationBaseFactor";
+            this.numTessellationBaseFactor.Size = new System.Drawing.Size(271, 20);
+            this.numTessellationBaseFactor.TabIndex = 53;
+            this.numTessellationBaseFactor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numByte9
+            // numTessellationPNScale
             // 
-            this.numByte9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte9.Location = new System.Drawing.Point(159, 2019);
-            this.numByte9.Maximum = new decimal(new int[] {
-            255,
+            this.numTessellationPNScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numTessellationPNScale.DecimalPlaces = 5;
+            this.numTessellationPNScale.Location = new System.Drawing.Point(13, 961);
+            this.numTessellationPNScale.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte9.Name = "numByte9";
-            this.numByte9.Size = new System.Drawing.Size(305, 20);
-            this.numByte9.TabIndex = 153;
-            this.numByte9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numTessellationPNScale.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numTessellationPNScale.Name = "numTessellationPNScale";
+            this.numTessellationPNScale.Size = new System.Drawing.Size(271, 20);
+            this.numTessellationPNScale.TabIndex = 52;
+            this.numTessellationPNScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numByte10
+            // numDisplacementTexScale
             // 
-            this.numByte10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte10.Location = new System.Drawing.Point(159, 2050);
-            this.numByte10.Maximum = new decimal(new int[] {
-            255,
+            this.numDisplacementTexScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numDisplacementTexScale.DecimalPlaces = 5;
+            this.numDisplacementTexScale.Location = new System.Drawing.Point(13, 942);
+            this.numDisplacementTexScale.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte10.Name = "numByte10";
-            this.numByte10.Size = new System.Drawing.Size(305, 20);
-            this.numByte10.TabIndex = 155;
-            this.numByte10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numDisplacementTexScale.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numDisplacementTexScale.Name = "numDisplacementTexScale";
+            this.numDisplacementTexScale.Size = new System.Drawing.Size(271, 20);
+            this.numDisplacementTexScale.TabIndex = 51;
+            this.numDisplacementTexScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numByte11
+            // numDisplacementTexBias
             // 
-            this.numByte11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte11.Location = new System.Drawing.Point(159, 2081);
-            this.numByte11.Maximum = new decimal(new int[] {
-            255,
+            this.numDisplacementTexBias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numDisplacementTexBias.DecimalPlaces = 5;
+            this.numDisplacementTexBias.Location = new System.Drawing.Point(13, 923);
+            this.numDisplacementTexBias.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte11.Name = "numByte11";
-            this.numByte11.Size = new System.Drawing.Size(305, 20);
-            this.numByte11.TabIndex = 154;
-            this.numByte11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numDisplacementTexBias.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numDisplacementTexBias.Name = "numDisplacementTexBias";
+            this.numDisplacementTexBias.Size = new System.Drawing.Size(271, 20);
+            this.numDisplacementTexBias.TabIndex = 50;
+            this.numDisplacementTexBias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numByte12
+            // cbTessellate
             // 
-            this.numByte12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte12.Location = new System.Drawing.Point(159, 2112);
-            this.numByte12.Maximum = new decimal(new int[] {
-            255,
+            this.cbTessellate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTessellate.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbTessellate.Location = new System.Drawing.Point(13, 907);
+            this.cbTessellate.Name = "cbTessellate";
+            this.cbTessellate.Size = new System.Drawing.Size(255, 13);
+            this.cbTessellate.TabIndex = 49;
+            this.cbTessellate.UseVisualStyleBackColor = true;
+            // 
+            // cbSkinTint
+            // 
+            this.cbSkinTint.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSkinTint.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbSkinTint.Location = new System.Drawing.Point(13, 888);
+            this.cbSkinTint.Name = "cbSkinTint";
+            this.cbSkinTint.Size = new System.Drawing.Size(255, 13);
+            this.cbSkinTint.TabIndex = 48;
+            this.cbSkinTint.UseVisualStyleBackColor = true;
+            // 
+            // cbFacegen
+            // 
+            this.cbFacegen.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFacegen.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbFacegen.Location = new System.Drawing.Point(13, 869);
+            this.cbFacegen.Name = "cbFacegen";
+            this.cbFacegen.Size = new System.Drawing.Size(255, 13);
+            this.cbFacegen.TabIndex = 47;
+            this.cbFacegen.UseVisualStyleBackColor = true;
+            // 
+            // cbTree
+            // 
+            this.cbTree.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbTree.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbTree.Location = new System.Drawing.Point(13, 850);
+            this.cbTree.Name = "cbTree";
+            this.cbTree.Size = new System.Drawing.Size(255, 13);
+            this.cbTree.TabIndex = 46;
+            this.cbTree.UseVisualStyleBackColor = true;
+            // 
+            // btHairTintColor
+            // 
+            this.btHairTintColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btHairTintColor.BackColor = System.Drawing.Color.White;
+            this.btHairTintColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btHairTintColor.Location = new System.Drawing.Point(13, 826);
+            this.btHairTintColor.Name = "btHairTintColor";
+            this.btHairTintColor.Size = new System.Drawing.Size(271, 20);
+            this.btHairTintColor.TabIndex = 45;
+            this.btHairTintColor.UseVisualStyleBackColor = false;
+            this.btHairTintColor.Click += new System.EventHandler(this.ColorClicked);
+            // 
+            // cbHair
+            // 
+            this.cbHair.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbHair.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbHair.Location = new System.Drawing.Point(13, 812);
+            this.cbHair.Name = "cbHair";
+            this.cbHair.Size = new System.Drawing.Size(255, 13);
+            this.cbHair.TabIndex = 44;
+            this.cbHair.UseVisualStyleBackColor = true;
+            // 
+            // cbEnvironmentMapEye
+            // 
+            this.cbEnvironmentMapEye.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEnvironmentMapEye.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbEnvironmentMapEye.Location = new System.Drawing.Point(13, 793);
+            this.cbEnvironmentMapEye.Name = "cbEnvironmentMapEye";
+            this.cbEnvironmentMapEye.Size = new System.Drawing.Size(255, 13);
+            this.cbEnvironmentMapEye.TabIndex = 43;
+            this.cbEnvironmentMapEye.UseVisualStyleBackColor = true;
+            // 
+            // cbEnvironmentMapWindow
+            // 
+            this.cbEnvironmentMapWindow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEnvironmentMapWindow.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbEnvironmentMapWindow.Location = new System.Drawing.Point(13, 774);
+            this.cbEnvironmentMapWindow.Name = "cbEnvironmentMapWindow";
+            this.cbEnvironmentMapWindow.Size = new System.Drawing.Size(255, 13);
+            this.cbEnvironmentMapWindow.TabIndex = 42;
+            this.cbEnvironmentMapWindow.UseVisualStyleBackColor = true;
+            // 
+            // cbGlowmap
+            // 
+            this.cbGlowmap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbGlowmap.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbGlowmap.Location = new System.Drawing.Point(13, 755);
+            this.cbGlowmap.Name = "cbGlowmap";
+            this.cbGlowmap.Size = new System.Drawing.Size(255, 13);
+            this.cbGlowmap.TabIndex = 41;
+            this.cbGlowmap.UseVisualStyleBackColor = true;
+            // 
+            // cbAssumeShadowmask
+            // 
+            this.cbAssumeShadowmask.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbAssumeShadowmask.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbAssumeShadowmask.Location = new System.Drawing.Point(13, 736);
+            this.cbAssumeShadowmask.Name = "cbAssumeShadowmask";
+            this.cbAssumeShadowmask.Size = new System.Drawing.Size(255, 13);
+            this.cbAssumeShadowmask.TabIndex = 40;
+            this.cbAssumeShadowmask.UseVisualStyleBackColor = true;
+            // 
+            // cbDissolveFade
+            // 
+            this.cbDissolveFade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbDissolveFade.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbDissolveFade.Location = new System.Drawing.Point(13, 717);
+            this.cbDissolveFade.Name = "cbDissolveFade";
+            this.cbDissolveFade.Size = new System.Drawing.Size(255, 13);
+            this.cbDissolveFade.TabIndex = 39;
+            this.cbDissolveFade.UseVisualStyleBackColor = true;
+            // 
+            // cbCastShadows
+            // 
+            this.cbCastShadows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbCastShadows.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbCastShadows.Location = new System.Drawing.Point(13, 698);
+            this.cbCastShadows.Name = "cbCastShadows";
+            this.cbCastShadows.Size = new System.Drawing.Size(255, 13);
+            this.cbCastShadows.TabIndex = 38;
+            this.cbCastShadows.UseVisualStyleBackColor = true;
+            // 
+            // cbHideSecret
+            // 
+            this.cbHideSecret.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbHideSecret.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbHideSecret.Location = new System.Drawing.Point(13, 679);
+            this.cbHideSecret.Name = "cbHideSecret";
+            this.cbHideSecret.Size = new System.Drawing.Size(255, 13);
+            this.cbHideSecret.TabIndex = 37;
+            this.cbHideSecret.UseVisualStyleBackColor = true;
+            // 
+            // cbReceiveShadows
+            // 
+            this.cbReceiveShadows.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbReceiveShadows.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbReceiveShadows.Location = new System.Drawing.Point(13, 660);
+            this.cbReceiveShadows.Name = "cbReceiveShadows";
+            this.cbReceiveShadows.Size = new System.Drawing.Size(255, 13);
+            this.cbReceiveShadows.TabIndex = 36;
+            this.cbReceiveShadows.UseVisualStyleBackColor = true;
+            // 
+            // cbBackLighting
+            // 
+            this.cbBackLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbBackLighting.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbBackLighting.Location = new System.Drawing.Point(13, 641);
+            this.cbBackLighting.Name = "cbBackLighting";
+            this.cbBackLighting.Size = new System.Drawing.Size(255, 13);
+            this.cbBackLighting.TabIndex = 35;
+            this.cbBackLighting.UseVisualStyleBackColor = true;
+            // 
+            // cbExternalEmittance
+            // 
+            this.cbExternalEmittance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbExternalEmittance.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbExternalEmittance.Location = new System.Drawing.Point(13, 622);
+            this.cbExternalEmittance.Name = "cbExternalEmittance";
+            this.cbExternalEmittance.Size = new System.Drawing.Size(255, 13);
+            this.cbExternalEmittance.TabIndex = 34;
+            this.cbExternalEmittance.UseVisualStyleBackColor = true;
+            // 
+            // cbModelSpaceNormals
+            // 
+            this.cbModelSpaceNormals.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbModelSpaceNormals.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbModelSpaceNormals.Location = new System.Drawing.Point(13, 603);
+            this.cbModelSpaceNormals.Name = "cbModelSpaceNormals";
+            this.cbModelSpaceNormals.Size = new System.Drawing.Size(255, 13);
+            this.cbModelSpaceNormals.TabIndex = 33;
+            this.cbModelSpaceNormals.UseVisualStyleBackColor = true;
+            // 
+            // numEmittanceMultiplier
+            // 
+            this.numEmittanceMultiplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numEmittanceMultiplier.DecimalPlaces = 5;
+            this.numEmittanceMultiplier.Location = new System.Drawing.Point(13, 581);
+            this.numEmittanceMultiplier.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte12.Name = "numByte12";
-            this.numByte12.Size = new System.Drawing.Size(305, 20);
-            this.numByte12.TabIndex = 156;
-            this.numByte12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numEmittanceMultiplier.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numEmittanceMultiplier.Name = "numEmittanceMultiplier";
+            this.numEmittanceMultiplier.Size = new System.Drawing.Size(271, 20);
+            this.numEmittanceMultiplier.TabIndex = 32;
+            this.numEmittanceMultiplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numByte13
+            // btEmittanceColor
             // 
-            this.numByte13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte13.Location = new System.Drawing.Point(159, 2143);
-            this.numByte13.Maximum = new decimal(new int[] {
-            255,
+            this.btEmittanceColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btEmittanceColor.BackColor = System.Drawing.Color.White;
+            this.btEmittanceColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btEmittanceColor.Location = new System.Drawing.Point(13, 560);
+            this.btEmittanceColor.Name = "btEmittanceColor";
+            this.btEmittanceColor.Size = new System.Drawing.Size(271, 20);
+            this.btEmittanceColor.TabIndex = 31;
+            this.btEmittanceColor.UseVisualStyleBackColor = false;
+            this.btEmittanceColor.Click += new System.EventHandler(this.ColorClicked);
+            // 
+            // cbEmittanceEnabled
+            // 
+            this.cbEmittanceEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEmittanceEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbEmittanceEnabled.Location = new System.Drawing.Point(13, 546);
+            this.cbEmittanceEnabled.Name = "cbEmittanceEnabled";
+            this.cbEmittanceEnabled.Size = new System.Drawing.Size(255, 13);
+            this.cbEmittanceEnabled.TabIndex = 30;
+            this.cbEmittanceEnabled.UseVisualStyleBackColor = true;
+            // 
+            // cbAnisoLighting
+            // 
+            this.cbAnisoLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbAnisoLighting.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbAnisoLighting.Location = new System.Drawing.Point(13, 527);
+            this.cbAnisoLighting.Name = "cbAnisoLighting";
+            this.cbAnisoLighting.Size = new System.Drawing.Size(255, 13);
+            this.cbAnisoLighting.TabIndex = 29;
+            this.cbAnisoLighting.UseVisualStyleBackColor = true;
+            // 
+            // tbRootMaterialPath
+            // 
+            this.tbRootMaterialPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbRootMaterialPath.Location = new System.Drawing.Point(13, 504);
+            this.tbRootMaterialPath.MaxLength = 260;
+            this.tbRootMaterialPath.Name = "tbRootMaterialPath";
+            this.tbRootMaterialPath.Size = new System.Drawing.Size(271, 20);
+            this.tbRootMaterialPath.TabIndex = 28;
+            // 
+            // numWetMetalness
+            // 
+            this.numWetMetalness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numWetMetalness.DecimalPlaces = 5;
+            this.numWetMetalness.Location = new System.Drawing.Point(13, 486);
+            this.numWetMetalness.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte13.Name = "numByte13";
-            this.numByte13.Size = new System.Drawing.Size(305, 20);
-            this.numByte13.TabIndex = 158;
-            this.numByte13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numWetMetalness.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numWetMetalness.Name = "numWetMetalness";
+            this.numWetMetalness.Size = new System.Drawing.Size(271, 20);
+            this.numWetMetalness.TabIndex = 27;
+            this.numWetMetalness.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numByte14
+            // numWetFresnelPower
             // 
-            this.numByte14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte14.Location = new System.Drawing.Point(159, 2174);
-            this.numByte14.Maximum = new decimal(new int[] {
-            255,
+            this.numWetFresnelPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numWetFresnelPower.DecimalPlaces = 5;
+            this.numWetFresnelPower.Location = new System.Drawing.Point(13, 467);
+            this.numWetFresnelPower.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte14.Name = "numByte14";
-            this.numByte14.Size = new System.Drawing.Size(305, 20);
-            this.numByte14.TabIndex = 157;
-            this.numByte14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numWetFresnelPower.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numWetFresnelPower.Name = "numWetFresnelPower";
+            this.numWetFresnelPower.Size = new System.Drawing.Size(271, 20);
+            this.numWetFresnelPower.TabIndex = 26;
+            this.numWetFresnelPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numByte15
+            // numWetEnvMapScale
             // 
-            this.numByte15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numByte15.Location = new System.Drawing.Point(159, 2205);
-            this.numByte15.Maximum = new decimal(new int[] {
-            255,
+            this.numWetEnvMapScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numWetEnvMapScale.DecimalPlaces = 5;
+            this.numWetEnvMapScale.Location = new System.Drawing.Point(13, 448);
+            this.numWetEnvMapScale.Maximum = new decimal(new int[] {
+            100000000,
             0,
             0,
             0});
-            this.numByte15.Name = "numByte15";
-            this.numByte15.Size = new System.Drawing.Size(305, 20);
-            this.numByte15.TabIndex = 159;
-            this.numByte15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numWetEnvMapScale.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numWetEnvMapScale.Name = "numWetEnvMapScale";
+            this.numWetEnvMapScale.Size = new System.Drawing.Size(271, 20);
+            this.numWetEnvMapScale.TabIndex = 25;
+            this.numWetEnvMapScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numWetSpecMinVar
+            // 
+            this.numWetSpecMinVar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numWetSpecMinVar.DecimalPlaces = 5;
+            this.numWetSpecMinVar.Location = new System.Drawing.Point(13, 429);
+            this.numWetSpecMinVar.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numWetSpecMinVar.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numWetSpecMinVar.Name = "numWetSpecMinVar";
+            this.numWetSpecMinVar.Size = new System.Drawing.Size(271, 20);
+            this.numWetSpecMinVar.TabIndex = 24;
+            this.numWetSpecMinVar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numWetSpecPowerScale
+            // 
+            this.numWetSpecPowerScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numWetSpecPowerScale.DecimalPlaces = 5;
+            this.numWetSpecPowerScale.Location = new System.Drawing.Point(13, 410);
+            this.numWetSpecPowerScale.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numWetSpecPowerScale.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numWetSpecPowerScale.Name = "numWetSpecPowerScale";
+            this.numWetSpecPowerScale.Size = new System.Drawing.Size(271, 20);
+            this.numWetSpecPowerScale.TabIndex = 23;
+            this.numWetSpecPowerScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numWetSpecScale
+            // 
+            this.numWetSpecScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numWetSpecScale.DecimalPlaces = 5;
+            this.numWetSpecScale.Location = new System.Drawing.Point(13, 391);
+            this.numWetSpecScale.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numWetSpecScale.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numWetSpecScale.Name = "numWetSpecScale";
+            this.numWetSpecScale.Size = new System.Drawing.Size(271, 20);
+            this.numWetSpecScale.TabIndex = 22;
+            this.numWetSpecScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numFresnelPower
+            // 
+            this.numFresnelPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numFresnelPower.DecimalPlaces = 5;
+            this.numFresnelPower.Location = new System.Drawing.Point(13, 372);
+            this.numFresnelPower.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numFresnelPower.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numFresnelPower.Name = "numFresnelPower";
+            this.numFresnelPower.Size = new System.Drawing.Size(271, 20);
+            this.numFresnelPower.TabIndex = 21;
+            this.numFresnelPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numSmoothness
+            // 
+            this.numSmoothness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numSmoothness.DecimalPlaces = 5;
+            this.numSmoothness.Location = new System.Drawing.Point(13, 353);
+            this.numSmoothness.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numSmoothness.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numSmoothness.Name = "numSmoothness";
+            this.numSmoothness.Size = new System.Drawing.Size(271, 20);
+            this.numSmoothness.TabIndex = 20;
+            this.numSmoothness.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numSpecularMultiplier
+            // 
+            this.numSpecularMultiplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numSpecularMultiplier.DecimalPlaces = 5;
+            this.numSpecularMultiplier.Location = new System.Drawing.Point(13, 334);
+            this.numSpecularMultiplier.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numSpecularMultiplier.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numSpecularMultiplier.Name = "numSpecularMultiplier";
+            this.numSpecularMultiplier.Size = new System.Drawing.Size(271, 20);
+            this.numSpecularMultiplier.TabIndex = 19;
+            this.numSpecularMultiplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btSpecularColor
+            // 
+            this.btSpecularColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSpecularColor.BackColor = System.Drawing.Color.White;
+            this.btSpecularColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSpecularColor.Location = new System.Drawing.Point(13, 313);
+            this.btSpecularColor.Name = "btSpecularColor";
+            this.btSpecularColor.Size = new System.Drawing.Size(271, 20);
+            this.btSpecularColor.TabIndex = 18;
+            this.btSpecularColor.UseVisualStyleBackColor = false;
+            this.btSpecularColor.Click += new System.EventHandler(this.ColorClicked);
+            // 
+            // cbSpecularEnabled
+            // 
+            this.cbSpecularEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSpecularEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbSpecularEnabled.Location = new System.Drawing.Point(13, 299);
+            this.cbSpecularEnabled.Name = "cbSpecularEnabled";
+            this.cbSpecularEnabled.Size = new System.Drawing.Size(255, 13);
+            this.cbSpecularEnabled.TabIndex = 17;
+            this.cbSpecularEnabled.UseVisualStyleBackColor = true;
+            // 
+            // numSubsurfaceLightingRolloff
+            // 
+            this.numSubsurfaceLightingRolloff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numSubsurfaceLightingRolloff.DecimalPlaces = 5;
+            this.numSubsurfaceLightingRolloff.Location = new System.Drawing.Point(13, 277);
+            this.numSubsurfaceLightingRolloff.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numSubsurfaceLightingRolloff.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numSubsurfaceLightingRolloff.Name = "numSubsurfaceLightingRolloff";
+            this.numSubsurfaceLightingRolloff.Size = new System.Drawing.Size(271, 20);
+            this.numSubsurfaceLightingRolloff.TabIndex = 16;
+            this.numSubsurfaceLightingRolloff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbSubsurfaceLighting
+            // 
+            this.cbSubsurfaceLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSubsurfaceLighting.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbSubsurfaceLighting.Location = new System.Drawing.Point(13, 261);
+            this.cbSubsurfaceLighting.Name = "cbSubsurfaceLighting";
+            this.cbSubsurfaceLighting.Size = new System.Drawing.Size(255, 13);
+            this.cbSubsurfaceLighting.TabIndex = 15;
+            this.cbSubsurfaceLighting.UseVisualStyleBackColor = true;
+            // 
+            // numBacklightPower
+            // 
+            this.numBacklightPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numBacklightPower.DecimalPlaces = 5;
+            this.numBacklightPower.Location = new System.Drawing.Point(13, 239);
+            this.numBacklightPower.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numBacklightPower.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numBacklightPower.Name = "numBacklightPower";
+            this.numBacklightPower.Size = new System.Drawing.Size(271, 20);
+            this.numBacklightPower.TabIndex = 14;
+            this.numBacklightPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbRimLighting
+            // 
+            this.cbRimLighting.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbRimLighting.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbRimLighting.Location = new System.Drawing.Point(13, 204);
+            this.cbRimLighting.Name = "cbRimLighting";
+            this.cbRimLighting.Size = new System.Drawing.Size(255, 13);
+            this.cbRimLighting.TabIndex = 13;
+            this.cbRimLighting.UseVisualStyleBackColor = true;
+            // 
+            // tbDisplacementTexture
+            // 
+            this.tbDisplacementTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDisplacementTexture.Location = new System.Drawing.Point(13, 162);
+            this.tbDisplacementTexture.MaxLength = 260;
+            this.tbDisplacementTexture.Name = "tbDisplacementTexture";
+            this.tbDisplacementTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbDisplacementTexture.TabIndex = 12;
+            // 
+            // tbWrinklesTexture
+            // 
+            this.tbWrinklesTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbWrinklesTexture.Location = new System.Drawing.Point(13, 143);
+            this.tbWrinklesTexture.MaxLength = 260;
+            this.tbWrinklesTexture.Name = "tbWrinklesTexture";
+            this.tbWrinklesTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbWrinklesTexture.TabIndex = 11;
+            // 
+            // tbInnerLayerTexture
+            // 
+            this.tbInnerLayerTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbInnerLayerTexture.Location = new System.Drawing.Point(13, 124);
+            this.tbInnerLayerTexture.MaxLength = 260;
+            this.tbInnerLayerTexture.Name = "tbInnerLayerTexture";
+            this.tbInnerLayerTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbInnerLayerTexture.TabIndex = 10;
+            // 
+            // tbGlowTexture
+            // 
+            this.tbGlowTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbGlowTexture.Location = new System.Drawing.Point(13, 105);
+            this.tbGlowTexture.MaxLength = 260;
+            this.tbGlowTexture.Name = "tbGlowTexture";
+            this.tbGlowTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbGlowTexture.TabIndex = 9;
+            // 
+            // tbEnvironmentMapTexture
+            // 
+            this.tbEnvironmentMapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbEnvironmentMapTexture.Location = new System.Drawing.Point(13, 86);
+            this.tbEnvironmentMapTexture.MaxLength = 260;
+            this.tbEnvironmentMapTexture.Name = "tbEnvironmentMapTexture";
+            this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbEnvironmentMapTexture.TabIndex = 8;
+            // 
+            // tbGreyscaleTexture
+            // 
+            this.tbGreyscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbGreyscaleTexture.Location = new System.Drawing.Point(13, 67);
+            this.tbGreyscaleTexture.MaxLength = 260;
+            this.tbGreyscaleTexture.Name = "tbGreyscaleTexture";
+            this.tbGreyscaleTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbGreyscaleTexture.TabIndex = 7;
+            // 
+            // tbSmoothSpecularTexture
+            // 
+            this.tbSmoothSpecularTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbSmoothSpecularTexture.Location = new System.Drawing.Point(13, 48);
+            this.tbSmoothSpecularTexture.MaxLength = 260;
+            this.tbSmoothSpecularTexture.Name = "tbSmoothSpecularTexture";
+            this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbSmoothSpecularTexture.TabIndex = 6;
+            // 
+            // tbNormalTexture
+            // 
+            this.tbNormalTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbNormalTexture.Location = new System.Drawing.Point(13, 29);
+            this.tbNormalTexture.MaxLength = 260;
+            this.tbNormalTexture.Name = "tbNormalTexture";
+            this.tbNormalTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbNormalTexture.TabIndex = 5;
+            // 
+            // tbDiffuseTexture
+            // 
+            this.tbDiffuseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbDiffuseTexture.Location = new System.Drawing.Point(13, 10);
+            this.tbDiffuseTexture.MaxLength = 260;
+            this.tbDiffuseTexture.Name = "tbDiffuseTexture";
+            this.tbDiffuseTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbDiffuseTexture.TabIndex = 4;
+            // 
+            // numRimPower
+            // 
+            this.numRimPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numRimPower.DecimalPlaces = 5;
+            this.numRimPower.Location = new System.Drawing.Point(13, 220);
+            this.numRimPower.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numRimPower.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numRimPower.Name = "numRimPower";
+            this.numRimPower.Size = new System.Drawing.Size(271, 20);
+            this.numRimPower.TabIndex = 3;
+            this.numRimPower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // cbEnableEditorAlphaRef
+            // 
+            this.cbEnableEditorAlphaRef.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEnableEditorAlphaRef.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbEnableEditorAlphaRef.Location = new System.Drawing.Point(13, 185);
+            this.cbEnableEditorAlphaRef.Name = "cbEnableEditorAlphaRef";
+            this.cbEnableEditorAlphaRef.Size = new System.Drawing.Size(255, 13);
+            this.cbEnableEditorAlphaRef.TabIndex = 1;
+            this.cbEnableEditorAlphaRef.UseVisualStyleBackColor = true;
+            // 
+            // tabPageEffect
+            // 
+            this.tabPageEffect.AutoScroll = true;
+            this.tabPageEffect.Controls.Add(this.splitContainerEffect);
+            this.tabPageEffect.Location = new System.Drawing.Point(4, 22);
+            this.tabPageEffect.Name = "tabPageEffect";
+            this.tabPageEffect.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageEffect.Size = new System.Drawing.Size(476, 507);
+            this.tabPageEffect.TabIndex = 1;
+            this.tabPageEffect.Text = "Effect";
+            this.tabPageEffect.UseVisualStyleBackColor = true;
+            this.tabPageEffect.Scroll += TabScroll;
+            // 
+            // splitContainerEffect
+            // 
+            this.splitContainerEffect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainerEffect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainerEffect.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerEffect.IsSplitterFixed = true;
+            this.splitContainerEffect.Location = new System.Drawing.Point(4, 4);
+            this.splitContainerEffect.Name = "splitContainerEffect";
+            // 
+            // splitContainerEffect.Panel1
+            // 
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbSoftDepth);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbEnvmapMinLOD);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbLightingInfluence);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbFalloffStopOpacity);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbFalloffStartOpacity);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbFalloffStopAngle);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbFalloffStartAngle);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbBaseColorScale);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbBaseColor);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbSoftEnabled);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbGrayscaleToPaletteAlpha);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbFalloffColorEnabled);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbFalloffEnabled);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbEffectLightingEnabled);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbBloodEnabled);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbEnvmapMaskTexture);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbNormalTexture_effect);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbEnvmapTexture);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbGrayscaleTexture);
+            this.splitContainerEffect.Panel1.Controls.Add(this.lbBaseTexture);
+            this.splitContainerEffect.Panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.splitContainerEffect.Panel1MinSize = 165;
+            // 
+            // splitContainerEffect.Panel2
+            // 
+            this.splitContainerEffect.Panel2.Controls.Add(this.numSoftDepth);
+            this.splitContainerEffect.Panel2.Controls.Add(this.numLightingInfluence);
+            this.splitContainerEffect.Panel2.Controls.Add(this.numFalloffStopOpacity);
+            this.splitContainerEffect.Panel2.Controls.Add(this.numFalloffStartOpacity);
+            this.splitContainerEffect.Panel2.Controls.Add(this.numFalloffStopAngle);
+            this.splitContainerEffect.Panel2.Controls.Add(this.numFalloffStartAngle);
+            this.splitContainerEffect.Panel2.Controls.Add(this.btBaseColor);
+            this.splitContainerEffect.Panel2.Controls.Add(this.cbSoftEnabled);
+            this.splitContainerEffect.Panel2.Controls.Add(this.cbGrayscaleToPaletteAlpha);
+            this.splitContainerEffect.Panel2.Controls.Add(this.cbFalloffColorEnabled);
+            this.splitContainerEffect.Panel2.Controls.Add(this.cbFalloffEnabled);
+            this.splitContainerEffect.Panel2.Controls.Add(this.cbEffectLightingEnabled);
+            this.splitContainerEffect.Panel2.Controls.Add(this.tbEnvmapMaskTexture);
+            this.splitContainerEffect.Panel2.Controls.Add(this.tbNormalTexture_effect);
+            this.splitContainerEffect.Panel2.Controls.Add(this.tbEnvmapTexture);
+            this.splitContainerEffect.Panel2.Controls.Add(this.tbGrayscaleTexture);
+            this.splitContainerEffect.Panel2.Controls.Add(this.tbBaseTexture);
+            this.splitContainerEffect.Panel2.Controls.Add(this.cbBloodEnabled);
+            this.splitContainerEffect.Panel2.Controls.Add(this.numEnvmapMinLOD);
+            this.splitContainerEffect.Panel2.Controls.Add(this.numBaseColorScale);
+            this.splitContainerEffect.Panel2.Padding = new System.Windows.Forms.Padding(10);
+            this.splitContainerEffect.Panel2MinSize = 165;
+            this.splitContainerEffect.Size = new System.Drawing.Size(469, 405);
+            this.splitContainerEffect.SplitterDistance = 165;
+            this.splitContainerEffect.TabIndex = 2;
+            // 
+            // lbSoftDepth
+            // 
+            this.lbSoftDepth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSoftDepth.Location = new System.Drawing.Point(13, 374);
+            this.lbSoftDepth.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSoftDepth.Name = "lbSoftDepth";
+            this.lbSoftDepth.Size = new System.Drawing.Size(137, 13);
+            this.lbSoftDepth.TabIndex = 19;
+            this.lbSoftDepth.Text = "Soft Depth";
+            // 
+            // lbEnvmapMinLOD
+            // 
+            this.lbEnvmapMinLOD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnvmapMinLOD.Location = new System.Drawing.Point(13, 355);
+            this.lbEnvmapMinLOD.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEnvmapMinLOD.Name = "lbEnvmapMinLOD";
+            this.lbEnvmapMinLOD.Size = new System.Drawing.Size(137, 13);
+            this.lbEnvmapMinLOD.TabIndex = 18;
+            this.lbEnvmapMinLOD.Text = "Envmap Min LOD";
+            // 
+            // lbLightingInfluence
+            // 
+            this.lbLightingInfluence.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbLightingInfluence.Location = new System.Drawing.Point(13, 336);
+            this.lbLightingInfluence.Margin = new System.Windows.Forms.Padding(3);
+            this.lbLightingInfluence.Name = "lbLightingInfluence";
+            this.lbLightingInfluence.Size = new System.Drawing.Size(137, 13);
+            this.lbLightingInfluence.TabIndex = 17;
+            this.lbLightingInfluence.Text = "Lighting Influence";
+            // 
+            // lbFalloffStopOpacity
+            // 
+            this.lbFalloffStopOpacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffStopOpacity.Location = new System.Drawing.Point(13, 317);
+            this.lbFalloffStopOpacity.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFalloffStopOpacity.Name = "lbFalloffStopOpacity";
+            this.lbFalloffStopOpacity.Size = new System.Drawing.Size(137, 13);
+            this.lbFalloffStopOpacity.TabIndex = 16;
+            this.lbFalloffStopOpacity.Text = "Falloff Stop Opacity";
+            // 
+            // lbFalloffStartOpacity
+            // 
+            this.lbFalloffStartOpacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffStartOpacity.Location = new System.Drawing.Point(13, 298);
+            this.lbFalloffStartOpacity.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFalloffStartOpacity.Name = "lbFalloffStartOpacity";
+            this.lbFalloffStartOpacity.Size = new System.Drawing.Size(137, 13);
+            this.lbFalloffStartOpacity.TabIndex = 15;
+            this.lbFalloffStartOpacity.Text = "Falloff Start Opacity";
+            // 
+            // lbFalloffStopAngle
+            // 
+            this.lbFalloffStopAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffStopAngle.Location = new System.Drawing.Point(13, 279);
+            this.lbFalloffStopAngle.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFalloffStopAngle.Name = "lbFalloffStopAngle";
+            this.lbFalloffStopAngle.Size = new System.Drawing.Size(137, 13);
+            this.lbFalloffStopAngle.TabIndex = 14;
+            this.lbFalloffStopAngle.Text = "Falloff Stop Angle";
+            // 
+            // lbFalloffStartAngle
+            // 
+            this.lbFalloffStartAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffStartAngle.Location = new System.Drawing.Point(13, 260);
+            this.lbFalloffStartAngle.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFalloffStartAngle.Name = "lbFalloffStartAngle";
+            this.lbFalloffStartAngle.Size = new System.Drawing.Size(137, 13);
+            this.lbFalloffStartAngle.TabIndex = 13;
+            this.lbFalloffStartAngle.Text = "Falloff Start Angle";
+            // 
+            // lbBaseColorScale
+            // 
+            this.lbBaseColorScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbBaseColorScale.Location = new System.Drawing.Point(13, 241);
+            this.lbBaseColorScale.Margin = new System.Windows.Forms.Padding(3);
+            this.lbBaseColorScale.Name = "lbBaseColorScale";
+            this.lbBaseColorScale.Size = new System.Drawing.Size(137, 13);
+            this.lbBaseColorScale.TabIndex = 12;
+            this.lbBaseColorScale.Text = "Base Color Scale";
+            // 
+            // lbBaseColor
+            // 
+            this.lbBaseColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbBaseColor.Location = new System.Drawing.Point(13, 222);
+            this.lbBaseColor.Margin = new System.Windows.Forms.Padding(3);
+            this.lbBaseColor.Name = "lbBaseColor";
+            this.lbBaseColor.Size = new System.Drawing.Size(137, 13);
+            this.lbBaseColor.TabIndex = 11;
+            this.lbBaseColor.Text = "Base Color";
+            // 
+            // lbSoftEnabled
+            // 
+            this.lbSoftEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSoftEnabled.Location = new System.Drawing.Point(13, 203);
+            this.lbSoftEnabled.Margin = new System.Windows.Forms.Padding(3);
+            this.lbSoftEnabled.Name = "lbSoftEnabled";
+            this.lbSoftEnabled.Size = new System.Drawing.Size(137, 13);
+            this.lbSoftEnabled.TabIndex = 10;
+            this.lbSoftEnabled.Text = "Soft Enabled";
+            // 
+            // lbGrayscaleToPaletteAlpha
+            // 
+            this.lbGrayscaleToPaletteAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbGrayscaleToPaletteAlpha.Location = new System.Drawing.Point(13, 184);
+            this.lbGrayscaleToPaletteAlpha.Margin = new System.Windows.Forms.Padding(3);
+            this.lbGrayscaleToPaletteAlpha.Name = "lbGrayscaleToPaletteAlpha";
+            this.lbGrayscaleToPaletteAlpha.Size = new System.Drawing.Size(137, 13);
+            this.lbGrayscaleToPaletteAlpha.TabIndex = 9;
+            this.lbGrayscaleToPaletteAlpha.Text = "Grayscale To Palette Alpha";
+            // 
+            // lbFalloffColorEnabled
+            // 
+            this.lbFalloffColorEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffColorEnabled.Location = new System.Drawing.Point(13, 165);
+            this.lbFalloffColorEnabled.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFalloffColorEnabled.Name = "lbFalloffColorEnabled";
+            this.lbFalloffColorEnabled.Size = new System.Drawing.Size(137, 13);
+            this.lbFalloffColorEnabled.TabIndex = 8;
+            this.lbFalloffColorEnabled.Text = "Falloff Color Enabled";
+            // 
+            // lbFalloffEnabled
+            // 
+            this.lbFalloffEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffEnabled.Location = new System.Drawing.Point(13, 146);
+            this.lbFalloffEnabled.Margin = new System.Windows.Forms.Padding(3);
+            this.lbFalloffEnabled.Name = "lbFalloffEnabled";
+            this.lbFalloffEnabled.Size = new System.Drawing.Size(137, 13);
+            this.lbFalloffEnabled.TabIndex = 7;
+            this.lbFalloffEnabled.Text = "Falloff Enabled";
+            // 
+            // lbEffectLightingEnabled
+            // 
+            this.lbEffectLightingEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEffectLightingEnabled.Location = new System.Drawing.Point(13, 127);
+            this.lbEffectLightingEnabled.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEffectLightingEnabled.Name = "lbEffectLightingEnabled";
+            this.lbEffectLightingEnabled.Size = new System.Drawing.Size(137, 13);
+            this.lbEffectLightingEnabled.TabIndex = 6;
+            this.lbEffectLightingEnabled.Text = "Effect Lighting Enabled";
+            // 
+            // lbBloodEnabled
+            // 
+            this.lbBloodEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbBloodEnabled.Location = new System.Drawing.Point(13, 108);
+            this.lbBloodEnabled.Margin = new System.Windows.Forms.Padding(3);
+            this.lbBloodEnabled.Name = "lbBloodEnabled";
+            this.lbBloodEnabled.Size = new System.Drawing.Size(137, 13);
+            this.lbBloodEnabled.TabIndex = 5;
+            this.lbBloodEnabled.Text = "Blood Enabled";
+            // 
+            // lbEnvmapMaskTexture
+            // 
+            this.lbEnvmapMaskTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnvmapMaskTexture.Location = new System.Drawing.Point(13, 89);
+            this.lbEnvmapMaskTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEnvmapMaskTexture.Name = "lbEnvmapMaskTexture";
+            this.lbEnvmapMaskTexture.Size = new System.Drawing.Size(137, 13);
+            this.lbEnvmapMaskTexture.TabIndex = 4;
+            this.lbEnvmapMaskTexture.Text = "Envmap Mask Texture";
+            // 
+            // lbNormalTexture_effect
+            // 
+            this.lbNormalTexture_effect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbNormalTexture_effect.Location = new System.Drawing.Point(13, 70);
+            this.lbNormalTexture_effect.Margin = new System.Windows.Forms.Padding(3);
+            this.lbNormalTexture_effect.Name = "lbNormalTexture_effect";
+            this.lbNormalTexture_effect.Size = new System.Drawing.Size(137, 13);
+            this.lbNormalTexture_effect.TabIndex = 3;
+            this.lbNormalTexture_effect.Text = "Normal Texture";
+            // 
+            // lbEnvmapTexture
+            // 
+            this.lbEnvmapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEnvmapTexture.Location = new System.Drawing.Point(13, 51);
+            this.lbEnvmapTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbEnvmapTexture.Name = "lbEnvmapTexture";
+            this.lbEnvmapTexture.Size = new System.Drawing.Size(137, 13);
+            this.lbEnvmapTexture.TabIndex = 2;
+            this.lbEnvmapTexture.Text = "Envmap Texture";
+            // 
+            // lbGrayscaleTexture
+            // 
+            this.lbGrayscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbGrayscaleTexture.Location = new System.Drawing.Point(13, 32);
+            this.lbGrayscaleTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbGrayscaleTexture.Name = "lbGrayscaleTexture";
+            this.lbGrayscaleTexture.Size = new System.Drawing.Size(137, 13);
+            this.lbGrayscaleTexture.TabIndex = 1;
+            this.lbGrayscaleTexture.Text = "Grayscale Texture";
+            // 
+            // lbBaseTexture
+            // 
+            this.lbBaseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbBaseTexture.Location = new System.Drawing.Point(13, 13);
+            this.lbBaseTexture.Margin = new System.Windows.Forms.Padding(3);
+            this.lbBaseTexture.Name = "lbBaseTexture";
+            this.lbBaseTexture.Size = new System.Drawing.Size(137, 13);
+            this.lbBaseTexture.TabIndex = 0;
+            this.lbBaseTexture.Text = "Base Texture";
+            // 
+            // numSoftDepth
+            // 
+            this.numSoftDepth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numSoftDepth.DecimalPlaces = 5;
+            this.numSoftDepth.Location = new System.Drawing.Point(13, 372);
+            this.numSoftDepth.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numSoftDepth.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numSoftDepth.Name = "numSoftDepth";
+            this.numSoftDepth.Size = new System.Drawing.Size(272, 20);
+            this.numSoftDepth.TabIndex = 39;
+            this.numSoftDepth.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numLightingInfluence
+            // 
+            this.numLightingInfluence.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numLightingInfluence.DecimalPlaces = 5;
+            this.numLightingInfluence.Location = new System.Drawing.Point(13, 334);
+            this.numLightingInfluence.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numLightingInfluence.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numLightingInfluence.Name = "numLightingInfluence";
+            this.numLightingInfluence.Size = new System.Drawing.Size(272, 20);
+            this.numLightingInfluence.TabIndex = 38;
+            this.numLightingInfluence.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numFalloffStopOpacity
+            // 
+            this.numFalloffStopOpacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numFalloffStopOpacity.DecimalPlaces = 5;
+            this.numFalloffStopOpacity.Location = new System.Drawing.Point(13, 315);
+            this.numFalloffStopOpacity.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numFalloffStopOpacity.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numFalloffStopOpacity.Name = "numFalloffStopOpacity";
+            this.numFalloffStopOpacity.Size = new System.Drawing.Size(272, 20);
+            this.numFalloffStopOpacity.TabIndex = 37;
+            this.numFalloffStopOpacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numFalloffStartOpacity
+            // 
+            this.numFalloffStartOpacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numFalloffStartOpacity.DecimalPlaces = 5;
+            this.numFalloffStartOpacity.Location = new System.Drawing.Point(13, 296);
+            this.numFalloffStartOpacity.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numFalloffStartOpacity.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numFalloffStartOpacity.Name = "numFalloffStartOpacity";
+            this.numFalloffStartOpacity.Size = new System.Drawing.Size(272, 20);
+            this.numFalloffStartOpacity.TabIndex = 36;
+            this.numFalloffStartOpacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numFalloffStopAngle
+            // 
+            this.numFalloffStopAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numFalloffStopAngle.DecimalPlaces = 5;
+            this.numFalloffStopAngle.Location = new System.Drawing.Point(13, 277);
+            this.numFalloffStopAngle.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numFalloffStopAngle.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numFalloffStopAngle.Name = "numFalloffStopAngle";
+            this.numFalloffStopAngle.Size = new System.Drawing.Size(272, 20);
+            this.numFalloffStopAngle.TabIndex = 35;
+            this.numFalloffStopAngle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numFalloffStartAngle
+            // 
+            this.numFalloffStartAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numFalloffStartAngle.DecimalPlaces = 5;
+            this.numFalloffStartAngle.Location = new System.Drawing.Point(13, 258);
+            this.numFalloffStartAngle.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numFalloffStartAngle.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numFalloffStartAngle.Name = "numFalloffStartAngle";
+            this.numFalloffStartAngle.Size = new System.Drawing.Size(272, 20);
+            this.numFalloffStartAngle.TabIndex = 34;
+            this.numFalloffStartAngle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btBaseColor
+            // 
+            this.btBaseColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btBaseColor.BackColor = System.Drawing.Color.White;
+            this.btBaseColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btBaseColor.Location = new System.Drawing.Point(13, 218);
+            this.btBaseColor.Name = "btBaseColor";
+            this.btBaseColor.Size = new System.Drawing.Size(272, 20);
+            this.btBaseColor.TabIndex = 33;
+            this.btBaseColor.UseVisualStyleBackColor = false;
+            this.btBaseColor.Click += new System.EventHandler(this.ColorClicked);
+            // 
+            // cbSoftEnabled
+            // 
+            this.cbSoftEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSoftEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbSoftEnabled.Location = new System.Drawing.Point(13, 204);
+            this.cbSoftEnabled.Name = "cbSoftEnabled";
+            this.cbSoftEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbSoftEnabled.TabIndex = 32;
+            this.cbSoftEnabled.UseVisualStyleBackColor = true;
+            // 
+            // cbGrayscaleToPaletteAlpha
+            // 
+            this.cbGrayscaleToPaletteAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbGrayscaleToPaletteAlpha.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbGrayscaleToPaletteAlpha.Location = new System.Drawing.Point(13, 185);
+            this.cbGrayscaleToPaletteAlpha.Name = "cbGrayscaleToPaletteAlpha";
+            this.cbGrayscaleToPaletteAlpha.Size = new System.Drawing.Size(256, 13);
+            this.cbGrayscaleToPaletteAlpha.TabIndex = 31;
+            this.cbGrayscaleToPaletteAlpha.UseVisualStyleBackColor = true;
+            // 
+            // cbFalloffColorEnabled
+            // 
+            this.cbFalloffColorEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFalloffColorEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbFalloffColorEnabled.Location = new System.Drawing.Point(13, 166);
+            this.cbFalloffColorEnabled.Name = "cbFalloffColorEnabled";
+            this.cbFalloffColorEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbFalloffColorEnabled.TabIndex = 30;
+            this.cbFalloffColorEnabled.UseVisualStyleBackColor = true;
+            // 
+            // cbFalloffEnabled
+            // 
+            this.cbFalloffEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbFalloffEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbFalloffEnabled.Location = new System.Drawing.Point(13, 147);
+            this.cbFalloffEnabled.Name = "cbFalloffEnabled";
+            this.cbFalloffEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbFalloffEnabled.TabIndex = 29;
+            this.cbFalloffEnabled.UseVisualStyleBackColor = true;
+            // 
+            // cbEffectLightingEnabled
+            // 
+            this.cbEffectLightingEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbEffectLightingEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbEffectLightingEnabled.Location = new System.Drawing.Point(13, 128);
+            this.cbEffectLightingEnabled.Name = "cbEffectLightingEnabled";
+            this.cbEffectLightingEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbEffectLightingEnabled.TabIndex = 28;
+            this.cbEffectLightingEnabled.UseVisualStyleBackColor = true;
+            // 
+            // tbEnvmapMaskTexture
+            // 
+            this.tbEnvmapMaskTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbEnvmapMaskTexture.Location = new System.Drawing.Point(13, 86);
+            this.tbEnvmapMaskTexture.MaxLength = 260;
+            this.tbEnvmapMaskTexture.Name = "tbEnvmapMaskTexture";
+            this.tbEnvmapMaskTexture.Size = new System.Drawing.Size(272, 20);
+            this.tbEnvmapMaskTexture.TabIndex = 27;
+            // 
+            // tbNormalTexture_effect
+            // 
+            this.tbNormalTexture_effect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbNormalTexture_effect.Location = new System.Drawing.Point(13, 67);
+            this.tbNormalTexture_effect.MaxLength = 260;
+            this.tbNormalTexture_effect.Name = "tbNormalTexture_effect";
+            this.tbNormalTexture_effect.Size = new System.Drawing.Size(272, 20);
+            this.tbNormalTexture_effect.TabIndex = 26;
+            // 
+            // tbEnvmapTexture
+            // 
+            this.tbEnvmapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbEnvmapTexture.Location = new System.Drawing.Point(13, 48);
+            this.tbEnvmapTexture.MaxLength = 260;
+            this.tbEnvmapTexture.Name = "tbEnvmapTexture";
+            this.tbEnvmapTexture.Size = new System.Drawing.Size(272, 20);
+            this.tbEnvmapTexture.TabIndex = 25;
+            // 
+            // tbGrayscaleTexture
+            // 
+            this.tbGrayscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbGrayscaleTexture.Location = new System.Drawing.Point(13, 29);
+            this.tbGrayscaleTexture.MaxLength = 260;
+            this.tbGrayscaleTexture.Name = "tbGrayscaleTexture";
+            this.tbGrayscaleTexture.Size = new System.Drawing.Size(272, 20);
+            this.tbGrayscaleTexture.TabIndex = 24;
+            // 
+            // tbBaseTexture
+            // 
+            this.tbBaseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbBaseTexture.Location = new System.Drawing.Point(13, 10);
+            this.tbBaseTexture.MaxLength = 260;
+            this.tbBaseTexture.Name = "tbBaseTexture";
+            this.tbBaseTexture.Size = new System.Drawing.Size(272, 20);
+            this.tbBaseTexture.TabIndex = 23;
+            // 
+            // cbBloodEnabled
+            // 
+            this.cbBloodEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbBloodEnabled.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbBloodEnabled.Location = new System.Drawing.Point(13, 109);
+            this.cbBloodEnabled.Name = "cbBloodEnabled";
+            this.cbBloodEnabled.Size = new System.Drawing.Size(256, 13);
+            this.cbBloodEnabled.TabIndex = 22;
+            this.cbBloodEnabled.UseVisualStyleBackColor = true;
+            // 
+            // numEnvmapMinLOD
+            // 
+            this.numEnvmapMinLOD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numEnvmapMinLOD.Location = new System.Drawing.Point(13, 353);
+            this.numEnvmapMinLOD.Maximum = new decimal(new int[] {
+            128,
+            0,
+            0,
+            0});
+            this.numEnvmapMinLOD.Minimum = new decimal(new int[] {
+            128,
+            0,
+            0,
+            -2147483648});
+            this.numEnvmapMinLOD.Name = "numEnvmapMinLOD";
+            this.numEnvmapMinLOD.Size = new System.Drawing.Size(272, 20);
+            this.numEnvmapMinLOD.TabIndex = 9;
+            this.numEnvmapMinLOD.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numBaseColorScale
+            // 
+            this.numBaseColorScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.numBaseColorScale.DecimalPlaces = 5;
+            this.numBaseColorScale.Location = new System.Drawing.Point(13, 239);
+            this.numBaseColorScale.Maximum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            0});
+            this.numBaseColorScale.Minimum = new decimal(new int[] {
+            100000000,
+            0,
+            0,
+            -2147483648});
+            this.numBaseColorScale.Name = "numBaseColorScale";
+            this.numBaseColorScale.Size = new System.Drawing.Size(272, 20);
+            this.numBaseColorScale.TabIndex = 3;
+            this.numBaseColorScale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Main
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 546);
-            this.Controls.Add(this.tableLayoutPanel);
+            this.ClientSize = new System.Drawing.Size(484, 561);
+            this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.MinimumSize = new System.Drawing.Size(300, 150);
+            this.MinimumSize = new System.Drawing.Size(385, 246);
             this.Name = "Main";
             this.Text = "Material Editor";
             this.ResizeBegin += new System.EventHandler(this.Main_ResizeBegin);
@@ -2946,79 +3277,60 @@
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Main_DragEnter);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
-            this.tableLayoutPanel.ResumeLayout(false);
-            this.tableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat7_5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte19)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte18)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numMysteryByte1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFloat1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInt4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInt3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInt2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInt1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFlags2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numFlags1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSpecularStrength)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numByte15)).EndInit();
+            this.tabControl.ResumeLayout(false);
+            this.tabPageGeneral.ResumeLayout(false);
+            this.splitContainerGeneral.Panel1.ResumeLayout(false);
+            this.splitContainerGeneral.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerGeneral)).EndInit();
+            this.splitContainerGeneral.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numEnvironmentMaskScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRefractionPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAlphaTestReference)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAlpha)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numScaleV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numScaleU)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOffsetV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numOffsetU)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numVersion)).EndInit();
+            this.tabPageMaterial.ResumeLayout(false);
+            this.splitContainerMaterial.Panel1.ResumeLayout(false);
+            this.splitContainerMaterial.Panel2.ResumeLayout(false);
+            this.splitContainerMaterial.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMaterial)).EndInit();
+            this.splitContainerMaterial.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numGrayscaleToPaletteScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTessellationFadeDistance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTessellationBaseFactor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTessellationPNScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDisplacementTexScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDisplacementTexBias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEmittanceMultiplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetMetalness)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetFresnelPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetEnvMapScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetSpecMinVar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetSpecPowerScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numWetSpecScale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFresnelPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSmoothness)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSpecularMultiplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSubsurfaceLightingRolloff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBacklightPower)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRimPower)).EndInit();
+            this.tabPageEffect.ResumeLayout(false);
+            this.splitContainerEffect.Panel1.ResumeLayout(false);
+            this.splitContainerEffect.Panel2.ResumeLayout(false);
+            this.splitContainerEffect.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerEffect)).EndInit();
+            this.splitContainerEffect.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numSoftDepth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numLightingInfluence)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFalloffStopOpacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFalloffStartOpacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFalloffStopAngle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFalloffStartAngle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnvmapMinLOD)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBaseColorScale)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3037,181 +3349,213 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
-        private System.Windows.Forms.NumericUpDown numMysteryByte23;
-        private System.Windows.Forms.NumericUpDown numMysteryByte22;
-        private System.Windows.Forms.NumericUpDown numMysteryByte21;
-        private System.Windows.Forms.NumericUpDown numMysteryByte20;
-        private System.Windows.Forms.NumericUpDown numMysteryByte19;
-        private System.Windows.Forms.NumericUpDown numMysteryByte18;
-        private System.Windows.Forms.NumericUpDown numMysteryByte17;
-        private System.Windows.Forms.NumericUpDown numMysteryByte16;
-        private System.Windows.Forms.NumericUpDown numMysteryByte15;
-        private System.Windows.Forms.NumericUpDown numMysteryByte14;
-        private System.Windows.Forms.NumericUpDown numMysteryByte13;
-        private System.Windows.Forms.NumericUpDown numMysteryByte12;
-        private System.Windows.Forms.NumericUpDown numMysteryByte11;
-        private System.Windows.Forms.NumericUpDown numMysteryByte10;
-        private System.Windows.Forms.Label lbMysteryByte23;
-        private System.Windows.Forms.Label lbMysteryByte22;
-        private System.Windows.Forms.Label lbMysteryByte21;
-        private System.Windows.Forms.Label lbMysteryByte20;
-        private System.Windows.Forms.Label lbMysteryByte19;
-        private System.Windows.Forms.Label lbMysteryByte18;
-        private System.Windows.Forms.Label lbMysteryByte17;
-        private System.Windows.Forms.Label lbMysteryByte16;
-        private System.Windows.Forms.Label lbMysteryByte15;
-        private System.Windows.Forms.Label lbMysteryByte14;
-        private System.Windows.Forms.Label lbMysteryByte13;
-        private System.Windows.Forms.Label lbMysteryByte12;
-        private System.Windows.Forms.Label lbMysteryByte11;
-        private System.Windows.Forms.Label lbMysteryByte10;
-        private System.Windows.Forms.CheckBox cbUseDoubleSided;
-        private System.Windows.Forms.Label lbUseDoubleSided;
-        private System.Windows.Forms.NumericUpDown numMysteryByte8;
-        private System.Windows.Forms.NumericUpDown numMysteryByte7;
-        private System.Windows.Forms.NumericUpDown numMysteryByte6;
-        private System.Windows.Forms.NumericUpDown numMysteryByte5;
-        private System.Windows.Forms.NumericUpDown numMysteryByte4;
-        private System.Windows.Forms.Label lbMysteryByte8;
-        private System.Windows.Forms.Label lbMysteryByte7;
-        private System.Windows.Forms.Label lbMysteryByte6;
-        private System.Windows.Forms.Label lbMysteryByte5;
-        private System.Windows.Forms.Label lbMysteryByte4;
-        private System.Windows.Forms.Label lbUseAlpha;
-        private System.Windows.Forms.NumericUpDown numMysteryByte2;
-        private System.Windows.Forms.Label lbMysteryByte2;
-        private System.Windows.Forms.NumericUpDown numMysteryByte1;
-        private System.Windows.Forms.Label lbMysteryByte1;
-        private System.Windows.Forms.NumericUpDown numFloat3;
-        private System.Windows.Forms.NumericUpDown numFloat2;
-        private System.Windows.Forms.NumericUpDown numFloat1;
-        private System.Windows.Forms.Label lbFloat3;
-        private System.Windows.Forms.Label lbFloat2;
-        private System.Windows.Forms.Label lbFloat1;
-        private System.Windows.Forms.NumericUpDown numInt4;
-        private System.Windows.Forms.NumericUpDown numInt3;
-        private System.Windows.Forms.NumericUpDown numInt2;
-        private System.Windows.Forms.NumericUpDown numInt1;
-        private System.Windows.Forms.Label lbInt4;
-        private System.Windows.Forms.Label lbInt3;
-        private System.Windows.Forms.Label lbInt2;
-        private System.Windows.Forms.Label lbInt1;
-        private System.Windows.Forms.NumericUpDown numFlags2;
-        private System.Windows.Forms.NumericUpDown numFlags1;
-        private System.Windows.Forms.Label lbFlags2;
-        private System.Windows.Forms.Label lbFlags1;
-        private System.Windows.Forms.Label lbSpecularStrength;
-        private System.Windows.Forms.Button btColor2;
-        private System.Windows.Forms.Label lbColor2;
-        private System.Windows.Forms.Button btColor1;
-        private System.Windows.Forms.Label lbColor1;
-        private System.Windows.Forms.NumericUpDown numSpecularStrength;
-        private System.Windows.Forms.CheckBox cbUseAlpha;
-        private System.Windows.Forms.Label lbTexture9;
-        private System.Windows.Forms.Label lbTexture8;
-        private System.Windows.Forms.Label lbTexture7;
-        private System.Windows.Forms.Label lbTexture6;
-        private System.Windows.Forms.Label lbTexture5;
-        private System.Windows.Forms.Label lbTexture4;
-        private System.Windows.Forms.Label lbTexture3;
-        private System.Windows.Forms.Label lbTexture2;
-        private System.Windows.Forms.Label lbTexture1;
-        private System.Windows.Forms.TextBox tbTexture1;
-        private System.Windows.Forms.TextBox tbTexture9;
-        private System.Windows.Forms.TextBox tbTexture8;
-        private System.Windows.Forms.TextBox tbTexture7;
-        private System.Windows.Forms.TextBox tbTexture6;
-        private System.Windows.Forms.TextBox tbTexture5;
-        private System.Windows.Forms.TextBox tbTexture4;
-        private System.Windows.Forms.TextBox tbTexture3;
-        private System.Windows.Forms.TextBox tbTexture2;
-        private System.Windows.Forms.Label lbByte1;
-        private System.Windows.Forms.Label lbByte2;
-        private System.Windows.Forms.NumericUpDown numFloat4;
-        private System.Windows.Forms.NumericUpDown numFloat5;
-        private System.Windows.Forms.Label lbFloat5;
-        private System.Windows.Forms.Label lbFloat4;
-        private System.Windows.Forms.NumericUpDown numByte2;
-        private System.Windows.Forms.NumericUpDown numByte1;
-        private System.Windows.Forms.NumericUpDown numFloat6;
-        private System.Windows.Forms.Label lbFloat6;
-        private System.Windows.Forms.NumericUpDown numByte3;
-        private System.Windows.Forms.Label lbByte3;
-        private System.Windows.Forms.Label lbUseWet;
-        private System.Windows.Forms.CheckBox cbUseWet;
-        private System.Windows.Forms.Label lbTemplate;
-        private System.Windows.Forms.TextBox tbTemplate;
-        private System.Windows.Forms.Label lbUseSkinColor;
-        private System.Windows.Forms.CheckBox cbUseSkinColor;
-        private System.Windows.Forms.Label lbFloat7_5;
-        private System.Windows.Forms.Label lbFloat7_8;
-        private System.Windows.Forms.Label lbFloat7_7;
-        private System.Windows.Forms.Label lbFloat7_6;
-        private System.Windows.Forms.Label lbFloat7_13;
-        private System.Windows.Forms.Label lbFloat7_12;
-        private System.Windows.Forms.Label lbFloat7_11;
-        private System.Windows.Forms.Label lbFloat7_10;
-        private System.Windows.Forms.Label lbFloat7_9;
-        private System.Windows.Forms.NumericUpDown numFloat7_13;
-        private System.Windows.Forms.NumericUpDown numFloat7_12;
-        private System.Windows.Forms.NumericUpDown numFloat7_11;
-        private System.Windows.Forms.NumericUpDown numFloat7_10;
-        private System.Windows.Forms.NumericUpDown numFloat7_9;
-        private System.Windows.Forms.NumericUpDown numFloat7_8;
-        private System.Windows.Forms.NumericUpDown numFloat7_7;
-        private System.Windows.Forms.NumericUpDown numFloat7_6;
-        private System.Windows.Forms.NumericUpDown numFloat7_5;
-        private System.Windows.Forms.Label lbByte6;
-        private System.Windows.Forms.Label lbByte5;
-        private System.Windows.Forms.NumericUpDown numByte6;
-        private System.Windows.Forms.NumericUpDown numByte5;
-        private System.Windows.Forms.NumericUpDown numFloat8;
-        private System.Windows.Forms.Label lbFloat8;
-        private System.Windows.Forms.Label lbByte12;
-        private System.Windows.Forms.Label lbByte11;
-        private System.Windows.Forms.Label lbByte10;
-        private System.Windows.Forms.Label lbByte9;
-        private System.Windows.Forms.Label lbByte8;
-        private System.Windows.Forms.Label lbByte7;
-        private System.Windows.Forms.Label lbByte15;
-        private System.Windows.Forms.Label lbByte14;
-        private System.Windows.Forms.Label lbByte13;
-        private System.Windows.Forms.NumericUpDown numByte7;
-        private System.Windows.Forms.NumericUpDown numByte8;
-        private System.Windows.Forms.NumericUpDown numByte9;
-        private System.Windows.Forms.NumericUpDown numByte10;
-        private System.Windows.Forms.NumericUpDown numByte11;
-        private System.Windows.Forms.NumericUpDown numByte12;
-        private System.Windows.Forms.NumericUpDown numByte13;
-        private System.Windows.Forms.NumericUpDown numByte14;
-        private System.Windows.Forms.NumericUpDown numByte15;
-        private System.Windows.Forms.Label lbByte16;
-        private System.Windows.Forms.Label lbByte17;
-        private System.Windows.Forms.Label lbByte18;
-        private System.Windows.Forms.NumericUpDown numByte18;
-        private System.Windows.Forms.NumericUpDown numByte17;
-        private System.Windows.Forms.NumericUpDown numByte16;
-        private System.Windows.Forms.Label lbByte20;
-        private System.Windows.Forms.Label lbByte19;
-        private System.Windows.Forms.NumericUpDown numByte20;
-        private System.Windows.Forms.NumericUpDown numByte19;
-        private System.Windows.Forms.NumericUpDown numByte21;
-        private System.Windows.Forms.Label lbByte21;
-        private System.Windows.Forms.NumericUpDown numFloat12;
-        private System.Windows.Forms.Label lbFloat12;
-        private System.Windows.Forms.Label lbFloat17;
-        private System.Windows.Forms.Label lbFloat16;
-        private System.Windows.Forms.Label lbFloat15;
-        private System.Windows.Forms.Label lbFloat14;
-        private System.Windows.Forms.Label lbFloat13;
-        private System.Windows.Forms.NumericUpDown numFloat17;
-        private System.Windows.Forms.NumericUpDown numFloat16;
-        private System.Windows.Forms.NumericUpDown numFloat15;
-        private System.Windows.Forms.NumericUpDown numFloat14;
-        private System.Windows.Forms.NumericUpDown numFloat13;
-        private System.Windows.Forms.NumericUpDown numByte22;
-        private System.Windows.Forms.Label lbByte22;
+        private System.Windows.Forms.TabControl tabControl;
+        private System.Windows.Forms.TabPage tabPageMaterial;
+        private System.Windows.Forms.TabPage tabPageEffect;
+        private System.Windows.Forms.TabPage tabPageGeneral;
+        private System.Windows.Forms.SplitContainer splitContainerGeneral;
+        private System.Windows.Forms.Label lbVersion;
+        private System.Windows.Forms.Label lbTileU;
+        private System.Windows.Forms.Label lbTileV;
+        private System.Windows.Forms.Label lbOffsetV;
+        private System.Windows.Forms.Label lbOffsetU;
+        private System.Windows.Forms.Label lbScaleV;
+        private System.Windows.Forms.Label lbScaleU;
+        private System.Windows.Forms.Label lbAlpha;
+        private System.Windows.Forms.Label lbZBufferTest;
+        private System.Windows.Forms.Label lbZBufferWrite;
+        private System.Windows.Forms.Label lbAlphaTest;
+        private System.Windows.Forms.Label lbAlphaTestReference;
+        private System.Windows.Forms.Label lbAlphaBlendMode;
+        private System.Windows.Forms.Label lbScreenSpaceReflections;
+        private System.Windows.Forms.Label lbWetnessControlSSR;
+        private System.Windows.Forms.Label lbTwoSided;
+        private System.Windows.Forms.Label lbDecal;
+        private System.Windows.Forms.Label lbDecalNoFade;
+        private System.Windows.Forms.Label lbRefraction;
+        private System.Windows.Forms.Label lbNonOccluder;
+        private System.Windows.Forms.Label lbEnvironmentMapping;
+        private System.Windows.Forms.Label lbRefractionPower;
+        private System.Windows.Forms.Label lbRefractionFalloff;
+        private System.Windows.Forms.Label lbEnvironmentMaskScale;
+        private System.Windows.Forms.Label lbGrayscaleToPaletteColor;
+        private System.Windows.Forms.NumericUpDown numVersion;
+        private System.Windows.Forms.CheckBox cbTileU;
+        private System.Windows.Forms.CheckBox cbTileV;
+        private System.Windows.Forms.NumericUpDown numOffsetU;
+        private System.Windows.Forms.NumericUpDown numOffsetV;
+        private System.Windows.Forms.NumericUpDown numScaleV;
+        private System.Windows.Forms.NumericUpDown numScaleU;
+        private System.Windows.Forms.ComboBox selAlphaBlendMode;
+        private System.Windows.Forms.NumericUpDown numAlpha;
+        private System.Windows.Forms.NumericUpDown numAlphaTestReference;
+        private System.Windows.Forms.CheckBox cbZBufferTest;
+        private System.Windows.Forms.CheckBox cbZBufferWrite;
+        private System.Windows.Forms.CheckBox cbAlphaTest;
+        private System.Windows.Forms.CheckBox cbNonOccluder;
+        private System.Windows.Forms.CheckBox cbDecalNoFade;
+        private System.Windows.Forms.CheckBox cbTwoSided;
+        private System.Windows.Forms.CheckBox cbDecal;
+        private System.Windows.Forms.CheckBox cbWetnessControlSSR;
+        private System.Windows.Forms.CheckBox cbScreenSpaceReflections;
+        private System.Windows.Forms.NumericUpDown numRefractionPower;
+        private System.Windows.Forms.CheckBox cbRefractionFalloff;
+        private System.Windows.Forms.CheckBox cbRefraction;
+        private System.Windows.Forms.CheckBox cbGrayscaleToPaletteColor;
+        private System.Windows.Forms.NumericUpDown numEnvironmentMaskScale;
+        private System.Windows.Forms.CheckBox cbEnvironmentMapping;
+        private System.Windows.Forms.SplitContainer splitContainerMaterial;
+        private System.Windows.Forms.Label lbDiffuseTexture;
+        private System.Windows.Forms.NumericUpDown numRimPower;
+        private System.Windows.Forms.CheckBox cbEnableEditorAlphaRef;
+        private System.Windows.Forms.Label lbGreyscaleTexture;
+        private System.Windows.Forms.Label lbSmoothSpecularTexture;
+        private System.Windows.Forms.Label lbNormalTexture;
+        private System.Windows.Forms.Label lbEnvironmentMapTexture;
+        private System.Windows.Forms.Label lbWrinklesTexture;
+        private System.Windows.Forms.Label lbInnerLayerTexture;
+        private System.Windows.Forms.Label lbGlowTexture;
+        private System.Windows.Forms.Label lbDisplacementTexture;
+        private System.Windows.Forms.Label lbEnableEditorAlphaRef;
+        private System.Windows.Forms.Label lbSpecularEnabled;
+        private System.Windows.Forms.Label lbSubsurfaceLightingRolloff;
+        private System.Windows.Forms.Label lbSubsurfaceLighting;
+        private System.Windows.Forms.Label lbBacklightPower;
+        private System.Windows.Forms.Label lbRimPower;
+        private System.Windows.Forms.Label lbRimLighting;
+        private System.Windows.Forms.Label lbSpecularMult;
+        private System.Windows.Forms.Label lbSpecularColor;
+        private System.Windows.Forms.Label lbSmoothness;
+        private System.Windows.Forms.Label lbWetSpecScale;
+        private System.Windows.Forms.Label lbFresnelPower;
+        private System.Windows.Forms.Label lbWetSpecPowerScale;
+        private System.Windows.Forms.Label lbWetFresnelPower;
+        private System.Windows.Forms.Label lbWetEnvMapScale;
+        private System.Windows.Forms.Label lbWetSpecMinVar;
+        private System.Windows.Forms.Label lbWetMetalness;
+        private System.Windows.Forms.Label lbRootMaterialPath;
+        private System.Windows.Forms.Label lbModelSpaceNormals;
+        private System.Windows.Forms.Label lbEmittanceMultiplier;
+        private System.Windows.Forms.Label lbEmittanceColor;
+        private System.Windows.Forms.Label lbEmittanceEnabled;
+        private System.Windows.Forms.Label lbAnisoLighting;
+        private System.Windows.Forms.Label lbDisplacementTexScale;
+        private System.Windows.Forms.Label lbDisplacementTexBias;
+        private System.Windows.Forms.Label lbTessellate;
+        private System.Windows.Forms.Label lbSkinTint;
+        private System.Windows.Forms.Label lbFacegen;
+        private System.Windows.Forms.Label lbTree;
+        private System.Windows.Forms.Label lbHairTintColor;
+        private System.Windows.Forms.Label lbHair;
+        private System.Windows.Forms.Label lbEnvironmentMapEye;
+        private System.Windows.Forms.Label lbEnvironmentMapWindow;
+        private System.Windows.Forms.Label lbGlowmap;
+        private System.Windows.Forms.Label lbAssumeShadowmask;
+        private System.Windows.Forms.Label lbDissolveFade;
+        private System.Windows.Forms.Label lbCastShadows;
+        private System.Windows.Forms.Label lbHideSecret;
+        private System.Windows.Forms.Label lbReceiveShadows;
+        private System.Windows.Forms.Label lbBackLighting;
+        private System.Windows.Forms.Label lbExternalEmittance;
+        private System.Windows.Forms.Label lbGrayscaleToPaletteScale;
+        private System.Windows.Forms.Label lbTessellationFadeDistance;
+        private System.Windows.Forms.Label lbTessellationBaseFactor;
+        private System.Windows.Forms.Label lbTessellationPNScale;
+        private System.Windows.Forms.Label lbSkewSpecularAlpha;
+        private System.Windows.Forms.TextBox tbDiffuseTexture;
+        private System.Windows.Forms.TextBox tbDisplacementTexture;
+        private System.Windows.Forms.TextBox tbWrinklesTexture;
+        private System.Windows.Forms.TextBox tbInnerLayerTexture;
+        private System.Windows.Forms.TextBox tbGlowTexture;
+        private System.Windows.Forms.TextBox tbEnvironmentMapTexture;
+        private System.Windows.Forms.TextBox tbGreyscaleTexture;
+        private System.Windows.Forms.TextBox tbSmoothSpecularTexture;
+        private System.Windows.Forms.TextBox tbNormalTexture;
+        private System.Windows.Forms.CheckBox cbRimLighting;
+        private System.Windows.Forms.NumericUpDown numBacklightPower;
+        private System.Windows.Forms.NumericUpDown numSubsurfaceLightingRolloff;
+        private System.Windows.Forms.CheckBox cbSubsurfaceLighting;
+        private System.Windows.Forms.Button btSpecularColor;
+        private System.Windows.Forms.CheckBox cbSpecularEnabled;
+        private System.Windows.Forms.NumericUpDown numSpecularMultiplier;
+        private System.Windows.Forms.NumericUpDown numWetMetalness;
+        private System.Windows.Forms.NumericUpDown numWetFresnelPower;
+        private System.Windows.Forms.NumericUpDown numWetEnvMapScale;
+        private System.Windows.Forms.NumericUpDown numWetSpecMinVar;
+        private System.Windows.Forms.NumericUpDown numWetSpecPowerScale;
+        private System.Windows.Forms.NumericUpDown numWetSpecScale;
+        private System.Windows.Forms.NumericUpDown numFresnelPower;
+        private System.Windows.Forms.NumericUpDown numSmoothness;
+        private System.Windows.Forms.TextBox tbRootMaterialPath;
+        private System.Windows.Forms.NumericUpDown numEmittanceMultiplier;
+        private System.Windows.Forms.Button btEmittanceColor;
+        private System.Windows.Forms.CheckBox cbEmittanceEnabled;
+        private System.Windows.Forms.CheckBox cbAnisoLighting;
+        private System.Windows.Forms.Button btHairTintColor;
+        private System.Windows.Forms.CheckBox cbHair;
+        private System.Windows.Forms.CheckBox cbEnvironmentMapEye;
+        private System.Windows.Forms.CheckBox cbEnvironmentMapWindow;
+        private System.Windows.Forms.CheckBox cbGlowmap;
+        private System.Windows.Forms.CheckBox cbAssumeShadowmask;
+        private System.Windows.Forms.CheckBox cbDissolveFade;
+        private System.Windows.Forms.CheckBox cbCastShadows;
+        private System.Windows.Forms.CheckBox cbHideSecret;
+        private System.Windows.Forms.CheckBox cbReceiveShadows;
+        private System.Windows.Forms.CheckBox cbBackLighting;
+        private System.Windows.Forms.CheckBox cbExternalEmittance;
+        private System.Windows.Forms.CheckBox cbModelSpaceNormals;
+        private System.Windows.Forms.CheckBox cbSkewSpecularAlpha;
+        private System.Windows.Forms.NumericUpDown numGrayscaleToPaletteScale;
+        private System.Windows.Forms.NumericUpDown numTessellationFadeDistance;
+        private System.Windows.Forms.NumericUpDown numTessellationBaseFactor;
+        private System.Windows.Forms.NumericUpDown numTessellationPNScale;
+        private System.Windows.Forms.NumericUpDown numDisplacementTexScale;
+        private System.Windows.Forms.NumericUpDown numDisplacementTexBias;
+        private System.Windows.Forms.CheckBox cbTessellate;
+        private System.Windows.Forms.CheckBox cbSkinTint;
+        private System.Windows.Forms.CheckBox cbFacegen;
+        private System.Windows.Forms.CheckBox cbTree;
+        private System.Windows.Forms.SplitContainer splitContainerEffect;
+        private System.Windows.Forms.Label lbBaseTexture;
+        private System.Windows.Forms.CheckBox cbBloodEnabled;
+        private System.Windows.Forms.NumericUpDown numEnvmapMinLOD;
+        private System.Windows.Forms.NumericUpDown numBaseColorScale;
+        private System.Windows.Forms.Label lbGrayscaleTexture;
+        private System.Windows.Forms.Label lbEnvmapTexture;
+        private System.Windows.Forms.Label lbEnvmapMaskTexture;
+        private System.Windows.Forms.Label lbNormalTexture_effect;
+        private System.Windows.Forms.Label lbBloodEnabled;
+        private System.Windows.Forms.Label lbGrayscaleToPaletteAlpha;
+        private System.Windows.Forms.Label lbFalloffColorEnabled;
+        private System.Windows.Forms.Label lbFalloffEnabled;
+        private System.Windows.Forms.Label lbEffectLightingEnabled;
+        private System.Windows.Forms.Label lbFalloffStopOpacity;
+        private System.Windows.Forms.Label lbFalloffStartOpacity;
+        private System.Windows.Forms.Label lbFalloffStopAngle;
+        private System.Windows.Forms.Label lbFalloffStartAngle;
+        private System.Windows.Forms.Label lbBaseColorScale;
+        private System.Windows.Forms.Label lbBaseColor;
+        private System.Windows.Forms.Label lbSoftEnabled;
+        private System.Windows.Forms.Label lbEnvmapMinLOD;
+        private System.Windows.Forms.Label lbLightingInfluence;
+        private System.Windows.Forms.Label lbSoftDepth;
+        private System.Windows.Forms.TextBox tbBaseTexture;
+        private System.Windows.Forms.TextBox tbEnvmapMaskTexture;
+        private System.Windows.Forms.TextBox tbNormalTexture_effect;
+        private System.Windows.Forms.TextBox tbEnvmapTexture;
+        private System.Windows.Forms.TextBox tbGrayscaleTexture;
+        private System.Windows.Forms.CheckBox cbSoftEnabled;
+        private System.Windows.Forms.CheckBox cbGrayscaleToPaletteAlpha;
+        private System.Windows.Forms.CheckBox cbFalloffColorEnabled;
+        private System.Windows.Forms.CheckBox cbFalloffEnabled;
+        private System.Windows.Forms.CheckBox cbEffectLightingEnabled;
+        private System.Windows.Forms.Button btBaseColor;
+        private System.Windows.Forms.NumericUpDown numSoftDepth;
+        private System.Windows.Forms.NumericUpDown numLightingInfluence;
+        private System.Windows.Forms.NumericUpDown numFalloffStopOpacity;
+        private System.Windows.Forms.NumericUpDown numFalloffStartOpacity;
+        private System.Windows.Forms.NumericUpDown numFalloffStopAngle;
+        private System.Windows.Forms.NumericUpDown numFalloffStartAngle;
 
     }
 }
