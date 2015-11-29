@@ -15,7 +15,7 @@ namespace Material_Editor
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1 && !string.IsNullOrEmpty(args[1]))
             {
-                string fileName = args[1];
+                string fileName = args[1].ToLower();
                 if (fileName.EndsWith(".bgsm"))
                 {
                     OpenMaterial(fileName, BGSM.Signature);
@@ -23,6 +23,10 @@ namespace Material_Editor
                 else if (fileName.EndsWith(".bgem"))
                 {
                     OpenMaterial(fileName, BGEM.Signature);
+                }
+                else
+                {
+                    MessageBox.Show("File extension not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -47,7 +51,7 @@ namespace Material_Editor
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string file = openFileDialog.FileName;
+                string file = openFileDialog.FileName.ToLower();
                 if (file.EndsWith(".bgsm"))
                 {
                     OpenMaterial(file, BGSM.Signature);
@@ -58,7 +62,7 @@ namespace Material_Editor
                 }
                 else
                 {
-                    MessageBox.Show("Format not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("File extension not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -89,7 +93,7 @@ namespace Material_Editor
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                workFileName = saveFileDialog.FileName;
+                workFileName = saveFileDialog.FileName.ToLower();
                 this.Text = workFileName.Remove(0, workFileName.LastIndexOf('\\') + 1);
                 saveToolStripMenuItem.Enabled = true;
 
