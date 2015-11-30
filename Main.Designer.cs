@@ -397,12 +397,12 @@
             // 
             // openFileDialog
             // 
-            this.openFileDialog.Filter = "Material (.bgsm)|*.bgsm|Effect (.bgem)|*.bgem|All Files (*.*)|*.*";
+            this.openFileDialog.Filter = "Material/Effect File (.bgsm; .bgem)|*.bgsm;*.bgem";
             this.openFileDialog.Title = "Choose a material file...";
             // 
             // saveFileDialog
             // 
-            this.saveFileDialog.Filter = "Material (.bgsm)|*.bgsm|Effect (.bgem)|*.bgem";
+            this.saveFileDialog.Filter = "Material/Effect File (.bgsm; .bgem)|*.bgsm;*.bgem";
             this.saveFileDialog.Title = "Save material file to...";
             // 
             // colorDialog

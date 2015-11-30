@@ -93,6 +93,18 @@ namespace Material_Editor
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            saveFileDialog.AddExtension = false;
+            saveFileDialog.DefaultExt = "";
+            if (!string.IsNullOrEmpty(workFileName))
+            {
+                int fileIndex = workFileName.LastIndexOf('\\');
+                if (fileIndex >= 0)
+                {
+                    string fileName = workFileName.Substring(fileIndex + 1, workFileName.Length - fileIndex - 1);
+                    saveFileDialog.FileName = fileName;
+                }
+            }
+
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 workFileName = saveFileDialog.FileName.ToLower();
