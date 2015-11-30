@@ -64,7 +64,8 @@ namespace Material_Editor
                 }
                 else
                 {
-                    MessageBox.Show("File extension not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(string.Format("File extension of file '{0}' not supported!", file),
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -86,7 +87,7 @@ namespace Material_Editor
 
             if (!material.Save(workFileName))
             {
-                MessageBox.Show(string.Format("Failed to save file '%s'!", workFileName),
+                MessageBox.Show(string.Format("Failed to save file '{0}'!", workFileName),
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -124,7 +125,7 @@ namespace Material_Editor
 
                 if (!material.Save(workFileName))
                 {
-                    MessageBox.Show(string.Format("Failed to save file '%s'!", workFileName),
+                    MessageBox.Show(string.Format("Failed to save file '{0}'!", workFileName),
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -668,7 +669,7 @@ namespace Material_Editor
 
             if (!material.Open(fileName))
             {
-                MessageBox.Show(string.Format("Failed to open file '%s'!", fileName),
+                MessageBox.Show(string.Format("Failed to open file '{0}'!", fileName),
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
