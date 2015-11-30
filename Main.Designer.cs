@@ -331,14 +331,16 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -346,7 +348,8 @@
             // 
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -354,7 +357,9 @@
             // 
             this.saveAsToolStripMenuItem.Enabled = false;
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.S)));
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -362,14 +367,16 @@
             // 
             this.closeToolStripMenuItem.Enabled = false;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -410,10 +417,10 @@
             this.tabControl.Controls.Add(this.tabPageGeneral);
             this.tabControl.Controls.Add(this.tabPageMaterial);
             this.tabControl.Controls.Add(this.tabPageEffect);
-            this.tabControl.Enabled = false;
             this.tabControl.Location = new System.Drawing.Point(0, 27);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
+            this.tabControl.ShowToolTips = true;
             this.tabControl.Size = new System.Drawing.Size(484, 533);
             this.tabControl.TabIndex = 2;
             // 
@@ -426,6 +433,7 @@
             this.tabPageGeneral.Size = new System.Drawing.Size(476, 507);
             this.tabPageGeneral.TabIndex = 2;
             this.tabPageGeneral.Text = "General";
+            this.tabPageGeneral.ToolTipText = "Affects both BGSM and BGEM files.";
             this.tabPageGeneral.UseVisualStyleBackColor = true;
             this.tabPageGeneral.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabScroll);
             // 
@@ -434,6 +442,7 @@
             this.splitContainerGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainerGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainerGeneral.Enabled = false;
             this.splitContainerGeneral.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainerGeneral.IsSplitterFixed = true;
             this.splitContainerGeneral.Location = new System.Drawing.Point(4, 4);
@@ -539,6 +548,7 @@
             // 
             this.lbRefractionPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRefractionPower.Enabled = false;
             this.lbRefractionPower.Location = new System.Drawing.Point(13, 412);
             this.lbRefractionPower.Margin = new System.Windows.Forms.Padding(3);
             this.lbRefractionPower.Name = "lbRefractionPower";
@@ -550,6 +560,7 @@
             // 
             this.lbRefractionFalloff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRefractionFalloff.Enabled = false;
             this.lbRefractionFalloff.Location = new System.Drawing.Point(13, 393);
             this.lbRefractionFalloff.Margin = new System.Windows.Forms.Padding(3);
             this.lbRefractionFalloff.Name = "lbRefractionFalloff";
@@ -790,6 +801,11 @@
             this.numEnvironmentMaskScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numEnvironmentMaskScale.DecimalPlaces = 5;
+            this.numEnvironmentMaskScale.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numEnvironmentMaskScale.Location = new System.Drawing.Point(13, 448);
             this.numEnvironmentMaskScale.Maximum = new decimal(new int[] {
             100000000,
@@ -812,12 +828,19 @@
             this.cbEnvironmentMapping.Size = new System.Drawing.Size(100, 13);
             this.cbEnvironmentMapping.TabIndex = 22;
             this.cbEnvironmentMapping.UseVisualStyleBackColor = true;
+            this.cbEnvironmentMapping.CheckedChanged += new System.EventHandler(this.cbEnvironmentMapping_CheckedChanged);
             // 
             // numRefractionPower
             // 
             this.numRefractionPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numRefractionPower.DecimalPlaces = 5;
+            this.numRefractionPower.Enabled = false;
+            this.numRefractionPower.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numRefractionPower.Location = new System.Drawing.Point(13, 410);
             this.numRefractionPower.Maximum = new decimal(new int[] {
             100000000,
@@ -835,6 +858,7 @@
             // 
             // cbRefractionFalloff
             // 
+            this.cbRefractionFalloff.Enabled = false;
             this.cbRefractionFalloff.Location = new System.Drawing.Point(13, 394);
             this.cbRefractionFalloff.Name = "cbRefractionFalloff";
             this.cbRefractionFalloff.Size = new System.Drawing.Size(100, 13);
@@ -848,6 +872,7 @@
             this.cbRefraction.Size = new System.Drawing.Size(100, 13);
             this.cbRefraction.TabIndex = 19;
             this.cbRefraction.UseVisualStyleBackColor = true;
+            this.cbRefraction.CheckedChanged += new System.EventHandler(this.cbRefraction_CheckedChanged);
             // 
             // cbNonOccluder
             // 
@@ -962,6 +987,11 @@
             this.numAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numAlpha.DecimalPlaces = 5;
+            this.numAlpha.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numAlpha.Location = new System.Drawing.Point(13, 144);
             this.numAlpha.Maximum = new decimal(new int[] {
             100000000,
@@ -982,6 +1012,11 @@
             this.numScaleV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numScaleV.DecimalPlaces = 5;
+            this.numScaleV.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numScaleV.Location = new System.Drawing.Point(13, 125);
             this.numScaleV.Maximum = new decimal(new int[] {
             100000000,
@@ -1002,6 +1037,11 @@
             this.numScaleU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numScaleU.DecimalPlaces = 5;
+            this.numScaleU.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numScaleU.Location = new System.Drawing.Point(13, 106);
             this.numScaleU.Maximum = new decimal(new int[] {
             100000000,
@@ -1022,6 +1062,11 @@
             this.numOffsetV.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numOffsetV.DecimalPlaces = 5;
+            this.numOffsetV.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numOffsetV.Location = new System.Drawing.Point(13, 87);
             this.numOffsetV.Maximum = new decimal(new int[] {
             100000000,
@@ -1042,6 +1087,11 @@
             this.numOffsetU.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numOffsetU.DecimalPlaces = 5;
+            this.numOffsetU.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numOffsetU.Location = new System.Drawing.Point(13, 68);
             this.numOffsetU.Maximum = new decimal(new int[] {
             100000000,
@@ -1086,6 +1136,7 @@
             this.numVersion.Name = "numVersion";
             this.numVersion.Size = new System.Drawing.Size(272, 20);
             this.numVersion.TabIndex = 0;
+            this.numVersion.ValueChanged += new System.EventHandler(this.numVersion_ValueChanged);
             // 
             // tabPageMaterial
             // 
@@ -1097,6 +1148,7 @@
             this.tabPageMaterial.Size = new System.Drawing.Size(476, 507);
             this.tabPageMaterial.TabIndex = 0;
             this.tabPageMaterial.Text = "Material";
+            this.tabPageMaterial.ToolTipText = "Affects only BGSM files.";
             this.tabPageMaterial.UseVisualStyleBackColor = true;
             this.tabPageMaterial.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabScroll);
             // 
@@ -1105,6 +1157,7 @@
             this.splitContainerMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainerMaterial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainerMaterial.Enabled = false;
             this.splitContainerMaterial.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainerMaterial.IsSplitterFixed = true;
             this.splitContainerMaterial.Location = new System.Drawing.Point(4, 4);
@@ -1237,6 +1290,7 @@
             // 
             this.lbSkewSpecularAlpha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSkewSpecularAlpha.Enabled = false;
             this.lbSkewSpecularAlpha.Location = new System.Drawing.Point(13, 1039);
             this.lbSkewSpecularAlpha.Margin = new System.Windows.Forms.Padding(3);
             this.lbSkewSpecularAlpha.Name = "lbSkewSpecularAlpha";
@@ -1259,6 +1313,7 @@
             // 
             this.lbTessellationFadeDistance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTessellationFadeDistance.Enabled = false;
             this.lbTessellationFadeDistance.Location = new System.Drawing.Point(13, 1001);
             this.lbTessellationFadeDistance.Margin = new System.Windows.Forms.Padding(3);
             this.lbTessellationFadeDistance.Name = "lbTessellationFadeDistance";
@@ -1270,6 +1325,7 @@
             // 
             this.lbTessellationBaseFactor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTessellationBaseFactor.Enabled = false;
             this.lbTessellationBaseFactor.Location = new System.Drawing.Point(13, 982);
             this.lbTessellationBaseFactor.Margin = new System.Windows.Forms.Padding(3);
             this.lbTessellationBaseFactor.Name = "lbTessellationBaseFactor";
@@ -1281,6 +1337,7 @@
             // 
             this.lbTessellationPNScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTessellationPNScale.Enabled = false;
             this.lbTessellationPNScale.Location = new System.Drawing.Point(13, 963);
             this.lbTessellationPNScale.Margin = new System.Windows.Forms.Padding(3);
             this.lbTessellationPNScale.Name = "lbTessellationPNScale";
@@ -1358,6 +1415,7 @@
             // 
             this.lbHairTintColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbHairTintColor.Enabled = false;
             this.lbHairTintColor.Location = new System.Drawing.Point(13, 830);
             this.lbHairTintColor.Margin = new System.Windows.Forms.Padding(3);
             this.lbHairTintColor.Name = "lbHairTintColor";
@@ -1501,6 +1559,7 @@
             // 
             this.lbEmittanceMultiplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEmittanceMultiplier.Enabled = false;
             this.lbEmittanceMultiplier.Location = new System.Drawing.Point(13, 583);
             this.lbEmittanceMultiplier.Margin = new System.Windows.Forms.Padding(3);
             this.lbEmittanceMultiplier.Name = "lbEmittanceMultiplier";
@@ -1512,6 +1571,7 @@
             // 
             this.lbEmittanceColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbEmittanceColor.Enabled = false;
             this.lbEmittanceColor.Location = new System.Drawing.Point(13, 564);
             this.lbEmittanceColor.Margin = new System.Windows.Forms.Padding(3);
             this.lbEmittanceColor.Name = "lbEmittanceColor";
@@ -1644,6 +1704,7 @@
             // 
             this.lbSpecularMult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSpecularMult.Enabled = false;
             this.lbSpecularMult.Location = new System.Drawing.Point(13, 336);
             this.lbSpecularMult.Margin = new System.Windows.Forms.Padding(3);
             this.lbSpecularMult.Name = "lbSpecularMult";
@@ -1655,6 +1716,7 @@
             // 
             this.lbSpecularColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSpecularColor.Enabled = false;
             this.lbSpecularColor.Location = new System.Drawing.Point(13, 317);
             this.lbSpecularColor.Margin = new System.Windows.Forms.Padding(3);
             this.lbSpecularColor.Name = "lbSpecularColor";
@@ -1677,6 +1739,7 @@
             // 
             this.lbSubsurfaceLightingRolloff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSubsurfaceLightingRolloff.Enabled = false;
             this.lbSubsurfaceLightingRolloff.Location = new System.Drawing.Point(13, 279);
             this.lbSubsurfaceLightingRolloff.Margin = new System.Windows.Forms.Padding(3);
             this.lbSubsurfaceLightingRolloff.Name = "lbSubsurfaceLightingRolloff";
@@ -1710,6 +1773,7 @@
             // 
             this.lbRimPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbRimPower.Enabled = false;
             this.lbRimPower.Location = new System.Drawing.Point(13, 222);
             this.lbRimPower.Margin = new System.Windows.Forms.Padding(3);
             this.lbRimPower.Name = "lbRimPower";
@@ -1840,10 +1904,11 @@
             // 
             // cbSkewSpecularAlpha
             // 
+            this.cbSkewSpecularAlpha.Enabled = false;
             this.cbSkewSpecularAlpha.Location = new System.Drawing.Point(13, 1040);
             this.cbSkewSpecularAlpha.Name = "cbSkewSpecularAlpha";
             this.cbSkewSpecularAlpha.Size = new System.Drawing.Size(100, 13);
-            this.cbSkewSpecularAlpha.TabIndex = 56;
+            this.cbSkewSpecularAlpha.TabIndex = 54;
             this.cbSkewSpecularAlpha.UseVisualStyleBackColor = true;
             // 
             // numGrayscaleToPaletteScale
@@ -1851,6 +1916,11 @@
             this.numGrayscaleToPaletteScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numGrayscaleToPaletteScale.DecimalPlaces = 5;
+            this.numGrayscaleToPaletteScale.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numGrayscaleToPaletteScale.Location = new System.Drawing.Point(13, 1018);
             this.numGrayscaleToPaletteScale.Maximum = new decimal(new int[] {
             100000000,
@@ -1864,13 +1934,19 @@
             -2147483648});
             this.numGrayscaleToPaletteScale.Name = "numGrayscaleToPaletteScale";
             this.numGrayscaleToPaletteScale.Size = new System.Drawing.Size(271, 20);
-            this.numGrayscaleToPaletteScale.TabIndex = 55;
+            this.numGrayscaleToPaletteScale.TabIndex = 53;
             // 
             // numTessellationFadeDistance
             // 
             this.numTessellationFadeDistance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numTessellationFadeDistance.DecimalPlaces = 5;
+            this.numTessellationFadeDistance.Enabled = false;
+            this.numTessellationFadeDistance.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numTessellationFadeDistance.Location = new System.Drawing.Point(13, 999);
             this.numTessellationFadeDistance.Maximum = new decimal(new int[] {
             100000000,
@@ -1884,13 +1960,19 @@
             -2147483648});
             this.numTessellationFadeDistance.Name = "numTessellationFadeDistance";
             this.numTessellationFadeDistance.Size = new System.Drawing.Size(271, 20);
-            this.numTessellationFadeDistance.TabIndex = 54;
+            this.numTessellationFadeDistance.TabIndex = 52;
             // 
             // numTessellationBaseFactor
             // 
             this.numTessellationBaseFactor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numTessellationBaseFactor.DecimalPlaces = 5;
+            this.numTessellationBaseFactor.Enabled = false;
+            this.numTessellationBaseFactor.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numTessellationBaseFactor.Location = new System.Drawing.Point(13, 980);
             this.numTessellationBaseFactor.Maximum = new decimal(new int[] {
             100000000,
@@ -1904,13 +1986,19 @@
             -2147483648});
             this.numTessellationBaseFactor.Name = "numTessellationBaseFactor";
             this.numTessellationBaseFactor.Size = new System.Drawing.Size(271, 20);
-            this.numTessellationBaseFactor.TabIndex = 53;
+            this.numTessellationBaseFactor.TabIndex = 51;
             // 
             // numTessellationPNScale
             // 
             this.numTessellationPNScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numTessellationPNScale.DecimalPlaces = 5;
+            this.numTessellationPNScale.Enabled = false;
+            this.numTessellationPNScale.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numTessellationPNScale.Location = new System.Drawing.Point(13, 961);
             this.numTessellationPNScale.Maximum = new decimal(new int[] {
             100000000,
@@ -1924,13 +2012,18 @@
             -2147483648});
             this.numTessellationPNScale.Name = "numTessellationPNScale";
             this.numTessellationPNScale.Size = new System.Drawing.Size(271, 20);
-            this.numTessellationPNScale.TabIndex = 52;
+            this.numTessellationPNScale.TabIndex = 50;
             // 
             // numDisplacementTexScale
             // 
             this.numDisplacementTexScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numDisplacementTexScale.DecimalPlaces = 5;
+            this.numDisplacementTexScale.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numDisplacementTexScale.Location = new System.Drawing.Point(13, 942);
             this.numDisplacementTexScale.Maximum = new decimal(new int[] {
             100000000,
@@ -1944,13 +2037,18 @@
             -2147483648});
             this.numDisplacementTexScale.Name = "numDisplacementTexScale";
             this.numDisplacementTexScale.Size = new System.Drawing.Size(271, 20);
-            this.numDisplacementTexScale.TabIndex = 51;
+            this.numDisplacementTexScale.TabIndex = 49;
             // 
             // numDisplacementTexBias
             // 
             this.numDisplacementTexBias.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numDisplacementTexBias.DecimalPlaces = 5;
+            this.numDisplacementTexBias.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numDisplacementTexBias.Location = new System.Drawing.Point(13, 923);
             this.numDisplacementTexBias.Maximum = new decimal(new int[] {
             100000000,
@@ -1964,22 +2062,23 @@
             -2147483648});
             this.numDisplacementTexBias.Name = "numDisplacementTexBias";
             this.numDisplacementTexBias.Size = new System.Drawing.Size(271, 20);
-            this.numDisplacementTexBias.TabIndex = 50;
+            this.numDisplacementTexBias.TabIndex = 48;
             // 
             // cbTessellate
             // 
             this.cbTessellate.Location = new System.Drawing.Point(13, 907);
             this.cbTessellate.Name = "cbTessellate";
             this.cbTessellate.Size = new System.Drawing.Size(100, 13);
-            this.cbTessellate.TabIndex = 49;
+            this.cbTessellate.TabIndex = 47;
             this.cbTessellate.UseVisualStyleBackColor = true;
+            this.cbTessellate.CheckedChanged += new System.EventHandler(this.cbTessellate_CheckedChanged);
             // 
             // cbSkinTint
             // 
             this.cbSkinTint.Location = new System.Drawing.Point(13, 888);
             this.cbSkinTint.Name = "cbSkinTint";
             this.cbSkinTint.Size = new System.Drawing.Size(100, 13);
-            this.cbSkinTint.TabIndex = 48;
+            this.cbSkinTint.TabIndex = 46;
             this.cbSkinTint.UseVisualStyleBackColor = true;
             // 
             // cbFacegen
@@ -1987,7 +2086,7 @@
             this.cbFacegen.Location = new System.Drawing.Point(13, 869);
             this.cbFacegen.Name = "cbFacegen";
             this.cbFacegen.Size = new System.Drawing.Size(100, 13);
-            this.cbFacegen.TabIndex = 47;
+            this.cbFacegen.TabIndex = 45;
             this.cbFacegen.UseVisualStyleBackColor = true;
             // 
             // cbTree
@@ -1995,7 +2094,7 @@
             this.cbTree.Location = new System.Drawing.Point(13, 850);
             this.cbTree.Name = "cbTree";
             this.cbTree.Size = new System.Drawing.Size(100, 13);
-            this.cbTree.TabIndex = 46;
+            this.cbTree.TabIndex = 44;
             this.cbTree.UseVisualStyleBackColor = true;
             // 
             // btHairTintColor
@@ -2003,11 +2102,12 @@
             this.btHairTintColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btHairTintColor.BackColor = System.Drawing.Color.White;
+            this.btHairTintColor.Enabled = false;
             this.btHairTintColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btHairTintColor.Location = new System.Drawing.Point(13, 826);
             this.btHairTintColor.Name = "btHairTintColor";
             this.btHairTintColor.Size = new System.Drawing.Size(271, 20);
-            this.btHairTintColor.TabIndex = 45;
+            this.btHairTintColor.TabIndex = 43;
             this.btHairTintColor.UseVisualStyleBackColor = false;
             this.btHairTintColor.Click += new System.EventHandler(this.ColorClicked);
             // 
@@ -2016,15 +2116,16 @@
             this.cbHair.Location = new System.Drawing.Point(13, 812);
             this.cbHair.Name = "cbHair";
             this.cbHair.Size = new System.Drawing.Size(100, 13);
-            this.cbHair.TabIndex = 44;
+            this.cbHair.TabIndex = 42;
             this.cbHair.UseVisualStyleBackColor = true;
+            this.cbHair.CheckedChanged += new System.EventHandler(this.cbHair_CheckedChanged);
             // 
             // cbEnvironmentMapEye
             // 
             this.cbEnvironmentMapEye.Location = new System.Drawing.Point(13, 793);
             this.cbEnvironmentMapEye.Name = "cbEnvironmentMapEye";
             this.cbEnvironmentMapEye.Size = new System.Drawing.Size(100, 13);
-            this.cbEnvironmentMapEye.TabIndex = 43;
+            this.cbEnvironmentMapEye.TabIndex = 41;
             this.cbEnvironmentMapEye.UseVisualStyleBackColor = true;
             // 
             // cbEnvironmentMapWindow
@@ -2032,7 +2133,7 @@
             this.cbEnvironmentMapWindow.Location = new System.Drawing.Point(13, 774);
             this.cbEnvironmentMapWindow.Name = "cbEnvironmentMapWindow";
             this.cbEnvironmentMapWindow.Size = new System.Drawing.Size(100, 13);
-            this.cbEnvironmentMapWindow.TabIndex = 42;
+            this.cbEnvironmentMapWindow.TabIndex = 40;
             this.cbEnvironmentMapWindow.UseVisualStyleBackColor = true;
             // 
             // cbGlowmap
@@ -2040,7 +2141,7 @@
             this.cbGlowmap.Location = new System.Drawing.Point(13, 755);
             this.cbGlowmap.Name = "cbGlowmap";
             this.cbGlowmap.Size = new System.Drawing.Size(100, 13);
-            this.cbGlowmap.TabIndex = 41;
+            this.cbGlowmap.TabIndex = 39;
             this.cbGlowmap.UseVisualStyleBackColor = true;
             // 
             // cbAssumeShadowmask
@@ -2048,7 +2149,7 @@
             this.cbAssumeShadowmask.Location = new System.Drawing.Point(13, 736);
             this.cbAssumeShadowmask.Name = "cbAssumeShadowmask";
             this.cbAssumeShadowmask.Size = new System.Drawing.Size(100, 13);
-            this.cbAssumeShadowmask.TabIndex = 40;
+            this.cbAssumeShadowmask.TabIndex = 38;
             this.cbAssumeShadowmask.UseVisualStyleBackColor = true;
             // 
             // cbDissolveFade
@@ -2056,7 +2157,7 @@
             this.cbDissolveFade.Location = new System.Drawing.Point(13, 717);
             this.cbDissolveFade.Name = "cbDissolveFade";
             this.cbDissolveFade.Size = new System.Drawing.Size(100, 13);
-            this.cbDissolveFade.TabIndex = 39;
+            this.cbDissolveFade.TabIndex = 37;
             this.cbDissolveFade.UseVisualStyleBackColor = true;
             // 
             // cbCastShadows
@@ -2064,7 +2165,7 @@
             this.cbCastShadows.Location = new System.Drawing.Point(13, 698);
             this.cbCastShadows.Name = "cbCastShadows";
             this.cbCastShadows.Size = new System.Drawing.Size(100, 13);
-            this.cbCastShadows.TabIndex = 38;
+            this.cbCastShadows.TabIndex = 36;
             this.cbCastShadows.UseVisualStyleBackColor = true;
             // 
             // cbHideSecret
@@ -2072,7 +2173,7 @@
             this.cbHideSecret.Location = new System.Drawing.Point(13, 679);
             this.cbHideSecret.Name = "cbHideSecret";
             this.cbHideSecret.Size = new System.Drawing.Size(100, 13);
-            this.cbHideSecret.TabIndex = 37;
+            this.cbHideSecret.TabIndex = 35;
             this.cbHideSecret.UseVisualStyleBackColor = true;
             // 
             // cbReceiveShadows
@@ -2080,7 +2181,7 @@
             this.cbReceiveShadows.Location = new System.Drawing.Point(13, 660);
             this.cbReceiveShadows.Name = "cbReceiveShadows";
             this.cbReceiveShadows.Size = new System.Drawing.Size(100, 13);
-            this.cbReceiveShadows.TabIndex = 36;
+            this.cbReceiveShadows.TabIndex = 34;
             this.cbReceiveShadows.UseVisualStyleBackColor = true;
             // 
             // cbBackLighting
@@ -2088,7 +2189,7 @@
             this.cbBackLighting.Location = new System.Drawing.Point(13, 641);
             this.cbBackLighting.Name = "cbBackLighting";
             this.cbBackLighting.Size = new System.Drawing.Size(100, 13);
-            this.cbBackLighting.TabIndex = 35;
+            this.cbBackLighting.TabIndex = 33;
             this.cbBackLighting.UseVisualStyleBackColor = true;
             // 
             // cbExternalEmittance
@@ -2096,7 +2197,7 @@
             this.cbExternalEmittance.Location = new System.Drawing.Point(13, 622);
             this.cbExternalEmittance.Name = "cbExternalEmittance";
             this.cbExternalEmittance.Size = new System.Drawing.Size(100, 13);
-            this.cbExternalEmittance.TabIndex = 34;
+            this.cbExternalEmittance.TabIndex = 32;
             this.cbExternalEmittance.UseVisualStyleBackColor = true;
             // 
             // cbModelSpaceNormals
@@ -2104,7 +2205,7 @@
             this.cbModelSpaceNormals.Location = new System.Drawing.Point(13, 603);
             this.cbModelSpaceNormals.Name = "cbModelSpaceNormals";
             this.cbModelSpaceNormals.Size = new System.Drawing.Size(100, 13);
-            this.cbModelSpaceNormals.TabIndex = 33;
+            this.cbModelSpaceNormals.TabIndex = 31;
             this.cbModelSpaceNormals.UseVisualStyleBackColor = true;
             // 
             // numEmittanceMultiplier
@@ -2112,6 +2213,12 @@
             this.numEmittanceMultiplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numEmittanceMultiplier.DecimalPlaces = 5;
+            this.numEmittanceMultiplier.Enabled = false;
+            this.numEmittanceMultiplier.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numEmittanceMultiplier.Location = new System.Drawing.Point(13, 581);
             this.numEmittanceMultiplier.Maximum = new decimal(new int[] {
             100000000,
@@ -2125,18 +2232,19 @@
             -2147483648});
             this.numEmittanceMultiplier.Name = "numEmittanceMultiplier";
             this.numEmittanceMultiplier.Size = new System.Drawing.Size(271, 20);
-            this.numEmittanceMultiplier.TabIndex = 32;
+            this.numEmittanceMultiplier.TabIndex = 30;
             // 
             // btEmittanceColor
             // 
             this.btEmittanceColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btEmittanceColor.BackColor = System.Drawing.Color.White;
+            this.btEmittanceColor.Enabled = false;
             this.btEmittanceColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btEmittanceColor.Location = new System.Drawing.Point(13, 560);
             this.btEmittanceColor.Name = "btEmittanceColor";
             this.btEmittanceColor.Size = new System.Drawing.Size(271, 20);
-            this.btEmittanceColor.TabIndex = 31;
+            this.btEmittanceColor.TabIndex = 29;
             this.btEmittanceColor.UseVisualStyleBackColor = false;
             this.btEmittanceColor.Click += new System.EventHandler(this.ColorClicked);
             // 
@@ -2145,15 +2253,16 @@
             this.cbEmittanceEnabled.Location = new System.Drawing.Point(13, 546);
             this.cbEmittanceEnabled.Name = "cbEmittanceEnabled";
             this.cbEmittanceEnabled.Size = new System.Drawing.Size(100, 13);
-            this.cbEmittanceEnabled.TabIndex = 30;
+            this.cbEmittanceEnabled.TabIndex = 28;
             this.cbEmittanceEnabled.UseVisualStyleBackColor = true;
+            this.cbEmittanceEnabled.CheckedChanged += new System.EventHandler(this.cbEmittanceEnabled_CheckedChanged);
             // 
             // cbAnisoLighting
             // 
             this.cbAnisoLighting.Location = new System.Drawing.Point(13, 527);
             this.cbAnisoLighting.Name = "cbAnisoLighting";
             this.cbAnisoLighting.Size = new System.Drawing.Size(100, 13);
-            this.cbAnisoLighting.TabIndex = 29;
+            this.cbAnisoLighting.TabIndex = 27;
             this.cbAnisoLighting.UseVisualStyleBackColor = true;
             // 
             // tbRootMaterialPath
@@ -2164,13 +2273,18 @@
             this.tbRootMaterialPath.MaxLength = 260;
             this.tbRootMaterialPath.Name = "tbRootMaterialPath";
             this.tbRootMaterialPath.Size = new System.Drawing.Size(271, 20);
-            this.tbRootMaterialPath.TabIndex = 28;
+            this.tbRootMaterialPath.TabIndex = 26;
             // 
             // numWetMetalness
             // 
             this.numWetMetalness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numWetMetalness.DecimalPlaces = 5;
+            this.numWetMetalness.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numWetMetalness.Location = new System.Drawing.Point(13, 486);
             this.numWetMetalness.Maximum = new decimal(new int[] {
             100000000,
@@ -2184,13 +2298,18 @@
             -2147483648});
             this.numWetMetalness.Name = "numWetMetalness";
             this.numWetMetalness.Size = new System.Drawing.Size(271, 20);
-            this.numWetMetalness.TabIndex = 27;
+            this.numWetMetalness.TabIndex = 25;
             // 
             // numWetFresnelPower
             // 
             this.numWetFresnelPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numWetFresnelPower.DecimalPlaces = 5;
+            this.numWetFresnelPower.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numWetFresnelPower.Location = new System.Drawing.Point(13, 467);
             this.numWetFresnelPower.Maximum = new decimal(new int[] {
             100000000,
@@ -2204,13 +2323,18 @@
             -2147483648});
             this.numWetFresnelPower.Name = "numWetFresnelPower";
             this.numWetFresnelPower.Size = new System.Drawing.Size(271, 20);
-            this.numWetFresnelPower.TabIndex = 26;
+            this.numWetFresnelPower.TabIndex = 24;
             // 
             // numWetEnvMapScale
             // 
             this.numWetEnvMapScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numWetEnvMapScale.DecimalPlaces = 5;
+            this.numWetEnvMapScale.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numWetEnvMapScale.Location = new System.Drawing.Point(13, 448);
             this.numWetEnvMapScale.Maximum = new decimal(new int[] {
             100000000,
@@ -2224,13 +2348,18 @@
             -2147483648});
             this.numWetEnvMapScale.Name = "numWetEnvMapScale";
             this.numWetEnvMapScale.Size = new System.Drawing.Size(271, 20);
-            this.numWetEnvMapScale.TabIndex = 25;
+            this.numWetEnvMapScale.TabIndex = 23;
             // 
             // numWetSpecMinVar
             // 
             this.numWetSpecMinVar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numWetSpecMinVar.DecimalPlaces = 5;
+            this.numWetSpecMinVar.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numWetSpecMinVar.Location = new System.Drawing.Point(13, 429);
             this.numWetSpecMinVar.Maximum = new decimal(new int[] {
             100000000,
@@ -2244,13 +2373,18 @@
             -2147483648});
             this.numWetSpecMinVar.Name = "numWetSpecMinVar";
             this.numWetSpecMinVar.Size = new System.Drawing.Size(271, 20);
-            this.numWetSpecMinVar.TabIndex = 24;
+            this.numWetSpecMinVar.TabIndex = 22;
             // 
             // numWetSpecPowerScale
             // 
             this.numWetSpecPowerScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numWetSpecPowerScale.DecimalPlaces = 5;
+            this.numWetSpecPowerScale.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numWetSpecPowerScale.Location = new System.Drawing.Point(13, 410);
             this.numWetSpecPowerScale.Maximum = new decimal(new int[] {
             100000000,
@@ -2264,13 +2398,18 @@
             -2147483648});
             this.numWetSpecPowerScale.Name = "numWetSpecPowerScale";
             this.numWetSpecPowerScale.Size = new System.Drawing.Size(271, 20);
-            this.numWetSpecPowerScale.TabIndex = 23;
+            this.numWetSpecPowerScale.TabIndex = 21;
             // 
             // numWetSpecScale
             // 
             this.numWetSpecScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numWetSpecScale.DecimalPlaces = 5;
+            this.numWetSpecScale.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numWetSpecScale.Location = new System.Drawing.Point(13, 391);
             this.numWetSpecScale.Maximum = new decimal(new int[] {
             100000000,
@@ -2284,13 +2423,18 @@
             -2147483648});
             this.numWetSpecScale.Name = "numWetSpecScale";
             this.numWetSpecScale.Size = new System.Drawing.Size(271, 20);
-            this.numWetSpecScale.TabIndex = 22;
+            this.numWetSpecScale.TabIndex = 20;
             // 
             // numFresnelPower
             // 
             this.numFresnelPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numFresnelPower.DecimalPlaces = 5;
+            this.numFresnelPower.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numFresnelPower.Location = new System.Drawing.Point(13, 372);
             this.numFresnelPower.Maximum = new decimal(new int[] {
             100000000,
@@ -2304,13 +2448,18 @@
             -2147483648});
             this.numFresnelPower.Name = "numFresnelPower";
             this.numFresnelPower.Size = new System.Drawing.Size(271, 20);
-            this.numFresnelPower.TabIndex = 21;
+            this.numFresnelPower.TabIndex = 19;
             // 
             // numSmoothness
             // 
             this.numSmoothness.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numSmoothness.DecimalPlaces = 5;
+            this.numSmoothness.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numSmoothness.Location = new System.Drawing.Point(13, 353);
             this.numSmoothness.Maximum = new decimal(new int[] {
             100000000,
@@ -2324,13 +2473,19 @@
             -2147483648});
             this.numSmoothness.Name = "numSmoothness";
             this.numSmoothness.Size = new System.Drawing.Size(271, 20);
-            this.numSmoothness.TabIndex = 20;
+            this.numSmoothness.TabIndex = 18;
             // 
             // numSpecularMultiplier
             // 
             this.numSpecularMultiplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numSpecularMultiplier.DecimalPlaces = 5;
+            this.numSpecularMultiplier.Enabled = false;
+            this.numSpecularMultiplier.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numSpecularMultiplier.Location = new System.Drawing.Point(13, 334);
             this.numSpecularMultiplier.Maximum = new decimal(new int[] {
             100000000,
@@ -2344,18 +2499,19 @@
             -2147483648});
             this.numSpecularMultiplier.Name = "numSpecularMultiplier";
             this.numSpecularMultiplier.Size = new System.Drawing.Size(271, 20);
-            this.numSpecularMultiplier.TabIndex = 19;
+            this.numSpecularMultiplier.TabIndex = 17;
             // 
             // btSpecularColor
             // 
             this.btSpecularColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btSpecularColor.BackColor = System.Drawing.Color.White;
+            this.btSpecularColor.Enabled = false;
             this.btSpecularColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSpecularColor.Location = new System.Drawing.Point(13, 313);
             this.btSpecularColor.Name = "btSpecularColor";
             this.btSpecularColor.Size = new System.Drawing.Size(271, 20);
-            this.btSpecularColor.TabIndex = 18;
+            this.btSpecularColor.TabIndex = 16;
             this.btSpecularColor.UseVisualStyleBackColor = false;
             this.btSpecularColor.Click += new System.EventHandler(this.ColorClicked);
             // 
@@ -2364,14 +2520,21 @@
             this.cbSpecularEnabled.Location = new System.Drawing.Point(13, 299);
             this.cbSpecularEnabled.Name = "cbSpecularEnabled";
             this.cbSpecularEnabled.Size = new System.Drawing.Size(100, 13);
-            this.cbSpecularEnabled.TabIndex = 17;
+            this.cbSpecularEnabled.TabIndex = 15;
             this.cbSpecularEnabled.UseVisualStyleBackColor = true;
+            this.cbSpecularEnabled.CheckedChanged += new System.EventHandler(this.cbSpecularEnabled_CheckedChanged);
             // 
             // numSubsurfaceLightingRolloff
             // 
             this.numSubsurfaceLightingRolloff.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numSubsurfaceLightingRolloff.DecimalPlaces = 5;
+            this.numSubsurfaceLightingRolloff.Enabled = false;
+            this.numSubsurfaceLightingRolloff.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numSubsurfaceLightingRolloff.Location = new System.Drawing.Point(13, 277);
             this.numSubsurfaceLightingRolloff.Maximum = new decimal(new int[] {
             100000000,
@@ -2385,21 +2548,27 @@
             -2147483648});
             this.numSubsurfaceLightingRolloff.Name = "numSubsurfaceLightingRolloff";
             this.numSubsurfaceLightingRolloff.Size = new System.Drawing.Size(271, 20);
-            this.numSubsurfaceLightingRolloff.TabIndex = 16;
+            this.numSubsurfaceLightingRolloff.TabIndex = 14;
             // 
             // cbSubsurfaceLighting
             // 
             this.cbSubsurfaceLighting.Location = new System.Drawing.Point(13, 261);
             this.cbSubsurfaceLighting.Name = "cbSubsurfaceLighting";
             this.cbSubsurfaceLighting.Size = new System.Drawing.Size(100, 13);
-            this.cbSubsurfaceLighting.TabIndex = 15;
+            this.cbSubsurfaceLighting.TabIndex = 13;
             this.cbSubsurfaceLighting.UseVisualStyleBackColor = true;
+            this.cbSubsurfaceLighting.CheckedChanged += new System.EventHandler(this.cbSubsurfaceLighting_CheckedChanged);
             // 
             // numBacklightPower
             // 
             this.numBacklightPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numBacklightPower.DecimalPlaces = 5;
+            this.numBacklightPower.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numBacklightPower.Location = new System.Drawing.Point(13, 239);
             this.numBacklightPower.Maximum = new decimal(new int[] {
             100000000,
@@ -2413,15 +2582,16 @@
             -2147483648});
             this.numBacklightPower.Name = "numBacklightPower";
             this.numBacklightPower.Size = new System.Drawing.Size(271, 20);
-            this.numBacklightPower.TabIndex = 14;
+            this.numBacklightPower.TabIndex = 12;
             // 
             // cbRimLighting
             // 
             this.cbRimLighting.Location = new System.Drawing.Point(13, 204);
             this.cbRimLighting.Name = "cbRimLighting";
             this.cbRimLighting.Size = new System.Drawing.Size(100, 13);
-            this.cbRimLighting.TabIndex = 13;
+            this.cbRimLighting.TabIndex = 10;
             this.cbRimLighting.UseVisualStyleBackColor = true;
+            this.cbRimLighting.CheckedChanged += new System.EventHandler(this.cbRimLighting_CheckedChanged);
             // 
             // tbDisplacementTexture
             // 
@@ -2431,7 +2601,7 @@
             this.tbDisplacementTexture.MaxLength = 260;
             this.tbDisplacementTexture.Name = "tbDisplacementTexture";
             this.tbDisplacementTexture.Size = new System.Drawing.Size(271, 20);
-            this.tbDisplacementTexture.TabIndex = 12;
+            this.tbDisplacementTexture.TabIndex = 8;
             // 
             // tbWrinklesTexture
             // 
@@ -2441,7 +2611,7 @@
             this.tbWrinklesTexture.MaxLength = 260;
             this.tbWrinklesTexture.Name = "tbWrinklesTexture";
             this.tbWrinklesTexture.Size = new System.Drawing.Size(271, 20);
-            this.tbWrinklesTexture.TabIndex = 11;
+            this.tbWrinklesTexture.TabIndex = 7;
             // 
             // tbInnerLayerTexture
             // 
@@ -2451,7 +2621,7 @@
             this.tbInnerLayerTexture.MaxLength = 260;
             this.tbInnerLayerTexture.Name = "tbInnerLayerTexture";
             this.tbInnerLayerTexture.Size = new System.Drawing.Size(271, 20);
-            this.tbInnerLayerTexture.TabIndex = 10;
+            this.tbInnerLayerTexture.TabIndex = 6;
             // 
             // tbGlowTexture
             // 
@@ -2461,7 +2631,7 @@
             this.tbGlowTexture.MaxLength = 260;
             this.tbGlowTexture.Name = "tbGlowTexture";
             this.tbGlowTexture.Size = new System.Drawing.Size(271, 20);
-            this.tbGlowTexture.TabIndex = 9;
+            this.tbGlowTexture.TabIndex = 5;
             // 
             // tbEnvironmentMapTexture
             // 
@@ -2471,7 +2641,7 @@
             this.tbEnvironmentMapTexture.MaxLength = 260;
             this.tbEnvironmentMapTexture.Name = "tbEnvironmentMapTexture";
             this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(271, 20);
-            this.tbEnvironmentMapTexture.TabIndex = 8;
+            this.tbEnvironmentMapTexture.TabIndex = 4;
             // 
             // tbGreyscaleTexture
             // 
@@ -2481,7 +2651,7 @@
             this.tbGreyscaleTexture.MaxLength = 260;
             this.tbGreyscaleTexture.Name = "tbGreyscaleTexture";
             this.tbGreyscaleTexture.Size = new System.Drawing.Size(271, 20);
-            this.tbGreyscaleTexture.TabIndex = 7;
+            this.tbGreyscaleTexture.TabIndex = 3;
             // 
             // tbSmoothSpecularTexture
             // 
@@ -2491,7 +2661,7 @@
             this.tbSmoothSpecularTexture.MaxLength = 260;
             this.tbSmoothSpecularTexture.Name = "tbSmoothSpecularTexture";
             this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(271, 20);
-            this.tbSmoothSpecularTexture.TabIndex = 6;
+            this.tbSmoothSpecularTexture.TabIndex = 2;
             // 
             // tbNormalTexture
             // 
@@ -2501,7 +2671,7 @@
             this.tbNormalTexture.MaxLength = 260;
             this.tbNormalTexture.Name = "tbNormalTexture";
             this.tbNormalTexture.Size = new System.Drawing.Size(271, 20);
-            this.tbNormalTexture.TabIndex = 5;
+            this.tbNormalTexture.TabIndex = 1;
             // 
             // tbDiffuseTexture
             // 
@@ -2511,13 +2681,19 @@
             this.tbDiffuseTexture.MaxLength = 260;
             this.tbDiffuseTexture.Name = "tbDiffuseTexture";
             this.tbDiffuseTexture.Size = new System.Drawing.Size(271, 20);
-            this.tbDiffuseTexture.TabIndex = 4;
+            this.tbDiffuseTexture.TabIndex = 0;
             // 
             // numRimPower
             // 
             this.numRimPower.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numRimPower.DecimalPlaces = 5;
+            this.numRimPower.Enabled = false;
+            this.numRimPower.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numRimPower.Location = new System.Drawing.Point(13, 220);
             this.numRimPower.Maximum = new decimal(new int[] {
             100000000,
@@ -2531,14 +2707,14 @@
             -2147483648});
             this.numRimPower.Name = "numRimPower";
             this.numRimPower.Size = new System.Drawing.Size(271, 20);
-            this.numRimPower.TabIndex = 3;
+            this.numRimPower.TabIndex = 11;
             // 
             // cbEnableEditorAlphaRef
             // 
             this.cbEnableEditorAlphaRef.Location = new System.Drawing.Point(13, 185);
             this.cbEnableEditorAlphaRef.Name = "cbEnableEditorAlphaRef";
             this.cbEnableEditorAlphaRef.Size = new System.Drawing.Size(100, 13);
-            this.cbEnableEditorAlphaRef.TabIndex = 1;
+            this.cbEnableEditorAlphaRef.TabIndex = 9;
             this.cbEnableEditorAlphaRef.UseVisualStyleBackColor = true;
             // 
             // tabPageEffect
@@ -2551,6 +2727,7 @@
             this.tabPageEffect.Size = new System.Drawing.Size(476, 507);
             this.tabPageEffect.TabIndex = 1;
             this.tabPageEffect.Text = "Effect";
+            this.tabPageEffect.ToolTipText = "Affects only BGEM files.";
             this.tabPageEffect.UseVisualStyleBackColor = true;
             this.tabPageEffect.Scroll += new System.Windows.Forms.ScrollEventHandler(this.TabScroll);
             // 
@@ -2559,6 +2736,7 @@
             this.splitContainerEffect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainerEffect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainerEffect.Enabled = false;
             this.splitContainerEffect.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainerEffect.IsSplitterFixed = true;
             this.splitContainerEffect.Location = new System.Drawing.Point(4, 4);
@@ -2621,6 +2799,7 @@
             // 
             this.lbSoftDepth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSoftDepth.Enabled = false;
             this.lbSoftDepth.Location = new System.Drawing.Point(13, 374);
             this.lbSoftDepth.Margin = new System.Windows.Forms.Padding(3);
             this.lbSoftDepth.Name = "lbSoftDepth";
@@ -2654,6 +2833,7 @@
             // 
             this.lbFalloffStopOpacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffStopOpacity.Enabled = false;
             this.lbFalloffStopOpacity.Location = new System.Drawing.Point(13, 317);
             this.lbFalloffStopOpacity.Margin = new System.Windows.Forms.Padding(3);
             this.lbFalloffStopOpacity.Name = "lbFalloffStopOpacity";
@@ -2665,6 +2845,7 @@
             // 
             this.lbFalloffStartOpacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffStartOpacity.Enabled = false;
             this.lbFalloffStartOpacity.Location = new System.Drawing.Point(13, 298);
             this.lbFalloffStartOpacity.Margin = new System.Windows.Forms.Padding(3);
             this.lbFalloffStartOpacity.Name = "lbFalloffStartOpacity";
@@ -2676,6 +2857,7 @@
             // 
             this.lbFalloffStopAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffStopAngle.Enabled = false;
             this.lbFalloffStopAngle.Location = new System.Drawing.Point(13, 279);
             this.lbFalloffStopAngle.Margin = new System.Windows.Forms.Padding(3);
             this.lbFalloffStopAngle.Name = "lbFalloffStopAngle";
@@ -2687,6 +2869,7 @@
             // 
             this.lbFalloffStartAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbFalloffStartAngle.Enabled = false;
             this.lbFalloffStartAngle.Location = new System.Drawing.Point(13, 260);
             this.lbFalloffStartAngle.Margin = new System.Windows.Forms.Padding(3);
             this.lbFalloffStartAngle.Name = "lbFalloffStartAngle";
@@ -2842,6 +3025,12 @@
             this.numSoftDepth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numSoftDepth.DecimalPlaces = 5;
+            this.numSoftDepth.Enabled = false;
+            this.numSoftDepth.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numSoftDepth.Location = new System.Drawing.Point(13, 372);
             this.numSoftDepth.Maximum = new decimal(new int[] {
             100000000,
@@ -2855,13 +3044,18 @@
             -2147483648});
             this.numSoftDepth.Name = "numSoftDepth";
             this.numSoftDepth.Size = new System.Drawing.Size(272, 20);
-            this.numSoftDepth.TabIndex = 39;
+            this.numSoftDepth.TabIndex = 19;
             // 
             // numLightingInfluence
             // 
             this.numLightingInfluence.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numLightingInfluence.DecimalPlaces = 5;
+            this.numLightingInfluence.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numLightingInfluence.Location = new System.Drawing.Point(13, 334);
             this.numLightingInfluence.Maximum = new decimal(new int[] {
             100000000,
@@ -2875,13 +3069,19 @@
             -2147483648});
             this.numLightingInfluence.Name = "numLightingInfluence";
             this.numLightingInfluence.Size = new System.Drawing.Size(272, 20);
-            this.numLightingInfluence.TabIndex = 38;
+            this.numLightingInfluence.TabIndex = 17;
             // 
             // numFalloffStopOpacity
             // 
             this.numFalloffStopOpacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numFalloffStopOpacity.DecimalPlaces = 5;
+            this.numFalloffStopOpacity.Enabled = false;
+            this.numFalloffStopOpacity.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numFalloffStopOpacity.Location = new System.Drawing.Point(13, 315);
             this.numFalloffStopOpacity.Maximum = new decimal(new int[] {
             100000000,
@@ -2895,13 +3095,19 @@
             -2147483648});
             this.numFalloffStopOpacity.Name = "numFalloffStopOpacity";
             this.numFalloffStopOpacity.Size = new System.Drawing.Size(272, 20);
-            this.numFalloffStopOpacity.TabIndex = 37;
+            this.numFalloffStopOpacity.TabIndex = 16;
             // 
             // numFalloffStartOpacity
             // 
             this.numFalloffStartOpacity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numFalloffStartOpacity.DecimalPlaces = 5;
+            this.numFalloffStartOpacity.Enabled = false;
+            this.numFalloffStartOpacity.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numFalloffStartOpacity.Location = new System.Drawing.Point(13, 296);
             this.numFalloffStartOpacity.Maximum = new decimal(new int[] {
             100000000,
@@ -2915,13 +3121,19 @@
             -2147483648});
             this.numFalloffStartOpacity.Name = "numFalloffStartOpacity";
             this.numFalloffStartOpacity.Size = new System.Drawing.Size(272, 20);
-            this.numFalloffStartOpacity.TabIndex = 36;
+            this.numFalloffStartOpacity.TabIndex = 15;
             // 
             // numFalloffStopAngle
             // 
             this.numFalloffStopAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numFalloffStopAngle.DecimalPlaces = 5;
+            this.numFalloffStopAngle.Enabled = false;
+            this.numFalloffStopAngle.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numFalloffStopAngle.Location = new System.Drawing.Point(13, 277);
             this.numFalloffStopAngle.Maximum = new decimal(new int[] {
             100000000,
@@ -2935,13 +3147,19 @@
             -2147483648});
             this.numFalloffStopAngle.Name = "numFalloffStopAngle";
             this.numFalloffStopAngle.Size = new System.Drawing.Size(272, 20);
-            this.numFalloffStopAngle.TabIndex = 35;
+            this.numFalloffStopAngle.TabIndex = 14;
             // 
             // numFalloffStartAngle
             // 
             this.numFalloffStartAngle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numFalloffStartAngle.DecimalPlaces = 5;
+            this.numFalloffStartAngle.Enabled = false;
+            this.numFalloffStartAngle.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numFalloffStartAngle.Location = new System.Drawing.Point(13, 258);
             this.numFalloffStartAngle.Maximum = new decimal(new int[] {
             100000000,
@@ -2955,7 +3173,7 @@
             -2147483648});
             this.numFalloffStartAngle.Name = "numFalloffStartAngle";
             this.numFalloffStartAngle.Size = new System.Drawing.Size(272, 20);
-            this.numFalloffStartAngle.TabIndex = 34;
+            this.numFalloffStartAngle.TabIndex = 13;
             // 
             // btBaseColor
             // 
@@ -2966,7 +3184,7 @@
             this.btBaseColor.Location = new System.Drawing.Point(13, 218);
             this.btBaseColor.Name = "btBaseColor";
             this.btBaseColor.Size = new System.Drawing.Size(272, 20);
-            this.btBaseColor.TabIndex = 33;
+            this.btBaseColor.TabIndex = 11;
             this.btBaseColor.UseVisualStyleBackColor = false;
             this.btBaseColor.Click += new System.EventHandler(this.ColorClicked);
             // 
@@ -2975,15 +3193,16 @@
             this.cbSoftEnabled.Location = new System.Drawing.Point(13, 204);
             this.cbSoftEnabled.Name = "cbSoftEnabled";
             this.cbSoftEnabled.Size = new System.Drawing.Size(100, 13);
-            this.cbSoftEnabled.TabIndex = 32;
+            this.cbSoftEnabled.TabIndex = 10;
             this.cbSoftEnabled.UseVisualStyleBackColor = true;
+            this.cbSoftEnabled.CheckedChanged += new System.EventHandler(this.cbSoftEnabled_CheckedChanged);
             // 
             // cbGrayscaleToPaletteAlpha
             // 
             this.cbGrayscaleToPaletteAlpha.Location = new System.Drawing.Point(13, 185);
             this.cbGrayscaleToPaletteAlpha.Name = "cbGrayscaleToPaletteAlpha";
             this.cbGrayscaleToPaletteAlpha.Size = new System.Drawing.Size(100, 13);
-            this.cbGrayscaleToPaletteAlpha.TabIndex = 31;
+            this.cbGrayscaleToPaletteAlpha.TabIndex = 9;
             this.cbGrayscaleToPaletteAlpha.UseVisualStyleBackColor = true;
             // 
             // cbFalloffColorEnabled
@@ -2991,7 +3210,7 @@
             this.cbFalloffColorEnabled.Location = new System.Drawing.Point(13, 166);
             this.cbFalloffColorEnabled.Name = "cbFalloffColorEnabled";
             this.cbFalloffColorEnabled.Size = new System.Drawing.Size(100, 13);
-            this.cbFalloffColorEnabled.TabIndex = 30;
+            this.cbFalloffColorEnabled.TabIndex = 8;
             this.cbFalloffColorEnabled.UseVisualStyleBackColor = true;
             // 
             // cbFalloffEnabled
@@ -2999,15 +3218,16 @@
             this.cbFalloffEnabled.Location = new System.Drawing.Point(13, 147);
             this.cbFalloffEnabled.Name = "cbFalloffEnabled";
             this.cbFalloffEnabled.Size = new System.Drawing.Size(100, 13);
-            this.cbFalloffEnabled.TabIndex = 29;
+            this.cbFalloffEnabled.TabIndex = 7;
             this.cbFalloffEnabled.UseVisualStyleBackColor = true;
+            this.cbFalloffEnabled.CheckedChanged += new System.EventHandler(this.cbFalloffEnabled_CheckedChanged);
             // 
             // cbEffectLightingEnabled
             // 
             this.cbEffectLightingEnabled.Location = new System.Drawing.Point(13, 128);
             this.cbEffectLightingEnabled.Name = "cbEffectLightingEnabled";
             this.cbEffectLightingEnabled.Size = new System.Drawing.Size(100, 13);
-            this.cbEffectLightingEnabled.TabIndex = 28;
+            this.cbEffectLightingEnabled.TabIndex = 6;
             this.cbEffectLightingEnabled.UseVisualStyleBackColor = true;
             // 
             // tbEnvmapMaskTexture
@@ -3018,7 +3238,7 @@
             this.tbEnvmapMaskTexture.MaxLength = 260;
             this.tbEnvmapMaskTexture.Name = "tbEnvmapMaskTexture";
             this.tbEnvmapMaskTexture.Size = new System.Drawing.Size(272, 20);
-            this.tbEnvmapMaskTexture.TabIndex = 27;
+            this.tbEnvmapMaskTexture.TabIndex = 4;
             // 
             // tbNormalTexture_effect
             // 
@@ -3028,7 +3248,7 @@
             this.tbNormalTexture_effect.MaxLength = 260;
             this.tbNormalTexture_effect.Name = "tbNormalTexture_effect";
             this.tbNormalTexture_effect.Size = new System.Drawing.Size(272, 20);
-            this.tbNormalTexture_effect.TabIndex = 26;
+            this.tbNormalTexture_effect.TabIndex = 3;
             // 
             // tbEnvmapTexture
             // 
@@ -3038,7 +3258,7 @@
             this.tbEnvmapTexture.MaxLength = 260;
             this.tbEnvmapTexture.Name = "tbEnvmapTexture";
             this.tbEnvmapTexture.Size = new System.Drawing.Size(272, 20);
-            this.tbEnvmapTexture.TabIndex = 25;
+            this.tbEnvmapTexture.TabIndex = 2;
             // 
             // tbGrayscaleTexture
             // 
@@ -3048,7 +3268,7 @@
             this.tbGrayscaleTexture.MaxLength = 260;
             this.tbGrayscaleTexture.Name = "tbGrayscaleTexture";
             this.tbGrayscaleTexture.Size = new System.Drawing.Size(272, 20);
-            this.tbGrayscaleTexture.TabIndex = 24;
+            this.tbGrayscaleTexture.TabIndex = 1;
             // 
             // tbBaseTexture
             // 
@@ -3058,14 +3278,14 @@
             this.tbBaseTexture.MaxLength = 260;
             this.tbBaseTexture.Name = "tbBaseTexture";
             this.tbBaseTexture.Size = new System.Drawing.Size(272, 20);
-            this.tbBaseTexture.TabIndex = 23;
+            this.tbBaseTexture.TabIndex = 0;
             // 
             // cbBloodEnabled
             // 
             this.cbBloodEnabled.Location = new System.Drawing.Point(13, 109);
             this.cbBloodEnabled.Name = "cbBloodEnabled";
             this.cbBloodEnabled.Size = new System.Drawing.Size(100, 13);
-            this.cbBloodEnabled.TabIndex = 22;
+            this.cbBloodEnabled.TabIndex = 5;
             this.cbBloodEnabled.UseVisualStyleBackColor = true;
             // 
             // numEnvmapMinLOD
@@ -3085,13 +3305,18 @@
             -2147483648});
             this.numEnvmapMinLOD.Name = "numEnvmapMinLOD";
             this.numEnvmapMinLOD.Size = new System.Drawing.Size(272, 20);
-            this.numEnvmapMinLOD.TabIndex = 9;
+            this.numEnvmapMinLOD.TabIndex = 18;
             // 
             // numBaseColorScale
             // 
             this.numBaseColorScale.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numBaseColorScale.DecimalPlaces = 5;
+            this.numBaseColorScale.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numBaseColorScale.Location = new System.Drawing.Point(13, 239);
             this.numBaseColorScale.Maximum = new decimal(new int[] {
             100000000,
@@ -3105,7 +3330,7 @@
             -2147483648});
             this.numBaseColorScale.Name = "numBaseColorScale";
             this.numBaseColorScale.Size = new System.Drawing.Size(272, 20);
-            this.numBaseColorScale.TabIndex = 3;
+            this.numBaseColorScale.TabIndex = 12;
             // 
             // Main
             // 

@@ -38,7 +38,9 @@ namespace Material_Editor
 
             saveAsToolStripMenuItem.Enabled = true;
             closeToolStripMenuItem.Enabled = true;
-            tabControl.Enabled = true;
+            splitContainerGeneral.Enabled = true;
+            splitContainerMaterial.Enabled = true;
+            splitContainerEffect.Enabled = true;
 
             // Default values
             BaseMaterialFile bgsm = new BGSM();
@@ -122,7 +124,9 @@ namespace Material_Editor
             saveToolStripMenuItem.Enabled = false;
             saveAsToolStripMenuItem.Enabled = false;
             closeToolStripMenuItem.Enabled = false;
-            tabControl.Enabled = false;
+            splitContainerGeneral.Enabled = false;
+            splitContainerMaterial.Enabled = false;
+            splitContainerEffect.Enabled = false;
             this.Text = "Material Editor";
         }
 
@@ -136,6 +140,171 @@ namespace Material_Editor
             AboutDialog about = new AboutDialog();
             about.ShowDialog();
         }
+
+
+        private void numVersion_ValueChanged(object sender, EventArgs e)
+        {
+            ChangeVersion();
+        }
+
+        private void cbRefraction_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeRefractionEnabled();
+        }
+
+        private void cbEnvironmentMapping_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeEnvironmentMappingEnabled();
+        }
+
+        private void cbRimLighting_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeRimLightingEnabled();
+        }
+
+        private void cbSubsurfaceLighting_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeSubsurfaceLightingEnabled();
+        }
+
+        private void cbSpecularEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeSpecularEnabled();
+        }
+
+        private void cbEmittanceEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeEmittanceEnabled();
+        }
+
+        private void cbHair_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeHairEnabled();
+        }
+
+        private void cbTessellate_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeTessellateEnabled();
+        }
+
+        private void cbFalloffEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeFalloffEnabled();
+        }
+
+        private void cbSoftEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeSoftEnabled();
+        }
+
+
+        private void ChangeVersion()
+        {
+            uint version = Convert.ToUInt32(numVersion.Value);
+            lbSkewSpecularAlpha.Enabled = version >= 1;
+            cbSkewSpecularAlpha.Enabled = version >= 1;
+        }
+
+        private void ChangeRefractionEnabled()
+        {
+            bool enabled = cbRefraction.Checked;
+            lbRefractionFalloff.Enabled = enabled;
+            cbRefractionFalloff.Enabled = enabled;
+
+            lbRefractionPower.Enabled = enabled;
+            numRefractionPower.Enabled = enabled;
+        }
+
+        private void ChangeEnvironmentMappingEnabled()
+        {
+            bool enabled = cbEnvironmentMapping.Checked;
+            lbEnvironmentMaskScale.Enabled = enabled;
+            numEnvironmentMaskScale.Enabled = enabled;
+        }
+
+        private void ChangeRimLightingEnabled()
+        {
+            bool enabled = cbRimLighting.Checked;
+            lbRimPower.Enabled = enabled;
+            numRimPower.Enabled = enabled;
+        }
+
+        private void ChangeSubsurfaceLightingEnabled()
+        {
+            bool enabled = cbSubsurfaceLighting.Checked;
+            lbSubsurfaceLightingRolloff.Enabled = enabled;
+            numSubsurfaceLightingRolloff.Enabled = enabled;
+        }
+
+        private void ChangeSpecularEnabled()
+        {
+            bool enabled = cbSpecularEnabled.Checked;
+            lbSpecularColor.Enabled = enabled;
+            btSpecularColor.Enabled = enabled;
+
+            lbSpecularMult.Enabled = enabled;
+            numSpecularMultiplier.Enabled = enabled;
+        }
+
+        private void ChangeEmittanceEnabled()
+        {
+            bool enabled = cbEmittanceEnabled.Checked;
+            lbEmittanceColor.Enabled = enabled;
+            btEmittanceColor.Enabled = enabled;
+
+            lbEmittanceMultiplier.Enabled = enabled;
+            numEmittanceMultiplier.Enabled = enabled;
+        }
+
+        private void ChangeHairEnabled()
+        {
+            bool enabled = cbHair.Checked;
+            lbHairTintColor.Enabled = enabled;
+            btHairTintColor.Enabled = enabled;
+        }
+
+        private void ChangeTessellateEnabled()
+        {
+            bool enabled = cbTessellate.Checked;
+            lbDisplacementTexBias.Enabled = enabled;
+            numDisplacementTexBias.Enabled = enabled;
+
+            lbDisplacementTexScale.Enabled = enabled;
+            numDisplacementTexScale.Enabled = enabled;
+
+            lbTessellationPNScale.Enabled = enabled;
+            numTessellationPNScale.Enabled = enabled;
+
+            lbTessellationBaseFactor.Enabled = enabled;
+            numTessellationBaseFactor.Enabled = enabled;
+
+            lbTessellationFadeDistance.Enabled = enabled;
+            numTessellationFadeDistance.Enabled = enabled;
+        }
+
+        private void ChangeFalloffEnabled()
+        {
+            bool enabled = cbFalloffEnabled.Checked;
+            lbFalloffStartAngle.Enabled = enabled;
+            numFalloffStartAngle.Enabled = enabled;
+
+            lbFalloffStopAngle.Enabled = enabled;
+            numFalloffStopAngle.Enabled = enabled;
+
+            lbFalloffStartOpacity.Enabled = enabled;
+            numFalloffStartOpacity.Enabled = enabled;
+
+            lbFalloffStopOpacity.Enabled = enabled;
+            numFalloffStopOpacity.Enabled = enabled;
+        }
+
+        private void ChangeSoftEnabled()
+        {
+            bool enabled = cbSoftEnabled.Checked;
+            lbSoftDepth.Enabled = enabled;
+            numSoftDepth.Enabled = enabled;
+        }
+
 
         private void ColorClicked(object sender, EventArgs e)
         {
@@ -244,6 +413,7 @@ namespace Material_Editor
                 tbDisplacementTexture.Text = bgsm.DisplacementTexture;
                 cbEnableEditorAlphaRef.Checked = bgsm.EnableEditorAlphaRef;
                 cbRimLighting.Checked = bgsm.RimLighting;
+                numRimPower.Value = Convert.ToDecimal(bgsm.RimPower);
                 numBacklightPower.Value = Convert.ToDecimal(bgsm.BackLightPower);
                 cbSubsurfaceLighting.Checked = bgsm.SubsurfaceLighting;
                 numSubsurfaceLightingRolloff.Value = Convert.ToDecimal(bgsm.SubsurfaceLightingRolloff);
@@ -326,7 +496,10 @@ namespace Material_Editor
                 numFalloffStopOpacity.Value = Convert.ToDecimal(bgem.FalloffStopOpacity);
                 numLightingInfluence.Value = Convert.ToDecimal(bgem.LightingInfluence);
                 numEnvmapMinLOD.Value = bgem.EnvmapMinLOD;
+                numSoftDepth.Value = Convert.ToDecimal(bgem.SoftDepth);
             }
+
+            UpdateUI();
         }
 
         private void SetMaterialFromUI(ref BaseMaterialFile file)
@@ -376,6 +549,7 @@ namespace Material_Editor
 
                 bgsm.EnableEditorAlphaRef = cbEnableEditorAlphaRef.Checked;
                 bgsm.RimLighting = cbRimLighting.Checked;
+                bgsm.RimPower = Convert.ToSingle(numRimPower.Value);
                 bgsm.BackLightPower = Convert.ToSingle(numBacklightPower.Value);
                 bgsm.SubsurfaceLighting = cbSubsurfaceLighting.Checked;
                 bgsm.SubsurfaceLightingRolloff = Convert.ToSingle(numSubsurfaceLightingRolloff.Value);
@@ -449,7 +623,23 @@ namespace Material_Editor
                 bgem.FalloffStopOpacity = Convert.ToSingle(numFalloffStopOpacity.Value);
                 bgem.LightingInfluence = Convert.ToSingle(numLightingInfluence.Value);
                 bgem.EnvmapMinLOD = Convert.ToByte(numEnvmapMinLOD.Value);
+                bgem.SoftDepth = Convert.ToSingle(numSoftDepth.Value);
             }
+        }
+
+        private void UpdateUI()
+        {
+            ChangeVersion();
+            ChangeRefractionEnabled();
+            ChangeEnvironmentMappingEnabled();
+            ChangeRimLightingEnabled();
+            ChangeSubsurfaceLightingEnabled();
+            ChangeSpecularEnabled();
+            ChangeEmittanceEnabled();
+            ChangeHairEnabled();
+            ChangeTessellateEnabled();
+            ChangeFalloffEnabled();
+            ChangeSoftEnabled();
         }
 
         private void OpenMaterial(string fileName, uint signature)
@@ -473,7 +663,9 @@ namespace Material_Editor
             saveToolStripMenuItem.Enabled = true;
             saveAsToolStripMenuItem.Enabled = true;
             closeToolStripMenuItem.Enabled = true;
-            tabControl.Enabled = true;
+            splitContainerGeneral.Enabled = true;
+            splitContainerMaterial.Enabled = true;
+            splitContainerEffect.Enabled = true;
 
             int nameIndex = fileName.LastIndexOf('\\');
             this.Text = fileName.Substring(nameIndex + 1, fileName.Length - nameIndex - 1);

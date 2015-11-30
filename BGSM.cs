@@ -27,14 +27,13 @@
  */
 
 using System;
-using System.ComponentModel;
 using System.IO;
 
 namespace Material_Editor
 {
     public class BGSM : BaseMaterialFile
     {
-        public const uint Signature = 0x4D534742;
+        public const uint Signature = 0x4D534742u;
 
         #region Fields
         private string _DiffuseTexture = "";
@@ -48,13 +47,13 @@ namespace Material_Editor
         private string _DisplacementTexture = "";
         private bool _EnableEditorAlphaRef;
         private bool _RimLighting;
-        private float _RimPower;
+        private float _RimPower = 2.0f;
         private float _BackLightPower;
         private bool _SubsurfaceLighting;
-        private float _SubsurfaceLightingRolloff;
+        private float _SubsurfaceLightingRolloff = 0.3f;
         private bool _SpecularEnabled;
-        private uint _SpecularColor;
-        private float _SpecularMult;
+        private uint _SpecularColor = 0xFFFFFFFFu;
+        private float _SpecularMult = 1.0f;
         private float _Smoothness = 1.0f;
         private float _FresnelPower = 5.0f;
         private float _WetnessControlSpecScale = -1.0f;
@@ -66,7 +65,7 @@ namespace Material_Editor
         private string _RootMaterialPath = "";
         private bool _AnisoLighting;
         private bool _EmitEnabled;
-        private uint _EmittanceColor;
+        private uint _EmittanceColor = 0xFFFFFFFFu;
         private float _EmittanceMult = 1.0f;
         private bool _ModelSpaceNormals;
         private bool _ExternalEmittance;
@@ -80,15 +79,15 @@ namespace Material_Editor
         private bool _EnvironmentMappingWindow;
         private bool _EnvironmentMappingEye;
         private bool _Hair;
-        private uint _HairTintColor = 0x808080;
+        private uint _HairTintColor = 0x808080u;
         private bool _Tree;
         private bool _Facegen;
         private bool _SkinTint;
         private bool _Tessellate;
-        private float _DisplacementTextureBias;
-        private float _DisplacementTextureScale;
-        private float _TessellationPNScale;
-        private float _TessellationBaseFactor;
+        private float _DisplacementTextureBias = -0.5f;
+        private float _DisplacementTextureScale = 10.0f;
+        private float _TessellationPNScale = 1.0f;
+        private float _TessellationBaseFactor = 1.0f;
         private float _TessellationFadeDistance;
         private float _GrayscaleToPaletteScale = 1.0f;
         private bool _SkewSpecularAlpha;
@@ -100,63 +99,54 @@ namespace Material_Editor
         }
 
         #region Properties
-        [DefaultValue("")]
         public string DiffuseTexture
         {
             get { return this._DiffuseTexture; }
             set { this._DiffuseTexture = value; }
         }
 
-        [DefaultValue("")]
         public string NormalTexture
         {
             get { return this._NormalTexture; }
             set { this._NormalTexture = value; }
         }
 
-        [DefaultValue("")]
         public string SmoothSpecTexture
         {
             get { return this._SmoothSpecTexture; }
             set { this._SmoothSpecTexture = value; }
         }
 
-        [DefaultValue("")]
         public string GreyscaleTexture
         {
             get { return this._GreyscaleTexture; }
             set { this._GreyscaleTexture = value; }
         }
 
-        [DefaultValue("")]
         public string EnvmapTexture
         {
             get { return this._EnvmapTexture; }
             set { this._EnvmapTexture = value; }
         }
 
-        [DefaultValue("")]
         public string GlowTexture
         {
             get { return this._GlowTexture; }
             set { this._GlowTexture = value; }
         }
 
-        [DefaultValue("")]
         public string InnerLayerTexture
         {
             get { return this._InnerLayerTexture; }
             set { this._InnerLayerTexture = value; }
         }
 
-        [DefaultValue("")]
         public string WrinklesTexture
         {
             get { return this._WrinklesTexture; }
             set { this._WrinklesTexture = value; }
         }
 
-        [DefaultValue("")]
         public string DisplacementTexture
         {
             get { return this._DisplacementTexture; }
@@ -217,56 +207,48 @@ namespace Material_Editor
             set { this._SpecularMult = value; }
         }
 
-        [DefaultValue(1.0f)]
         public float Smoothness
         {
             get { return this._Smoothness; }
             set { this._Smoothness = value; }
         }
 
-        [DefaultValue(5.0f)]
         public float FresnelPower
         {
             get { return this._FresnelPower; }
             set { this._FresnelPower = value; }
         }
 
-        [DefaultValue(-1.0f)]
         public float WetnessControlSpecScale
         {
             get { return this._WetnessControlSpecScale; }
             set { this._WetnessControlSpecScale = value; }
         }
 
-        [DefaultValue(-1.0f)]
         public float WetnessControlSpecPowerScale
         {
             get { return this._WetnessControlSpecPowerScale; }
             set { this._WetnessControlSpecPowerScale = value; }
         }
 
-        [DefaultValue(-1.0f)]
         public float WetnessControlSpecMinvar
         {
             get { return this._WetnessControlSpecMinvar; }
             set { this._WetnessControlSpecMinvar = value; }
         }
 
-        [DefaultValue(-1.0f)]
         public float WetnessControlEnvMapScale
         {
             get { return this._WetnessControlEnvMapScale; }
             set { this._WetnessControlEnvMapScale = value; }
         }
 
-        [DefaultValue(-1.0f)]
         public float WetnessControlFresnelPower
         {
             get { return this._WetnessControlFresnelPower; }
             set { this._WetnessControlFresnelPower = value; }
         }
 
-        [DefaultValue(-1.0f)]
         public float WetnessControlMetalness
         {
             get { return this._WetnessControlMetalness; }
@@ -297,7 +279,6 @@ namespace Material_Editor
             set { this._EmittanceColor = value; }
         }
 
-        [DefaultValue(1.0f)]
         public float EmittanceMult
         {
             get { return this._EmittanceMult; }
@@ -376,7 +357,6 @@ namespace Material_Editor
             set { this._Hair = value; }
         }
 
-        [DefaultValue(0x808080u)]
         public uint HairTintColor
         {
             get { return this._HairTintColor; }
@@ -437,7 +417,6 @@ namespace Material_Editor
             set { this._TessellationFadeDistance = value; }
         }
 
-        [DefaultValue(1.0f)]
         public float GrayscaleToPaletteScale
         {
             get { return this._GrayscaleToPaletteScale; }

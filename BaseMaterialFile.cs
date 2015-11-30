@@ -28,7 +28,6 @@
  */
 
 using System;
-using System.ComponentModel;
 using System.IO;
 
 namespace Material_Editor
@@ -38,16 +37,16 @@ namespace Material_Editor
         private readonly uint _Signature;
 
         #region Fields
-        private uint _Version;
-        private bool _TileU;
-        private bool _TileV;
+        private uint _Version = 1;
+        private bool _TileU = true;
+        private bool _TileV = true;
         private float _UOffset;
         private float _VOffset;
         private float _UScale = 1.0f;
         private float _VScale = 1.0f;
         private float _Alpha = 1.0f;
         private AlphaBlendModeType _AlphaBlendMode;
-        private sbyte _AlphaTestRef;
+        private sbyte _AlphaTestRef = -128;
         private bool _AlphaTest;
         private bool _ZBufferWrite = true;
         private bool _ZBufferTest = true;
@@ -101,28 +100,24 @@ namespace Material_Editor
             set { this._VOffset = value; }
         }
 
-        [DefaultValue(1.0f)]
         public float UScale
         {
             get { return this._UScale; }
             set { this._UScale = value; }
         }
 
-        [DefaultValue(1.0f)]
         public float VScale
         {
             get { return this._VScale; }
             set { this._VScale = value; }
         }
 
-        [DefaultValue(1.0f)]
         public float Alpha
         {
             get { return this._Alpha; }
             set { this._Alpha = value; }
         }
 
-        [DefaultValue(AlphaBlendModeType.Unknown)]
         public AlphaBlendModeType AlphaBlendMode
         {
             get { return this._AlphaBlendMode; }
@@ -141,14 +136,12 @@ namespace Material_Editor
             set { this._AlphaTest = value; }
         }
 
-        [DefaultValue(true)]
         public bool ZBufferWrite
         {
             get { return this._ZBufferWrite; }
             set { this._ZBufferWrite = value; }
         }
 
-        [DefaultValue(true)]
         public bool ZBufferTest
         {
             get { return this._ZBufferTest; }
@@ -215,7 +208,6 @@ namespace Material_Editor
             set { this._EnvironmentMapping = value; }
         }
 
-        [DefaultValue(1.0f)]
         public float EnvironmentMappingMaskScale
         {
             get { return this._EnvironmentMappingMaskScale; }
@@ -279,7 +271,9 @@ namespace Material_Editor
             output.Write(this._Signature);
             output.Write(this._Version);
 
-            var tileFlags = Convert.ToUInt32(this._TileU | this._TileV);
+            uint tileFlags = 0;
+            if (this._TileU) tileFlags += 2;
+            if (this._TileV) tileFlags += 1;
             output.Write(tileFlags);
 
             output.Write(this._UOffset);

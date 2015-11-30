@@ -45,6 +45,7 @@
             this.aboutText.Size = new System.Drawing.Size(365, 169);
             this.aboutText.TabIndex = 0;
             this.aboutText.Text = resources.GetString("aboutText.Text");
+            this.aboutText.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.aboutText_LinkClicked);
             // 
             // AboutDialog
             // 

@@ -27,31 +27,30 @@
  */
 
 using System;
-using System.ComponentModel;
 using System.IO;
 
 namespace Material_Editor
 {
     public class BGEM : BaseMaterialFile
     {
-        public const uint Signature = 0x4D454742;
+        public const uint Signature = 0x4D454742u;
 
         #region Fields
-        private string _BaseTexture;
-        private string _GrayscaleTexture;
-        private string _EnvmapTexture;
-        private string _NormalTexture;
-        private string _EnvmapMaskTexture;
+        private string _BaseTexture = "";
+        private string _GrayscaleTexture = "";
+        private string _EnvmapTexture = "";
+        private string _NormalTexture = "";
+        private string _EnvmapMaskTexture = "";
         private bool _BloodEnabled;
         private bool _EffectLightingEnabled;
         private bool _FalloffEnabled;
         private bool _FalloffColorEnabled;
         private bool _GrayscaleToPaletteAlpha;
         private bool _SoftEnabled;
-        private uint _BaseColor;
+        private uint _BaseColor = 0xFFFFFFFFu;
         private float _BaseColorScale = 1.0f;
-        private float _FalloffStartAngle;
-        private float _FalloffStopAngle;
+        private float _FalloffStartAngle = 1.0f;
+        private float _FalloffStopAngle = 1.0f;
         private float _FalloffStartOpacity;
         private float _FalloffStopOpacity;
         private float _LightingInfluence = 1.0f;
@@ -65,35 +64,30 @@ namespace Material_Editor
         }
 
         #region Properties
-        [DefaultValue("")]
         public string BaseTexture
         {
             get { return this._BaseTexture; }
             set { this._BaseTexture = value; }
         }
 
-        [DefaultValue("")]
         public string GrayscaleTexture
         {
             get { return this._GrayscaleTexture; }
             set { this._GrayscaleTexture = value; }
         }
 
-        [DefaultValue("")]
         public string EnvmapTexture
         {
             get { return this._EnvmapTexture; }
             set { this._EnvmapTexture = value; }
         }
 
-        [DefaultValue("")]
         public string NormalTexture
         {
             get { return this._NormalTexture; }
             set { this._NormalTexture = value; }
         }
 
-        [DefaultValue("")]
         public string EnvmapMaskTexture
         {
             get { return this._EnvmapMaskTexture; }
@@ -142,7 +136,6 @@ namespace Material_Editor
             set { this._BaseColor = value; }
         }
 
-        [DefaultValue(1.0f)]
         public float BaseColorScale
         {
             get { return this._BaseColorScale; }
@@ -173,7 +166,6 @@ namespace Material_Editor
             set { this._FalloffStopOpacity = value; }
         }
 
-        [DefaultValue(1.0f)]
         public float LightingInfluence
         {
             get { return this._LightingInfluence; }
@@ -186,7 +178,6 @@ namespace Material_Editor
             set { this._EnvmapMinLOD = value; }
         }
 
-        [DefaultValue(100.0f)]
         public float SoftDepth
         {
             get { return this._SoftDepth; }
