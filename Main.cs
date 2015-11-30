@@ -86,7 +86,8 @@ namespace Material_Editor
 
             if (!material.Save(workFileName))
             {
-                MessageBox.Show("Failed to save file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format("Failed to save file '%s'!", workFileName),
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
@@ -123,7 +124,8 @@ namespace Material_Editor
 
                 if (!material.Save(workFileName))
                 {
-                    MessageBox.Show("Failed to save file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(string.Format("Failed to save file '%s'!", workFileName),
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -666,7 +668,8 @@ namespace Material_Editor
 
             if (!material.Open(fileName))
             {
-                MessageBox.Show("Failed to open file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format("Failed to open file '%s'!", fileName),
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
