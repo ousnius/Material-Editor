@@ -795,6 +795,7 @@
             this.cbGrayscaleToPaletteColor.Size = new System.Drawing.Size(100, 13);
             this.cbGrayscaleToPaletteColor.TabIndex = 24;
             this.cbGrayscaleToPaletteColor.UseVisualStyleBackColor = true;
+            this.cbGrayscaleToPaletteColor.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // numEnvironmentMaskScale
             // 
@@ -820,6 +821,7 @@
             this.numEnvironmentMaskScale.Name = "numEnvironmentMaskScale";
             this.numEnvironmentMaskScale.Size = new System.Drawing.Size(272, 20);
             this.numEnvironmentMaskScale.TabIndex = 23;
+            this.numEnvironmentMaskScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbEnvironmentMapping
             // 
@@ -855,6 +857,7 @@
             this.numRefractionPower.Name = "numRefractionPower";
             this.numRefractionPower.Size = new System.Drawing.Size(272, 20);
             this.numRefractionPower.TabIndex = 21;
+            this.numRefractionPower.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbRefractionFalloff
             // 
@@ -864,6 +867,7 @@
             this.cbRefractionFalloff.Size = new System.Drawing.Size(100, 13);
             this.cbRefractionFalloff.TabIndex = 20;
             this.cbRefractionFalloff.UseVisualStyleBackColor = true;
+            this.cbRefractionFalloff.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbRefraction
             // 
@@ -881,6 +885,7 @@
             this.cbNonOccluder.Size = new System.Drawing.Size(100, 13);
             this.cbNonOccluder.TabIndex = 18;
             this.cbNonOccluder.UseVisualStyleBackColor = true;
+            this.cbNonOccluder.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbDecalNoFade
             // 
@@ -889,6 +894,7 @@
             this.cbDecalNoFade.Size = new System.Drawing.Size(100, 13);
             this.cbDecalNoFade.TabIndex = 17;
             this.cbDecalNoFade.UseVisualStyleBackColor = true;
+            this.cbDecalNoFade.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbTwoSided
             // 
@@ -897,6 +903,7 @@
             this.cbTwoSided.Size = new System.Drawing.Size(100, 13);
             this.cbTwoSided.TabIndex = 16;
             this.cbTwoSided.UseVisualStyleBackColor = true;
+            this.cbTwoSided.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbDecal
             // 
@@ -905,6 +912,7 @@
             this.cbDecal.Size = new System.Drawing.Size(100, 13);
             this.cbDecal.TabIndex = 15;
             this.cbDecal.UseVisualStyleBackColor = true;
+            this.cbDecal.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbWetnessControlSSR
             // 
@@ -913,6 +921,7 @@
             this.cbWetnessControlSSR.Size = new System.Drawing.Size(100, 13);
             this.cbWetnessControlSSR.TabIndex = 14;
             this.cbWetnessControlSSR.UseVisualStyleBackColor = true;
+            this.cbWetnessControlSSR.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbScreenSpaceReflections
             // 
@@ -921,6 +930,7 @@
             this.cbScreenSpaceReflections.Size = new System.Drawing.Size(100, 13);
             this.cbScreenSpaceReflections.TabIndex = 13;
             this.cbScreenSpaceReflections.UseVisualStyleBackColor = true;
+            this.cbScreenSpaceReflections.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbZBufferTest
             // 
@@ -929,6 +939,7 @@
             this.cbZBufferTest.Size = new System.Drawing.Size(100, 13);
             this.cbZBufferTest.TabIndex = 12;
             this.cbZBufferTest.UseVisualStyleBackColor = true;
+            this.cbZBufferTest.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbZBufferWrite
             // 
@@ -937,6 +948,7 @@
             this.cbZBufferWrite.Size = new System.Drawing.Size(100, 13);
             this.cbZBufferWrite.TabIndex = 11;
             this.cbZBufferWrite.UseVisualStyleBackColor = true;
+            this.cbZBufferWrite.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbAlphaTest
             // 
@@ -945,6 +957,7 @@
             this.cbAlphaTest.Size = new System.Drawing.Size(100, 13);
             this.cbAlphaTest.TabIndex = 10;
             this.cbAlphaTest.UseVisualStyleBackColor = true;
+            this.cbAlphaTest.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // numAlphaTestReference
             // 
@@ -964,6 +977,7 @@
             this.numAlphaTestReference.Name = "numAlphaTestReference";
             this.numAlphaTestReference.Size = new System.Drawing.Size(272, 20);
             this.numAlphaTestReference.TabIndex = 9;
+            this.numAlphaTestReference.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // selAlphaBlendMode
             // 
@@ -981,6 +995,7 @@
             this.selAlphaBlendMode.Name = "selAlphaBlendMode";
             this.selAlphaBlendMode.Size = new System.Drawing.Size(272, 21);
             this.selAlphaBlendMode.TabIndex = 8;
+            this.selAlphaBlendMode.SelectedIndexChanged += new System.EventHandler(this.OnChanged);
             // 
             // numAlpha
             // 
@@ -1006,6 +1021,7 @@
             this.numAlpha.Name = "numAlpha";
             this.numAlpha.Size = new System.Drawing.Size(272, 20);
             this.numAlpha.TabIndex = 7;
+            this.numAlpha.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numScaleV
             // 
@@ -1031,6 +1047,7 @@
             this.numScaleV.Name = "numScaleV";
             this.numScaleV.Size = new System.Drawing.Size(272, 20);
             this.numScaleV.TabIndex = 6;
+            this.numScaleV.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numScaleU
             // 
@@ -1056,6 +1073,7 @@
             this.numScaleU.Name = "numScaleU";
             this.numScaleU.Size = new System.Drawing.Size(272, 20);
             this.numScaleU.TabIndex = 5;
+            this.numScaleU.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numOffsetV
             // 
@@ -1081,6 +1099,7 @@
             this.numOffsetV.Name = "numOffsetV";
             this.numOffsetV.Size = new System.Drawing.Size(272, 20);
             this.numOffsetV.TabIndex = 4;
+            this.numOffsetV.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numOffsetU
             // 
@@ -1106,6 +1125,7 @@
             this.numOffsetU.Name = "numOffsetU";
             this.numOffsetU.Size = new System.Drawing.Size(272, 20);
             this.numOffsetU.TabIndex = 3;
+            this.numOffsetU.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbTileV
             // 
@@ -1114,6 +1134,7 @@
             this.cbTileV.Size = new System.Drawing.Size(100, 13);
             this.cbTileV.TabIndex = 2;
             this.cbTileV.UseVisualStyleBackColor = true;
+            this.cbTileV.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbTileU
             // 
@@ -1122,6 +1143,7 @@
             this.cbTileU.Size = new System.Drawing.Size(100, 13);
             this.cbTileU.TabIndex = 1;
             this.cbTileU.UseVisualStyleBackColor = true;
+            this.cbTileU.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // numVersion
             // 
@@ -1910,6 +1932,7 @@
             this.cbSkewSpecularAlpha.Size = new System.Drawing.Size(100, 13);
             this.cbSkewSpecularAlpha.TabIndex = 54;
             this.cbSkewSpecularAlpha.UseVisualStyleBackColor = true;
+            this.cbSkewSpecularAlpha.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // numGrayscaleToPaletteScale
             // 
@@ -1935,6 +1958,7 @@
             this.numGrayscaleToPaletteScale.Name = "numGrayscaleToPaletteScale";
             this.numGrayscaleToPaletteScale.Size = new System.Drawing.Size(271, 20);
             this.numGrayscaleToPaletteScale.TabIndex = 53;
+            this.numGrayscaleToPaletteScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numTessellationFadeDistance
             // 
@@ -1961,6 +1985,7 @@
             this.numTessellationFadeDistance.Name = "numTessellationFadeDistance";
             this.numTessellationFadeDistance.Size = new System.Drawing.Size(271, 20);
             this.numTessellationFadeDistance.TabIndex = 52;
+            this.numTessellationFadeDistance.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numTessellationBaseFactor
             // 
@@ -1987,6 +2012,7 @@
             this.numTessellationBaseFactor.Name = "numTessellationBaseFactor";
             this.numTessellationBaseFactor.Size = new System.Drawing.Size(271, 20);
             this.numTessellationBaseFactor.TabIndex = 51;
+            this.numTessellationBaseFactor.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numTessellationPNScale
             // 
@@ -2013,6 +2039,7 @@
             this.numTessellationPNScale.Name = "numTessellationPNScale";
             this.numTessellationPNScale.Size = new System.Drawing.Size(271, 20);
             this.numTessellationPNScale.TabIndex = 50;
+            this.numTessellationPNScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numDisplacementTexScale
             // 
@@ -2038,6 +2065,7 @@
             this.numDisplacementTexScale.Name = "numDisplacementTexScale";
             this.numDisplacementTexScale.Size = new System.Drawing.Size(271, 20);
             this.numDisplacementTexScale.TabIndex = 49;
+            this.numDisplacementTexScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numDisplacementTexBias
             // 
@@ -2063,6 +2091,7 @@
             this.numDisplacementTexBias.Name = "numDisplacementTexBias";
             this.numDisplacementTexBias.Size = new System.Drawing.Size(271, 20);
             this.numDisplacementTexBias.TabIndex = 48;
+            this.numDisplacementTexBias.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbTessellate
             // 
@@ -2080,6 +2109,7 @@
             this.cbSkinTint.Size = new System.Drawing.Size(100, 13);
             this.cbSkinTint.TabIndex = 46;
             this.cbSkinTint.UseVisualStyleBackColor = true;
+            this.cbSkinTint.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbFacegen
             // 
@@ -2088,6 +2118,7 @@
             this.cbFacegen.Size = new System.Drawing.Size(100, 13);
             this.cbFacegen.TabIndex = 45;
             this.cbFacegen.UseVisualStyleBackColor = true;
+            this.cbFacegen.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbTree
             // 
@@ -2096,6 +2127,7 @@
             this.cbTree.Size = new System.Drawing.Size(100, 13);
             this.cbTree.TabIndex = 44;
             this.cbTree.UseVisualStyleBackColor = true;
+            this.cbTree.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // btHairTintColor
             // 
@@ -2127,6 +2159,7 @@
             this.cbEnvironmentMapEye.Size = new System.Drawing.Size(100, 13);
             this.cbEnvironmentMapEye.TabIndex = 41;
             this.cbEnvironmentMapEye.UseVisualStyleBackColor = true;
+            this.cbEnvironmentMapEye.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbEnvironmentMapWindow
             // 
@@ -2135,6 +2168,7 @@
             this.cbEnvironmentMapWindow.Size = new System.Drawing.Size(100, 13);
             this.cbEnvironmentMapWindow.TabIndex = 40;
             this.cbEnvironmentMapWindow.UseVisualStyleBackColor = true;
+            this.cbEnvironmentMapWindow.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbGlowmap
             // 
@@ -2143,6 +2177,7 @@
             this.cbGlowmap.Size = new System.Drawing.Size(100, 13);
             this.cbGlowmap.TabIndex = 39;
             this.cbGlowmap.UseVisualStyleBackColor = true;
+            this.cbGlowmap.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbAssumeShadowmask
             // 
@@ -2151,6 +2186,7 @@
             this.cbAssumeShadowmask.Size = new System.Drawing.Size(100, 13);
             this.cbAssumeShadowmask.TabIndex = 38;
             this.cbAssumeShadowmask.UseVisualStyleBackColor = true;
+            this.cbAssumeShadowmask.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbDissolveFade
             // 
@@ -2159,6 +2195,7 @@
             this.cbDissolveFade.Size = new System.Drawing.Size(100, 13);
             this.cbDissolveFade.TabIndex = 37;
             this.cbDissolveFade.UseVisualStyleBackColor = true;
+            this.cbDissolveFade.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbCastShadows
             // 
@@ -2167,6 +2204,7 @@
             this.cbCastShadows.Size = new System.Drawing.Size(100, 13);
             this.cbCastShadows.TabIndex = 36;
             this.cbCastShadows.UseVisualStyleBackColor = true;
+            this.cbCastShadows.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbHideSecret
             // 
@@ -2175,6 +2213,7 @@
             this.cbHideSecret.Size = new System.Drawing.Size(100, 13);
             this.cbHideSecret.TabIndex = 35;
             this.cbHideSecret.UseVisualStyleBackColor = true;
+            this.cbHideSecret.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbReceiveShadows
             // 
@@ -2183,6 +2222,7 @@
             this.cbReceiveShadows.Size = new System.Drawing.Size(100, 13);
             this.cbReceiveShadows.TabIndex = 34;
             this.cbReceiveShadows.UseVisualStyleBackColor = true;
+            this.cbReceiveShadows.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbBackLighting
             // 
@@ -2191,6 +2231,7 @@
             this.cbBackLighting.Size = new System.Drawing.Size(100, 13);
             this.cbBackLighting.TabIndex = 33;
             this.cbBackLighting.UseVisualStyleBackColor = true;
+            this.cbBackLighting.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbExternalEmittance
             // 
@@ -2199,6 +2240,7 @@
             this.cbExternalEmittance.Size = new System.Drawing.Size(100, 13);
             this.cbExternalEmittance.TabIndex = 32;
             this.cbExternalEmittance.UseVisualStyleBackColor = true;
+            this.cbExternalEmittance.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbModelSpaceNormals
             // 
@@ -2207,6 +2249,7 @@
             this.cbModelSpaceNormals.Size = new System.Drawing.Size(100, 13);
             this.cbModelSpaceNormals.TabIndex = 31;
             this.cbModelSpaceNormals.UseVisualStyleBackColor = true;
+            this.cbModelSpaceNormals.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // numEmittanceMultiplier
             // 
@@ -2233,6 +2276,7 @@
             this.numEmittanceMultiplier.Name = "numEmittanceMultiplier";
             this.numEmittanceMultiplier.Size = new System.Drawing.Size(271, 20);
             this.numEmittanceMultiplier.TabIndex = 30;
+            this.numEmittanceMultiplier.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // btEmittanceColor
             // 
@@ -2264,6 +2308,7 @@
             this.cbAnisoLighting.Size = new System.Drawing.Size(100, 13);
             this.cbAnisoLighting.TabIndex = 27;
             this.cbAnisoLighting.UseVisualStyleBackColor = true;
+            this.cbAnisoLighting.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbRootMaterialPath
             // 
@@ -2274,6 +2319,7 @@
             this.tbRootMaterialPath.Name = "tbRootMaterialPath";
             this.tbRootMaterialPath.Size = new System.Drawing.Size(271, 20);
             this.tbRootMaterialPath.TabIndex = 26;
+            this.tbRootMaterialPath.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // numWetMetalness
             // 
@@ -2299,6 +2345,7 @@
             this.numWetMetalness.Name = "numWetMetalness";
             this.numWetMetalness.Size = new System.Drawing.Size(271, 20);
             this.numWetMetalness.TabIndex = 25;
+            this.numWetMetalness.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numWetFresnelPower
             // 
@@ -2324,6 +2371,7 @@
             this.numWetFresnelPower.Name = "numWetFresnelPower";
             this.numWetFresnelPower.Size = new System.Drawing.Size(271, 20);
             this.numWetFresnelPower.TabIndex = 24;
+            this.numWetFresnelPower.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numWetEnvMapScale
             // 
@@ -2349,6 +2397,7 @@
             this.numWetEnvMapScale.Name = "numWetEnvMapScale";
             this.numWetEnvMapScale.Size = new System.Drawing.Size(271, 20);
             this.numWetEnvMapScale.TabIndex = 23;
+            this.numWetEnvMapScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numWetSpecMinVar
             // 
@@ -2374,6 +2423,7 @@
             this.numWetSpecMinVar.Name = "numWetSpecMinVar";
             this.numWetSpecMinVar.Size = new System.Drawing.Size(271, 20);
             this.numWetSpecMinVar.TabIndex = 22;
+            this.numWetSpecMinVar.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numWetSpecPowerScale
             // 
@@ -2399,6 +2449,7 @@
             this.numWetSpecPowerScale.Name = "numWetSpecPowerScale";
             this.numWetSpecPowerScale.Size = new System.Drawing.Size(271, 20);
             this.numWetSpecPowerScale.TabIndex = 21;
+            this.numWetSpecPowerScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numWetSpecScale
             // 
@@ -2424,6 +2475,7 @@
             this.numWetSpecScale.Name = "numWetSpecScale";
             this.numWetSpecScale.Size = new System.Drawing.Size(271, 20);
             this.numWetSpecScale.TabIndex = 20;
+            this.numWetSpecScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numFresnelPower
             // 
@@ -2449,6 +2501,7 @@
             this.numFresnelPower.Name = "numFresnelPower";
             this.numFresnelPower.Size = new System.Drawing.Size(271, 20);
             this.numFresnelPower.TabIndex = 19;
+            this.numFresnelPower.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numSmoothness
             // 
@@ -2474,6 +2527,7 @@
             this.numSmoothness.Name = "numSmoothness";
             this.numSmoothness.Size = new System.Drawing.Size(271, 20);
             this.numSmoothness.TabIndex = 18;
+            this.numSmoothness.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numSpecularMultiplier
             // 
@@ -2500,6 +2554,7 @@
             this.numSpecularMultiplier.Name = "numSpecularMultiplier";
             this.numSpecularMultiplier.Size = new System.Drawing.Size(271, 20);
             this.numSpecularMultiplier.TabIndex = 17;
+            this.numSpecularMultiplier.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // btSpecularColor
             // 
@@ -2549,6 +2604,7 @@
             this.numSubsurfaceLightingRolloff.Name = "numSubsurfaceLightingRolloff";
             this.numSubsurfaceLightingRolloff.Size = new System.Drawing.Size(271, 20);
             this.numSubsurfaceLightingRolloff.TabIndex = 14;
+            this.numSubsurfaceLightingRolloff.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbSubsurfaceLighting
             // 
@@ -2583,6 +2639,7 @@
             this.numBacklightPower.Name = "numBacklightPower";
             this.numBacklightPower.Size = new System.Drawing.Size(271, 20);
             this.numBacklightPower.TabIndex = 12;
+            this.numBacklightPower.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbRimLighting
             // 
@@ -2602,6 +2659,7 @@
             this.tbDisplacementTexture.Name = "tbDisplacementTexture";
             this.tbDisplacementTexture.Size = new System.Drawing.Size(271, 20);
             this.tbDisplacementTexture.TabIndex = 8;
+            this.tbDisplacementTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbWrinklesTexture
             // 
@@ -2612,6 +2670,7 @@
             this.tbWrinklesTexture.Name = "tbWrinklesTexture";
             this.tbWrinklesTexture.Size = new System.Drawing.Size(271, 20);
             this.tbWrinklesTexture.TabIndex = 7;
+            this.tbWrinklesTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbInnerLayerTexture
             // 
@@ -2622,6 +2681,7 @@
             this.tbInnerLayerTexture.Name = "tbInnerLayerTexture";
             this.tbInnerLayerTexture.Size = new System.Drawing.Size(271, 20);
             this.tbInnerLayerTexture.TabIndex = 6;
+            this.tbInnerLayerTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbGlowTexture
             // 
@@ -2632,6 +2692,7 @@
             this.tbGlowTexture.Name = "tbGlowTexture";
             this.tbGlowTexture.Size = new System.Drawing.Size(271, 20);
             this.tbGlowTexture.TabIndex = 5;
+            this.tbGlowTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbEnvironmentMapTexture
             // 
@@ -2642,6 +2703,7 @@
             this.tbEnvironmentMapTexture.Name = "tbEnvironmentMapTexture";
             this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(271, 20);
             this.tbEnvironmentMapTexture.TabIndex = 4;
+            this.tbEnvironmentMapTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbGreyscaleTexture
             // 
@@ -2652,6 +2714,7 @@
             this.tbGreyscaleTexture.Name = "tbGreyscaleTexture";
             this.tbGreyscaleTexture.Size = new System.Drawing.Size(271, 20);
             this.tbGreyscaleTexture.TabIndex = 3;
+            this.tbGreyscaleTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbSmoothSpecularTexture
             // 
@@ -2662,6 +2725,7 @@
             this.tbSmoothSpecularTexture.Name = "tbSmoothSpecularTexture";
             this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(271, 20);
             this.tbSmoothSpecularTexture.TabIndex = 2;
+            this.tbSmoothSpecularTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbNormalTexture
             // 
@@ -2672,6 +2736,7 @@
             this.tbNormalTexture.Name = "tbNormalTexture";
             this.tbNormalTexture.Size = new System.Drawing.Size(271, 20);
             this.tbNormalTexture.TabIndex = 1;
+            this.tbNormalTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbDiffuseTexture
             // 
@@ -2682,6 +2747,7 @@
             this.tbDiffuseTexture.Name = "tbDiffuseTexture";
             this.tbDiffuseTexture.Size = new System.Drawing.Size(271, 20);
             this.tbDiffuseTexture.TabIndex = 0;
+            this.tbDiffuseTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // numRimPower
             // 
@@ -2708,6 +2774,7 @@
             this.numRimPower.Name = "numRimPower";
             this.numRimPower.Size = new System.Drawing.Size(271, 20);
             this.numRimPower.TabIndex = 11;
+            this.numRimPower.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbEnableEditorAlphaRef
             // 
@@ -2716,6 +2783,7 @@
             this.cbEnableEditorAlphaRef.Size = new System.Drawing.Size(100, 13);
             this.cbEnableEditorAlphaRef.TabIndex = 9;
             this.cbEnableEditorAlphaRef.UseVisualStyleBackColor = true;
+            this.cbEnableEditorAlphaRef.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // tabPageEffect
             // 
@@ -3045,6 +3113,7 @@
             this.numSoftDepth.Name = "numSoftDepth";
             this.numSoftDepth.Size = new System.Drawing.Size(272, 20);
             this.numSoftDepth.TabIndex = 19;
+            this.numSoftDepth.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numLightingInfluence
             // 
@@ -3070,6 +3139,7 @@
             this.numLightingInfluence.Name = "numLightingInfluence";
             this.numLightingInfluence.Size = new System.Drawing.Size(272, 20);
             this.numLightingInfluence.TabIndex = 17;
+            this.numLightingInfluence.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numFalloffStopOpacity
             // 
@@ -3096,6 +3166,7 @@
             this.numFalloffStopOpacity.Name = "numFalloffStopOpacity";
             this.numFalloffStopOpacity.Size = new System.Drawing.Size(272, 20);
             this.numFalloffStopOpacity.TabIndex = 16;
+            this.numFalloffStopOpacity.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numFalloffStartOpacity
             // 
@@ -3122,6 +3193,7 @@
             this.numFalloffStartOpacity.Name = "numFalloffStartOpacity";
             this.numFalloffStartOpacity.Size = new System.Drawing.Size(272, 20);
             this.numFalloffStartOpacity.TabIndex = 15;
+            this.numFalloffStartOpacity.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numFalloffStopAngle
             // 
@@ -3148,6 +3220,7 @@
             this.numFalloffStopAngle.Name = "numFalloffStopAngle";
             this.numFalloffStopAngle.Size = new System.Drawing.Size(272, 20);
             this.numFalloffStopAngle.TabIndex = 14;
+            this.numFalloffStopAngle.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numFalloffStartAngle
             // 
@@ -3174,6 +3247,7 @@
             this.numFalloffStartAngle.Name = "numFalloffStartAngle";
             this.numFalloffStartAngle.Size = new System.Drawing.Size(272, 20);
             this.numFalloffStartAngle.TabIndex = 13;
+            this.numFalloffStartAngle.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // btBaseColor
             // 
@@ -3204,6 +3278,7 @@
             this.cbGrayscaleToPaletteAlpha.Size = new System.Drawing.Size(100, 13);
             this.cbGrayscaleToPaletteAlpha.TabIndex = 9;
             this.cbGrayscaleToPaletteAlpha.UseVisualStyleBackColor = true;
+            this.cbGrayscaleToPaletteAlpha.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbFalloffColorEnabled
             // 
@@ -3212,6 +3287,7 @@
             this.cbFalloffColorEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbFalloffColorEnabled.TabIndex = 8;
             this.cbFalloffColorEnabled.UseVisualStyleBackColor = true;
+            this.cbFalloffColorEnabled.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbFalloffEnabled
             // 
@@ -3229,6 +3305,7 @@
             this.cbEffectLightingEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbEffectLightingEnabled.TabIndex = 6;
             this.cbEffectLightingEnabled.UseVisualStyleBackColor = true;
+            this.cbEffectLightingEnabled.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbEnvmapMaskTexture
             // 
@@ -3239,6 +3316,7 @@
             this.tbEnvmapMaskTexture.Name = "tbEnvmapMaskTexture";
             this.tbEnvmapMaskTexture.Size = new System.Drawing.Size(272, 20);
             this.tbEnvmapMaskTexture.TabIndex = 4;
+            this.tbEnvmapMaskTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbNormalTexture_effect
             // 
@@ -3249,6 +3327,7 @@
             this.tbNormalTexture_effect.Name = "tbNormalTexture_effect";
             this.tbNormalTexture_effect.Size = new System.Drawing.Size(272, 20);
             this.tbNormalTexture_effect.TabIndex = 3;
+            this.tbNormalTexture_effect.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbEnvmapTexture
             // 
@@ -3259,6 +3338,7 @@
             this.tbEnvmapTexture.Name = "tbEnvmapTexture";
             this.tbEnvmapTexture.Size = new System.Drawing.Size(272, 20);
             this.tbEnvmapTexture.TabIndex = 2;
+            this.tbEnvmapTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbGrayscaleTexture
             // 
@@ -3269,6 +3349,7 @@
             this.tbGrayscaleTexture.Name = "tbGrayscaleTexture";
             this.tbGrayscaleTexture.Size = new System.Drawing.Size(272, 20);
             this.tbGrayscaleTexture.TabIndex = 1;
+            this.tbGrayscaleTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // tbBaseTexture
             // 
@@ -3279,6 +3360,7 @@
             this.tbBaseTexture.Name = "tbBaseTexture";
             this.tbBaseTexture.Size = new System.Drawing.Size(272, 20);
             this.tbBaseTexture.TabIndex = 0;
+            this.tbBaseTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
             // cbBloodEnabled
             // 
@@ -3287,6 +3369,7 @@
             this.cbBloodEnabled.Size = new System.Drawing.Size(100, 13);
             this.cbBloodEnabled.TabIndex = 5;
             this.cbBloodEnabled.UseVisualStyleBackColor = true;
+            this.cbBloodEnabled.CheckedChanged += new System.EventHandler(this.OnChanged);
             // 
             // numEnvmapMinLOD
             // 
@@ -3306,6 +3389,7 @@
             this.numEnvmapMinLOD.Name = "numEnvmapMinLOD";
             this.numEnvmapMinLOD.Size = new System.Drawing.Size(272, 20);
             this.numEnvmapMinLOD.TabIndex = 18;
+            this.numEnvmapMinLOD.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // numBaseColorScale
             // 
@@ -3331,6 +3415,7 @@
             this.numBaseColorScale.Name = "numBaseColorScale";
             this.numBaseColorScale.Size = new System.Drawing.Size(272, 20);
             this.numBaseColorScale.TabIndex = 12;
+            this.numBaseColorScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
             // Main
             // 
@@ -3346,6 +3431,7 @@
             this.MinimumSize = new System.Drawing.Size(385, 246);
             this.Name = "Main";
             this.Text = "Material Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Closing);
             this.ResizeBegin += new System.EventHandler(this.Main_ResizeBegin);
             this.ResizeEnd += new System.EventHandler(this.Main_ResizeEnd);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Main_DragDrop);

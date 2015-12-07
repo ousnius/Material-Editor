@@ -7,6 +7,7 @@ namespace Material_Editor
     public partial class Main : Form
     {
         private string workFileName;
+        private bool changed;
 
         public Main()
         {
@@ -73,7 +74,9 @@ namespace Material_Editor
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(workFileName))
-                return;
+            {
+                saveAsToolStripMenuItem_Click(null, null);
+            }
 
             BaseMaterialFile material;
             if (workFileName.EndsWith(".bgsm"))
@@ -91,6 +94,10 @@ namespace Material_Editor
                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            int nameIndex = workFileName.LastIndexOf('\\');
+            this.Text = workFileName.Substring(nameIndex + 1, workFileName.Length - nameIndex - 1);
+            changed = false;
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -109,26 +116,32 @@ namespace Material_Editor
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                workFileName = saveFileDialog.FileName.ToLower();
-                this.Text = workFileName.Remove(0, workFileName.LastIndexOf('\\') + 1);
-                saveToolStripMenuItem.Enabled = true;
+                string fileName = saveFileDialog.FileName.ToLower();
 
                 BaseMaterialFile material;
-                if (workFileName.EndsWith(".bgsm"))
+                if (fileName.EndsWith(".bgsm"))
                     material = new BGSM();
-                else if (workFileName.EndsWith(".bgem"))
+                else if (fileName.EndsWith(".bgem"))
                     material = new BGEM();
                 else
                     return;
 
                 SetMaterialFromUI(ref material);
 
-                if (!material.Save(workFileName))
+                if (!material.Save(fileName))
                 {
-                    MessageBox.Show(string.Format("Failed to save file '{0}'!", workFileName),
+                    MessageBox.Show(string.Format("Failed to save file '{0}'!", fileName),
                         "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                workFileName = fileName;
+
+                saveToolStripMenuItem.Enabled = true;
+
+                int nameIndex = workFileName.LastIndexOf('\\');
+                this.Text = workFileName.Substring(nameIndex + 1, workFileName.Length - nameIndex - 1);
+                changed = false;
             }
         }
 
@@ -142,7 +155,9 @@ namespace Material_Editor
             splitContainerGeneral.Enabled = false;
             splitContainerMaterial.Enabled = false;
             splitContainerEffect.Enabled = false;
+
             this.Text = "Material Editor";
+            changed = false;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -218,6 +233,7 @@ namespace Material_Editor
             uint version = Convert.ToUInt32(numVersion.Value);
             lbSkewSpecularAlpha.Enabled = version >= 1;
             cbSkewSpecularAlpha.Enabled = version >= 1;
+            OnChanged(null, null);
         }
 
         private void ChangeRefractionEnabled()
@@ -228,6 +244,7 @@ namespace Material_Editor
 
             lbRefractionPower.Enabled = enabled;
             numRefractionPower.Enabled = enabled;
+            OnChanged(null, null);
         }
 
         private void ChangeEnvironmentMappingEnabled()
@@ -235,6 +252,7 @@ namespace Material_Editor
             bool enabled = cbEnvironmentMapping.Checked;
             lbEnvironmentMaskScale.Enabled = enabled;
             numEnvironmentMaskScale.Enabled = enabled;
+            OnChanged(null, null);
         }
 
         private void ChangeRimLightingEnabled()
@@ -242,6 +260,7 @@ namespace Material_Editor
             bool enabled = cbRimLighting.Checked;
             lbRimPower.Enabled = enabled;
             numRimPower.Enabled = enabled;
+            OnChanged(null, null);
         }
 
         private void ChangeSubsurfaceLightingEnabled()
@@ -249,6 +268,7 @@ namespace Material_Editor
             bool enabled = cbSubsurfaceLighting.Checked;
             lbSubsurfaceLightingRolloff.Enabled = enabled;
             numSubsurfaceLightingRolloff.Enabled = enabled;
+            OnChanged(null, null);
         }
 
         private void ChangeSpecularEnabled()
@@ -259,6 +279,7 @@ namespace Material_Editor
 
             lbSpecularMult.Enabled = enabled;
             numSpecularMultiplier.Enabled = enabled;
+            OnChanged(null, null);
         }
 
         private void ChangeEmittanceEnabled()
@@ -269,6 +290,7 @@ namespace Material_Editor
 
             lbEmittanceMultiplier.Enabled = enabled;
             numEmittanceMultiplier.Enabled = enabled;
+            OnChanged(null, null);
         }
 
         private void ChangeHairEnabled()
@@ -276,6 +298,7 @@ namespace Material_Editor
             bool enabled = cbHair.Checked;
             lbHairTintColor.Enabled = enabled;
             btHairTintColor.Enabled = enabled;
+            OnChanged(null, null);
         }
 
         private void ChangeTessellateEnabled()
@@ -295,6 +318,7 @@ namespace Material_Editor
 
             lbTessellationFadeDistance.Enabled = enabled;
             numTessellationFadeDistance.Enabled = enabled;
+            OnChanged(null, null);
         }
 
         private void ChangeFalloffEnabled()
@@ -311,6 +335,7 @@ namespace Material_Editor
 
             lbFalloffStopOpacity.Enabled = enabled;
             numFalloffStopOpacity.Enabled = enabled;
+            OnChanged(null, null);
         }
 
         private void ChangeSoftEnabled()
@@ -318,6 +343,7 @@ namespace Material_Editor
             bool enabled = cbSoftEnabled.Checked;
             lbSoftDepth.Enabled = enabled;
             numSoftDepth.Enabled = enabled;
+            OnChanged(null, null);
         }
 
 
@@ -328,6 +354,7 @@ namespace Material_Editor
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
                 btColor.BackColor = colorDialog.Color;
+                OnChanged(null, null);
             }
         }
 
@@ -335,6 +362,16 @@ namespace Material_Editor
         {
             TabPage tab = (TabPage)sender;
             tab.Update();
+        }
+
+        private void OnChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(workFileName))
+            {
+                int nameIndex = workFileName.LastIndexOf('\\');
+                this.Text = "*" + workFileName.Substring(nameIndex + 1, workFileName.Length - nameIndex - 1);
+                changed = true;
+            }
         }
 
         private void Main_ResizeBegin(object sender, EventArgs e)
@@ -345,6 +382,24 @@ namespace Material_Editor
         private void Main_ResizeEnd(object sender, EventArgs e)
         {
             this.ResumeLayout(true);
+        }
+
+        private void Main_Closing(object sender, FormClosingEventArgs e)
+        {
+            if (changed)
+            {
+                DialogResult res = MessageBox.Show("There are unsaved changes to the file.\nDo want to save them before closing the program?",
+                    "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (res == DialogResult.Yes)
+                {
+                    saveToolStripMenuItem_Click(null, null);
+                }
+                else if (res == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
 
         private void Main_DragEnter(object sender, DragEventArgs e)
@@ -674,6 +729,8 @@ namespace Material_Editor
                 return;
             }
 
+            SetUIFromMaterial(ref material);
+
             workFileName = fileName;
 
             saveToolStripMenuItem.Enabled = true;
@@ -685,8 +742,7 @@ namespace Material_Editor
 
             int nameIndex = fileName.LastIndexOf('\\');
             this.Text = fileName.Substring(nameIndex + 1, fileName.Length - nameIndex - 1);
-
-            SetUIFromMaterial(ref material);
+            changed = false;
         }
         #endregion
     }
