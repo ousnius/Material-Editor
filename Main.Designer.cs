@@ -249,6 +249,21 @@
             this.cbBloodEnabled = new System.Windows.Forms.CheckBox();
             this.numEnvmapMinLOD = new System.Windows.Forms.NumericUpDown();
             this.numBaseColorScale = new System.Windows.Forms.NumericUpDown();
+            this.btDiffuseTexture = new System.Windows.Forms.Button();
+            this.textureFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.btNormalTexture = new System.Windows.Forms.Button();
+            this.btSmoothSpecularTexture = new System.Windows.Forms.Button();
+            this.btGreyscaleTexture = new System.Windows.Forms.Button();
+            this.btEnvironmentMapTexture = new System.Windows.Forms.Button();
+            this.btGlowTexture = new System.Windows.Forms.Button();
+            this.btInnerLayerTexture = new System.Windows.Forms.Button();
+            this.btWrinklesTexture = new System.Windows.Forms.Button();
+            this.btDisplacementTexture = new System.Windows.Forms.Button();
+            this.btBaseTexture = new System.Windows.Forms.Button();
+            this.btGrayscaleTexture = new System.Windows.Forms.Button();
+            this.btEnvmapTexture = new System.Windows.Forms.Button();
+            this.btNormalTexture_effect = new System.Windows.Forms.Button();
+            this.btEnvmapMaskTexture = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -444,7 +459,6 @@
             this.splitContainerGeneral.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainerGeneral.Enabled = false;
             this.splitContainerGeneral.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerGeneral.IsSplitterFixed = true;
             this.splitContainerGeneral.Location = new System.Drawing.Point(4, 4);
             this.splitContainerGeneral.Name = "splitContainerGeneral";
             // 
@@ -1181,7 +1195,6 @@
             this.splitContainerMaterial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainerMaterial.Enabled = false;
             this.splitContainerMaterial.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerMaterial.IsSplitterFixed = true;
             this.splitContainerMaterial.Location = new System.Drawing.Point(4, 4);
             this.splitContainerMaterial.Name = "splitContainerMaterial";
             // 
@@ -1247,6 +1260,15 @@
             // 
             // splitContainerMaterial.Panel2
             // 
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btDisplacementTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btWrinklesTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btInnerLayerTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btGlowTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btEnvironmentMapTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btGreyscaleTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btSmoothSpecularTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btNormalTexture);
+            this.splitContainerMaterial.Panel2.Controls.Add(this.btDiffuseTexture);
             this.splitContainerMaterial.Panel2.Controls.Add(this.cbSkewSpecularAlpha);
             this.splitContainerMaterial.Panel2.Controls.Add(this.numGrayscaleToPaletteScale);
             this.splitContainerMaterial.Panel2.Controls.Add(this.numTessellationFadeDistance);
@@ -2657,7 +2679,7 @@
             this.tbDisplacementTexture.Location = new System.Drawing.Point(13, 162);
             this.tbDisplacementTexture.MaxLength = 260;
             this.tbDisplacementTexture.Name = "tbDisplacementTexture";
-            this.tbDisplacementTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbDisplacementTexture.Size = new System.Drawing.Size(251, 20);
             this.tbDisplacementTexture.TabIndex = 8;
             this.tbDisplacementTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2668,7 +2690,7 @@
             this.tbWrinklesTexture.Location = new System.Drawing.Point(13, 143);
             this.tbWrinklesTexture.MaxLength = 260;
             this.tbWrinklesTexture.Name = "tbWrinklesTexture";
-            this.tbWrinklesTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbWrinklesTexture.Size = new System.Drawing.Size(251, 20);
             this.tbWrinklesTexture.TabIndex = 7;
             this.tbWrinklesTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2679,7 +2701,7 @@
             this.tbInnerLayerTexture.Location = new System.Drawing.Point(13, 124);
             this.tbInnerLayerTexture.MaxLength = 260;
             this.tbInnerLayerTexture.Name = "tbInnerLayerTexture";
-            this.tbInnerLayerTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbInnerLayerTexture.Size = new System.Drawing.Size(251, 20);
             this.tbInnerLayerTexture.TabIndex = 6;
             this.tbInnerLayerTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2690,7 +2712,7 @@
             this.tbGlowTexture.Location = new System.Drawing.Point(13, 105);
             this.tbGlowTexture.MaxLength = 260;
             this.tbGlowTexture.Name = "tbGlowTexture";
-            this.tbGlowTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbGlowTexture.Size = new System.Drawing.Size(251, 20);
             this.tbGlowTexture.TabIndex = 5;
             this.tbGlowTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2701,7 +2723,7 @@
             this.tbEnvironmentMapTexture.Location = new System.Drawing.Point(13, 86);
             this.tbEnvironmentMapTexture.MaxLength = 260;
             this.tbEnvironmentMapTexture.Name = "tbEnvironmentMapTexture";
-            this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(251, 20);
             this.tbEnvironmentMapTexture.TabIndex = 4;
             this.tbEnvironmentMapTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2712,7 +2734,7 @@
             this.tbGreyscaleTexture.Location = new System.Drawing.Point(13, 67);
             this.tbGreyscaleTexture.MaxLength = 260;
             this.tbGreyscaleTexture.Name = "tbGreyscaleTexture";
-            this.tbGreyscaleTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbGreyscaleTexture.Size = new System.Drawing.Size(251, 20);
             this.tbGreyscaleTexture.TabIndex = 3;
             this.tbGreyscaleTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2723,7 +2745,7 @@
             this.tbSmoothSpecularTexture.Location = new System.Drawing.Point(13, 48);
             this.tbSmoothSpecularTexture.MaxLength = 260;
             this.tbSmoothSpecularTexture.Name = "tbSmoothSpecularTexture";
-            this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(251, 20);
             this.tbSmoothSpecularTexture.TabIndex = 2;
             this.tbSmoothSpecularTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2734,7 +2756,7 @@
             this.tbNormalTexture.Location = new System.Drawing.Point(13, 29);
             this.tbNormalTexture.MaxLength = 260;
             this.tbNormalTexture.Name = "tbNormalTexture";
-            this.tbNormalTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbNormalTexture.Size = new System.Drawing.Size(251, 20);
             this.tbNormalTexture.TabIndex = 1;
             this.tbNormalTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2745,7 +2767,7 @@
             this.tbDiffuseTexture.Location = new System.Drawing.Point(13, 10);
             this.tbDiffuseTexture.MaxLength = 260;
             this.tbDiffuseTexture.Name = "tbDiffuseTexture";
-            this.tbDiffuseTexture.Size = new System.Drawing.Size(271, 20);
+            this.tbDiffuseTexture.Size = new System.Drawing.Size(251, 20);
             this.tbDiffuseTexture.TabIndex = 0;
             this.tbDiffuseTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2806,7 +2828,6 @@
             this.splitContainerEffect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainerEffect.Enabled = false;
             this.splitContainerEffect.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerEffect.IsSplitterFixed = true;
             this.splitContainerEffect.Location = new System.Drawing.Point(4, 4);
             this.splitContainerEffect.Name = "splitContainerEffect";
             // 
@@ -2837,6 +2858,11 @@
             // 
             // splitContainerEffect.Panel2
             // 
+            this.splitContainerEffect.Panel2.Controls.Add(this.btEnvmapMaskTexture);
+            this.splitContainerEffect.Panel2.Controls.Add(this.btNormalTexture_effect);
+            this.splitContainerEffect.Panel2.Controls.Add(this.btEnvmapTexture);
+            this.splitContainerEffect.Panel2.Controls.Add(this.btGrayscaleTexture);
+            this.splitContainerEffect.Panel2.Controls.Add(this.btBaseTexture);
             this.splitContainerEffect.Panel2.Controls.Add(this.numSoftDepth);
             this.splitContainerEffect.Panel2.Controls.Add(this.numLightingInfluence);
             this.splitContainerEffect.Panel2.Controls.Add(this.numFalloffStopOpacity);
@@ -3314,7 +3340,7 @@
             this.tbEnvmapMaskTexture.Location = new System.Drawing.Point(13, 86);
             this.tbEnvmapMaskTexture.MaxLength = 260;
             this.tbEnvmapMaskTexture.Name = "tbEnvmapMaskTexture";
-            this.tbEnvmapMaskTexture.Size = new System.Drawing.Size(272, 20);
+            this.tbEnvmapMaskTexture.Size = new System.Drawing.Size(252, 20);
             this.tbEnvmapMaskTexture.TabIndex = 4;
             this.tbEnvmapMaskTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -3325,7 +3351,7 @@
             this.tbNormalTexture_effect.Location = new System.Drawing.Point(13, 67);
             this.tbNormalTexture_effect.MaxLength = 260;
             this.tbNormalTexture_effect.Name = "tbNormalTexture_effect";
-            this.tbNormalTexture_effect.Size = new System.Drawing.Size(272, 20);
+            this.tbNormalTexture_effect.Size = new System.Drawing.Size(252, 20);
             this.tbNormalTexture_effect.TabIndex = 3;
             this.tbNormalTexture_effect.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -3336,7 +3362,7 @@
             this.tbEnvmapTexture.Location = new System.Drawing.Point(13, 48);
             this.tbEnvmapTexture.MaxLength = 260;
             this.tbEnvmapTexture.Name = "tbEnvmapTexture";
-            this.tbEnvmapTexture.Size = new System.Drawing.Size(272, 20);
+            this.tbEnvmapTexture.Size = new System.Drawing.Size(252, 20);
             this.tbEnvmapTexture.TabIndex = 2;
             this.tbEnvmapTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -3347,7 +3373,7 @@
             this.tbGrayscaleTexture.Location = new System.Drawing.Point(13, 29);
             this.tbGrayscaleTexture.MaxLength = 260;
             this.tbGrayscaleTexture.Name = "tbGrayscaleTexture";
-            this.tbGrayscaleTexture.Size = new System.Drawing.Size(272, 20);
+            this.tbGrayscaleTexture.Size = new System.Drawing.Size(252, 20);
             this.tbGrayscaleTexture.TabIndex = 1;
             this.tbGrayscaleTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -3358,7 +3384,7 @@
             this.tbBaseTexture.Location = new System.Drawing.Point(13, 10);
             this.tbBaseTexture.MaxLength = 260;
             this.tbBaseTexture.Name = "tbBaseTexture";
-            this.tbBaseTexture.Size = new System.Drawing.Size(272, 20);
+            this.tbBaseTexture.Size = new System.Drawing.Size(252, 20);
             this.tbBaseTexture.TabIndex = 0;
             this.tbBaseTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -3416,6 +3442,180 @@
             this.numBaseColorScale.Size = new System.Drawing.Size(272, 20);
             this.numBaseColorScale.TabIndex = 12;
             this.numBaseColorScale.ValueChanged += new System.EventHandler(this.OnChanged);
+            // 
+            // btDiffuseTexture
+            // 
+            this.btDiffuseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btDiffuseTexture.Location = new System.Drawing.Point(264, 10);
+            this.btDiffuseTexture.Name = "btDiffuseTexture";
+            this.btDiffuseTexture.Size = new System.Drawing.Size(20, 20);
+            this.btDiffuseTexture.TabIndex = 55;
+            this.btDiffuseTexture.TabStop = false;
+            this.btDiffuseTexture.Text = ".";
+            this.btDiffuseTexture.UseVisualStyleBackColor = true;
+            this.btDiffuseTexture.Click += new System.EventHandler(this.btDiffuseTexture_Click);
+            // 
+            // textureFileDialog
+            // 
+            this.textureFileDialog.DefaultExt = "dds";
+            this.textureFileDialog.Filter = "Texture File (.dds)|*.dds";
+            this.textureFileDialog.Title = "Choose a texture file...";
+            // 
+            // btNormalTexture
+            // 
+            this.btNormalTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btNormalTexture.Location = new System.Drawing.Point(264, 29);
+            this.btNormalTexture.Name = "btNormalTexture";
+            this.btNormalTexture.Size = new System.Drawing.Size(20, 20);
+            this.btNormalTexture.TabIndex = 56;
+            this.btNormalTexture.TabStop = false;
+            this.btNormalTexture.Text = ".";
+            this.btNormalTexture.UseVisualStyleBackColor = true;
+            this.btNormalTexture.Click += new System.EventHandler(this.btNormalTexture_Click);
+            // 
+            // btSmoothSpecularTexture
+            // 
+            this.btSmoothSpecularTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSmoothSpecularTexture.Location = new System.Drawing.Point(264, 48);
+            this.btSmoothSpecularTexture.Name = "btSmoothSpecularTexture";
+            this.btSmoothSpecularTexture.Size = new System.Drawing.Size(20, 20);
+            this.btSmoothSpecularTexture.TabIndex = 57;
+            this.btSmoothSpecularTexture.TabStop = false;
+            this.btSmoothSpecularTexture.Text = ".";
+            this.btSmoothSpecularTexture.UseVisualStyleBackColor = true;
+            this.btSmoothSpecularTexture.Click += new System.EventHandler(this.btSmoothSpecularTexture_Click);
+            // 
+            // btGreyscaleTexture
+            // 
+            this.btGreyscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btGreyscaleTexture.Location = new System.Drawing.Point(264, 67);
+            this.btGreyscaleTexture.Name = "btGreyscaleTexture";
+            this.btGreyscaleTexture.Size = new System.Drawing.Size(20, 20);
+            this.btGreyscaleTexture.TabIndex = 58;
+            this.btGreyscaleTexture.TabStop = false;
+            this.btGreyscaleTexture.Text = ".";
+            this.btGreyscaleTexture.UseVisualStyleBackColor = true;
+            this.btGreyscaleTexture.Click += new System.EventHandler(this.btGreyscaleTexture_Click);
+            // 
+            // btEnvironmentMapTexture
+            // 
+            this.btEnvironmentMapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btEnvironmentMapTexture.Location = new System.Drawing.Point(264, 86);
+            this.btEnvironmentMapTexture.Name = "btEnvironmentMapTexture";
+            this.btEnvironmentMapTexture.Size = new System.Drawing.Size(20, 20);
+            this.btEnvironmentMapTexture.TabIndex = 59;
+            this.btEnvironmentMapTexture.TabStop = false;
+            this.btEnvironmentMapTexture.Text = ".";
+            this.btEnvironmentMapTexture.UseVisualStyleBackColor = true;
+            this.btEnvironmentMapTexture.Click += new System.EventHandler(this.btEnvironmentMapTexture_Click);
+            // 
+            // btGlowTexture
+            // 
+            this.btGlowTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btGlowTexture.Location = new System.Drawing.Point(264, 105);
+            this.btGlowTexture.Name = "btGlowTexture";
+            this.btGlowTexture.Size = new System.Drawing.Size(20, 20);
+            this.btGlowTexture.TabIndex = 60;
+            this.btGlowTexture.TabStop = false;
+            this.btGlowTexture.Text = ".";
+            this.btGlowTexture.UseVisualStyleBackColor = true;
+            this.btGlowTexture.Click += new System.EventHandler(this.btGlowTexture_Click);
+            // 
+            // btInnerLayerTexture
+            // 
+            this.btInnerLayerTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btInnerLayerTexture.Location = new System.Drawing.Point(264, 124);
+            this.btInnerLayerTexture.Name = "btInnerLayerTexture";
+            this.btInnerLayerTexture.Size = new System.Drawing.Size(20, 20);
+            this.btInnerLayerTexture.TabIndex = 61;
+            this.btInnerLayerTexture.TabStop = false;
+            this.btInnerLayerTexture.Text = ".";
+            this.btInnerLayerTexture.UseVisualStyleBackColor = true;
+            this.btInnerLayerTexture.Click += new System.EventHandler(this.btInnerLayerTexture_Click);
+            // 
+            // btWrinklesTexture
+            // 
+            this.btWrinklesTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btWrinklesTexture.Location = new System.Drawing.Point(264, 143);
+            this.btWrinklesTexture.Name = "btWrinklesTexture";
+            this.btWrinklesTexture.Size = new System.Drawing.Size(20, 20);
+            this.btWrinklesTexture.TabIndex = 62;
+            this.btWrinklesTexture.TabStop = false;
+            this.btWrinklesTexture.Text = ".";
+            this.btWrinklesTexture.UseVisualStyleBackColor = true;
+            this.btWrinklesTexture.Click += new System.EventHandler(this.btWrinklesTexture_Click);
+            // 
+            // btDisplacementTexture
+            // 
+            this.btDisplacementTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btDisplacementTexture.Location = new System.Drawing.Point(264, 162);
+            this.btDisplacementTexture.Name = "btDisplacementTexture";
+            this.btDisplacementTexture.Size = new System.Drawing.Size(20, 20);
+            this.btDisplacementTexture.TabIndex = 63;
+            this.btDisplacementTexture.TabStop = false;
+            this.btDisplacementTexture.Text = ".";
+            this.btDisplacementTexture.UseVisualStyleBackColor = true;
+            this.btDisplacementTexture.Click += new System.EventHandler(this.btDisplacementTexture_Click);
+            // 
+            // btBaseTexture
+            // 
+            this.btBaseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btBaseTexture.Location = new System.Drawing.Point(265, 10);
+            this.btBaseTexture.Name = "btBaseTexture";
+            this.btBaseTexture.Size = new System.Drawing.Size(20, 20);
+            this.btBaseTexture.TabIndex = 56;
+            this.btBaseTexture.TabStop = false;
+            this.btBaseTexture.Text = ".";
+            this.btBaseTexture.UseVisualStyleBackColor = true;
+            this.btBaseTexture.Click += new System.EventHandler(this.btBaseTexture_Click);
+            // 
+            // btGrayscaleTexture
+            // 
+            this.btGrayscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btGrayscaleTexture.Location = new System.Drawing.Point(265, 29);
+            this.btGrayscaleTexture.Name = "btGrayscaleTexture";
+            this.btGrayscaleTexture.Size = new System.Drawing.Size(20, 20);
+            this.btGrayscaleTexture.TabIndex = 57;
+            this.btGrayscaleTexture.TabStop = false;
+            this.btGrayscaleTexture.Text = ".";
+            this.btGrayscaleTexture.UseVisualStyleBackColor = true;
+            this.btGrayscaleTexture.Click += new System.EventHandler(this.btGrayscaleTexture_Click);
+            // 
+            // btEnvmapTexture
+            // 
+            this.btEnvmapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btEnvmapTexture.Location = new System.Drawing.Point(265, 48);
+            this.btEnvmapTexture.Name = "btEnvmapTexture";
+            this.btEnvmapTexture.Size = new System.Drawing.Size(20, 20);
+            this.btEnvmapTexture.TabIndex = 58;
+            this.btEnvmapTexture.TabStop = false;
+            this.btEnvmapTexture.Text = ".";
+            this.btEnvmapTexture.UseVisualStyleBackColor = true;
+            this.btEnvmapTexture.Click += new System.EventHandler(this.btEnvmapTexture_Click);
+            // 
+            // btNormalTexture_effect
+            // 
+            this.btNormalTexture_effect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btNormalTexture_effect.Location = new System.Drawing.Point(265, 67);
+            this.btNormalTexture_effect.Name = "btNormalTexture_effect";
+            this.btNormalTexture_effect.Size = new System.Drawing.Size(20, 20);
+            this.btNormalTexture_effect.TabIndex = 59;
+            this.btNormalTexture_effect.TabStop = false;
+            this.btNormalTexture_effect.Text = ".";
+            this.btNormalTexture_effect.UseVisualStyleBackColor = true;
+            this.btNormalTexture_effect.Click += new System.EventHandler(this.btNormalTexture_effect_Click);
+            // 
+            // btEnvmapMaskTexture
+            // 
+            this.btEnvmapMaskTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btEnvmapMaskTexture.Location = new System.Drawing.Point(265, 86);
+            this.btEnvmapMaskTexture.Name = "btEnvmapMaskTexture";
+            this.btEnvmapMaskTexture.Size = new System.Drawing.Size(20, 20);
+            this.btEnvmapMaskTexture.TabIndex = 60;
+            this.btEnvmapMaskTexture.TabStop = false;
+            this.btEnvmapMaskTexture.Text = ".";
+            this.btEnvmapMaskTexture.UseVisualStyleBackColor = true;
+            this.btEnvmapMaskTexture.Click += new System.EventHandler(this.btEnvmapMaskTexture_Click);
             // 
             // Main
             // 
@@ -3719,6 +3919,21 @@
         private System.Windows.Forms.NumericUpDown numFalloffStartAngle;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Button btDiffuseTexture;
+        private System.Windows.Forms.OpenFileDialog textureFileDialog;
+        private System.Windows.Forms.Button btNormalTexture;
+        private System.Windows.Forms.Button btDisplacementTexture;
+        private System.Windows.Forms.Button btWrinklesTexture;
+        private System.Windows.Forms.Button btInnerLayerTexture;
+        private System.Windows.Forms.Button btGlowTexture;
+        private System.Windows.Forms.Button btEnvironmentMapTexture;
+        private System.Windows.Forms.Button btGreyscaleTexture;
+        private System.Windows.Forms.Button btSmoothSpecularTexture;
+        private System.Windows.Forms.Button btBaseTexture;
+        private System.Windows.Forms.Button btGrayscaleTexture;
+        private System.Windows.Forms.Button btNormalTexture_effect;
+        private System.Windows.Forms.Button btEnvmapTexture;
+        private System.Windows.Forms.Button btEnvmapMaskTexture;
 
     }
 }

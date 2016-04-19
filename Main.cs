@@ -172,6 +172,92 @@ namespace Material_Editor
         }
 
 
+        private void ColorClicked(object sender, EventArgs e)
+        {
+            Button btColor = (Button)sender;
+            colorDialog.Color = btColor.BackColor;
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                btColor.BackColor = colorDialog.Color;
+                OnChanged(null, null);
+            }
+        }
+
+        private void TabScroll(object sender, ScrollEventArgs e)
+        {
+            TabPage tab = (TabPage)sender;
+            tab.Update();
+        }
+
+        private void OnChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(workFileName))
+            {
+                int nameIndex = workFileName.LastIndexOf('\\');
+                this.Text = "*" + workFileName.Substring(nameIndex + 1, workFileName.Length - nameIndex - 1);
+                changed = true;
+            }
+        }
+
+        private void Main_ResizeBegin(object sender, EventArgs e)
+        {
+            this.SuspendLayout();
+        }
+
+        private void Main_ResizeEnd(object sender, EventArgs e)
+        {
+            this.ResumeLayout(true);
+        }
+
+        private void Main_Closing(object sender, FormClosingEventArgs e)
+        {
+            if (changed)
+            {
+                DialogResult res = MessageBox.Show("There are unsaved changes to the file.\nDo want to save them before closing the program?",
+                    "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (res == DialogResult.Yes)
+                {
+                    saveToolStripMenuItem_Click(null, null);
+                }
+                else if (res == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
+        }
+
+        private void Main_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+        }
+
+        private void Main_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length > 0)
+            {
+                string file = files[0];
+                if (file.EndsWith(".bgsm"))
+                {
+                    OpenMaterial(file, BGSM.Signature);
+                }
+                else if (file.EndsWith(".bgem"))
+                {
+                    OpenMaterial(file, BGEM.Signature);
+                }
+                else
+                {
+                    MessageBox.Show("Format not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+        #endregion
+
+        #region Changed
         private void numVersion_ValueChanged(object sender, EventArgs e)
         {
             ChangeVersion();
@@ -345,90 +431,104 @@ namespace Material_Editor
             numSoftDepth.Enabled = enabled;
             OnChanged(null, null);
         }
+        #endregion
 
-
-        private void ColorClicked(object sender, EventArgs e)
+        #region Texture Buttons
+        private void ChooseTextureFile(TextBox tb)
         {
-            Button btColor = (Button)sender;
-            colorDialog.Color = btColor.BackColor;
-            if (colorDialog.ShowDialog() == DialogResult.OK)
+            if (textureFileDialog.ShowDialog() == DialogResult.OK)
             {
-                btColor.BackColor = colorDialog.Color;
+                string fileName = textureFileDialog.FileName;
+
+                int index = fileName.ToLower().IndexOf(@"\textures\");
+                if (index >= 0 && fileName.Length - 1 > index + 10)
+                {
+                    // Found textures directory
+                    fileName = fileName.Substring(index + 10);
+                }
+                else
+                {
+                    // No textures directory found, using just the file name
+                    index = fileName.LastIndexOf('\\');
+                    if (index >= 0 && fileName.Length - 1 > index + 1)
+                    {
+                        fileName = fileName.Substring(index + 1);
+                    }
+                }
+
+                tb.Text = fileName.Trim().Replace('\\', '/');
                 OnChanged(null, null);
             }
         }
 
-        private void TabScroll(object sender, ScrollEventArgs e)
+        private void btDiffuseTexture_Click(object sender, EventArgs e)
         {
-            TabPage tab = (TabPage)sender;
-            tab.Update();
+            ChooseTextureFile(tbDiffuseTexture);
         }
 
-        private void OnChanged(object sender, EventArgs e)
+        private void btNormalTexture_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(workFileName))
-            {
-                int nameIndex = workFileName.LastIndexOf('\\');
-                this.Text = "*" + workFileName.Substring(nameIndex + 1, workFileName.Length - nameIndex - 1);
-                changed = true;
-            }
+            ChooseTextureFile(tbNormalTexture);
         }
 
-        private void Main_ResizeBegin(object sender, EventArgs e)
+        private void btSmoothSpecularTexture_Click(object sender, EventArgs e)
         {
-            this.SuspendLayout();
+            ChooseTextureFile(tbSmoothSpecularTexture);
         }
 
-        private void Main_ResizeEnd(object sender, EventArgs e)
+        private void btGreyscaleTexture_Click(object sender, EventArgs e)
         {
-            this.ResumeLayout(true);
+            ChooseTextureFile(tbGreyscaleTexture);
         }
 
-        private void Main_Closing(object sender, FormClosingEventArgs e)
+        private void btEnvironmentMapTexture_Click(object sender, EventArgs e)
         {
-            if (changed)
-            {
-                DialogResult res = MessageBox.Show("There are unsaved changes to the file.\nDo want to save them before closing the program?",
-                    "Unsaved Changes", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-                if (res == DialogResult.Yes)
-                {
-                    saveToolStripMenuItem_Click(null, null);
-                }
-                else if (res == DialogResult.Cancel)
-                {
-                    e.Cancel = true;
-                }
-            }
+            ChooseTextureFile(tbEnvironmentMapTexture);
         }
 
-        private void Main_DragEnter(object sender, DragEventArgs e)
+        private void btGlowTexture_Click(object sender, EventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
+            ChooseTextureFile(tbGlowTexture);
         }
 
-        private void Main_DragDrop(object sender, DragEventArgs e)
+        private void btInnerLayerTexture_Click(object sender, EventArgs e)
         {
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            if (files.Length > 0)
-            {
-                string file = files[0];
-                if (file.EndsWith(".bgsm"))
-                {
-                    OpenMaterial(file, BGSM.Signature);
-                }
-                else if (file.EndsWith(".bgem"))
-                {
-                    OpenMaterial(file, BGEM.Signature);
-                }
-                else
-                {
-                    MessageBox.Show("Format not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            ChooseTextureFile(tbInnerLayerTexture);
+        }
+
+        private void btWrinklesTexture_Click(object sender, EventArgs e)
+        {
+            ChooseTextureFile(tbWrinklesTexture);
+        }
+
+        private void btDisplacementTexture_Click(object sender, EventArgs e)
+        {
+            ChooseTextureFile(tbDisplacementTexture);
+        }
+
+        private void btBaseTexture_Click(object sender, EventArgs e)
+        {
+            ChooseTextureFile(tbBaseTexture);
+        }
+
+        private void btGrayscaleTexture_Click(object sender, EventArgs e)
+        {
+            ChooseTextureFile(tbGrayscaleTexture);
+        }
+
+        private void btEnvmapTexture_Click(object sender, EventArgs e)
+        {
+            ChooseTextureFile(tbEnvmapTexture);
+        }
+
+        private void btNormalTexture_effect_Click(object sender, EventArgs e)
+        {
+            ChooseTextureFile(tbNormalTexture_effect);
+        }
+
+        private void btEnvmapMaskTexture_Click(object sender, EventArgs e)
+        {
+            ChooseTextureFile(tbEnvmapMaskTexture);
         }
         #endregion
 
