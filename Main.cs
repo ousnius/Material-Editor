@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
+using System.Runtime.Serialization.Json;
 
 namespace Material_Editor
 {
@@ -685,7 +687,7 @@ namespace Material_Editor
 
             file.Alpha = Convert.ToSingle(numAlpha.Value);
             file.AlphaBlendMode = (BaseMaterialFile.AlphaBlendModeType)selAlphaBlendMode.SelectedIndex;
-            file.AlphaTestRef = Convert.ToSByte(numAlphaTestReference.Value);
+            file.AlphaTestRef = Convert.ToByte(numAlphaTestReference.Value);
             file.AlphaTest = cbAlphaTest.Checked;
             file.ZBufferWrite = cbZBufferWrite.Checked;
             file.ZBufferTest = cbZBufferTest.Checked;
@@ -822,27 +824,47 @@ namespace Material_Editor
             else
                 return;
 
-            if (!material.Open(fileName))
+            using (FileStream file = new FileStream(fileName, FileMode.Open))
             {
-                MessageBox.Show(string.Format("Failed to open file '{0}'!", fileName),
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                char start = Convert.ToChar(file.ReadByte());
+                file.Position = 0;
+
+                // Check for JSON
+                if (start == '{' || start == '[')
+                {
+                    try
+                    {
+                        DataContractJsonSerializer ser = new DataContractJsonSerializer(material.GetType());
+                        if (signature == BGSM.Signature)
+                            material = (BGSM)ser.ReadObject(file);
+                        else if (signature == BGEM.Signature)
+                            material = (BGEM)ser.ReadObject(file);
+                    }
+                    catch (Exception) { }
+                }
+                // Try binary
+                else if (!material.Open(file))
+                {
+                    MessageBox.Show(string.Format("Failed to open file '{0}'!", fileName),
+                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                SetUIFromMaterial(ref material);
+
+                workFileName = fileName;
+
+                saveToolStripMenuItem.Enabled = true;
+                saveAsToolStripMenuItem.Enabled = true;
+                closeToolStripMenuItem.Enabled = true;
+                splitContainerGeneral.Enabled = true;
+                splitContainerMaterial.Enabled = true;
+                splitContainerEffect.Enabled = true;
+
+                int nameIndex = fileName.LastIndexOf('\\');
+                this.Text = fileName.Substring(nameIndex + 1, fileName.Length - nameIndex - 1);
+                changed = false;
             }
-
-            SetUIFromMaterial(ref material);
-
-            workFileName = fileName;
-
-            saveToolStripMenuItem.Enabled = true;
-            saveAsToolStripMenuItem.Enabled = true;
-            closeToolStripMenuItem.Enabled = true;
-            splitContainerGeneral.Enabled = true;
-            splitContainerMaterial.Enabled = true;
-            splitContainerEffect.Enabled = true;
-
-            int nameIndex = fileName.LastIndexOf('\\');
-            this.Text = fileName.Substring(nameIndex + 1, fileName.Length - nameIndex - 1);
-            changed = false;
         }
         #endregion
     }

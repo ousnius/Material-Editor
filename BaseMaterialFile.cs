@@ -21,7 +21,7 @@
  */
 
 /* Modified by ousnius
- * - removed Json (de)serialization and dependency
+ * - removed JSON serialization
  * - removed Gibbed.IO dependency
  * - added binary serialization
  * - added Open/Save methods
@@ -29,27 +29,30 @@
 
 using System;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Globalization;
 
 namespace Material_Editor
 {
+    [DataContract]
     public abstract class BaseMaterialFile
     {
         private readonly uint _Signature;
 
         #region Fields
-        private uint _Version = 1;
-        private bool _TileU = true;
-        private bool _TileV = true;
+        private uint _Version;
+        private bool _TileU;
+        private bool _TileV;
         private float _UOffset;
         private float _VOffset;
-        private float _UScale = 1.0f;
-        private float _VScale = 1.0f;
-        private float _Alpha = 1.0f;
+        private float _UScale;
+        private float _VScale;
+        private float _Alpha;
         private AlphaBlendModeType _AlphaBlendMode;
-        private sbyte _AlphaTestRef = -128;
+        private byte _AlphaTestRef;
         private bool _AlphaTest;
-        private bool _ZBufferWrite = true;
-        private bool _ZBufferTest = true;
+        private bool _ZBufferWrite;
+        private bool _ZBufferTest;
         private bool _ScreenSpaceReflections;
         private bool _WetnessControlScreenSpaceReflections;
         private bool _Decal;
@@ -60,13 +63,28 @@ namespace Material_Editor
         private bool _RefractionFalloff;
         private float _RefractionPower;
         private bool _EnvironmentMapping;
-        private float _EnvironmentMappingMaskScale = 1.0f;
+        private float _EnvironmentMappingMaskScale;
         private bool _GrayscaleToPaletteColor;
+
+        protected virtual void SetDefaults()
+        {
+            _Version = 1;
+            _TileU = true;
+            _TileV = true;
+            _UScale = 1.0f;
+            _VScale = 1.0f;
+            _Alpha = 1.0f;
+            _AlphaTestRef = 128;
+            _ZBufferWrite = true;
+            _ZBufferTest = true;
+            _EnvironmentMappingMaskScale = 1.0f;
+        }
         #endregion
 
         protected BaseMaterialFile(uint signature)
         {
             this._Signature = signature;
+            SetDefaults();
         }
 
         #region Properties
@@ -76,42 +94,49 @@ namespace Material_Editor
             set { this._Version = value; }
         }
 
+        [DataMember(Name = "bTileU")]
         public bool TileU
         {
             get { return this._TileU; }
             set { this._TileU = value; }
         }
 
+        [DataMember(Name = "bTileV")]
         public bool TileV
         {
             get { return this._TileV; }
             set { this._TileV = value; }
         }
 
+        [DataMember(Name = "fUOffset")]
         public float UOffset
         {
             get { return this._UOffset; }
             set { this._UOffset = value; }
         }
 
+        [DataMember(Name = "fVOffset")]
         public float VOffset
         {
             get { return this._VOffset; }
             set { this._VOffset = value; }
         }
 
+        [DataMember(Name = "fUScale")]
         public float UScale
         {
             get { return this._UScale; }
             set { this._UScale = value; }
         }
 
+        [DataMember(Name = "fVScale")]
         public float VScale
         {
             get { return this._VScale; }
             set { this._VScale = value; }
         }
 
+        [DataMember(Name = "fAlpha")]
         public float Alpha
         {
             get { return this._Alpha; }
@@ -124,102 +149,135 @@ namespace Material_Editor
             set { this._AlphaBlendMode = value; }
         }
 
-        public sbyte AlphaTestRef
+        [DataMember(Name = "eAlphaBlendMode")]
+        string AlphaBlendModeString
+        {
+            get { return _AlphaBlendMode.ToString(); }
+            set
+            {
+                AlphaBlendModeType mode;
+                _AlphaBlendMode = Enum.TryParse(value, true, out mode) ? mode : AlphaBlendModeType.None;
+            }
+        }
+
+        [DataMember(Name = "fAlphaTestRef")]
+        public byte AlphaTestRef
         {
             get { return this._AlphaTestRef; }
             set { this._AlphaTestRef = value; }
         }
 
+        [DataMember(Name = "bAlphaTest")]
         public bool AlphaTest
         {
             get { return this._AlphaTest; }
             set { this._AlphaTest = value; }
         }
 
+        [DataMember(Name = "bZBufferWrite")]
         public bool ZBufferWrite
         {
             get { return this._ZBufferWrite; }
             set { this._ZBufferWrite = value; }
         }
 
+        [DataMember(Name = "bZBufferTest")]
         public bool ZBufferTest
         {
             get { return this._ZBufferTest; }
             set { this._ZBufferTest = value; }
         }
 
+        [DataMember(Name = "bScreenSpaceReflections")]
         public bool ScreenSpaceReflections
         {
             get { return this._ScreenSpaceReflections; }
             set { this._ScreenSpaceReflections = value; }
         }
 
+        [DataMember(Name = "bWetnessControl_ScreenSpaceReflections")]
         public bool WetnessControlScreenSpaceReflections
         {
             get { return this._WetnessControlScreenSpaceReflections; }
             set { this._WetnessControlScreenSpaceReflections = value; }
         }
 
+        [DataMember(Name = "bDecal")]
         public bool Decal
         {
             get { return this._Decal; }
             set { this._Decal = value; }
         }
 
+        [DataMember(Name = "bTwoSided")]
         public bool TwoSided
         {
             get { return this._TwoSided; }
             set { this._TwoSided = value; }
         }
 
+        [DataMember(Name = "bDecalNoFade")]
         public bool DecalNoFade
         {
             get { return this._DecalNoFade; }
             set { this._DecalNoFade = value; }
         }
 
+        [DataMember(Name = "bNonOccluder")]
         public bool NonOccluder
         {
             get { return this._NonOccluder; }
             set { this._NonOccluder = value; }
         }
 
+        [DataMember(Name = "bRefraction")]
         public bool Refraction
         {
             get { return this._Refraction; }
             set { this._Refraction = value; }
         }
 
+        [DataMember(Name = "fRefractionFalloff")]
         public bool RefractionFalloff
         {
             get { return this._RefractionFalloff; }
             set { this._RefractionFalloff = value; }
         }
 
+        [DataMember(Name = "fRefractionPower")]
         public float RefractionPower
         {
             get { return this._RefractionPower; }
             set { this._RefractionPower = value; }
         }
 
+        [DataMember(Name = "bEnvironmentMapping")]
         public bool EnvironmentMapping
         {
             get { return this._EnvironmentMapping; }
             set { this._EnvironmentMapping = value; }
         }
 
+        [DataMember(Name = "fEnvironmentMappingMaskScale")]
         public float EnvironmentMappingMaskScale
         {
             get { return this._EnvironmentMappingMaskScale; }
             set { this._EnvironmentMappingMaskScale = value; }
         }
 
+        [DataMember(Name = "bGrayscaleToPaletteColor")]
         public bool GrayscaleToPaletteColor
         {
             get { return this._GrayscaleToPaletteColor; }
             set { this._GrayscaleToPaletteColor = value; }
         }
         #endregion
+
+        [OnDeserializing]
+        private void OnDeserializing(StreamingContext c)
+        {
+            SetDefaults();
+        }
 
         public virtual void Deserialize(BinaryReader input)
         {
@@ -244,7 +302,7 @@ namespace Material_Editor
             var alphaBlendMode1 = input.ReadUInt32();
             var alphaBlendMode2 = input.ReadUInt32();
             this._AlphaBlendMode = ConvertAlphaBlendMode(alphaBlendMode0, alphaBlendMode1, alphaBlendMode2);
-            this._AlphaTestRef = input.ReadSByte();
+            this._AlphaTestRef = input.ReadByte();
             this._AlphaTest = input.ReadBoolean();
 
             this._ZBufferWrite = input.ReadBoolean();
@@ -313,16 +371,13 @@ namespace Material_Editor
             output.Write(this._GrayscaleToPaletteColor);
         }
 
-        public bool Open(string fileName)
+        public bool Open(FileStream file)
         {
             try
             {
-                using (FileStream file = new FileStream(fileName, FileMode.Open))
+                using (BinaryReader reader = new BinaryReader(file))
                 {
-                    using (BinaryReader reader = new BinaryReader(file))
-                    {
-                        this.Deserialize(reader);
-                    }
+                    this.Deserialize(reader);
                 }
             }
             catch
@@ -476,6 +531,37 @@ namespace Material_Editor
                 value >>= 8;
                 var r = (byte)(value & 0xFF);
                 return new Color(r * multiplier, g * multiplier, b * multiplier);
+            }
+
+            public string ToHexString()
+            {
+                return string.Format("#{0:x6}", ToUInt32() & 0xFFFFFFu);
+            }
+
+            public static Color FromHexString(string str)
+            {
+                var text = str.ToLowerInvariant();
+                if (text.StartsWith("#") == true)
+                    text = text.Substring(1);
+
+                if (text == "000")
+                    return FromUInt32(0x000000u);
+
+                if (text == "fff")
+                    return FromUInt32(0xFFFFFFu);
+
+                if (text.Length == 3)
+                {
+                    uint val = uint.Parse(text, NumberStyles.AllowHexSpecifier);
+                    val = ((val & 0xF00) << 8) | ((val & 0x0F0) << 4) | ((val & 0x00F) << 0);
+                    val |= val << 4;
+                    return FromUInt32(val);
+                }
+
+                if (text.Length == 6)
+                    return FromUInt32(uint.Parse(text, NumberStyles.AllowHexSpecifier));
+
+                return new Color(1.0f, 1.0f, 1.0f);
             }
 
             public static Color Read(BinaryReader input)
