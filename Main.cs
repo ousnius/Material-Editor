@@ -595,7 +595,7 @@ namespace Material_Editor
                 btSpecularColor.BackColor = Color.FromArgb(specularColor.R, specularColor.G, specularColor.B);
 
                 numSpecularMultiplier.Value = Convert.ToDecimal(bgsm.SpecularMult);
-                numSmoothness.Value = Convert.ToDecimal(bgsm.Smoothness);
+                numSmoothness.Value = Convert.ToDecimal(Math.Min(Math.Max(0.0f, bgsm.Smoothness), 1.0f));
                 numFresnelPower.Value = Convert.ToDecimal(bgsm.FresnelPower);
                 numWetSpecScale.Value = Convert.ToDecimal(bgsm.WetnessControlSpecScale);
                 numWetSpecPowerScale.Value = Convert.ToDecimal(bgsm.WetnessControlSpecPowerScale);

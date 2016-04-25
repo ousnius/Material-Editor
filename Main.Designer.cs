@@ -979,15 +979,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numAlphaTestReference.Location = new System.Drawing.Point(13, 182);
             this.numAlphaTestReference.Maximum = new decimal(new int[] {
-            128,
+            255,
             0,
             0,
             0});
-            this.numAlphaTestReference.Minimum = new decimal(new int[] {
-            128,
-            0,
-            0,
-            -2147483648});
             this.numAlphaTestReference.Name = "numAlphaTestReference";
             this.numAlphaTestReference.Size = new System.Drawing.Size(272, 20);
             this.numAlphaTestReference.TabIndex = 9;
@@ -2537,15 +2532,10 @@
             65536});
             this.numSmoothness.Location = new System.Drawing.Point(13, 353);
             this.numSmoothness.Maximum = new decimal(new int[] {
-            100000000,
+            1,
             0,
             0,
             0});
-            this.numSmoothness.Minimum = new decimal(new int[] {
-            100000000,
-            0,
-            0,
-            -2147483648});
             this.numSmoothness.Name = "numSmoothness";
             this.numSmoothness.Size = new System.Drawing.Size(271, 20);
             this.numSmoothness.TabIndex = 18;
@@ -3403,15 +3393,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.numEnvmapMinLOD.Location = new System.Drawing.Point(13, 353);
             this.numEnvmapMinLOD.Maximum = new decimal(new int[] {
-            128,
+            255,
             0,
             0,
             0});
-            this.numEnvmapMinLOD.Minimum = new decimal(new int[] {
-            128,
-            0,
-            0,
-            -2147483648});
             this.numEnvmapMinLOD.Name = "numEnvmapMinLOD";
             this.numEnvmapMinLOD.Size = new System.Drawing.Size(272, 20);
             this.numEnvmapMinLOD.TabIndex = 18;
