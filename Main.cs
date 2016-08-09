@@ -18,12 +18,12 @@ namespace Material_Editor
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1 && !string.IsNullOrEmpty(args[1]))
             {
-                string fileName = args[1].ToLower();
-                if (fileName.EndsWith(".bgsm"))
+                string fileName = args[1];
+                if (fileName.ToLower().EndsWith(".bgsm"))
                 {
                     OpenMaterial(fileName, BGSM.Signature);
                 }
-                else if (fileName.EndsWith(".bgem"))
+                else if (fileName.ToLower().EndsWith(".bgem"))
                 {
                     OpenMaterial(fileName, BGEM.Signature);
                 }
@@ -56,12 +56,12 @@ namespace Material_Editor
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string file = openFileDialog.FileName.ToLower();
-                if (file.EndsWith(".bgsm"))
+                string file = openFileDialog.FileName;
+                if (file.ToLower().EndsWith(".bgsm"))
                 {
                     OpenMaterial(file, BGSM.Signature);
                 }
-                else if (file.EndsWith(".bgem"))
+                else if (file.ToLower().EndsWith(".bgem"))
                 {
                     OpenMaterial(file, BGEM.Signature);
                 }
@@ -81,9 +81,9 @@ namespace Material_Editor
             }
 
             BaseMaterialFile material;
-            if (workFileName.EndsWith(".bgsm"))
+            if (workFileName.ToLower().EndsWith(".bgsm"))
                 material = new BGSM();
-            else if (workFileName.EndsWith(".bgem"))
+            else if (workFileName.ToLower().EndsWith(".bgem"))
                 material = new BGEM();
             else
                 return;
@@ -118,12 +118,12 @@ namespace Material_Editor
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string fileName = saveFileDialog.FileName.ToLower();
+                string fileName = saveFileDialog.FileName;
 
                 BaseMaterialFile material;
-                if (fileName.EndsWith(".bgsm"))
+                if (fileName.ToLower().EndsWith(".bgsm"))
                     material = new BGSM();
-                else if (fileName.EndsWith(".bgem"))
+                else if (fileName.ToLower().EndsWith(".bgem"))
                     material = new BGEM();
                 else
                     return;
