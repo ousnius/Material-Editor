@@ -243,11 +243,11 @@ namespace Material_Editor
             if (files.Length > 0)
             {
                 string file = files[0];
-                if (file.EndsWith(".bgsm"))
+                if (file.ToLower().EndsWith(".bgsm"))
                 {
                     OpenMaterial(file, BGSM.Signature);
                 }
-                else if (file.EndsWith(".bgem"))
+                else if (file.ToLower().EndsWith(".bgem"))
                 {
                     OpenMaterial(file, BGEM.Signature);
                 }
