@@ -388,16 +388,14 @@ namespace Material_Editor
             return true;
         }
 
-        public bool Save(string fileName)
+        public bool Save(FileStream file)
         {
             try
             {
-                using (FileStream file = new FileStream(fileName, FileMode.Create))
+                using (BinaryWriter writer = new BinaryWriter(file))
                 {
-                    using (BinaryWriter writer = new BinaryWriter(file))
-                    {
-                        this.Serialize(writer);
-                    }
+                    this.Serialize(writer);
+                    writer.Flush();
                 }
             }
             catch

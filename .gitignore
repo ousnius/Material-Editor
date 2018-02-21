@@ -46,7 +46,10 @@ Temporary Items
 *.pdb
 *.cache
 *.resources
-obj/Release/Material Editor.csproj.FileListAbsolute.txt
-obj/Debug/Material Editor.csproj.FileListAbsolute.txt
+bin
+obj
 *.suo
 *.user
+*.ide
+
+*.lock

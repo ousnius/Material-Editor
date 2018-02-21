@@ -152,6 +152,15 @@
             this.lbSmoothSpecularTexture = new System.Windows.Forms.Label();
             this.lbNormalTexture = new System.Windows.Forms.Label();
             this.lbDiffuseTexture = new System.Windows.Forms.Label();
+            this.btDisplacementTexture = new System.Windows.Forms.Button();
+            this.btWrinklesTexture = new System.Windows.Forms.Button();
+            this.btInnerLayerTexture = new System.Windows.Forms.Button();
+            this.btGlowTexture = new System.Windows.Forms.Button();
+            this.btEnvironmentMapTexture = new System.Windows.Forms.Button();
+            this.btGreyscaleTexture = new System.Windows.Forms.Button();
+            this.btSmoothSpecularTexture = new System.Windows.Forms.Button();
+            this.btNormalTexture = new System.Windows.Forms.Button();
+            this.btDiffuseTexture = new System.Windows.Forms.Button();
             this.cbSkewSpecularAlpha = new System.Windows.Forms.CheckBox();
             this.numGrayscaleToPaletteScale = new System.Windows.Forms.NumericUpDown();
             this.numTessellationFadeDistance = new System.Windows.Forms.NumericUpDown();
@@ -229,6 +238,11 @@
             this.lbEnvmapTexture = new System.Windows.Forms.Label();
             this.lbGrayscaleTexture = new System.Windows.Forms.Label();
             this.lbBaseTexture = new System.Windows.Forms.Label();
+            this.btEnvmapMaskTexture = new System.Windows.Forms.Button();
+            this.btNormalTexture_effect = new System.Windows.Forms.Button();
+            this.btEnvmapTexture = new System.Windows.Forms.Button();
+            this.btGrayscaleTexture = new System.Windows.Forms.Button();
+            this.btBaseTexture = new System.Windows.Forms.Button();
             this.numSoftDepth = new System.Windows.Forms.NumericUpDown();
             this.numLightingInfluence = new System.Windows.Forms.NumericUpDown();
             this.numFalloffStopOpacity = new System.Windows.Forms.NumericUpDown();
@@ -249,21 +263,8 @@
             this.cbBloodEnabled = new System.Windows.Forms.CheckBox();
             this.numEnvmapMinLOD = new System.Windows.Forms.NumericUpDown();
             this.numBaseColorScale = new System.Windows.Forms.NumericUpDown();
-            this.btDiffuseTexture = new System.Windows.Forms.Button();
             this.textureFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.btNormalTexture = new System.Windows.Forms.Button();
-            this.btSmoothSpecularTexture = new System.Windows.Forms.Button();
-            this.btGreyscaleTexture = new System.Windows.Forms.Button();
-            this.btEnvironmentMapTexture = new System.Windows.Forms.Button();
-            this.btGlowTexture = new System.Windows.Forms.Button();
-            this.btInnerLayerTexture = new System.Windows.Forms.Button();
-            this.btWrinklesTexture = new System.Windows.Forms.Button();
-            this.btDisplacementTexture = new System.Windows.Forms.Button();
-            this.btBaseTexture = new System.Windows.Forms.Button();
-            this.btGrayscaleTexture = new System.Windows.Forms.Button();
-            this.btEnvmapTexture = new System.Windows.Forms.Button();
-            this.btNormalTexture_effect = new System.Windows.Forms.Button();
-            this.btEnvmapMaskTexture = new System.Windows.Forms.Button();
+            this.serializeToJSONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -338,6 +339,7 @@
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.closeToolStripMenuItem,
+            this.serializeToJSONToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
@@ -347,7 +349,7 @@
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -355,7 +357,7 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -364,7 +366,7 @@
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -374,7 +376,7 @@
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -383,7 +385,7 @@
             this.closeToolStripMenuItem.Enabled = false;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -391,7 +393,7 @@
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -1321,7 +1323,7 @@
             this.splitContainerMaterial.Panel2.Controls.Add(this.cbEnableEditorAlphaRef);
             this.splitContainerMaterial.Panel2.Padding = new System.Windows.Forms.Padding(10);
             this.splitContainerMaterial.Panel2MinSize = 165;
-            this.splitContainerMaterial.Size = new System.Drawing.Size(469, 1068);
+            this.splitContainerMaterial.Size = new System.Drawing.Size(452, 1068);
             this.splitContainerMaterial.SplitterDistance = 165;
             this.splitContainerMaterial.TabIndex = 2;
             // 
@@ -1941,6 +1943,114 @@
             this.lbDiffuseTexture.TabIndex = 0;
             this.lbDiffuseTexture.Text = "Diffuse Texture";
             // 
+            // btDisplacementTexture
+            // 
+            this.btDisplacementTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btDisplacementTexture.Location = new System.Drawing.Point(247, 162);
+            this.btDisplacementTexture.Name = "btDisplacementTexture";
+            this.btDisplacementTexture.Size = new System.Drawing.Size(20, 20);
+            this.btDisplacementTexture.TabIndex = 63;
+            this.btDisplacementTexture.TabStop = false;
+            this.btDisplacementTexture.Text = ".";
+            this.btDisplacementTexture.UseVisualStyleBackColor = true;
+            this.btDisplacementTexture.Click += new System.EventHandler(this.btDisplacementTexture_Click);
+            // 
+            // btWrinklesTexture
+            // 
+            this.btWrinklesTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btWrinklesTexture.Location = new System.Drawing.Point(247, 143);
+            this.btWrinklesTexture.Name = "btWrinklesTexture";
+            this.btWrinklesTexture.Size = new System.Drawing.Size(20, 20);
+            this.btWrinklesTexture.TabIndex = 62;
+            this.btWrinklesTexture.TabStop = false;
+            this.btWrinklesTexture.Text = ".";
+            this.btWrinklesTexture.UseVisualStyleBackColor = true;
+            this.btWrinklesTexture.Click += new System.EventHandler(this.btWrinklesTexture_Click);
+            // 
+            // btInnerLayerTexture
+            // 
+            this.btInnerLayerTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btInnerLayerTexture.Location = new System.Drawing.Point(247, 124);
+            this.btInnerLayerTexture.Name = "btInnerLayerTexture";
+            this.btInnerLayerTexture.Size = new System.Drawing.Size(20, 20);
+            this.btInnerLayerTexture.TabIndex = 61;
+            this.btInnerLayerTexture.TabStop = false;
+            this.btInnerLayerTexture.Text = ".";
+            this.btInnerLayerTexture.UseVisualStyleBackColor = true;
+            this.btInnerLayerTexture.Click += new System.EventHandler(this.btInnerLayerTexture_Click);
+            // 
+            // btGlowTexture
+            // 
+            this.btGlowTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btGlowTexture.Location = new System.Drawing.Point(247, 105);
+            this.btGlowTexture.Name = "btGlowTexture";
+            this.btGlowTexture.Size = new System.Drawing.Size(20, 20);
+            this.btGlowTexture.TabIndex = 60;
+            this.btGlowTexture.TabStop = false;
+            this.btGlowTexture.Text = ".";
+            this.btGlowTexture.UseVisualStyleBackColor = true;
+            this.btGlowTexture.Click += new System.EventHandler(this.btGlowTexture_Click);
+            // 
+            // btEnvironmentMapTexture
+            // 
+            this.btEnvironmentMapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btEnvironmentMapTexture.Location = new System.Drawing.Point(247, 86);
+            this.btEnvironmentMapTexture.Name = "btEnvironmentMapTexture";
+            this.btEnvironmentMapTexture.Size = new System.Drawing.Size(20, 20);
+            this.btEnvironmentMapTexture.TabIndex = 59;
+            this.btEnvironmentMapTexture.TabStop = false;
+            this.btEnvironmentMapTexture.Text = ".";
+            this.btEnvironmentMapTexture.UseVisualStyleBackColor = true;
+            this.btEnvironmentMapTexture.Click += new System.EventHandler(this.btEnvironmentMapTexture_Click);
+            // 
+            // btGreyscaleTexture
+            // 
+            this.btGreyscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btGreyscaleTexture.Location = new System.Drawing.Point(247, 67);
+            this.btGreyscaleTexture.Name = "btGreyscaleTexture";
+            this.btGreyscaleTexture.Size = new System.Drawing.Size(20, 20);
+            this.btGreyscaleTexture.TabIndex = 58;
+            this.btGreyscaleTexture.TabStop = false;
+            this.btGreyscaleTexture.Text = ".";
+            this.btGreyscaleTexture.UseVisualStyleBackColor = true;
+            this.btGreyscaleTexture.Click += new System.EventHandler(this.btGreyscaleTexture_Click);
+            // 
+            // btSmoothSpecularTexture
+            // 
+            this.btSmoothSpecularTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btSmoothSpecularTexture.Location = new System.Drawing.Point(247, 48);
+            this.btSmoothSpecularTexture.Name = "btSmoothSpecularTexture";
+            this.btSmoothSpecularTexture.Size = new System.Drawing.Size(20, 20);
+            this.btSmoothSpecularTexture.TabIndex = 57;
+            this.btSmoothSpecularTexture.TabStop = false;
+            this.btSmoothSpecularTexture.Text = ".";
+            this.btSmoothSpecularTexture.UseVisualStyleBackColor = true;
+            this.btSmoothSpecularTexture.Click += new System.EventHandler(this.btSmoothSpecularTexture_Click);
+            // 
+            // btNormalTexture
+            // 
+            this.btNormalTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btNormalTexture.Location = new System.Drawing.Point(247, 29);
+            this.btNormalTexture.Name = "btNormalTexture";
+            this.btNormalTexture.Size = new System.Drawing.Size(20, 20);
+            this.btNormalTexture.TabIndex = 56;
+            this.btNormalTexture.TabStop = false;
+            this.btNormalTexture.Text = ".";
+            this.btNormalTexture.UseVisualStyleBackColor = true;
+            this.btNormalTexture.Click += new System.EventHandler(this.btNormalTexture_Click);
+            // 
+            // btDiffuseTexture
+            // 
+            this.btDiffuseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btDiffuseTexture.Location = new System.Drawing.Point(247, 10);
+            this.btDiffuseTexture.Name = "btDiffuseTexture";
+            this.btDiffuseTexture.Size = new System.Drawing.Size(20, 20);
+            this.btDiffuseTexture.TabIndex = 55;
+            this.btDiffuseTexture.TabStop = false;
+            this.btDiffuseTexture.Text = ".";
+            this.btDiffuseTexture.UseVisualStyleBackColor = true;
+            this.btDiffuseTexture.Click += new System.EventHandler(this.btDiffuseTexture_Click);
+            // 
             // cbSkewSpecularAlpha
             // 
             this.cbSkewSpecularAlpha.Enabled = false;
@@ -1973,7 +2083,7 @@
             0,
             -2147483648});
             this.numGrayscaleToPaletteScale.Name = "numGrayscaleToPaletteScale";
-            this.numGrayscaleToPaletteScale.Size = new System.Drawing.Size(271, 20);
+            this.numGrayscaleToPaletteScale.Size = new System.Drawing.Size(254, 20);
             this.numGrayscaleToPaletteScale.TabIndex = 53;
             this.numGrayscaleToPaletteScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2000,7 +2110,7 @@
             0,
             -2147483648});
             this.numTessellationFadeDistance.Name = "numTessellationFadeDistance";
-            this.numTessellationFadeDistance.Size = new System.Drawing.Size(271, 20);
+            this.numTessellationFadeDistance.Size = new System.Drawing.Size(254, 20);
             this.numTessellationFadeDistance.TabIndex = 52;
             this.numTessellationFadeDistance.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2027,7 +2137,7 @@
             0,
             -2147483648});
             this.numTessellationBaseFactor.Name = "numTessellationBaseFactor";
-            this.numTessellationBaseFactor.Size = new System.Drawing.Size(271, 20);
+            this.numTessellationBaseFactor.Size = new System.Drawing.Size(254, 20);
             this.numTessellationBaseFactor.TabIndex = 51;
             this.numTessellationBaseFactor.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2054,7 +2164,7 @@
             0,
             -2147483648});
             this.numTessellationPNScale.Name = "numTessellationPNScale";
-            this.numTessellationPNScale.Size = new System.Drawing.Size(271, 20);
+            this.numTessellationPNScale.Size = new System.Drawing.Size(254, 20);
             this.numTessellationPNScale.TabIndex = 50;
             this.numTessellationPNScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2080,7 +2190,7 @@
             0,
             -2147483648});
             this.numDisplacementTexScale.Name = "numDisplacementTexScale";
-            this.numDisplacementTexScale.Size = new System.Drawing.Size(271, 20);
+            this.numDisplacementTexScale.Size = new System.Drawing.Size(254, 20);
             this.numDisplacementTexScale.TabIndex = 49;
             this.numDisplacementTexScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2106,7 +2216,7 @@
             0,
             -2147483648});
             this.numDisplacementTexBias.Name = "numDisplacementTexBias";
-            this.numDisplacementTexBias.Size = new System.Drawing.Size(271, 20);
+            this.numDisplacementTexBias.Size = new System.Drawing.Size(254, 20);
             this.numDisplacementTexBias.TabIndex = 48;
             this.numDisplacementTexBias.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2155,7 +2265,7 @@
             this.btHairTintColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btHairTintColor.Location = new System.Drawing.Point(13, 826);
             this.btHairTintColor.Name = "btHairTintColor";
-            this.btHairTintColor.Size = new System.Drawing.Size(271, 20);
+            this.btHairTintColor.Size = new System.Drawing.Size(254, 20);
             this.btHairTintColor.TabIndex = 43;
             this.btHairTintColor.UseVisualStyleBackColor = false;
             this.btHairTintColor.Click += new System.EventHandler(this.ColorClicked);
@@ -2291,7 +2401,7 @@
             0,
             -2147483648});
             this.numEmittanceMultiplier.Name = "numEmittanceMultiplier";
-            this.numEmittanceMultiplier.Size = new System.Drawing.Size(271, 20);
+            this.numEmittanceMultiplier.Size = new System.Drawing.Size(254, 20);
             this.numEmittanceMultiplier.TabIndex = 30;
             this.numEmittanceMultiplier.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2304,7 +2414,7 @@
             this.btEmittanceColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btEmittanceColor.Location = new System.Drawing.Point(13, 560);
             this.btEmittanceColor.Name = "btEmittanceColor";
-            this.btEmittanceColor.Size = new System.Drawing.Size(271, 20);
+            this.btEmittanceColor.Size = new System.Drawing.Size(254, 20);
             this.btEmittanceColor.TabIndex = 29;
             this.btEmittanceColor.UseVisualStyleBackColor = false;
             this.btEmittanceColor.Click += new System.EventHandler(this.ColorClicked);
@@ -2334,7 +2444,7 @@
             this.tbRootMaterialPath.Location = new System.Drawing.Point(13, 504);
             this.tbRootMaterialPath.MaxLength = 260;
             this.tbRootMaterialPath.Name = "tbRootMaterialPath";
-            this.tbRootMaterialPath.Size = new System.Drawing.Size(271, 20);
+            this.tbRootMaterialPath.Size = new System.Drawing.Size(254, 20);
             this.tbRootMaterialPath.TabIndex = 26;
             this.tbRootMaterialPath.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2360,7 +2470,7 @@
             0,
             -2147483648});
             this.numWetMetalness.Name = "numWetMetalness";
-            this.numWetMetalness.Size = new System.Drawing.Size(271, 20);
+            this.numWetMetalness.Size = new System.Drawing.Size(254, 20);
             this.numWetMetalness.TabIndex = 25;
             this.numWetMetalness.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2386,7 +2496,7 @@
             0,
             -2147483648});
             this.numWetFresnelPower.Name = "numWetFresnelPower";
-            this.numWetFresnelPower.Size = new System.Drawing.Size(271, 20);
+            this.numWetFresnelPower.Size = new System.Drawing.Size(254, 20);
             this.numWetFresnelPower.TabIndex = 24;
             this.numWetFresnelPower.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2412,7 +2522,7 @@
             0,
             -2147483648});
             this.numWetEnvMapScale.Name = "numWetEnvMapScale";
-            this.numWetEnvMapScale.Size = new System.Drawing.Size(271, 20);
+            this.numWetEnvMapScale.Size = new System.Drawing.Size(254, 20);
             this.numWetEnvMapScale.TabIndex = 23;
             this.numWetEnvMapScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2438,7 +2548,7 @@
             0,
             -2147483648});
             this.numWetSpecMinVar.Name = "numWetSpecMinVar";
-            this.numWetSpecMinVar.Size = new System.Drawing.Size(271, 20);
+            this.numWetSpecMinVar.Size = new System.Drawing.Size(254, 20);
             this.numWetSpecMinVar.TabIndex = 22;
             this.numWetSpecMinVar.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2464,7 +2574,7 @@
             0,
             -2147483648});
             this.numWetSpecPowerScale.Name = "numWetSpecPowerScale";
-            this.numWetSpecPowerScale.Size = new System.Drawing.Size(271, 20);
+            this.numWetSpecPowerScale.Size = new System.Drawing.Size(254, 20);
             this.numWetSpecPowerScale.TabIndex = 21;
             this.numWetSpecPowerScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2490,7 +2600,7 @@
             0,
             -2147483648});
             this.numWetSpecScale.Name = "numWetSpecScale";
-            this.numWetSpecScale.Size = new System.Drawing.Size(271, 20);
+            this.numWetSpecScale.Size = new System.Drawing.Size(254, 20);
             this.numWetSpecScale.TabIndex = 20;
             this.numWetSpecScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2516,7 +2626,7 @@
             0,
             -2147483648});
             this.numFresnelPower.Name = "numFresnelPower";
-            this.numFresnelPower.Size = new System.Drawing.Size(271, 20);
+            this.numFresnelPower.Size = new System.Drawing.Size(254, 20);
             this.numFresnelPower.TabIndex = 19;
             this.numFresnelPower.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2537,7 +2647,7 @@
             0,
             0});
             this.numSmoothness.Name = "numSmoothness";
-            this.numSmoothness.Size = new System.Drawing.Size(271, 20);
+            this.numSmoothness.Size = new System.Drawing.Size(254, 20);
             this.numSmoothness.TabIndex = 18;
             this.numSmoothness.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2564,7 +2674,7 @@
             0,
             -2147483648});
             this.numSpecularMultiplier.Name = "numSpecularMultiplier";
-            this.numSpecularMultiplier.Size = new System.Drawing.Size(271, 20);
+            this.numSpecularMultiplier.Size = new System.Drawing.Size(254, 20);
             this.numSpecularMultiplier.TabIndex = 17;
             this.numSpecularMultiplier.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2577,7 +2687,7 @@
             this.btSpecularColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btSpecularColor.Location = new System.Drawing.Point(13, 313);
             this.btSpecularColor.Name = "btSpecularColor";
-            this.btSpecularColor.Size = new System.Drawing.Size(271, 20);
+            this.btSpecularColor.Size = new System.Drawing.Size(254, 20);
             this.btSpecularColor.TabIndex = 16;
             this.btSpecularColor.UseVisualStyleBackColor = false;
             this.btSpecularColor.Click += new System.EventHandler(this.ColorClicked);
@@ -2614,7 +2724,7 @@
             0,
             -2147483648});
             this.numSubsurfaceLightingRolloff.Name = "numSubsurfaceLightingRolloff";
-            this.numSubsurfaceLightingRolloff.Size = new System.Drawing.Size(271, 20);
+            this.numSubsurfaceLightingRolloff.Size = new System.Drawing.Size(254, 20);
             this.numSubsurfaceLightingRolloff.TabIndex = 14;
             this.numSubsurfaceLightingRolloff.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2649,7 +2759,7 @@
             0,
             -2147483648});
             this.numBacklightPower.Name = "numBacklightPower";
-            this.numBacklightPower.Size = new System.Drawing.Size(271, 20);
+            this.numBacklightPower.Size = new System.Drawing.Size(254, 20);
             this.numBacklightPower.TabIndex = 12;
             this.numBacklightPower.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2669,7 +2779,7 @@
             this.tbDisplacementTexture.Location = new System.Drawing.Point(13, 162);
             this.tbDisplacementTexture.MaxLength = 260;
             this.tbDisplacementTexture.Name = "tbDisplacementTexture";
-            this.tbDisplacementTexture.Size = new System.Drawing.Size(251, 20);
+            this.tbDisplacementTexture.Size = new System.Drawing.Size(234, 20);
             this.tbDisplacementTexture.TabIndex = 8;
             this.tbDisplacementTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2680,7 +2790,7 @@
             this.tbWrinklesTexture.Location = new System.Drawing.Point(13, 143);
             this.tbWrinklesTexture.MaxLength = 260;
             this.tbWrinklesTexture.Name = "tbWrinklesTexture";
-            this.tbWrinklesTexture.Size = new System.Drawing.Size(251, 20);
+            this.tbWrinklesTexture.Size = new System.Drawing.Size(234, 20);
             this.tbWrinklesTexture.TabIndex = 7;
             this.tbWrinklesTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2691,7 +2801,7 @@
             this.tbInnerLayerTexture.Location = new System.Drawing.Point(13, 124);
             this.tbInnerLayerTexture.MaxLength = 260;
             this.tbInnerLayerTexture.Name = "tbInnerLayerTexture";
-            this.tbInnerLayerTexture.Size = new System.Drawing.Size(251, 20);
+            this.tbInnerLayerTexture.Size = new System.Drawing.Size(234, 20);
             this.tbInnerLayerTexture.TabIndex = 6;
             this.tbInnerLayerTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2702,7 +2812,7 @@
             this.tbGlowTexture.Location = new System.Drawing.Point(13, 105);
             this.tbGlowTexture.MaxLength = 260;
             this.tbGlowTexture.Name = "tbGlowTexture";
-            this.tbGlowTexture.Size = new System.Drawing.Size(251, 20);
+            this.tbGlowTexture.Size = new System.Drawing.Size(234, 20);
             this.tbGlowTexture.TabIndex = 5;
             this.tbGlowTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2713,7 +2823,7 @@
             this.tbEnvironmentMapTexture.Location = new System.Drawing.Point(13, 86);
             this.tbEnvironmentMapTexture.MaxLength = 260;
             this.tbEnvironmentMapTexture.Name = "tbEnvironmentMapTexture";
-            this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(251, 20);
+            this.tbEnvironmentMapTexture.Size = new System.Drawing.Size(234, 20);
             this.tbEnvironmentMapTexture.TabIndex = 4;
             this.tbEnvironmentMapTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2724,7 +2834,7 @@
             this.tbGreyscaleTexture.Location = new System.Drawing.Point(13, 67);
             this.tbGreyscaleTexture.MaxLength = 260;
             this.tbGreyscaleTexture.Name = "tbGreyscaleTexture";
-            this.tbGreyscaleTexture.Size = new System.Drawing.Size(251, 20);
+            this.tbGreyscaleTexture.Size = new System.Drawing.Size(234, 20);
             this.tbGreyscaleTexture.TabIndex = 3;
             this.tbGreyscaleTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2735,7 +2845,7 @@
             this.tbSmoothSpecularTexture.Location = new System.Drawing.Point(13, 48);
             this.tbSmoothSpecularTexture.MaxLength = 260;
             this.tbSmoothSpecularTexture.Name = "tbSmoothSpecularTexture";
-            this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(251, 20);
+            this.tbSmoothSpecularTexture.Size = new System.Drawing.Size(234, 20);
             this.tbSmoothSpecularTexture.TabIndex = 2;
             this.tbSmoothSpecularTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2746,7 +2856,7 @@
             this.tbNormalTexture.Location = new System.Drawing.Point(13, 29);
             this.tbNormalTexture.MaxLength = 260;
             this.tbNormalTexture.Name = "tbNormalTexture";
-            this.tbNormalTexture.Size = new System.Drawing.Size(251, 20);
+            this.tbNormalTexture.Size = new System.Drawing.Size(234, 20);
             this.tbNormalTexture.TabIndex = 1;
             this.tbNormalTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2757,7 +2867,7 @@
             this.tbDiffuseTexture.Location = new System.Drawing.Point(13, 10);
             this.tbDiffuseTexture.MaxLength = 260;
             this.tbDiffuseTexture.Name = "tbDiffuseTexture";
-            this.tbDiffuseTexture.Size = new System.Drawing.Size(251, 20);
+            this.tbDiffuseTexture.Size = new System.Drawing.Size(234, 20);
             this.tbDiffuseTexture.TabIndex = 0;
             this.tbDiffuseTexture.TextChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -2784,7 +2894,7 @@
             0,
             -2147483648});
             this.numRimPower.Name = "numRimPower";
-            this.numRimPower.Size = new System.Drawing.Size(271, 20);
+            this.numRimPower.Size = new System.Drawing.Size(254, 20);
             this.numRimPower.TabIndex = 11;
             this.numRimPower.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
@@ -3103,6 +3213,66 @@
             this.lbBaseTexture.Size = new System.Drawing.Size(137, 13);
             this.lbBaseTexture.TabIndex = 0;
             this.lbBaseTexture.Text = "Base Texture";
+            // 
+            // btEnvmapMaskTexture
+            // 
+            this.btEnvmapMaskTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btEnvmapMaskTexture.Location = new System.Drawing.Point(265, 86);
+            this.btEnvmapMaskTexture.Name = "btEnvmapMaskTexture";
+            this.btEnvmapMaskTexture.Size = new System.Drawing.Size(20, 20);
+            this.btEnvmapMaskTexture.TabIndex = 60;
+            this.btEnvmapMaskTexture.TabStop = false;
+            this.btEnvmapMaskTexture.Text = ".";
+            this.btEnvmapMaskTexture.UseVisualStyleBackColor = true;
+            this.btEnvmapMaskTexture.Click += new System.EventHandler(this.btEnvmapMaskTexture_Click);
+            // 
+            // btNormalTexture_effect
+            // 
+            this.btNormalTexture_effect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btNormalTexture_effect.Location = new System.Drawing.Point(265, 67);
+            this.btNormalTexture_effect.Name = "btNormalTexture_effect";
+            this.btNormalTexture_effect.Size = new System.Drawing.Size(20, 20);
+            this.btNormalTexture_effect.TabIndex = 59;
+            this.btNormalTexture_effect.TabStop = false;
+            this.btNormalTexture_effect.Text = ".";
+            this.btNormalTexture_effect.UseVisualStyleBackColor = true;
+            this.btNormalTexture_effect.Click += new System.EventHandler(this.btNormalTexture_effect_Click);
+            // 
+            // btEnvmapTexture
+            // 
+            this.btEnvmapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btEnvmapTexture.Location = new System.Drawing.Point(265, 48);
+            this.btEnvmapTexture.Name = "btEnvmapTexture";
+            this.btEnvmapTexture.Size = new System.Drawing.Size(20, 20);
+            this.btEnvmapTexture.TabIndex = 58;
+            this.btEnvmapTexture.TabStop = false;
+            this.btEnvmapTexture.Text = ".";
+            this.btEnvmapTexture.UseVisualStyleBackColor = true;
+            this.btEnvmapTexture.Click += new System.EventHandler(this.btEnvmapTexture_Click);
+            // 
+            // btGrayscaleTexture
+            // 
+            this.btGrayscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btGrayscaleTexture.Location = new System.Drawing.Point(265, 29);
+            this.btGrayscaleTexture.Name = "btGrayscaleTexture";
+            this.btGrayscaleTexture.Size = new System.Drawing.Size(20, 20);
+            this.btGrayscaleTexture.TabIndex = 57;
+            this.btGrayscaleTexture.TabStop = false;
+            this.btGrayscaleTexture.Text = ".";
+            this.btGrayscaleTexture.UseVisualStyleBackColor = true;
+            this.btGrayscaleTexture.Click += new System.EventHandler(this.btGrayscaleTexture_Click);
+            // 
+            // btBaseTexture
+            // 
+            this.btBaseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btBaseTexture.Location = new System.Drawing.Point(265, 10);
+            this.btBaseTexture.Name = "btBaseTexture";
+            this.btBaseTexture.Size = new System.Drawing.Size(20, 20);
+            this.btBaseTexture.TabIndex = 56;
+            this.btBaseTexture.TabStop = false;
+            this.btBaseTexture.Text = ".";
+            this.btBaseTexture.UseVisualStyleBackColor = true;
+            this.btBaseTexture.Click += new System.EventHandler(this.btBaseTexture_Click);
             // 
             // numSoftDepth
             // 
@@ -3428,179 +3598,19 @@
             this.numBaseColorScale.TabIndex = 12;
             this.numBaseColorScale.ValueChanged += new System.EventHandler(this.OnChanged);
             // 
-            // btDiffuseTexture
-            // 
-            this.btDiffuseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btDiffuseTexture.Location = new System.Drawing.Point(264, 10);
-            this.btDiffuseTexture.Name = "btDiffuseTexture";
-            this.btDiffuseTexture.Size = new System.Drawing.Size(20, 20);
-            this.btDiffuseTexture.TabIndex = 55;
-            this.btDiffuseTexture.TabStop = false;
-            this.btDiffuseTexture.Text = ".";
-            this.btDiffuseTexture.UseVisualStyleBackColor = true;
-            this.btDiffuseTexture.Click += new System.EventHandler(this.btDiffuseTexture_Click);
-            // 
             // textureFileDialog
             // 
             this.textureFileDialog.DefaultExt = "dds";
             this.textureFileDialog.Filter = "Texture File (.dds)|*.dds";
             this.textureFileDialog.Title = "Choose a texture file...";
             // 
-            // btNormalTexture
+            // serializeToJSONToolStripMenuItem
             // 
-            this.btNormalTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btNormalTexture.Location = new System.Drawing.Point(264, 29);
-            this.btNormalTexture.Name = "btNormalTexture";
-            this.btNormalTexture.Size = new System.Drawing.Size(20, 20);
-            this.btNormalTexture.TabIndex = 56;
-            this.btNormalTexture.TabStop = false;
-            this.btNormalTexture.Text = ".";
-            this.btNormalTexture.UseVisualStyleBackColor = true;
-            this.btNormalTexture.Click += new System.EventHandler(this.btNormalTexture_Click);
-            // 
-            // btSmoothSpecularTexture
-            // 
-            this.btSmoothSpecularTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btSmoothSpecularTexture.Location = new System.Drawing.Point(264, 48);
-            this.btSmoothSpecularTexture.Name = "btSmoothSpecularTexture";
-            this.btSmoothSpecularTexture.Size = new System.Drawing.Size(20, 20);
-            this.btSmoothSpecularTexture.TabIndex = 57;
-            this.btSmoothSpecularTexture.TabStop = false;
-            this.btSmoothSpecularTexture.Text = ".";
-            this.btSmoothSpecularTexture.UseVisualStyleBackColor = true;
-            this.btSmoothSpecularTexture.Click += new System.EventHandler(this.btSmoothSpecularTexture_Click);
-            // 
-            // btGreyscaleTexture
-            // 
-            this.btGreyscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btGreyscaleTexture.Location = new System.Drawing.Point(264, 67);
-            this.btGreyscaleTexture.Name = "btGreyscaleTexture";
-            this.btGreyscaleTexture.Size = new System.Drawing.Size(20, 20);
-            this.btGreyscaleTexture.TabIndex = 58;
-            this.btGreyscaleTexture.TabStop = false;
-            this.btGreyscaleTexture.Text = ".";
-            this.btGreyscaleTexture.UseVisualStyleBackColor = true;
-            this.btGreyscaleTexture.Click += new System.EventHandler(this.btGreyscaleTexture_Click);
-            // 
-            // btEnvironmentMapTexture
-            // 
-            this.btEnvironmentMapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btEnvironmentMapTexture.Location = new System.Drawing.Point(264, 86);
-            this.btEnvironmentMapTexture.Name = "btEnvironmentMapTexture";
-            this.btEnvironmentMapTexture.Size = new System.Drawing.Size(20, 20);
-            this.btEnvironmentMapTexture.TabIndex = 59;
-            this.btEnvironmentMapTexture.TabStop = false;
-            this.btEnvironmentMapTexture.Text = ".";
-            this.btEnvironmentMapTexture.UseVisualStyleBackColor = true;
-            this.btEnvironmentMapTexture.Click += new System.EventHandler(this.btEnvironmentMapTexture_Click);
-            // 
-            // btGlowTexture
-            // 
-            this.btGlowTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btGlowTexture.Location = new System.Drawing.Point(264, 105);
-            this.btGlowTexture.Name = "btGlowTexture";
-            this.btGlowTexture.Size = new System.Drawing.Size(20, 20);
-            this.btGlowTexture.TabIndex = 60;
-            this.btGlowTexture.TabStop = false;
-            this.btGlowTexture.Text = ".";
-            this.btGlowTexture.UseVisualStyleBackColor = true;
-            this.btGlowTexture.Click += new System.EventHandler(this.btGlowTexture_Click);
-            // 
-            // btInnerLayerTexture
-            // 
-            this.btInnerLayerTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btInnerLayerTexture.Location = new System.Drawing.Point(264, 124);
-            this.btInnerLayerTexture.Name = "btInnerLayerTexture";
-            this.btInnerLayerTexture.Size = new System.Drawing.Size(20, 20);
-            this.btInnerLayerTexture.TabIndex = 61;
-            this.btInnerLayerTexture.TabStop = false;
-            this.btInnerLayerTexture.Text = ".";
-            this.btInnerLayerTexture.UseVisualStyleBackColor = true;
-            this.btInnerLayerTexture.Click += new System.EventHandler(this.btInnerLayerTexture_Click);
-            // 
-            // btWrinklesTexture
-            // 
-            this.btWrinklesTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btWrinklesTexture.Location = new System.Drawing.Point(264, 143);
-            this.btWrinklesTexture.Name = "btWrinklesTexture";
-            this.btWrinklesTexture.Size = new System.Drawing.Size(20, 20);
-            this.btWrinklesTexture.TabIndex = 62;
-            this.btWrinklesTexture.TabStop = false;
-            this.btWrinklesTexture.Text = ".";
-            this.btWrinklesTexture.UseVisualStyleBackColor = true;
-            this.btWrinklesTexture.Click += new System.EventHandler(this.btWrinklesTexture_Click);
-            // 
-            // btDisplacementTexture
-            // 
-            this.btDisplacementTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btDisplacementTexture.Location = new System.Drawing.Point(264, 162);
-            this.btDisplacementTexture.Name = "btDisplacementTexture";
-            this.btDisplacementTexture.Size = new System.Drawing.Size(20, 20);
-            this.btDisplacementTexture.TabIndex = 63;
-            this.btDisplacementTexture.TabStop = false;
-            this.btDisplacementTexture.Text = ".";
-            this.btDisplacementTexture.UseVisualStyleBackColor = true;
-            this.btDisplacementTexture.Click += new System.EventHandler(this.btDisplacementTexture_Click);
-            // 
-            // btBaseTexture
-            // 
-            this.btBaseTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btBaseTexture.Location = new System.Drawing.Point(265, 10);
-            this.btBaseTexture.Name = "btBaseTexture";
-            this.btBaseTexture.Size = new System.Drawing.Size(20, 20);
-            this.btBaseTexture.TabIndex = 56;
-            this.btBaseTexture.TabStop = false;
-            this.btBaseTexture.Text = ".";
-            this.btBaseTexture.UseVisualStyleBackColor = true;
-            this.btBaseTexture.Click += new System.EventHandler(this.btBaseTexture_Click);
-            // 
-            // btGrayscaleTexture
-            // 
-            this.btGrayscaleTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btGrayscaleTexture.Location = new System.Drawing.Point(265, 29);
-            this.btGrayscaleTexture.Name = "btGrayscaleTexture";
-            this.btGrayscaleTexture.Size = new System.Drawing.Size(20, 20);
-            this.btGrayscaleTexture.TabIndex = 57;
-            this.btGrayscaleTexture.TabStop = false;
-            this.btGrayscaleTexture.Text = ".";
-            this.btGrayscaleTexture.UseVisualStyleBackColor = true;
-            this.btGrayscaleTexture.Click += new System.EventHandler(this.btGrayscaleTexture_Click);
-            // 
-            // btEnvmapTexture
-            // 
-            this.btEnvmapTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btEnvmapTexture.Location = new System.Drawing.Point(265, 48);
-            this.btEnvmapTexture.Name = "btEnvmapTexture";
-            this.btEnvmapTexture.Size = new System.Drawing.Size(20, 20);
-            this.btEnvmapTexture.TabIndex = 58;
-            this.btEnvmapTexture.TabStop = false;
-            this.btEnvmapTexture.Text = ".";
-            this.btEnvmapTexture.UseVisualStyleBackColor = true;
-            this.btEnvmapTexture.Click += new System.EventHandler(this.btEnvmapTexture_Click);
-            // 
-            // btNormalTexture_effect
-            // 
-            this.btNormalTexture_effect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btNormalTexture_effect.Location = new System.Drawing.Point(265, 67);
-            this.btNormalTexture_effect.Name = "btNormalTexture_effect";
-            this.btNormalTexture_effect.Size = new System.Drawing.Size(20, 20);
-            this.btNormalTexture_effect.TabIndex = 59;
-            this.btNormalTexture_effect.TabStop = false;
-            this.btNormalTexture_effect.Text = ".";
-            this.btNormalTexture_effect.UseVisualStyleBackColor = true;
-            this.btNormalTexture_effect.Click += new System.EventHandler(this.btNormalTexture_effect_Click);
-            // 
-            // btEnvmapMaskTexture
-            // 
-            this.btEnvmapMaskTexture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btEnvmapMaskTexture.Location = new System.Drawing.Point(265, 86);
-            this.btEnvmapMaskTexture.Name = "btEnvmapMaskTexture";
-            this.btEnvmapMaskTexture.Size = new System.Drawing.Size(20, 20);
-            this.btEnvmapMaskTexture.TabIndex = 60;
-            this.btEnvmapMaskTexture.TabStop = false;
-            this.btEnvmapMaskTexture.Text = ".";
-            this.btEnvmapMaskTexture.UseVisualStyleBackColor = true;
-            this.btEnvmapMaskTexture.Click += new System.EventHandler(this.btEnvmapMaskTexture_Click);
+            this.serializeToJSONToolStripMenuItem.CheckOnClick = true;
+            this.serializeToJSONToolStripMenuItem.Name = "serializeToJSONToolStripMenuItem";
+            this.serializeToJSONToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.J)));
+            this.serializeToJSONToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.serializeToJSONToolStripMenuItem.Text = "Serialize to JSON";
             // 
             // Main
             // 
@@ -3919,7 +3929,7 @@
         private System.Windows.Forms.Button btNormalTexture_effect;
         private System.Windows.Forms.Button btEnvmapTexture;
         private System.Windows.Forms.Button btEnvmapMaskTexture;
-
+        private System.Windows.Forms.ToolStripMenuItem serializeToJSONToolStripMenuItem;
     }
 }
 

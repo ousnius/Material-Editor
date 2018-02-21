@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Json;
+using System.Threading;
+using System.Globalization;
 
 namespace Material_Editor
 {
@@ -67,8 +70,7 @@ namespace Material_Editor
                 }
                 else
                 {
-                    MessageBox.Show(string.Format("File extension of file '{0}' not supported!", file),
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(string.Format("File extension of file '{0}' not supported!", file), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -90,10 +92,46 @@ namespace Material_Editor
 
             SetMaterialFromUI(ref material);
 
-            if (!material.Save(workFileName))
+            try
             {
-                MessageBox.Show(string.Format("Failed to save file '{0}'!", workFileName),
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                using (var file = new FileStream(workFileName, FileMode.Create))
+                {
+                    if (serializeToJSONToolStripMenuItem.Checked)
+                    {
+                        var currentCulture = Thread.CurrentThread.CurrentCulture;
+                        Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+
+                        try
+                        {
+                            using (var writer = JsonReaderWriterFactory.CreateJsonWriter(file, Encoding.UTF8, true, true, "  "))
+                            {
+                                var ser = new DataContractJsonSerializer(material.GetType(), new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true });
+                                ser.WriteObject(writer, material);
+                                writer.Flush();
+                            }
+                        }
+                        catch
+                        {
+                            MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", workFileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            Thread.CurrentThread.CurrentCulture = currentCulture;
+                        }
+                    }
+                    else
+                    {
+                        if (!material.Save(file))
+                        {
+                            MessageBox.Show(string.Format("Failed to save file '{0}'!", workFileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show(string.Format("Failed to save file '{0}'!", workFileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -130,10 +168,46 @@ namespace Material_Editor
 
                 SetMaterialFromUI(ref material);
 
-                if (!material.Save(fileName))
+                try
                 {
-                    MessageBox.Show(string.Format("Failed to save file '{0}'!", fileName),
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    using (var file = new FileStream(fileName, FileMode.Create))
+                    {
+                        if (serializeToJSONToolStripMenuItem.Checked)
+                        {
+                            var currentCulture = Thread.CurrentThread.CurrentCulture;
+                            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+
+                            try
+                            {
+                                using (var writer = JsonReaderWriterFactory.CreateJsonWriter(file, Encoding.UTF8, true, true, "  "))
+                                {
+                                    var ser = new DataContractJsonSerializer(material.GetType(), new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true });
+                                    ser.WriteObject(writer, material);
+                                    writer.Flush();
+                                }
+                            }
+                            catch
+                            {
+                                MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", fileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            finally
+                            {
+                                Thread.CurrentThread.CurrentCulture = currentCulture;
+                            }
+                        }
+                        else
+                        {
+                            if (!material.Save(file))
+                            {
+                                MessageBox.Show(string.Format("Failed to save file '{0}'!", fileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show(string.Format("Failed to save file '{0}'!", fileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -834,7 +908,7 @@ namespace Material_Editor
                 {
                     try
                     {
-                        DataContractJsonSerializer ser = new DataContractJsonSerializer(material.GetType());
+                        var ser = new DataContractJsonSerializer(material.GetType());
                         if (signature == BGSM.Signature)
                             material = (BGSM)ser.ReadObject(file);
                         else if (signature == BGEM.Signature)
@@ -845,8 +919,7 @@ namespace Material_Editor
                 // Try binary
                 else if (!material.Open(file))
                 {
-                    MessageBox.Show(string.Format("Failed to open file '{0}'!", fileName),
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(string.Format("Failed to open file '{0}'!", fileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
