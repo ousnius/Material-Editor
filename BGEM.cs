@@ -1,32 +1,4 @@
-﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
- * 
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- * 
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- * 
- * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software. If you use this software
- *    in a product, an acknowledgment in the product documentation would
- *    be appreciated but is not required.
- * 
- * 2. Altered source versions must be plainly marked as such, and must not
- *    be misrepresented as being the original software.
- * 
- * 3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-/* Modified by ousnius
- * - removed JSON serialization
- * - removed Gibbed.IO dependency
- * - added binary serialization
- */
-
-using System;
+﻿using System;
 using System.IO;
 using System.Runtime.Serialization;
 
@@ -38,42 +10,25 @@ namespace Material_Editor
         public const uint Signature = 0x4D454742u;
 
         #region Fields
-        private string _BaseTexture;
-        private string _GrayscaleTexture;
-        private string _EnvmapTexture;
-        private string _NormalTexture;
-        private string _EnvmapMaskTexture;
-        private bool _BloodEnabled;
-        private bool _EffectLightingEnabled;
-        private bool _FalloffEnabled;
-        private bool _FalloffColorEnabled;
-        private bool _GrayscaleToPaletteAlpha;
-        private bool _SoftEnabled;
-        private uint _BaseColor;
-        private float _BaseColorScale;
-        private float _FalloffStartAngle;
-        private float _FalloffStopAngle;
-        private float _FalloffStartOpacity;
-        private float _FalloffStopOpacity;
-        private float _LightingInfluence;
-        private byte _EnvmapMinLOD;
-        private float _SoftDepth;
-
         protected override void SetDefaults()
         {
             base.SetDefaults();
 
-            _BaseTexture = "";
-            _GrayscaleTexture = "";
-            _EnvmapTexture = "";
-            _NormalTexture = "";
-            _EnvmapMaskTexture = "";
-            _BaseColor = 0xFFFFFFFFu;
-            _BaseColorScale = 1.0f;
-            _FalloffStartAngle = 1.0f;
-            _FalloffStopAngle = 1.0f;
-            _LightingInfluence = 1.0f;
-            _SoftDepth = 100.0f;
+            BaseTexture = "";
+            GrayscaleTexture = "";
+            EnvmapTexture = "";
+            NormalTexture = "";
+            EnvmapMaskTexture = "";
+            SpecularTexture = "";
+            LightingTexture = "";
+            DistanceFieldAlphaTexture = "";
+            BaseColor = 0xFFFFFFFFu;
+            BaseColorScale = 1.0f;
+            FalloffStartAngle = 1.0f;
+            FalloffStopAngle = 1.0f;
+            LightingInfluence = 1.0f;
+            SoftDepth = 100.0f;
+            EmittanceColor = 0xFFFFFFFFu;
         }
         #endregion
 
@@ -84,203 +39,213 @@ namespace Material_Editor
 
         #region Properties
         [DataMember(Name = "sBaseTexture")]
-        public string BaseTexture
-        {
-            get { return this._BaseTexture; }
-            set { this._BaseTexture = value; }
-        }
+        public string BaseTexture { get; set; }
 
         [DataMember(Name = "sGrayscaleTexture")]
-        public string GrayscaleTexture
-        {
-            get { return this._GrayscaleTexture; }
-            set { this._GrayscaleTexture = value; }
-        }
+        public string GrayscaleTexture { get; set; }
 
         [DataMember(Name = "sEnvmapTexture")]
-        public string EnvmapTexture
-        {
-            get { return this._EnvmapTexture; }
-            set { this._EnvmapTexture = value; }
-        }
+        public string EnvmapTexture { get; set; }
 
         [DataMember(Name = "sNormalTexture")]
-        public string NormalTexture
-        {
-            get { return this._NormalTexture; }
-            set { this._NormalTexture = value; }
-        }
+        public string NormalTexture { get; set; }
 
         [DataMember(Name = "sEnvmapMaskTexture")]
-        public string EnvmapMaskTexture
-        {
-            get { return this._EnvmapMaskTexture; }
-            set { this._EnvmapMaskTexture = value; }
-        }
+        public string EnvmapMaskTexture { get; set; }
+
+        [DataMember(Name = "sSpecularTexture")]
+        public string SpecularTexture { get; set; }
+
+        [DataMember(Name = "sLightingTexture")]
+        public string LightingTexture { get; set; }
+
+        [DataMember(Name = "sDistanceFieldAlphaTexture")]
+        public string DistanceFieldAlphaTexture { get; set; }
 
         [DataMember(Name = "bBloodEnabled")]
-        public bool BloodEnabled
-        {
-            get { return this._BloodEnabled; }
-            set { this._BloodEnabled = value; }
-        }
+        public bool BloodEnabled { get; set; }
 
         [DataMember(Name = "bEffectLightingEnabled")]
-        public bool EffectLightingEnabled
-        {
-            get { return this._EffectLightingEnabled; }
-            set { this._EffectLightingEnabled = value; }
-        }
+        public bool EffectLightingEnabled { get; set; }
 
         [DataMember(Name = "bFalloffEnabled")]
-        public bool FalloffEnabled
-        {
-            get { return this._FalloffEnabled; }
-            set { this._FalloffEnabled = value; }
-        }
+        public bool FalloffEnabled { get; set; }
 
         [DataMember(Name = "bFalloffColorEnabled")]
-        public bool FalloffColorEnabled
-        {
-            get { return this._FalloffColorEnabled; }
-            set { this._FalloffColorEnabled = value; }
-        }
+        public bool FalloffColorEnabled { get; set; }
 
         [DataMember(Name = "bGrayscaleToPaletteAlpha")]
-        public bool GrayscaleToPaletteAlpha
-        {
-            get { return this._GrayscaleToPaletteAlpha; }
-            set { this._GrayscaleToPaletteAlpha = value; }
-        }
+        public bool GrayscaleToPaletteAlpha { get; set; }
 
         [DataMember(Name = "bSoftEnabled")]
-        public bool SoftEnabled
-        {
-            get { return this._SoftEnabled; }
-            set { this._SoftEnabled = value; }
-        }
+        public bool SoftEnabled { get; set; }
 
-        public uint BaseColor
-        {
-            get { return this._BaseColor; }
-            set { this._BaseColor = value; }
-        }
+        public uint BaseColor { get; set; }
 
         [DataMember(Name = "cBaseColor")]
         string BaseColorString
         {
-            get { return Color.FromUInt32(_BaseColor).ToHexString(); }
-            set { _BaseColor = Color.FromHexString(value).ToUInt32(); }
+            get { return Color.FromUInt32(BaseColor).ToHexString(); }
+            set { BaseColor = Color.FromHexString(value).ToUInt32(); }
         }
 
-        [DataMember]
-        public float BaseColorScale
-        {
-            get { return this._BaseColorScale; }
-            set { this._BaseColorScale = value; }
-        }
+        [DataMember(Name = "fBaseColorScale")]
+        public float BaseColorScale { get; set; }
 
         [DataMember(Name = "fFalloffStartAngle")]
-        public float FalloffStartAngle
-        {
-            get { return this._FalloffStartAngle; }
-            set { this._FalloffStartAngle = value; }
-        }
+        public float FalloffStartAngle { get; set; }
 
         [DataMember(Name = "fFalloffStopAngle")]
-        public float FalloffStopAngle
-        {
-            get { return this._FalloffStopAngle; }
-            set { this._FalloffStopAngle = value; }
-        }
+        public float FalloffStopAngle { get; set; }
 
         [DataMember(Name = "fFalloffStartOpacity")]
-        public float FalloffStartOpacity
-        {
-            get { return this._FalloffStartOpacity; }
-            set { this._FalloffStartOpacity = value; }
-        }
+        public float FalloffStartOpacity { get; set; }
 
         [DataMember(Name = "fFalloffStopOpacity")]
-        public float FalloffStopOpacity
-        {
-            get { return this._FalloffStopOpacity; }
-            set { this._FalloffStopOpacity = value; }
-        }
+        public float FalloffStopOpacity { get; set; }
 
         [DataMember(Name = "fLightingInfluence")]
-        public float LightingInfluence
-        {
-            get { return this._LightingInfluence; }
-            set { this._LightingInfluence = value; }
-        }
+        public float LightingInfluence { get; set; }
 
         [DataMember(Name = "iEnvmapMinLOD")]
-        public byte EnvmapMinLOD
-        {
-            get { return this._EnvmapMinLOD; }
-            set { this._EnvmapMinLOD = value; }
-        }
+        public byte EnvmapMinLOD { get; set; }
 
         [DataMember(Name = "fSoftDepth")]
-        public float SoftDepth
+        public float SoftDepth { get; set; }
+
+        public uint EmittanceColor { get; set; }
+
+        [DataMember(Name = "cEmittanceColor")]
+        string EmittanceColorString
         {
-            get { return this._SoftDepth; }
-            set { this._SoftDepth = value; }
+            get { return Color.FromUInt32(EmittanceColor).ToHexString(); }
+            set { EmittanceColor = Color.FromHexString(value).ToUInt32(); }
         }
+
+        [DataMember(Name = "fLumEmittance")]
+        public float LumEmittance { get; set; }
+
+        public float UnkSingle1 { get; set; }
+
+        public float UnkSingle2 { get; set; }
+
+        public byte UnkByte1 { get; set; }
+
+        public byte UnkByte2 { get; set; }
         #endregion
 
         public override void Deserialize(BinaryReader input)
         {
             base.Deserialize(input);
 
-            this._BaseTexture = ReadString(input);
-            this._GrayscaleTexture = ReadString(input);
-            this._EnvmapTexture = ReadString(input);
-            this._NormalTexture = ReadString(input);
-            this._EnvmapMaskTexture = ReadString(input);
-            this._BloodEnabled = input.ReadBoolean();
-            this._EffectLightingEnabled = input.ReadBoolean();
-            this._FalloffEnabled = input.ReadBoolean();
-            this._FalloffColorEnabled = input.ReadBoolean();
-            this._GrayscaleToPaletteAlpha = input.ReadBoolean();
-            this._SoftEnabled = input.ReadBoolean();
-            this._BaseColor = Color.Read(input).ToUInt32();
-            this._BaseColorScale = input.ReadSingle();
-            this._FalloffStartAngle = input.ReadSingle();
-            this._FalloffStopAngle = input.ReadSingle();
-            this._FalloffStartOpacity = input.ReadSingle();
-            this._FalloffStopOpacity = input.ReadSingle();
-            this._LightingInfluence = input.ReadSingle();
-            this._EnvmapMinLOD = input.ReadByte();
-            this._SoftDepth = input.ReadSingle();
+            BaseTexture = ReadString(input);
+            GrayscaleTexture = ReadString(input);
+            EnvmapTexture = ReadString(input);
+            NormalTexture = ReadString(input);
+            EnvmapMaskTexture = ReadString(input);
+
+            if (Version >= 11)
+            {
+                SpecularTexture = ReadString(input);
+                LightingTexture = ReadString(input);
+                DistanceFieldAlphaTexture = ReadString(input);
+            }
+
+            if (Version >= 10)
+            {
+                EnvironmentMapping = input.ReadBoolean();
+                EnvironmentMappingMaskScale = input.ReadSingle();
+            }
+
+            BloodEnabled = input.ReadBoolean();
+            EffectLightingEnabled = input.ReadBoolean();
+            FalloffEnabled = input.ReadBoolean();
+            FalloffColorEnabled = input.ReadBoolean();
+            GrayscaleToPaletteAlpha = input.ReadBoolean();
+            SoftEnabled = input.ReadBoolean();
+
+            BaseColor = Color.Read(input).ToUInt32();
+            BaseColorScale = input.ReadSingle();
+
+            FalloffStartAngle = input.ReadSingle();
+            FalloffStopAngle = input.ReadSingle();
+            FalloffStartOpacity = input.ReadSingle();
+            FalloffStopOpacity = input.ReadSingle();
+
+            LightingInfluence = input.ReadSingle();
+            EnvmapMinLOD = input.ReadByte();
+            SoftDepth = input.ReadSingle();
+
+            if (Version >= 11)
+            {
+                EmittanceColor = Color.Read(input).ToUInt32();
+            }
+
+            if (Version >= 15)
+            {
+                LumEmittance = input.ReadSingle();
+                UnkSingle1 = input.ReadSingle();
+                UnkSingle2 = input.ReadSingle();
+                UnkByte1 = input.ReadByte();
+                UnkByte2 = input.ReadByte();
+            }
         }
 
         public override void Serialize(BinaryWriter output)
         {
             base.Serialize(output);
 
-            WriteString(output, this._BaseTexture);
-            WriteString(output, this._GrayscaleTexture);
-            WriteString(output, this._EnvmapTexture);
-            WriteString(output, this._NormalTexture);
-            WriteString(output, this._EnvmapMaskTexture);
+            WriteString(output, BaseTexture);
+            WriteString(output, GrayscaleTexture);
+            WriteString(output, EnvmapTexture);
+            WriteString(output, NormalTexture);
+            WriteString(output, EnvmapMaskTexture);
 
-            output.Write(this._BloodEnabled);
-            output.Write(this._EffectLightingEnabled);
-            output.Write(this._FalloffEnabled);
-            output.Write(this._FalloffColorEnabled);
-            output.Write(this._GrayscaleToPaletteAlpha);
-            output.Write(this._SoftEnabled);
-            Color.FromUInt32(this._BaseColor).Write(output);
-            output.Write(this._BaseColorScale);
-            output.Write(this._FalloffStartAngle);
-            output.Write(this._FalloffStopAngle);
-            output.Write(this._FalloffStartOpacity);
-            output.Write(this._FalloffStopOpacity);
-            output.Write(this._LightingInfluence);
-            output.Write(this._EnvmapMinLOD);
-            output.Write(this._SoftDepth);
+            if (Version >= 11)
+            {
+                WriteString(output, SpecularTexture);
+                WriteString(output, LightingTexture);
+                WriteString(output, DistanceFieldAlphaTexture);
+            }
+
+            if (Version >= 10)
+            {
+                output.Write(EnvironmentMapping);
+                output.Write(EnvironmentMappingMaskScale);
+            }
+
+            output.Write(BloodEnabled);
+            output.Write(EffectLightingEnabled);
+            output.Write(FalloffEnabled);
+            output.Write(FalloffColorEnabled);
+            output.Write(GrayscaleToPaletteAlpha);
+            output.Write(SoftEnabled);
+
+            Color.FromUInt32(BaseColor).Write(output);
+            output.Write(BaseColorScale);
+
+            output.Write(FalloffStartAngle);
+            output.Write(FalloffStopAngle);
+            output.Write(FalloffStartOpacity);
+            output.Write(FalloffStopOpacity);
+
+            output.Write(LightingInfluence);
+            output.Write(EnvmapMinLOD);
+            output.Write(SoftDepth);
+
+            if (Version >= 11)
+            {
+                Color.FromUInt32(EmittanceColor).Write(output);
+            }
+
+            if (Version >= 15)
+            {
+                output.Write(LumEmittance);
+                output.Write(UnkSingle1);
+                output.Write(UnkSingle2);
+                output.Write(UnkByte1);
+                output.Write(UnkByte2);
+            }
         }
     }
 }

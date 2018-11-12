@@ -51,5 +51,6 @@ obj
 *.suo
 *.user
 *.ide
-
+*.ide-shm
+*.ide-wal
 *.lock

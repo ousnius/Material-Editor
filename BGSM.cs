@@ -1,32 +1,4 @@
-﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
- * 
- * This software is provided 'as-is', without any express or implied
- * warranty. In no event will the authors be held liable for any damages
- * arising from the use of this software.
- * 
- * Permission is granted to anyone to use this software for any purpose,
- * including commercial applications, and to alter it and redistribute it
- * freely, subject to the following restrictions:
- * 
- * 1. The origin of this software must not be misrepresented; you must not
- *    claim that you wrote the original software. If you use this software
- *    in a product, an acknowledgment in the product documentation would
- *    be appreciated but is not required.
- * 
- * 2. Altered source versions must be plainly marked as such, and must not
- *    be misrepresented as being the original software.
- * 
- * 3. This notice may not be removed or altered from any source
- *    distribution.
- */
-
-/* Modified by ousnius
- * - removed JSON serialization
- * - removed Gibbed.IO dependency
- * - added binary serialization
- */
-
-using System;
+﻿using System;
 using System.IO;
 using System.Runtime.Serialization;
 
@@ -38,96 +10,44 @@ namespace Material_Editor
         public const uint Signature = 0x4D534742u;
 
         #region Fields
-        private string _DiffuseTexture;
-        private string _NormalTexture;
-        private string _SmoothSpecTexture;
-        private string _GreyscaleTexture;
-        private string _EnvmapTexture;
-        private string _GlowTexture;
-        private string _InnerLayerTexture;
-        private string _WrinklesTexture;
-        private string _DisplacementTexture;
-        private bool _EnableEditorAlphaRef;
-        private bool _RimLighting;
-        private float _RimPower;
-        private float _BackLightPower;
-        private bool _SubsurfaceLighting;
-        private float _SubsurfaceLightingRolloff;
-        private bool _SpecularEnabled;
-        private uint _SpecularColor;
-        private float _SpecularMult;
-        private float _Smoothness;
-        private float _FresnelPower;
-        private float _WetnessControlSpecScale;
-        private float _WetnessControlSpecPowerScale;
-        private float _WetnessControlSpecMinvar;
-        private float _WetnessControlEnvMapScale;
-        private float _WetnessControlFresnelPower;
-        private float _WetnessControlMetalness;
-        private string _RootMaterialPath;
-        private bool _AnisoLighting;
-        private bool _EmitEnabled;
-        private uint _EmittanceColor;
-        private float _EmittanceMult;
-        private bool _ModelSpaceNormals;
-        private bool _ExternalEmittance;
-        private bool _BackLighting;
-        private bool _ReceiveShadows;
-        private bool _HideSecret;
-        private bool _CastShadows;
-        private bool _DissolveFade;
-        private bool _AssumeShadowmask;
-        private bool _Glowmap;
-        private bool _EnvironmentMappingWindow;
-        private bool _EnvironmentMappingEye;
-        private bool _Hair;
-        private uint _HairTintColor;
-        private bool _Tree;
-        private bool _Facegen;
-        private bool _SkinTint;
-        private bool _Tessellate;
-        private float _DisplacementTextureBias;
-        private float _DisplacementTextureScale;
-        private float _TessellationPNScale;
-        private float _TessellationBaseFactor;
-        private float _TessellationFadeDistance;
-        private float _GrayscaleToPaletteScale;
-        private bool _SkewSpecularAlpha;
-
         protected override void SetDefaults()
         {
             base.SetDefaults();
 
-            _DiffuseTexture = "";
-            _NormalTexture = "";
-            _SmoothSpecTexture = "";
-            _GreyscaleTexture = "";
-            _EnvmapTexture = "";
-            _GlowTexture = "";
-            _InnerLayerTexture = "";
-            _WrinklesTexture = "";
-            _DisplacementTexture = "";
-            _RimPower = 2.0f;
-            _SubsurfaceLightingRolloff = 0.3f;
-            _SpecularColor = 0xFFFFFFFFu;
-            _SpecularMult = 1.0f;
-            _Smoothness = 1.0f;
-            _FresnelPower = 5.0f;
-            _WetnessControlSpecScale = -1.0f;
-            _WetnessControlSpecPowerScale = -1.0f;
-            _WetnessControlSpecMinvar = -1.0f;
-            _WetnessControlEnvMapScale = -1.0f;
-            _WetnessControlFresnelPower = -1.0f;
-            _WetnessControlMetalness = -1.0f;
-            _RootMaterialPath = "";
-            _EmittanceColor = 0xFFFFFFFFu;
-            _EmittanceMult = 1.0f;
-            _HairTintColor = 0x808080u;
-            _DisplacementTextureBias = -0.5f;
-            _DisplacementTextureScale = 10.0f;
-            _TessellationPNScale = 1.0f;
-            _TessellationBaseFactor = 1.0f;
-            _GrayscaleToPaletteScale = 1.0f;
+            DiffuseTexture = "";
+            NormalTexture = "";
+            SmoothSpecTexture = "";
+            GreyscaleTexture = "";
+            EnvmapTexture = "";
+            GlowTexture = "";
+            InnerLayerTexture = "";
+            WrinklesTexture = "";
+            DisplacementTexture = "";
+            SpecularTexture = "";
+            LightingTexture = "";
+            FlowTexture = "";
+            DistanceFieldAlphaTexture = "";
+            RimPower = 2.0f;
+            SubsurfaceLightingRolloff = 0.3f;
+            SpecularColor = 0xFFFFFFFFu;
+            SpecularMult = 1.0f;
+            Smoothness = 1.0f;
+            FresnelPower = 5.0f;
+            WetnessControlSpecScale = -1.0f;
+            WetnessControlSpecPowerScale = -1.0f;
+            WetnessControlSpecMinvar = -1.0f;
+            WetnessControlEnvMapScale = -1.0f;
+            WetnessControlFresnelPower = -1.0f;
+            WetnessControlMetalness = -1.0f;
+            RootMaterialPath = "";
+            EmittanceColor = 0xFFFFFFFFu;
+            EmittanceMult = 1.0f;
+            HairTintColor = 0x808080u;
+            DisplacementTextureBias = -0.5f;
+            DisplacementTextureScale = 10.0f;
+            TessellationPnScale = 1.0f;
+            TessellationBaseFactor = 1.0f;
+            GrayscaleToPaletteScale = 1.0f;
         }
         #endregion
 
@@ -138,551 +58,575 @@ namespace Material_Editor
 
         #region Properties
         [DataMember(Name = "sDiffuseTexture")]
-        public string DiffuseTexture
-        {
-            get { return this._DiffuseTexture; }
-            set { this._DiffuseTexture = value; }
-        }
+        public string DiffuseTexture { get; set; }
 
         [DataMember(Name = "sNormalTexture")]
-        public string NormalTexture
-        {
-            get { return this._NormalTexture; }
-            set { this._NormalTexture = value; }
-        }
+        public string NormalTexture { get; set; }
 
         [DataMember(Name = "sSmoothSpecTexture")]
-        public string SmoothSpecTexture
-        {
-            get { return this._SmoothSpecTexture; }
-            set { this._SmoothSpecTexture = value; }
-        }
+        public string SmoothSpecTexture { get; set; }
 
         [DataMember(Name = "sGreyscaleTexture")]
-        public string GreyscaleTexture
-        {
-            get { return this._GreyscaleTexture; }
-            set { this._GreyscaleTexture = value; }
-        }
+        public string GreyscaleTexture { get; set; }
 
         [DataMember(Name = "sEnvmapTexture")]
-        public string EnvmapTexture
-        {
-            get { return this._EnvmapTexture; }
-            set { this._EnvmapTexture = value; }
-        }
+        public string EnvmapTexture { get; set; }
 
         [DataMember(Name = "sGlowTexture")]
-        public string GlowTexture
-        {
-            get { return this._GlowTexture; }
-            set { this._GlowTexture = value; }
-        }
+        public string GlowTexture { get; set; }
 
         [DataMember(Name = "sInnerLayerTexture")]
-        public string InnerLayerTexture
-        {
-            get { return this._InnerLayerTexture; }
-            set { this._InnerLayerTexture = value; }
-        }
+        public string InnerLayerTexture { get; set; }
 
         [DataMember(Name = "sWrinklesTexture")]
-        public string WrinklesTexture
-        {
-            get { return this._WrinklesTexture; }
-            set { this._WrinklesTexture = value; }
-        }
+        public string WrinklesTexture { get; set; }
 
         [DataMember(Name = "sDisplacementTexture")]
-        public string DisplacementTexture
-        {
-            get { return this._DisplacementTexture; }
-            set { this._DisplacementTexture = value; }
-        }
+        public string DisplacementTexture { get; set; }
+
+        [DataMember(Name = "sSpecularTexture")]
+        public string SpecularTexture { get; set; }
+
+        [DataMember(Name = "sLightingTexture")]
+        public string LightingTexture { get; set; }
+
+        [DataMember(Name = "sFlowTexture")]
+        public string FlowTexture { get; set; }
+
+        [DataMember(Name = "sDistanceFieldAlphaTexture")]
+        public string DistanceFieldAlphaTexture { get; set; }
 
         [DataMember(Name = "bEnableEditorAlphaRef")]
-        public bool EnableEditorAlphaRef
-        {
-            get { return this._EnableEditorAlphaRef; }
-            set { this._EnableEditorAlphaRef = value; }
-        }
+        public bool EnableEditorAlphaRef { get; set; }
 
         [DataMember(Name = "bRimLighting")]
-        public bool RimLighting
-        {
-            get { return this._RimLighting; }
-            set { this._RimLighting = value; }
-        }
+        public bool RimLighting { get; set; }
 
         [DataMember(Name = "fRimPower")]
-        public float RimPower
-        {
-            get { return this._RimPower; }
-            set { this._RimPower = value; }
-        }
+        public float RimPower { get; set; }
 
         [DataMember(Name = "fBackLightPower")]
-        public float BackLightPower
-        {
-            get { return this._BackLightPower; }
-            set { this._BackLightPower = value; }
-        }
+        public float BackLightPower { get; set; }
 
         [DataMember(Name = "bSubsurfaceLighting")]
-        public bool SubsurfaceLighting
-        {
-            get { return this._SubsurfaceLighting; }
-            set { this._SubsurfaceLighting = value; }
-        }
+        public bool SubsurfaceLighting { get; set; }
 
         [DataMember(Name = "fSubsurfaceLightingRolloff")]
-        public float SubsurfaceLightingRolloff
-        {
-            get { return this._SubsurfaceLightingRolloff; }
-            set { this._SubsurfaceLightingRolloff = value; }
-        }
+        public float SubsurfaceLightingRolloff { get; set; }
 
         [DataMember(Name = "bSpecularEnabled")]
-        public bool SpecularEnabled
-        {
-            get { return this._SpecularEnabled; }
-            set { this._SpecularEnabled = value; }
-        }
+        public bool SpecularEnabled { get; set; }
 
-        public uint SpecularColor
-        {
-            get { return this._SpecularColor; }
-            set { this._SpecularColor = value; }
-        }
+        public uint SpecularColor { get; set; }
 
         [DataMember(Name = "cSpecularColor")]
         string SpecularColorString
         {
-            get { return Color.FromUInt32(_SpecularColor).ToHexString(); }
-            set { _SpecularColor = Color.FromHexString(value).ToUInt32(); }
+            get { return Color.FromUInt32(SpecularColor).ToHexString(); }
+            set { SpecularColor = Color.FromHexString(value).ToUInt32(); }
         }
 
         [DataMember(Name = "fSpecularMult")]
-        public float SpecularMult
-        {
-            get { return this._SpecularMult; }
-            set { this._SpecularMult = value; }
-        }
+        public float SpecularMult { get; set; }
 
         [DataMember(Name = "fSmoothness")]
-        public float Smoothness
-        {
-            get { return this._Smoothness; }
-            set { this._Smoothness = value; }
-        }
+        public float Smoothness { get; set; }
 
         [DataMember(Name = "fFresnelPower")]
-        public float FresnelPower
-        {
-            get { return this._FresnelPower; }
-            set { this._FresnelPower = value; }
-        }
+        public float FresnelPower { get; set; }
 
         [DataMember(Name = "fWetnessControl_SpecScale")]
-        public float WetnessControlSpecScale
-        {
-            get { return this._WetnessControlSpecScale; }
-            set { this._WetnessControlSpecScale = value; }
-        }
+        public float WetnessControlSpecScale { get; set; }
 
         [DataMember(Name = "fWetnessControl_SpecPowerScale")]
-        public float WetnessControlSpecPowerScale
-        {
-            get { return this._WetnessControlSpecPowerScale; }
-            set { this._WetnessControlSpecPowerScale = value; }
-        }
+        public float WetnessControlSpecPowerScale { get; set; }
 
         [DataMember(Name = "fWetnessControl_SpecMinvar")]
-        public float WetnessControlSpecMinvar
-        {
-            get { return this._WetnessControlSpecMinvar; }
-            set { this._WetnessControlSpecMinvar = value; }
-        }
+        public float WetnessControlSpecMinvar { get; set; }
 
         [DataMember(Name = "fWetnessControl_EnvMapScale")]
-        public float WetnessControlEnvMapScale
-        {
-            get { return this._WetnessControlEnvMapScale; }
-            set { this._WetnessControlEnvMapScale = value; }
-        }
+        public float WetnessControlEnvMapScale { get; set; }
 
         [DataMember(Name = "fWetnessControl_FresnelPower")]
-        public float WetnessControlFresnelPower
-        {
-            get { return this._WetnessControlFresnelPower; }
-            set { this._WetnessControlFresnelPower = value; }
-        }
+        public float WetnessControlFresnelPower { get; set; }
 
         [DataMember(Name = "fWetnessControl_Metalness")]
-        public float WetnessControlMetalness
-        {
-            get { return this._WetnessControlMetalness; }
-            set { this._WetnessControlMetalness = value; }
-        }
+        public float WetnessControlMetalness { get; set; }
 
         [DataMember(Name = "sRootMaterialPath")]
-        public string RootMaterialPath
-        {
-            get { return this._RootMaterialPath; }
-            set { this._RootMaterialPath = value; }
-        }
+        public string RootMaterialPath { get; set; }
 
         [DataMember(Name = "bAnisoLighting")]
-        public bool AnisoLighting
-        {
-            get { return this._AnisoLighting; }
-            set { this._AnisoLighting = value; }
-        }
+        public bool AnisoLighting { get; set; }
 
         [DataMember(Name = "bEmitEnabled")]
-        public bool EmitEnabled
-        {
-            get { return this._EmitEnabled; }
-            set { this._EmitEnabled = value; }
-        }
+        public bool EmitEnabled { get; set; }
 
-        public uint EmittanceColor
-        {
-            get { return this._EmittanceColor; }
-            set { this._EmittanceColor = value; }
-        }
+        public uint EmittanceColor { get; set; }
 
         [DataMember(Name = "cEmittanceColor")]
         string EmittanceColorString
         {
-            get { return Color.FromUInt32(_EmittanceColor).ToHexString(); }
-            set { _EmittanceColor = Color.FromHexString(value).ToUInt32(); }
+            get { return Color.FromUInt32(EmittanceColor).ToHexString(); }
+            set { EmittanceColor = Color.FromHexString(value).ToUInt32(); }
         }
 
         [DataMember(Name = "fEmittanceMult")]
-        public float EmittanceMult
-        {
-            get { return this._EmittanceMult; }
-            set { this._EmittanceMult = value; }
-        }
+        public float EmittanceMult { get; set; }
 
         [DataMember(Name = "bModelSpaceNormals")]
-        public bool ModelSpaceNormals
-        {
-            get { return this._ModelSpaceNormals; }
-            set { this._ModelSpaceNormals = value; }
-        }
+        public bool ModelSpaceNormals { get; set; }
 
         [DataMember(Name = "bExternalEmittance")]
-        public bool ExternalEmittance
-        {
-            get { return this._ExternalEmittance; }
-            set { this._ExternalEmittance = value; }
-        }
+        public bool ExternalEmittance { get; set; }
 
         [DataMember(Name = "bBackLighting")]
-        public bool BackLighting
-        {
-            get { return this._BackLighting; }
-            set { this._BackLighting = value; }
-        }
+        public bool BackLighting { get; set; }
 
         [DataMember(Name = "bReceiveShadows")]
-        public bool ReceiveShadows
-        {
-            get { return this._ReceiveShadows; }
-            set { this._ReceiveShadows = value; }
-        }
+        public bool ReceiveShadows { get; set; }
 
         [DataMember(Name = "bHideSecret")]
-        public bool HideSecret
-        {
-            get { return this._HideSecret; }
-            set { this._HideSecret = value; }
-        }
+        public bool HideSecret { get; set; }
 
         [DataMember(Name = "bCastShadows")]
-        public bool CastShadows
-        {
-            get { return this._CastShadows; }
-            set { this._CastShadows = value; }
-        }
+        public bool CastShadows { get; set; }
 
         [DataMember(Name = "bDissolveFade")]
-        public bool DissolveFade
-        {
-            get { return this._DissolveFade; }
-            set { this._DissolveFade = value; }
-        }
+        public bool DissolveFade { get; set; }
 
         [DataMember(Name = "bAssumeShadowmask")]
-        public bool AssumeShadowmask
-        {
-            get { return this._AssumeShadowmask; }
-            set { this._AssumeShadowmask = value; }
-        }
+        public bool AssumeShadowmask { get; set; }
 
         [DataMember(Name = "bGlowmap")]
-        public bool Glowmap
-        {
-            get { return this._Glowmap; }
-            set { this._Glowmap = value; }
-        }
+        public bool Glowmap { get; set; }
 
         [DataMember(Name = "bEnvironmentMappingWindow")]
-        public bool EnvironmentMappingWindow
-        {
-            get { return this._EnvironmentMappingWindow; }
-            set { this._EnvironmentMappingWindow = value; }
-        }
+        public bool EnvironmentMappingWindow { get; set; }
 
         [DataMember(Name = "bEnvironmentMappingEye")]
-        public bool EnvironmentMappingEye
-        {
-            get { return this._EnvironmentMappingEye; }
-            set { this._EnvironmentMappingEye = value; }
-        }
+        public bool EnvironmentMappingEye { get; set; }
 
         [DataMember(Name = "bHair")]
-        public bool Hair
-        {
-            get { return this._Hair; }
-            set { this._Hair = value; }
-        }
+        public bool Hair { get; set; }
 
-        public uint HairTintColor
-        {
-            get { return this._HairTintColor; }
-            set { this._HairTintColor = value; }
-        }
+        public uint HairTintColor { get; set; }
 
         [DataMember(Name = "cHairTintColor")]
         string HairTintColorString
         {
-            get { return Color.FromUInt32(_HairTintColor).ToHexString(); }
-            set { _HairTintColor = Color.FromHexString(value).ToUInt32(); }
+            get { return Color.FromUInt32(HairTintColor).ToHexString(); }
+            set { HairTintColor = Color.FromHexString(value).ToUInt32(); }
         }
 
         [DataMember(Name = "bTree")]
-        public bool Tree
-        {
-            get { return this._Tree; }
-            set { this._Tree = value; }
-        }
+        public bool Tree { get; set; }
 
         [DataMember(Name = "bFacegen")]
-        public bool Facegen
-        {
-            get { return this._Facegen; }
-            set { this._Facegen = value; }
-        }
+        public bool Facegen { get; set; }
 
         [DataMember(Name = "bSkinTint")]
-        public bool SkinTint
-        {
-            get { return this._SkinTint; }
-            set { this._SkinTint = value; }
-        }
+        public bool SkinTint { get; set; }
 
         [DataMember(Name = "bTessellate")]
-        public bool Tessellate
-        {
-            get { return this._Tessellate; }
-            set { this._Tessellate = value; }
-        }
+        public bool Tessellate { get; set; }
 
         [DataMember(Name = "fDisplacementTextureBias")]
-        public float DisplacementTextureBias
-        {
-            get { return this._DisplacementTextureBias; }
-            set { this._DisplacementTextureBias = value; }
-        }
+        public float DisplacementTextureBias { get; set; }
 
         [DataMember(Name = "fDisplacementTextureScale")]
-        public float DisplacementTextureScale
-        {
-            get { return this._DisplacementTextureScale; }
-            set { this._DisplacementTextureScale = value; }
-        }
+        public float DisplacementTextureScale { get; set; }
 
         [DataMember(Name = "fTessellationPnScale")]
-        public float TessellationPnScale
-        {
-            get { return this._TessellationPNScale; }
-            set { this._TessellationPNScale = value; }
-        }
+        public float TessellationPnScale { get; set; }
 
         [DataMember(Name = "fTessellationBaseFactor")]
-        public float TessellationBaseFactor
-        {
-            get { return this._TessellationBaseFactor; }
-            set { this._TessellationBaseFactor = value; }
-        }
+        public float TessellationBaseFactor { get; set; }
 
         [DataMember(Name = "fTessellationFadeDistance")]
-        public float TessellationFadeDistance
-        {
-            get { return this._TessellationFadeDistance; }
-            set { this._TessellationFadeDistance = value; }
-        }
+        public float TessellationFadeDistance { get; set; }
 
         [DataMember(Name = "fGrayscaleToPaletteScale")]
-        public float GrayscaleToPaletteScale
-        {
-            get { return this._GrayscaleToPaletteScale; }
-            set { this._GrayscaleToPaletteScale = value; }
-        }
+        public float GrayscaleToPaletteScale { get; set; }
 
         [DataMember(Name = "bSkewSpecularAlpha")]
-        public bool SkewSpecularAlpha
-        {
-            get { return this._SkewSpecularAlpha; }
-            set { this._SkewSpecularAlpha = value; }
-        }
+        public bool SkewSpecularAlpha { get; set; }
+
+        public bool Translucency { get; set; }
+
+        public uint TranslucencySubsurfaceColor { get; set; }
+
+        public float TranslucencyTransmissiveScale { get; set; }
+
+        public float TranslucencyTurbulence { get; set; }
+
+        [DataMember(Name = "bPBR")]
+        public bool PBR { get; set; }
+
+        [DataMember(Name = "bCustomPorosity")]
+        public bool CustomPorosity { get; set; }
+
+        [DataMember(Name = "fPorosityValue")]
+        public float PorosityValue { get; set; }
+
+        [DataMember(Name = "fLumEmittance")]
+        public float LumEmittance { get; set; }
+        
+        public bool TranslucencyThickObject { get; set; }
+
+        public bool TranslucencyMixAlbedoWithSubsurfaceColor { get; set; }
+
+        public bool Terrain { get; set; }
+
+        public float TerrainThresholdFalloff { get; set; }
+
+        public float TerrainTilingDistance { get; set; }
+
+        public float TerrainRotationAngle { get; set; }
+
+        public bool UnkBool2 { get; set; }
+
+        public float UnkSingle1 { get; set; }
+
+        public float UnkSingle2 { get; set; }
+
+        public float UnkSingle3 { get; set; }
+
+        public uint UnkInt1 { get; set; }
         #endregion
 
         public override void Deserialize(BinaryReader input)
         {
             base.Deserialize(input);
-            var version = this.Version;
 
-            this._DiffuseTexture = ReadString(input);
-            this._NormalTexture = ReadString(input);
-            this._SmoothSpecTexture = ReadString(input);
-            this._GreyscaleTexture = ReadString(input);
-            this._EnvmapTexture = ReadString(input);
-            this._GlowTexture = ReadString(input);
-            this._InnerLayerTexture = ReadString(input);
-            this._WrinklesTexture = ReadString(input);
-            this._DisplacementTexture = ReadString(input);
+            DiffuseTexture = ReadString(input);
+            NormalTexture = ReadString(input);
+            SmoothSpecTexture = ReadString(input);
+            GreyscaleTexture = ReadString(input);
+            EnvmapTexture = ReadString(input);
+            GlowTexture = ReadString(input);
 
-            this._EnableEditorAlphaRef = input.ReadBoolean();
-            this._RimLighting = input.ReadBoolean();
-            this._RimPower = input.ReadSingle();
-            this._BackLightPower = input.ReadSingle();
+            if (Version > 1)
+            {
+                SpecularTexture = ReadString(input);
+                LightingTexture = ReadString(input);
+                FlowTexture = ReadString(input);
 
-            this._SubsurfaceLighting = input.ReadBoolean();
-            this._SubsurfaceLightingRolloff = input.ReadSingle();
+                if (Version >= 17)
+                {
+                    DistanceFieldAlphaTexture = ReadString(input);
+                }
+            }
+            else
+            {
+                InnerLayerTexture = ReadString(input);
+                WrinklesTexture = ReadString(input);
+                DisplacementTexture = ReadString(input);
+            }
 
-            this._SpecularEnabled = input.ReadBoolean();
-            this._SpecularColor = Color.Read(input).ToUInt32();
-            this._SpecularMult = input.ReadSingle();
-            this._Smoothness = input.ReadSingle();
-            this._FresnelPower = input.ReadSingle();
-            this._WetnessControlSpecScale = input.ReadSingle();
-            this._WetnessControlSpecPowerScale = input.ReadSingle();
-            this._WetnessControlSpecMinvar = input.ReadSingle();
-            this._WetnessControlEnvMapScale = input.ReadSingle();
-            this._WetnessControlFresnelPower = input.ReadSingle();
-            this._WetnessControlMetalness = input.ReadSingle();
+            EnableEditorAlphaRef = input.ReadBoolean();
 
-            this._RootMaterialPath = ReadString(input);
+            if (Version >= 8)
+            {
+                Translucency = input.ReadBoolean();
+                TranslucencyThickObject = input.ReadBoolean();
+                TranslucencyMixAlbedoWithSubsurfaceColor = input.ReadBoolean();
+                TranslucencySubsurfaceColor = Color.Read(input).ToUInt32();
+                TranslucencyTransmissiveScale = input.ReadSingle();
+                TranslucencyTurbulence = input.ReadSingle();
+            }
+            else
+            {
+                RimLighting = input.ReadBoolean();
+                RimPower = input.ReadSingle();
+                BackLightPower = input.ReadSingle();
 
-            this._AnisoLighting = input.ReadBoolean();
-            this._EmitEnabled = input.ReadBoolean();
-            this._EmittanceColor = this._EmitEnabled == true ? Color.Read(input).ToUInt32() : 0;
-            this._EmittanceMult = input.ReadSingle();
-            this._ModelSpaceNormals = input.ReadBoolean();
-            this._ExternalEmittance = input.ReadBoolean();
-            this._BackLighting = input.ReadBoolean();
+                SubsurfaceLighting = input.ReadBoolean();
+                SubsurfaceLightingRolloff = input.ReadSingle();
+            }
 
-            this._ReceiveShadows = input.ReadBoolean();
-            this._HideSecret = input.ReadBoolean();
-            this._CastShadows = input.ReadBoolean();
-            this._DissolveFade = input.ReadBoolean();
-            this._AssumeShadowmask = input.ReadBoolean();
+            SpecularEnabled = input.ReadBoolean();
+            SpecularColor = Color.Read(input).ToUInt32();
+            SpecularMult = input.ReadSingle();
+            Smoothness = input.ReadSingle();
 
-            this._Glowmap = input.ReadBoolean();
-            this._EnvironmentMappingWindow = input.ReadBoolean();
-            this._EnvironmentMappingEye = input.ReadBoolean();
-            this._Hair = input.ReadBoolean();
-            this._HairTintColor = Color.Read(input).ToUInt32();
-            this._Tree = input.ReadBoolean();
-            this._Facegen = input.ReadBoolean();
-            this._SkinTint = input.ReadBoolean();
+            FresnelPower = input.ReadSingle();
+            WetnessControlSpecScale = input.ReadSingle();
+            WetnessControlSpecPowerScale = input.ReadSingle();
+            WetnessControlSpecMinvar = input.ReadSingle();
 
-            this._Tessellate = input.ReadBoolean();
-            this._DisplacementTextureBias = input.ReadSingle();
-            this._DisplacementTextureScale = input.ReadSingle();
-            this._TessellationPNScale = input.ReadSingle();
-            this._TessellationBaseFactor = input.ReadSingle();
-            this._TessellationFadeDistance = input.ReadSingle();
+            if (Version < 10)
+            {
+                WetnessControlEnvMapScale = input.ReadSingle();
+            }
 
-            this._GrayscaleToPaletteScale = input.ReadSingle();
-            this._SkewSpecularAlpha = version >= 1 && input.ReadBoolean();
+            WetnessControlFresnelPower = input.ReadSingle();
+            WetnessControlMetalness = input.ReadSingle();
+
+            if (Version > 1)
+            {
+                PBR = input.ReadBoolean();
+
+                if (Version >= 9)
+                {
+                    CustomPorosity = input.ReadBoolean();
+                    PorosityValue = input.ReadSingle();
+                }
+            }
+
+            RootMaterialPath = ReadString(input);
+
+            AnisoLighting = input.ReadBoolean();
+            EmitEnabled = input.ReadBoolean();
+
+            if (EmitEnabled)
+            {
+                EmittanceColor = Color.Read(input).ToUInt32();
+            }
+
+            EmittanceMult = input.ReadSingle();
+            ModelSpaceNormals = input.ReadBoolean();
+            ExternalEmittance = input.ReadBoolean();
+
+            if (Version >= 12)
+            {
+                LumEmittance = input.ReadSingle();
+            }
+
+            if (Version >= 13)
+            {
+                Terrain = input.ReadBoolean();
+                TerrainThresholdFalloff = input.ReadSingle();
+                TerrainTilingDistance = input.ReadSingle();
+                TerrainRotationAngle = input.ReadSingle();
+            }
+
+            if (Version < 8)
+            {
+                BackLighting = input.ReadBoolean();
+            }
+
+            ReceiveShadows = input.ReadBoolean();
+            HideSecret = input.ReadBoolean();
+            CastShadows = input.ReadBoolean();
+            DissolveFade = input.ReadBoolean();
+            AssumeShadowmask = input.ReadBoolean();
+
+            Glowmap = input.ReadBoolean();
+
+            if (Version < 7)
+            {
+                EnvironmentMappingWindow = input.ReadBoolean();
+                EnvironmentMappingEye = input.ReadBoolean();
+            }
+
+            Hair = input.ReadBoolean();
+            HairTintColor = Color.Read(input).ToUInt32();
+
+            Tree = input.ReadBoolean();
+            Facegen = input.ReadBoolean();
+            SkinTint = input.ReadBoolean();
+            Tessellate = input.ReadBoolean();
+
+            if (Version == 1)
+            {
+                DisplacementTextureBias = input.ReadSingle();
+                DisplacementTextureScale = input.ReadSingle();
+                TessellationPnScale = input.ReadSingle();
+                TessellationBaseFactor = input.ReadSingle();
+                TessellationFadeDistance = input.ReadSingle();
+            }
+
+            GrayscaleToPaletteScale = input.ReadSingle();
+
+            if (Version >= 1)
+            {
+                SkewSpecularAlpha = input.ReadBoolean();
+            }
+
+            if (Version >= 3)
+            {
+                UnkBool2 = input.ReadBoolean();
+
+                if (UnkBool2)
+                {
+                    if (Version == 3)
+                    {
+                        UnkInt1 = input.ReadUInt32();
+                    }
+
+                    UnkSingle1 = input.ReadSingle();
+                    UnkSingle2 = input.ReadSingle();
+                    UnkSingle3 = input.ReadSingle();
+                }
+            }
         }
 
         public override void Serialize(BinaryWriter output)
         {
             base.Serialize(output);
 
-            WriteString(output, this._DiffuseTexture);
-            WriteString(output, this._NormalTexture);
-            WriteString(output, this._SmoothSpecTexture);
-            WriteString(output, this._GreyscaleTexture);
-            WriteString(output, this._EnvmapTexture);
-            WriteString(output, this._GlowTexture);
-            WriteString(output, this._InnerLayerTexture);
-            WriteString(output, this._WrinklesTexture);
-            WriteString(output, this._DisplacementTexture);
+            WriteString(output, DiffuseTexture);
+            WriteString(output, NormalTexture);
+            WriteString(output, SmoothSpecTexture);
+            WriteString(output, GreyscaleTexture);
+            WriteString(output, EnvmapTexture);
+            WriteString(output, GlowTexture);
 
-            output.Write(this._EnableEditorAlphaRef);
-            output.Write(this._RimLighting);
-            output.Write(this._RimPower);
-            output.Write(this._BackLightPower);
+            if (Version > 1)
+            {
+                WriteString(output, SpecularTexture);
+                WriteString(output, LightingTexture);
+                WriteString(output, FlowTexture);
 
-            output.Write(this._SubsurfaceLighting);
-            output.Write(this._SubsurfaceLightingRolloff);
+                if (Version >= 17)
+                {
+                    WriteString(output, DistanceFieldAlphaTexture);
+                }
+            }
+            else
+            {
+                WriteString(output, InnerLayerTexture);
+                WriteString(output, WrinklesTexture);
+                WriteString(output, DisplacementTexture);
+            }
 
-            output.Write(this._SpecularEnabled);
-            Color.FromUInt32(this._SpecularColor).Write(output);
-            output.Write(this._SpecularMult);
-            output.Write(this._Smoothness);
-            output.Write(this._FresnelPower);
-            output.Write(this._WetnessControlSpecScale);
-            output.Write(this._WetnessControlSpecPowerScale);
-            output.Write(this._WetnessControlSpecMinvar);
-            output.Write(this._WetnessControlEnvMapScale);
-            output.Write(this._WetnessControlFresnelPower);
-            output.Write(this._WetnessControlMetalness);
+            output.Write(EnableEditorAlphaRef);
+            
+            if (Version >= 8)
+            {
+                output.Write(Translucency);
+                output.Write(TranslucencyThickObject);
+                output.Write(TranslucencyMixAlbedoWithSubsurfaceColor);
+                Color.FromUInt32(TranslucencySubsurfaceColor).Write(output);
+                output.Write(TranslucencyTransmissiveScale);
+                output.Write(TranslucencyTurbulence);
+            }
+            else
+            {
+                output.Write(RimLighting);
+                output.Write(RimPower);
+                output.Write(BackLightPower);
 
-            WriteString(output, this._RootMaterialPath);
+                output.Write(SubsurfaceLighting);
+                output.Write(SubsurfaceLightingRolloff);
+            }
 
-            output.Write(this._AnisoLighting);
-            output.Write(this._EmitEnabled);
-            if (this._EmitEnabled)
-                Color.FromUInt32(this._EmittanceColor).Write(output);
+            output.Write(SpecularEnabled);
+            Color.FromUInt32(SpecularColor).Write(output);
+            output.Write(SpecularMult);
+            output.Write(Smoothness);
 
-            output.Write(this._EmittanceMult);
-            output.Write(this._ModelSpaceNormals);
-            output.Write(this._ExternalEmittance);
-            output.Write(this._BackLighting);
+            output.Write(FresnelPower);
+            output.Write(WetnessControlSpecScale);
+            output.Write(WetnessControlSpecPowerScale);
+            output.Write(WetnessControlSpecMinvar);
 
-            output.Write(this._ReceiveShadows);
-            output.Write(this._HideSecret);
-            output.Write(this._CastShadows);
-            output.Write(this._DissolveFade);
-            output.Write(this._AssumeShadowmask);
+            if (Version < 10)
+            {
+                output.Write(WetnessControlEnvMapScale);
+            }
+            
+            output.Write(WetnessControlFresnelPower);
+            output.Write(WetnessControlMetalness);
 
-            output.Write(this._Glowmap);
-            output.Write(this._EnvironmentMappingWindow);
-            output.Write(this._EnvironmentMappingEye);
-            output.Write(this._Hair);
-            Color.FromUInt32(this._HairTintColor).Write(output);
-            output.Write(this._Tree);
-            output.Write(this._Facegen);
-            output.Write(this._SkinTint);
+            if (Version > 1)
+            {
+                output.Write(PBR);
 
-            output.Write(this._Tessellate);
-            output.Write(this._DisplacementTextureBias);
-            output.Write(this._DisplacementTextureScale);
-            output.Write(this._TessellationPNScale);
-            output.Write(this._TessellationBaseFactor);
-            output.Write(this._TessellationFadeDistance);
+                if (Version >= 9)
+                {
+                    output.Write(CustomPorosity);
+                    output.Write(PorosityValue);
+                }
+            }
 
-            output.Write(this._GrayscaleToPaletteScale);
-            if (this.Version >= 1)
-                output.Write(this._SkewSpecularAlpha);
+            WriteString(output, RootMaterialPath);
+
+            output.Write(AnisoLighting);
+            output.Write(EmitEnabled);
+
+            if (EmitEnabled)
+            {
+                Color.FromUInt32(EmittanceColor).Write(output);
+            }
+
+            output.Write(EmittanceMult);
+            output.Write(ModelSpaceNormals);
+            output.Write(ExternalEmittance);
+
+            if (Version >= 12)
+            {
+                output.Write(LumEmittance);
+            }
+
+            if (Version >= 13)
+            {
+                output.Write(Terrain);
+                output.Write(TerrainThresholdFalloff);
+                output.Write(TerrainTilingDistance);
+                output.Write(TerrainRotationAngle);
+            }
+
+            if (Version < 8)
+            {
+                output.Write(BackLighting);
+            }
+
+            output.Write(ReceiveShadows);
+            output.Write(HideSecret);
+            output.Write(CastShadows);
+            output.Write(DissolveFade);
+            output.Write(AssumeShadowmask);
+
+            output.Write(Glowmap);
+
+            if (Version < 7)
+            {
+                output.Write(EnvironmentMappingWindow);
+                output.Write(EnvironmentMappingEye);
+            }
+
+            output.Write(Hair);
+            Color.FromUInt32(HairTintColor).Write(output);
+
+            output.Write(Tree);
+            output.Write(Facegen);
+            output.Write(SkinTint);
+            output.Write(Tessellate);
+            
+            if (Version == 1)
+            {
+                output.Write(DisplacementTextureBias);
+                output.Write(DisplacementTextureScale);
+                output.Write(TessellationPnScale);
+                output.Write(TessellationBaseFactor);
+                output.Write(TessellationFadeDistance);
+            }
+
+            output.Write(GrayscaleToPaletteScale);
+
+            if (Version >= 1)
+            {
+                output.Write(SkewSpecularAlpha);
+            }
+
+            if (Version >= 3)
+            {
+                output.Write(UnkBool2);
+
+                if (UnkBool2)
+                {
+                    if (Version == 3)
+                    {
+                        output.Write(UnkInt1);
+                    }
+
+                    output.Write(UnkSingle1);
+                    output.Write(UnkSingle2);
+                    output.Write(UnkSingle3);
+                }
+            }
         }
     }
 }

@@ -43,9 +43,9 @@
             this.aboutText.Name = "aboutText";
             this.aboutText.ReadOnly = true;
             this.aboutText.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.aboutText.Size = new System.Drawing.Size(365, 169);
+            this.aboutText.Size = new System.Drawing.Size(278, 53);
             this.aboutText.TabIndex = 0;
-            this.aboutText.Text = resources.GetString("aboutText.Text");
+            this.aboutText.Text = "MATERIAL EDITOR\nby ousnius\nhttps://github.com/ousnius/Material-Editor";
             this.aboutText.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.aboutText_LinkClicked);
             // 
             // AboutDialog
@@ -53,7 +53,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(390, 194);
+            this.ClientSize = new System.Drawing.Size(303, 78);
             this.Controls.Add(this.aboutText);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

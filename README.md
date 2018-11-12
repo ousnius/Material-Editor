@@ -1,4 +1,4 @@
 # Material-Editor
 A small UI application to edit BGSM/BGEM material files.
 
-Uses modified classes by Rick (rick 'at' gibbed 'dot' us).
+Original decoding of version 1 files by Rick (rick 'at' gibbed 'dot' us).

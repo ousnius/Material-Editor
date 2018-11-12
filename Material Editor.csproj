@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Material_Editor</RootNamespace>
     <AssemblyName>Material Editor</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -52,8 +52,15 @@
   <PropertyGroup>
     <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -74,6 +81,45 @@
     </Compile>
     <Compile Include="BGEM.cs" />
     <Compile Include="BGSM.cs" />
+    <Compile Include="CustomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FlagControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FlagControl.Designer.cs">
+      <DependentUpon>FlagControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileControl.Designer.cs">
+      <DependentUpon>FileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CheckControl.Designer.cs">
+      <DependentUpon>CheckControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DropdownControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DropdownControl.Designer.cs">
+      <DependentUpon>DropdownControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumberControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NumberControl.Designer.cs">
+      <DependentUpon>NumberControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ColorControl.Designer.cs">
+      <DependentUpon>ColorControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +131,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AboutDialog.resx">
       <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FlagControl.resx">
+      <DependentUpon>FlagControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileControl.resx">
+      <DependentUpon>FileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckControl.resx">
+      <DependentUpon>CheckControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DropdownControl.resx">
+      <DependentUpon>DropdownControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NumberControl.resx">
+      <DependentUpon>NumberControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ColorControl.resx">
+      <DependentUpon>ColorControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -100,6 +164,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
