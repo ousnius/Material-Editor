@@ -252,12 +252,22 @@ namespace Material_Editor
         [DataMember(Name = "bSkewSpecularAlpha")]
         public bool SkewSpecularAlpha { get; set; }
 
+        [DataMember(Name = "bTranslucency")]
         public bool Translucency { get; set; }
-
+        
         public uint TranslucencySubsurfaceColor { get; set; }
 
+        [DataMember(Name = "cTranslucencySubsurfaceColor")]
+        string TranslucencySubsurfaceColorString
+        {
+            get { return Color.FromUInt32(TranslucencySubsurfaceColor).ToHexString(); }
+            set { TranslucencySubsurfaceColor = Color.FromHexString(value).ToUInt32(); }
+        }
+
+        [DataMember(Name = "fTranslucencyTransmissiveScale")]
         public float TranslucencyTransmissiveScale { get; set; }
 
+        [DataMember(Name = "fTranslucencyTurbulence")]
         public float TranslucencyTurbulence { get; set; }
 
         [DataMember(Name = "bPBR")]
@@ -271,27 +281,38 @@ namespace Material_Editor
 
         [DataMember(Name = "fLumEmittance")]
         public float LumEmittance { get; set; }
-        
+
+        [DataMember(Name = "bTranslucencyThickObject")]
         public bool TranslucencyThickObject { get; set; }
 
+        [DataMember(Name = "bTranslucencyMixAlbedoWithSubsurfaceColor")]
         public bool TranslucencyMixAlbedoWithSubsurfaceColor { get; set; }
 
+        [DataMember(Name = "bTerrain")]
         public bool Terrain { get; set; }
 
+        [DataMember(Name = "fTerrainThresholdFalloff")]
         public float TerrainThresholdFalloff { get; set; }
 
+        [DataMember(Name = "fTerrainTilingDistance")]
         public float TerrainTilingDistance { get; set; }
 
+        [DataMember(Name = "fTerrainRotationAngle")]
         public float TerrainRotationAngle { get; set; }
 
+        [DataMember]
         public bool UnkBool2 { get; set; }
 
+        [DataMember]
         public float UnkSingle1 { get; set; }
 
+        [DataMember]
         public float UnkSingle2 { get; set; }
 
+        [DataMember]
         public float UnkSingle3 { get; set; }
 
+        [DataMember]
         public uint UnkInt1 { get; set; }
         #endregion
 

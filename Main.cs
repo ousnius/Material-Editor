@@ -549,7 +549,7 @@ namespace Material_Editor
                 ControlFactory.CreateControl(layoutMaterial, "Specular Color", specularColor, (control) => { OnChanged(); });
 
                 ControlFactory.CreateControl(layoutMaterial, "Specular Multiplier", bgsm.SpecularMult, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Smoothness", Math.Min(Math.Max(0.0f, bgsm.Smoothness), 1.0f), (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutMaterial, "Smoothness", bgsm.Smoothness, (control) => { OnChanged(); });
                 ControlFactory.CreateControl(layoutMaterial, "Fresnel Power", bgsm.FresnelPower, (control) => { OnChanged(); });
                 ControlFactory.CreateControl(layoutMaterial, "Wet Spec Scale", bgsm.WetnessControlSpecScale, (control) => { OnChanged(); });
                 ControlFactory.CreateControl(layoutMaterial, "Wet Spec Power Scale", bgsm.WetnessControlSpecPowerScale, (control) => { OnChanged(); });

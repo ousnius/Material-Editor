@@ -125,12 +125,16 @@ namespace Material_Editor
         [DataMember(Name = "fLumEmittance")]
         public float LumEmittance { get; set; }
 
+        [DataMember]
         public float UnkSingle1 { get; set; }
 
+        [DataMember]
         public float UnkSingle2 { get; set; }
 
+        [DataMember]
         public byte UnkByte1 { get; set; }
 
+        [DataMember]
         public byte UnkByte2 { get; set; }
         #endregion
 
