@@ -288,6 +288,18 @@ namespace Material_Editor
         [DataMember(Name = "bTranslucencyMixAlbedoWithSubsurfaceColor")]
         public bool TranslucencyMixAlbedoWithSubsurfaceColor { get; set; }
 
+        [DataMember(Name = "bUseAdaptativeEmissive")]
+        public bool UseAdaptativeEmissive { get; set; }
+
+        [DataMember(Name = "fAdaptativeEmissive_ExposureOffset")]
+        public float AdaptativeEmissive_ExposureOffset { get; set; }
+
+        [DataMember(Name = "fAdaptativeEmissive_FinalExposureMin")]
+        public float AdaptativeEmissive_FinalExposureMin { get; set; }
+
+        [DataMember(Name = "fAdaptativeEmissive_FinalExposureMax")]
+        public float AdaptativeEmissive_FinalExposureMax { get; set; }
+
         [DataMember(Name = "bTerrain")]
         public bool Terrain { get; set; }
 
@@ -299,18 +311,6 @@ namespace Material_Editor
 
         [DataMember(Name = "fTerrainRotationAngle")]
         public float TerrainRotationAngle { get; set; }
-
-        [DataMember]
-        public bool UnkBool2 { get; set; }
-
-        [DataMember]
-        public float UnkSingle1 { get; set; }
-
-        [DataMember]
-        public float UnkSingle2 { get; set; }
-
-        [DataMember]
-        public float UnkSingle3 { get; set; }
 
         [DataMember]
         public uint UnkInt1 { get; set; }
@@ -416,10 +416,10 @@ namespace Material_Editor
 
             if (Version >= 13)
             {
-                Terrain = input.ReadBoolean();
-                TerrainThresholdFalloff = input.ReadSingle();
-                TerrainTilingDistance = input.ReadSingle();
-                TerrainRotationAngle = input.ReadSingle();
+                UseAdaptativeEmissive = input.ReadBoolean();
+                AdaptativeEmissive_ExposureOffset = input.ReadSingle();
+                AdaptativeEmissive_FinalExposureMin = input.ReadSingle();
+                AdaptativeEmissive_FinalExposureMax = input.ReadSingle();
             }
 
             if (Version < 8)
@@ -467,18 +467,18 @@ namespace Material_Editor
 
             if (Version >= 3)
             {
-                UnkBool2 = input.ReadBoolean();
+                Terrain = input.ReadBoolean();
 
-                if (UnkBool2)
+                if (Terrain)
                 {
                     if (Version == 3)
                     {
                         UnkInt1 = input.ReadUInt32();
                     }
 
-                    UnkSingle1 = input.ReadSingle();
-                    UnkSingle2 = input.ReadSingle();
-                    UnkSingle3 = input.ReadSingle();
+                    TerrainThresholdFalloff = input.ReadSingle();
+                    TerrainTilingDistance = input.ReadSingle();
+                    TerrainRotationAngle = input.ReadSingle();
                 }
             }
         }
@@ -583,10 +583,10 @@ namespace Material_Editor
 
             if (Version >= 13)
             {
-                output.Write(Terrain);
-                output.Write(TerrainThresholdFalloff);
-                output.Write(TerrainTilingDistance);
-                output.Write(TerrainRotationAngle);
+                output.Write(UseAdaptativeEmissive);
+                output.Write(AdaptativeEmissive_ExposureOffset);
+                output.Write(AdaptativeEmissive_FinalExposureMin);
+                output.Write(AdaptativeEmissive_FinalExposureMax);
             }
 
             if (Version < 8)
@@ -634,18 +634,18 @@ namespace Material_Editor
 
             if (Version >= 3)
             {
-                output.Write(UnkBool2);
+                output.Write(Terrain);
 
-                if (UnkBool2)
+                if (Terrain)
                 {
                     if (Version == 3)
                     {
                         output.Write(UnkInt1);
                     }
 
-                    output.Write(UnkSingle1);
-                    output.Write(UnkSingle2);
-                    output.Write(UnkSingle3);
+                    output.Write(TerrainThresholdFalloff);
+                    output.Write(TerrainTilingDistance);
+                    output.Write(TerrainRotationAngle);
                 }
             }
         }

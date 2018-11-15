@@ -122,20 +122,20 @@ namespace Material_Editor
             set { EmittanceColor = Color.FromHexString(value).ToUInt32(); }
         }
 
-        [DataMember(Name = "fLumEmittance")]
-        public float LumEmittance { get; set; }
+        [DataMember(Name = "fAdaptativeEmissive_ExposureOffset")]
+        public float AdaptativeEmissive_ExposureOffset { get; set; }
 
-        [DataMember]
-        public float UnkSingle1 { get; set; }
+        [DataMember(Name = "fAdaptativeEmissive_FinalExposureMin")]
+        public float AdaptativeEmissive_FinalExposureMin { get; set; }
 
-        [DataMember]
-        public float UnkSingle2 { get; set; }
+        [DataMember(Name = "fAdaptativeEmissive_FinalExposureMax")]
+        public float AdaptativeEmissive_FinalExposureMax { get; set; }
 
-        [DataMember]
-        public byte UnkByte1 { get; set; }
+        [DataMember(Name = "bGlowmap")]
+        public bool Glowmap { get; set; }
 
-        [DataMember]
-        public byte UnkByte2 { get; set; }
+        [DataMember(Name = "bEffectPbrSpecular")]
+        public bool EffectPbrSpecular { get; set; }
         #endregion
 
         public override void Deserialize(BinaryReader input)
@@ -187,11 +187,19 @@ namespace Material_Editor
 
             if (Version >= 15)
             {
-                LumEmittance = input.ReadSingle();
-                UnkSingle1 = input.ReadSingle();
-                UnkSingle2 = input.ReadSingle();
-                UnkByte1 = input.ReadByte();
-                UnkByte2 = input.ReadByte();
+                AdaptativeEmissive_ExposureOffset = input.ReadSingle();
+                AdaptativeEmissive_FinalExposureMin = input.ReadSingle();
+                AdaptativeEmissive_FinalExposureMax = input.ReadSingle();
+            }
+
+            if (Version >= 16)
+            {
+                Glowmap = input.ReadBoolean();
+            }
+
+            if (Version >= 20)
+            {
+                EffectPbrSpecular = input.ReadBoolean();
             }
         }
 
@@ -244,11 +252,19 @@ namespace Material_Editor
 
             if (Version >= 15)
             {
-                output.Write(LumEmittance);
-                output.Write(UnkSingle1);
-                output.Write(UnkSingle2);
-                output.Write(UnkByte1);
-                output.Write(UnkByte2);
+                output.Write(AdaptativeEmissive_ExposureOffset);
+                output.Write(AdaptativeEmissive_FinalExposureMin);
+                output.Write(AdaptativeEmissive_FinalExposureMax);
+            }
+
+            if (Version >= 16)
+            {
+                output.Write(Glowmap);
+            }
+
+            if (Version >= 20)
+            {
+                output.Write(EffectPbrSpecular);
             }
         }
     }

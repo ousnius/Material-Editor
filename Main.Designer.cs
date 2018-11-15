@@ -67,8 +67,7 @@
             this.toolStripMenuItem1});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(656, 28);
+            this.menuStrip.Size = new System.Drawing.Size(525, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -83,14 +82,14 @@
             this.serializeToJSONToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.newToolStripMenuItem.Text = "New";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -98,7 +97,7 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -107,7 +106,7 @@
             this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
@@ -117,7 +116,7 @@
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
             this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.saveAsToolStripMenuItem.Text = "Save As...";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
@@ -126,7 +125,7 @@
             this.closeToolStripMenuItem.Enabled = false;
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
             this.closeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -135,14 +134,14 @@
             this.serializeToJSONToolStripMenuItem.CheckOnClick = true;
             this.serializeToJSONToolStripMenuItem.Name = "serializeToJSONToolStripMenuItem";
             this.serializeToJSONToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.J)));
-            this.serializeToJSONToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.serializeToJSONToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.serializeToJSONToolStripMenuItem.Text = "Serialize to JSON";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -151,13 +150,13 @@
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(28, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(24, 20);
             this.toolStripMenuItem1.Text = "?";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(125, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -183,22 +182,20 @@
             this.tabControl.Controls.Add(this.tabPageGeneral);
             this.tabControl.Controls.Add(this.tabPageMaterial);
             this.tabControl.Controls.Add(this.tabPageEffect);
-            this.tabControl.Location = new System.Drawing.Point(0, 66);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl.Location = new System.Drawing.Point(0, 53);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
-            this.tabControl.Size = new System.Drawing.Size(656, 714);
+            this.tabControl.Size = new System.Drawing.Size(525, 506);
             this.tabControl.TabIndex = 2;
             // 
             // tabPageGeneral
             // 
             this.tabPageGeneral.AutoScroll = true;
             this.tabPageGeneral.Controls.Add(this.layoutGeneral);
-            this.tabPageGeneral.Location = new System.Drawing.Point(4, 25);
-            this.tabPageGeneral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
             this.tabPageGeneral.Name = "tabPageGeneral";
-            this.tabPageGeneral.Size = new System.Drawing.Size(648, 685);
+            this.tabPageGeneral.Size = new System.Drawing.Size(517, 480);
             this.tabPageGeneral.TabIndex = 2;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.ToolTipText = "Affects both BGSM and BGEM files.";
@@ -212,23 +209,21 @@
             this.layoutGeneral.AutoSize = true;
             this.layoutGeneral.ColumnCount = 1;
             this.layoutGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.layoutGeneral.Location = new System.Drawing.Point(4, 4);
-            this.layoutGeneral.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutGeneral.Location = new System.Drawing.Point(3, 3);
             this.layoutGeneral.Name = "layoutGeneral";
             this.layoutGeneral.RowCount = 1;
             this.layoutGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutGeneral.Size = new System.Drawing.Size(637, 674);
+            this.layoutGeneral.Size = new System.Drawing.Size(510, 474);
             this.layoutGeneral.TabIndex = 1;
             // 
             // tabPageMaterial
             // 
             this.tabPageMaterial.AutoScroll = true;
             this.tabPageMaterial.Controls.Add(this.layoutMaterial);
-            this.tabPageMaterial.Location = new System.Drawing.Point(4, 25);
-            this.tabPageMaterial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageMaterial.Location = new System.Drawing.Point(4, 22);
             this.tabPageMaterial.Name = "tabPageMaterial";
-            this.tabPageMaterial.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPageMaterial.Size = new System.Drawing.Size(648, 685);
+            this.tabPageMaterial.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageMaterial.Size = new System.Drawing.Size(517, 480);
             this.tabPageMaterial.TabIndex = 0;
             this.tabPageMaterial.Text = "Material";
             this.tabPageMaterial.ToolTipText = "Affects only BGSM files.";
@@ -242,23 +237,21 @@
             this.layoutMaterial.AutoSize = true;
             this.layoutMaterial.ColumnCount = 1;
             this.layoutMaterial.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.layoutMaterial.Location = new System.Drawing.Point(4, 4);
-            this.layoutMaterial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutMaterial.Location = new System.Drawing.Point(3, 3);
             this.layoutMaterial.Name = "layoutMaterial";
             this.layoutMaterial.RowCount = 1;
             this.layoutMaterial.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutMaterial.Size = new System.Drawing.Size(627, 614);
+            this.layoutMaterial.Size = new System.Drawing.Size(502, 474);
             this.layoutMaterial.TabIndex = 1;
             // 
             // tabPageEffect
             // 
             this.tabPageEffect.AutoScroll = true;
             this.tabPageEffect.Controls.Add(this.layoutEffect);
-            this.tabPageEffect.Location = new System.Drawing.Point(4, 25);
-            this.tabPageEffect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageEffect.Location = new System.Drawing.Point(4, 22);
             this.tabPageEffect.Name = "tabPageEffect";
-            this.tabPageEffect.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPageEffect.Size = new System.Drawing.Size(648, 685);
+            this.tabPageEffect.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageEffect.Size = new System.Drawing.Size(517, 480);
             this.tabPageEffect.TabIndex = 1;
             this.tabPageEffect.Text = "Effect";
             this.tabPageEffect.ToolTipText = "Affects only BGEM files.";
@@ -272,12 +265,11 @@
             this.layoutEffect.AutoSize = true;
             this.layoutEffect.ColumnCount = 1;
             this.layoutEffect.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.layoutEffect.Location = new System.Drawing.Point(4, 4);
-            this.layoutEffect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.layoutEffect.Location = new System.Drawing.Point(3, 3);
             this.layoutEffect.Name = "layoutEffect";
             this.layoutEffect.RowCount = 1;
             this.layoutEffect.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutEffect.Size = new System.Drawing.Size(627, 614);
+            this.layoutEffect.Size = new System.Drawing.Size(502, 474);
             this.layoutEffect.TabIndex = 1;
             // 
             // textureFileDialog
@@ -290,28 +282,26 @@
             // 
             this.listVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.listVersion.FormattingEnabled = true;
-            this.listVersion.Location = new System.Drawing.Point(9, 33);
-            this.listVersion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.listVersion.Location = new System.Drawing.Point(7, 26);
             this.listVersion.Name = "listVersion";
-            this.listVersion.Size = new System.Drawing.Size(176, 24);
+            this.listVersion.Size = new System.Drawing.Size(142, 21);
             this.listVersion.TabIndex = 3;
             this.listVersion.SelectedIndexChanged += new System.EventHandler(this.listVersion_SelectedIndexChanged);
             // 
             // Main
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(656, 782);
+            this.ClientSize = new System.Drawing.Size(525, 561);
             this.Controls.Add(this.listVersion);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MinimumSize = new System.Drawing.Size(661, 291);
+            this.MinimumSize = new System.Drawing.Size(532, 241);
             this.Name = "Main";
             this.Text = "Material Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Closing);

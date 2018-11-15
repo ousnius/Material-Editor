@@ -115,6 +115,9 @@ namespace Material_Editor
         [DataMember(Name = "fEnvironmentMappingMaskScale")]
         public float EnvironmentMappingMaskScale { get; set; }
 
+        [DataMember(Name = "bDepthBias")]
+        public bool DepthBias { get; set; }
+
         [DataMember(Name = "bGrayscaleToPaletteColor")]
         public bool GrayscaleToPaletteColor { get; set; }
 
@@ -208,10 +211,14 @@ namespace Material_Editor
             RefractionFalloff = input.ReadBoolean();
             RefractionPower = input.ReadSingle();
 
-            EnvironmentMapping = input.ReadBoolean();
             if (Version < 10)
             {
+                EnvironmentMapping = input.ReadBoolean();
                 EnvironmentMappingMaskScale = input.ReadSingle();
+            }
+            else
+            {
+                DepthBias = input.ReadBoolean();
             }
 
             GrayscaleToPaletteColor = input.ReadBoolean();
@@ -262,12 +269,15 @@ namespace Material_Editor
             output.Write(Refraction);
             output.Write(RefractionFalloff);
             output.Write(RefractionPower);
-
-            output.Write(EnvironmentMapping);
-
+            
             if (Version < 10)
             {
+                output.Write(EnvironmentMapping);
                 output.Write(EnvironmentMappingMaskScale);
+            }
+            else
+            {
+                output.Write(DepthBias);
             }
 
             output.Write(GrayscaleToPaletteColor);

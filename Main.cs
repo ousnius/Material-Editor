@@ -473,6 +473,7 @@ namespace Material_Editor
             });
 
             ControlFactory.CreateControl(layoutGeneral, "Environment Mask Scale", file.EnvironmentMappingMaskScale, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutGeneral, "Depth Bias", file.DepthBias, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutGeneral, "Grayscale To Palette Color", file.GrayscaleToPaletteColor, (control) => { OnChanged(); });
             ControlFactory.CreateFlagControl(layoutGeneral, "Mask Writes", Enum.GetNames(typeof(BaseMaterialFile.MaskWriteFlags)), (int)file.MaskWrites, (control) => { OnChanged(); });
 
@@ -584,10 +585,24 @@ namespace Material_Editor
                 ControlFactory.CreateControl(layoutMaterial, "External Emittance", bgsm.ExternalEmittance, (control) => { OnChanged(); });
                 
                 ControlFactory.CreateControl(layoutMaterial, "Lum Emittance", bgsm.LumEmittance, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Terrain", bgsm.Terrain, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Terrain Threshold Falloff", bgsm.TerrainThresholdFalloff, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Terrain Tiling Distance", bgsm.TerrainTilingDistance, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Terrain Rotation Angle", bgsm.TerrainRotationAngle, (control) => { OnChanged(); });
+
+                ControlFactory.CreateControl(layoutMaterial, "Adaptative Emissive", bgsm.UseAdaptativeEmissive, (control) =>
+                {
+                    bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                    if (config.GameVersion == GameVersion.FO76)
+                    {
+                        ControlFactory.SetVisible("Adapt. Em. Exposure Offset", enabled);
+                        ControlFactory.SetVisible("Adapt. Em. Final Exposure Min", enabled);
+                        ControlFactory.SetVisible("Adapt. Em. Final Exposure Max", enabled);
+                    }
+
+                    OnChanged();
+                });
+
+                ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Exposure Offset", bgsm.AdaptativeEmissive_ExposureOffset, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Final Exposure Min", bgsm.AdaptativeEmissive_FinalExposureMin, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Final Exposure Max", bgsm.AdaptativeEmissive_FinalExposureMax, (control) => { OnChanged(); });
 
                 ControlFactory.CreateControl(layoutMaterial, "Back Lighting", bgsm.BackLighting, (control) => { OnChanged(); });
                 ControlFactory.CreateControl(layoutMaterial, "Receive Shadows", bgsm.ReceiveShadows, (control) => { OnChanged(); });
@@ -639,11 +654,25 @@ namespace Material_Editor
                 ControlFactory.CreateControl(layoutMaterial, "Grayscale To Palette Scale", bgsm.GrayscaleToPaletteScale, (control) => { OnChanged(); });
                 ControlFactory.CreateControl(layoutMaterial, "Skew Specular Alpha", bgsm.SkewSpecularAlpha, (control) => { OnChanged(); });
 
-                ControlFactory.CreateControl(layoutMaterial, "Unk Bool 2 BGSM", bgsm.UnkBool2, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutMaterial, "Terrain", bgsm.Terrain, (control) =>
+                {
+                    bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                    if (config.GameVersion == GameVersion.FO76)
+                    {
+                        ControlFactory.SetVisible("Unk Int 1 BGSM", enabled);
+                        ControlFactory.SetVisible("Terrain Threshold Falloff", enabled);
+                        ControlFactory.SetVisible("Terrain Tiling Distance", enabled);
+                        ControlFactory.SetVisible("Terrain Rotation Angle", enabled);
+                    }
+
+                    OnChanged();
+                });
+
                 ControlFactory.CreateControl(layoutMaterial, "Unk Int 1 BGSM", bgsm.UnkInt1, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Unk Single 1 BGSM", bgsm.UnkSingle1, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Unk Single 2 BGSM", bgsm.UnkSingle2, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Unk Single 3 BGSM", bgsm.UnkSingle3, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutMaterial, "Terrain Threshold Falloff", bgsm.TerrainThresholdFalloff, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutMaterial, "Terrain Tiling Distance", bgsm.TerrainTilingDistance, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutMaterial, "Terrain Rotation Angle", bgsm.TerrainRotationAngle, (control) => { OnChanged(); });
             }
 
             if (defaultValues)
@@ -707,11 +736,11 @@ namespace Material_Editor
                 var emitColor = Color.FromArgb((int)bgem.EmittanceColor);
                 ControlFactory.CreateControl(layoutEffect, "Emit Color", emitColor, (control) => { OnChanged(); });
 
-                ControlFactory.CreateControl(layoutEffect, "Lum Emit", bgem.LumEmittance, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Unk Single 1 BGEM", bgem.UnkSingle1, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Unk Single 2 BGEM", bgem.UnkSingle2, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Unk Byte 1 BGEM", bgem.UnkByte1, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Unk Byte 2 BGEM", bgem.UnkByte2, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Exposure Offset", bgem.AdaptativeEmissive_ExposureOffset, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Final Exp. Min", bgem.AdaptativeEmissive_FinalExposureMin, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Final Exp. Max", bgem.AdaptativeEmissive_FinalExposureMax, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutEffect, "Effect Glowmap", bgem.Glowmap, (control) => { OnChanged(); });
+                ControlFactory.CreateControl(layoutEffect, "Effect PBR Specular", bgem.EffectPbrSpecular, (control) => { OnChanged(); });
             }
 
             SetControlVisibility();
@@ -727,6 +756,7 @@ namespace Material_Editor
             {
                 case GameVersion.FO4:
                     ControlFactory.SetVisible("Environment Mask Scale", true);
+                    ControlFactory.SetVisible("Depth Bias", false);
                     ControlFactory.SetVisible("Mask Writes", false);
 
                     ControlFactory.SetVisible("Inner Layer", true);
@@ -746,7 +776,7 @@ namespace Material_Editor
 
                     ControlFactory.SetVisible("Rim Lighting", true);
                     ControlFactory.SetVisible("Rim Power", true);
-                    ControlFactory.SetVisible("Back Light Power", true);
+                    ControlFactory.SetVisible("Backlight Power", true);
                     ControlFactory.SetVisible("Subsurface Lighting", true);
                     ControlFactory.SetVisible("Subsurface Lighting Rolloff", true);
 
@@ -758,10 +788,10 @@ namespace Material_Editor
 
                     ControlFactory.SetVisible("Lum Emittance", false);
 
-                    ControlFactory.SetVisible("Terrain", false);
-                    ControlFactory.SetVisible("Terrain Threshold Falloff", false);
-                    ControlFactory.SetVisible("Terrain Tiling Distance", false);
-                    ControlFactory.SetVisible("Terrain Rotation Angle", false);
+                    ControlFactory.SetVisible("Adaptative Emissive", false);
+                    ControlFactory.SetVisible("Adapt. Em. Exposure Offset", false);
+                    ControlFactory.SetVisible("Adapt. Em. Final Exposure Min", false);
+                    ControlFactory.SetVisible("Adapt. Em. Final Exposure Max", false);
 
                     ControlFactory.SetVisible("Back Lighting", true);
 
@@ -774,11 +804,11 @@ namespace Material_Editor
                     ControlFactory.SetVisible("Tessellation Base Factor", true);
                     ControlFactory.SetVisible("Tessellation Fade Distance", true);
 
-                    ControlFactory.SetVisible("Unk Bool 2 BGSM", false);
+                    ControlFactory.SetVisible("Terrain", false);
                     ControlFactory.SetVisible("Unk Int 1 BGSM", false);
-                    ControlFactory.SetVisible("Unk Single 1 BGSM", false);
-                    ControlFactory.SetVisible("Unk Single 2 BGSM", false);
-                    ControlFactory.SetVisible("Unk Single 3 BGSM", false);
+                    ControlFactory.SetVisible("Terrain Threshold Falloff", false);
+                    ControlFactory.SetVisible("Terrain Tiling Distance", false);
+                    ControlFactory.SetVisible("Terrain Rotation Angle", false);
 
                     ControlFactory.SetVisible("Specular Texture", false);
                     ControlFactory.SetVisible("Lighting Texture", false);
@@ -788,15 +818,16 @@ namespace Material_Editor
                     ControlFactory.SetVisible("Env Mapping Mask Scale", false);
 
                     ControlFactory.SetVisible("Emit Color", false);
-                    ControlFactory.SetVisible("Lum Emit", false);
-                    ControlFactory.SetVisible("Unk Single 1 BGEM", false);
-                    ControlFactory.SetVisible("Unk Single 2 BGEM", false);
-                    ControlFactory.SetVisible("Unk Byte 1 BGEM", false);
-                    ControlFactory.SetVisible("Unk Byte 2 BGEM", false);
+                    ControlFactory.SetVisible("Adaptative Em. Exposure Offset", false);
+                    ControlFactory.SetVisible("Adaptative Em. Final Exp. Min", false);
+                    ControlFactory.SetVisible("Adaptative Em. Final Exp. Max", false);
+                    ControlFactory.SetVisible("Effect Glowmap", false);
+                    ControlFactory.SetVisible("Effect PBR Specular", false);
                     break;
 
                 case GameVersion.FO76:
                     ControlFactory.SetVisible("Environment Mask Scale", false);
+                    ControlFactory.SetVisible("Depth Bias", true);
                     ControlFactory.SetVisible("Mask Writes", true);
 
                     ControlFactory.SetVisible("Inner Layer", false);
@@ -816,7 +847,7 @@ namespace Material_Editor
 
                     ControlFactory.SetVisible("Rim Lighting", false);
                     ControlFactory.SetVisible("Rim Power", false);
-                    ControlFactory.SetVisible("Back Light Power", false);
+                    ControlFactory.SetVisible("Backlight Power", false);
                     ControlFactory.SetVisible("Subsurface Lighting", false);
                     ControlFactory.SetVisible("Subsurface Lighting Rolloff", false);
 
@@ -828,10 +859,10 @@ namespace Material_Editor
 
                     ControlFactory.SetVisible("Lum Emittance", true);
 
-                    ControlFactory.SetVisible("Terrain", true);
-                    ControlFactory.SetVisible("Terrain Threshold Falloff", true);
-                    ControlFactory.SetVisible("Terrain Tiling Distance", true);
-                    ControlFactory.SetVisible("Terrain Rotation Angle", true);
+                    ControlFactory.SetVisible("Adaptative Emissive", true);
+                    ControlFactory.SetVisible("Adapt. Em. Exposure Offset", true);
+                    ControlFactory.SetVisible("Adapt. Em. Final Exposure Min", true);
+                    ControlFactory.SetVisible("Adapt. Em. Final Exposure Max", true);
 
                     ControlFactory.SetVisible("Back Lighting", false);
 
@@ -844,11 +875,11 @@ namespace Material_Editor
                     ControlFactory.SetVisible("Tessellation Base Factor", false);
                     ControlFactory.SetVisible("Tessellation Fade Distance", false);
 
-                    ControlFactory.SetVisible("Unk Bool 2 BGSM", true);
+                    ControlFactory.SetVisible("Terrain", true);
                     ControlFactory.SetVisible("Unk Int 1 BGSM", true);
-                    ControlFactory.SetVisible("Unk Single 1 BGSM", true);
-                    ControlFactory.SetVisible("Unk Single 2 BGSM", true);
-                    ControlFactory.SetVisible("Unk Single 3 BGSM", true);
+                    ControlFactory.SetVisible("Terrain Threshold Falloff", true);
+                    ControlFactory.SetVisible("Terrain Tiling Distance", true);
+                    ControlFactory.SetVisible("Terrain Rotation Angle", true);
 
                     ControlFactory.SetVisible("Specular Texture", true);
                     ControlFactory.SetVisible("Lighting Texture", true);
@@ -858,11 +889,11 @@ namespace Material_Editor
                     ControlFactory.SetVisible("Env Mapping Mask Scale", true);
 
                     ControlFactory.SetVisible("Emit Color", true);
-                    ControlFactory.SetVisible("Lum Emit", true);
-                    ControlFactory.SetVisible("Unk Single 1 BGEM", true);
-                    ControlFactory.SetVisible("Unk Single 2 BGEM", true);
-                    ControlFactory.SetVisible("Unk Byte 1 BGEM", true);
-                    ControlFactory.SetVisible("Unk Byte 2 BGEM", true);
+                    ControlFactory.SetVisible("Adaptative Em. Exposure Offset", true);
+                    ControlFactory.SetVisible("Adaptative Em. Final Exp. Min", true);
+                    ControlFactory.SetVisible("Adaptative Em. Final Exp. Max", true);
+                    ControlFactory.SetVisible("Effect Glowmap", true);
+                    ControlFactory.SetVisible("Effect PBR Specular", true);
                     break;
             }
 
@@ -956,6 +987,9 @@ namespace Material_Editor
 
             control = ControlFactory.Find("Environment Mask Scale");
             if (control != null) file.EnvironmentMappingMaskScale = Convert.ToSingle(control.GetProperty());
+
+            control = ControlFactory.Find("Depth Bias");
+            if (control != null) file.DepthBias = Convert.ToBoolean(control.GetProperty());
 
             control = ControlFactory.Find("Grayscale To Palette Color");
             if (control != null) file.GrayscaleToPaletteColor = Convert.ToBoolean(control.GetProperty());
@@ -1108,17 +1142,17 @@ namespace Material_Editor
                 control = ControlFactory.Find("Lum Emittance");
                 if (control != null) bgsm.LumEmittance = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Terrain");
-                if (control != null) bgsm.Terrain = Convert.ToBoolean(control.GetProperty());
+                control = ControlFactory.Find("Adaptative Emissive");
+                if (control != null) bgsm.UseAdaptativeEmissive = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Terrain Threshold Falloff");
-                if (control != null) bgsm.TerrainThresholdFalloff = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Adapt. Em. Exposure Offset");
+                if (control != null) bgsm.AdaptativeEmissive_ExposureOffset = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Terrain Tiling Distance");
-                if (control != null) bgsm.TerrainTilingDistance = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Adapt. Em. Final Exposure Min");
+                if (control != null) bgsm.AdaptativeEmissive_FinalExposureMin = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("TerrainRotationAngle");
-                if (control != null) bgsm.TerrainRotationAngle = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Adapt. Em. Final Exposure Max");
+                if (control != null) bgsm.AdaptativeEmissive_FinalExposureMax = Convert.ToSingle(control.GetProperty());
 
                 control = ControlFactory.Find("Back Lighting");
                 if (control != null) bgsm.BackLighting = Convert.ToBoolean(control.GetProperty());
@@ -1186,20 +1220,20 @@ namespace Material_Editor
                 control = ControlFactory.Find("Skew Specular Alpha");
                 if (control != null) bgsm.SkewSpecularAlpha = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Unk Bool 2 BGSM");
-                if (control != null) bgsm.UnkBool2 = Convert.ToBoolean(control.GetProperty());
+                control = ControlFactory.Find("Terrain");
+                if (control != null) bgsm.Terrain = Convert.ToBoolean(control.GetProperty());
 
                 control = ControlFactory.Find("Unk Int 1 BGSM");
                 if (control != null) bgsm.UnkInt1 = Convert.ToUInt32(control.GetProperty());
 
-                control = ControlFactory.Find("Unk Single 1 BGSM");
-                if (control != null) bgsm.UnkSingle1 = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Terrain Threshold Falloff");
+                if (control != null) bgsm.TerrainThresholdFalloff = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Unk Single 2 BGSM");
-                if (control != null) bgsm.UnkSingle2 = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Terrain Tiling Distance");
+                if (control != null) bgsm.TerrainTilingDistance = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Unk Single 3 BGSM");
-                if (control != null) bgsm.UnkSingle3 = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Terrain Rotation Angle");
+                if (control != null) bgsm.TerrainRotationAngle = Convert.ToSingle(control.GetProperty());
             }
             else if (file.GetType() == typeof(BGEM))
             {
@@ -1283,20 +1317,20 @@ namespace Material_Editor
                 control = ControlFactory.Find("Emit Color");
                 if (control != null) bgem.EmittanceColor = (uint)((Color)control.GetProperty()).ToArgb();
 
-                control = ControlFactory.Find("Lum Emit");
-                if (control != null) bgem.LumEmittance = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Adaptative Em. Exposure Offset");
+                if (control != null) bgem.AdaptativeEmissive_ExposureOffset = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Unk Single 1 BGEM");
-                if (control != null) bgem.UnkSingle1 = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Adaptative Em. Final Exp. Min");
+                if (control != null) bgem.AdaptativeEmissive_FinalExposureMin = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Unk Single 2 BGEM");
-                if (control != null) bgem.UnkSingle2 = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Adaptative Em. Final Exp. Max");
+                if (control != null) bgem.AdaptativeEmissive_FinalExposureMax = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Unk Byte 1 BGEM");
-                if (control != null) bgem.UnkByte1 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Effect Glowmap");
+                if (control != null) bgem.Glowmap = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Unk Byte 2 BGEM");
-                if (control != null) bgem.UnkByte2 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Effect PBR Specular");
+                if (control != null) bgem.EffectPbrSpecular = Convert.ToBoolean(control.GetProperty());
             }
         }
 
