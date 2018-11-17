@@ -13,7 +13,7 @@ namespace Material_Editor
         #region Fields
         protected virtual void SetDefaults()
         {
-            Version = 1;
+            Version = 2;
             TileU = true;
             TileV = true;
             UScale = 1.0f;

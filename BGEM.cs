@@ -21,7 +21,7 @@ namespace Material_Editor
             EnvmapMaskTexture = "";
             SpecularTexture = "";
             LightingTexture = "";
-            DistanceFieldAlphaTexture = "";
+            GlowTexture = "";
             BaseColor = 0xFFFFFFFFu;
             BaseColorScale = 1.0f;
             FalloffStartAngle = 1.0f;
@@ -59,8 +59,8 @@ namespace Material_Editor
         [DataMember(Name = "sLightingTexture")]
         public string LightingTexture { get; set; }
 
-        [DataMember(Name = "sDistanceFieldAlphaTexture")]
-        public string DistanceFieldAlphaTexture { get; set; }
+        [DataMember(Name = "sGlowTexture")]
+        public string GlowTexture { get; set; }
 
         [DataMember(Name = "bBloodEnabled")]
         public bool BloodEnabled { get; set; }
@@ -152,7 +152,7 @@ namespace Material_Editor
             {
                 SpecularTexture = ReadString(input);
                 LightingTexture = ReadString(input);
-                DistanceFieldAlphaTexture = ReadString(input);
+                GlowTexture = ReadString(input);
             }
 
             if (Version >= 10)
@@ -217,7 +217,7 @@ namespace Material_Editor
             {
                 WriteString(output, SpecularTexture);
                 WriteString(output, LightingTexture);
-                WriteString(output, DistanceFieldAlphaTexture);
+                WriteString(output, GlowTexture);
             }
 
             if (Version >= 10)

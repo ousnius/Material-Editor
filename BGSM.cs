@@ -324,11 +324,11 @@ namespace Material_Editor
             NormalTexture = ReadString(input);
             SmoothSpecTexture = ReadString(input);
             GreyscaleTexture = ReadString(input);
-            EnvmapTexture = ReadString(input);
-            GlowTexture = ReadString(input);
 
-            if (Version > 1)
+            if (Version > 2)
             {
+                GlowTexture = ReadString(input);
+                WrinklesTexture = ReadString(input);
                 SpecularTexture = ReadString(input);
                 LightingTexture = ReadString(input);
                 FlowTexture = ReadString(input);
@@ -340,6 +340,8 @@ namespace Material_Editor
             }
             else
             {
+                EnvmapTexture = ReadString(input);
+                GlowTexture = ReadString(input);
                 InnerLayerTexture = ReadString(input);
                 WrinklesTexture = ReadString(input);
                 DisplacementTexture = ReadString(input);
@@ -384,7 +386,7 @@ namespace Material_Editor
             WetnessControlFresnelPower = input.ReadSingle();
             WetnessControlMetalness = input.ReadSingle();
 
-            if (Version > 1)
+            if (Version > 2)
             {
                 PBR = input.ReadBoolean();
 
@@ -449,7 +451,7 @@ namespace Material_Editor
             SkinTint = input.ReadBoolean();
             Tessellate = input.ReadBoolean();
 
-            if (Version == 1)
+            if (Version < 3)
             {
                 DisplacementTextureBias = input.ReadSingle();
                 DisplacementTextureScale = input.ReadSingle();
@@ -491,11 +493,11 @@ namespace Material_Editor
             WriteString(output, NormalTexture);
             WriteString(output, SmoothSpecTexture);
             WriteString(output, GreyscaleTexture);
-            WriteString(output, EnvmapTexture);
-            WriteString(output, GlowTexture);
 
-            if (Version > 1)
+            if (Version > 2)
             {
+                WriteString(output, GlowTexture);
+                WriteString(output, WrinklesTexture);
                 WriteString(output, SpecularTexture);
                 WriteString(output, LightingTexture);
                 WriteString(output, FlowTexture);
@@ -507,6 +509,8 @@ namespace Material_Editor
             }
             else
             {
+                WriteString(output, EnvmapTexture);
+                WriteString(output, GlowTexture);
                 WriteString(output, InnerLayerTexture);
                 WriteString(output, WrinklesTexture);
                 WriteString(output, DisplacementTexture);
@@ -551,7 +555,7 @@ namespace Material_Editor
             output.Write(WetnessControlFresnelPower);
             output.Write(WetnessControlMetalness);
 
-            if (Version > 1)
+            if (Version > 2)
             {
                 output.Write(PBR);
 
@@ -616,7 +620,7 @@ namespace Material_Editor
             output.Write(SkinTint);
             output.Write(Tessellate);
             
-            if (Version == 1)
+            if (Version < 3)
             {
                 output.Write(DisplacementTextureBias);
                 output.Write(DisplacementTextureScale);

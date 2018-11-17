@@ -403,22 +403,10 @@ namespace Material_Editor
         #region Material
         private void CreateMaterialControls(BaseMaterialFile file = null)
         {
-            bool defaultValues = file == null;
-            if (defaultValues)
+            if (file == null)
                 file = new BGSM();
 
             ControlFactory.ClearControls();
-            
-            switch (config.GameVersion)
-            {
-                case GameVersion.FO4:
-                    file.Version = 1;
-                    break;
-
-                case GameVersion.FO76:
-                    file.Version = 20;
-                    break;
-            }
 
             ControlFactory.CreateControl(layoutGeneral, "Tile U", file.TileU, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutGeneral, "Tile V", file.TileV, (control) => { OnChanged(); });
@@ -477,271 +465,266 @@ namespace Material_Editor
             ControlFactory.CreateControl(layoutGeneral, "Grayscale To Palette Color", file.GrayscaleToPaletteColor, (control) => { OnChanged(); });
             ControlFactory.CreateFlagControl(layoutGeneral, "Mask Writes", Enum.GetNames(typeof(BaseMaterialFile.MaskWriteFlags)), (int)file.MaskWrites, (control) => { OnChanged(); });
 
-            if (file.GetType() == typeof(BGSM))
+            var bgsm = file as BGSM;
+            if (bgsm == null)
+                bgsm = new BGSM();
+
+            ControlFactory.CreateFileControl(layoutMaterial, "Diffuse", FileControl.FileType.Texture, bgsm.DiffuseTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Normal", FileControl.FileType.Texture, bgsm.NormalTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Smooth Spec", FileControl.FileType.Texture, bgsm.SmoothSpecTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Greyscale", FileControl.FileType.Texture, bgsm.GreyscaleTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Environment", FileControl.FileType.Texture, bgsm.EnvmapTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Glow", FileControl.FileType.Texture, bgsm.GlowTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Inner Layer", FileControl.FileType.Texture, bgsm.InnerLayerTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Wrinkles", FileControl.FileType.Texture, bgsm.WrinklesTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Displacement", FileControl.FileType.Texture, bgsm.DisplacementTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Specular", FileControl.FileType.Texture, bgsm.SpecularTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Lighting", FileControl.FileType.Texture, bgsm.LightingTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Flow", FileControl.FileType.Texture, bgsm.FlowTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Distance Field Alpha", FileControl.FileType.Texture, bgsm.DistanceFieldAlphaTexture, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Enable Editor Alpha Ref", bgsm.EnableEditorAlphaRef, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Rim Lighting", bgsm.RimLighting, (control) =>
             {
-                BGSM bgsm = (BGSM)file;
+                bool enabled = Convert.ToBoolean(control.GetProperty());
 
-                ControlFactory.CreateFileControl(layoutMaterial, "Diffuse", FileControl.FileType.Texture, bgsm.DiffuseTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Normal", FileControl.FileType.Texture, bgsm.NormalTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Smooth Spec", FileControl.FileType.Texture, bgsm.SmoothSpecTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Greyscale", FileControl.FileType.Texture, bgsm.GreyscaleTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Environment", FileControl.FileType.Texture, bgsm.EnvmapTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Glow", FileControl.FileType.Texture, bgsm.GlowTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Inner Layer", FileControl.FileType.Texture, bgsm.InnerLayerTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Wrinkles", FileControl.FileType.Texture, bgsm.WrinklesTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Displacement", FileControl.FileType.Texture, bgsm.DisplacementTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Specular", FileControl.FileType.Texture, bgsm.SpecularTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Lighting", FileControl.FileType.Texture, bgsm.LightingTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Flow", FileControl.FileType.Texture, bgsm.FlowTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutMaterial, "Distance Field Alpha", FileControl.FileType.Texture, bgsm.DistanceFieldAlphaTexture, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Enable Editor Alpha Ref", bgsm.EnableEditorAlphaRef, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Rim Lighting", bgsm.RimLighting, (control) =>
+                if (config.GameVersion == GameVersion.FO4)
                 {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
+                    ControlFactory.SetVisible("Rim Power", enabled);
+                }
 
-                    if (config.GameVersion == GameVersion.FO4)
-                    {
-                        ControlFactory.SetVisible("Rim Power", enabled);
-                    }
+                OnChanged();
+            });
 
-                    OnChanged();
-                });
+            ControlFactory.CreateControl(layoutMaterial, "Rim Power", bgsm.RimPower, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Backlight Power", bgsm.BackLightPower, (control) => { OnChanged(); });
 
-                ControlFactory.CreateControl(layoutMaterial, "Rim Power", bgsm.RimPower, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Backlight Power", bgsm.BackLightPower, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Subsurface Lighting", bgsm.SubsurfaceLighting, (control) =>
-                {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
-
-                    if (config.GameVersion == GameVersion.FO4)
-                    {
-                        ControlFactory.SetVisible("Subsurface Lighting Rolloff", enabled);
-                    }
-
-                    OnChanged();
-                });
-
-                ControlFactory.CreateControl(layoutMaterial, "Subsurface Lighting Rolloff", bgsm.SubsurfaceLightingRolloff, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Translucency", bgsm.Translucency, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Transl. Thick Object", bgsm.TranslucencyThickObject, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Transl. Alb+Subsurf Color", bgsm.TranslucencyMixAlbedoWithSubsurfaceColor, (control) => { OnChanged(); });
-
-                var translucencySubsurfaceColor = Color.FromArgb((int)bgsm.TranslucencySubsurfaceColor);
-                ControlFactory.CreateControl(layoutMaterial, "Transl. Subsurface Color", translucencySubsurfaceColor, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Transl. Transmissive Scale", bgsm.TranslucencyTransmissiveScale, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Transl. Turbulence", bgsm.TranslucencyTurbulence, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Specular Enabled", bgsm.SpecularEnabled, (control) =>
-                {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
-
-                    ControlFactory.SetVisible("Specular Color", enabled);
-                    ControlFactory.SetVisible("Specular Multiplier", enabled);
-
-                    OnChanged();
-                });
-
-                var specularColor = Color.FromArgb((int)bgsm.SpecularColor);
-                ControlFactory.CreateControl(layoutMaterial, "Specular Color", specularColor, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Specular Multiplier", bgsm.SpecularMult, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Smoothness", bgsm.Smoothness, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Fresnel Power", bgsm.FresnelPower, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Wet Spec Scale", bgsm.WetnessControlSpecScale, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Wet Spec Power Scale", bgsm.WetnessControlSpecPowerScale, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Wet Spec Min Var", bgsm.WetnessControlSpecMinvar, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Wet Env Map Scale", bgsm.WetnessControlEnvMapScale, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Wet Fresnel Power", bgsm.WetnessControlFresnelPower, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Wet Metalness", bgsm.WetnessControlMetalness, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "PBR", bgsm.PBR, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Custom Porosity", bgsm.CustomPorosity, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Porosity Value", bgsm.PorosityValue, (control) => { OnChanged(); });
-
-                ControlFactory.CreateFileControl(layoutMaterial, "Root Material Path", FileControl.FileType.Material, bgsm.RootMaterialPath, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Aniso Lighting", bgsm.AnisoLighting, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Emittance Enabled", bgsm.EmitEnabled, (control) =>
-                {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
-
-                    ControlFactory.SetVisible("Emittance Color", enabled);
-                    ControlFactory.SetVisible("Emittance Multiplier", enabled);
-                    
-                    OnChanged();
-                });
-
-                var emittanceColor = Color.FromArgb((int)bgsm.EmittanceColor);
-                ControlFactory.CreateControl(layoutMaterial, "Emittance Color", emittanceColor, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Emittance Multiplier", bgsm.EmittanceMult, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Model Space Normals", bgsm.ModelSpaceNormals, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "External Emittance", bgsm.ExternalEmittance, (control) => { OnChanged(); });
-                
-                ControlFactory.CreateControl(layoutMaterial, "Lum Emittance", bgsm.LumEmittance, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Adaptative Emissive", bgsm.UseAdaptativeEmissive, (control) =>
-                {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
-
-                    if (config.GameVersion == GameVersion.FO76)
-                    {
-                        ControlFactory.SetVisible("Adapt. Em. Exposure Offset", enabled);
-                        ControlFactory.SetVisible("Adapt. Em. Final Exposure Min", enabled);
-                        ControlFactory.SetVisible("Adapt. Em. Final Exposure Max", enabled);
-                    }
-
-                    OnChanged();
-                });
-
-                ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Exposure Offset", bgsm.AdaptativeEmissive_ExposureOffset, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Final Exposure Min", bgsm.AdaptativeEmissive_FinalExposureMin, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Final Exposure Max", bgsm.AdaptativeEmissive_FinalExposureMax, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Back Lighting", bgsm.BackLighting, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Receive Shadows", bgsm.ReceiveShadows, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Hide Secret", bgsm.HideSecret, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Cast Shadows", bgsm.CastShadows, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Dissolve Fade", bgsm.DissolveFade, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Assume Shadowmask", bgsm.AssumeShadowmask, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Glowmap", bgsm.Glowmap, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Environment Map Window", bgsm.EnvironmentMappingWindow, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Environment Map Eye", bgsm.EnvironmentMappingEye, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Hair", bgsm.Hair, (control) =>
-                {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
-
-                    ControlFactory.SetVisible("Hair Tint Color", enabled);
-                    
-                    OnChanged();
-                });
-
-                var hairTintColor = Color.FromArgb((int)bgsm.HairTintColor);
-                ControlFactory.CreateControl(layoutMaterial, "Hair Tint Color", hairTintColor, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Tree", bgsm.Tree, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Facegen", bgsm.Facegen, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Skin Tint", bgsm.SkinTint, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Tessellate", bgsm.Tessellate, (control) =>
-                {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
-
-                    if (config.GameVersion == GameVersion.FO4)
-                    {
-                        ControlFactory.SetVisible("Displacement Tex Bias", enabled);
-                        ControlFactory.SetVisible("Displacement Tex Scale", enabled);
-                        ControlFactory.SetVisible("Tessellation PN Scale", enabled);
-                        ControlFactory.SetVisible("Tessellation Base Factor", enabled);
-                        ControlFactory.SetVisible("Tessellation Fade Distance", enabled);
-                    }
-
-                    OnChanged();
-                });
-
-                ControlFactory.CreateControl(layoutMaterial, "Displacement Tex Bias", bgsm.DisplacementTextureBias, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Displacement Tex Scale", bgsm.DisplacementTextureScale, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Tessellation PN Scale", bgsm.TessellationPnScale, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Tessellation Base Factor", bgsm.TessellationBaseFactor, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Tessellation Fade Distance", bgsm.TessellationFadeDistance, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Grayscale To Palette Scale", bgsm.GrayscaleToPaletteScale, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Skew Specular Alpha", bgsm.SkewSpecularAlpha, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutMaterial, "Terrain", bgsm.Terrain, (control) =>
-                {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
-
-                    if (config.GameVersion == GameVersion.FO76)
-                    {
-                        ControlFactory.SetVisible("Unk Int 1 BGSM", enabled);
-                        ControlFactory.SetVisible("Terrain Threshold Falloff", enabled);
-                        ControlFactory.SetVisible("Terrain Tiling Distance", enabled);
-                        ControlFactory.SetVisible("Terrain Rotation Angle", enabled);
-                    }
-
-                    OnChanged();
-                });
-
-                ControlFactory.CreateControl(layoutMaterial, "Unk Int 1 BGSM", bgsm.UnkInt1, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Terrain Threshold Falloff", bgsm.TerrainThresholdFalloff, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Terrain Tiling Distance", bgsm.TerrainTilingDistance, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutMaterial, "Terrain Rotation Angle", bgsm.TerrainRotationAngle, (control) => { OnChanged(); });
-            }
-
-            if (defaultValues)
-                file = new BGEM();
-
-            if (file.GetType() == typeof(BGEM))
+            ControlFactory.CreateControl(layoutMaterial, "Subsurface Lighting", bgsm.SubsurfaceLighting, (control) =>
             {
-                BGEM bgem = (BGEM)file;
+                bool enabled = Convert.ToBoolean(control.GetProperty());
 
-                ControlFactory.CreateFileControl(layoutEffect, "Base Texture", FileControl.FileType.Texture, bgem.BaseTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutEffect, "Grayscale Texture", FileControl.FileType.Texture, bgem.GrayscaleTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutEffect, "Envmap Texture", FileControl.FileType.Texture, bgem.EnvmapTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutEffect, "Normal Texture", FileControl.FileType.Texture, bgem.NormalTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutEffect, "Envmap Mask Texture", FileControl.FileType.Texture, bgem.EnvmapMaskTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutEffect, "Specular Texture", FileControl.FileType.Texture, bgem.SpecularTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutEffect, "Lighting Texture", FileControl.FileType.Texture, bgem.LightingTexture, (control) => { OnChanged(); });
-                ControlFactory.CreateFileControl(layoutEffect, "Distance Field Alpha Texture", FileControl.FileType.Texture, bgem.DistanceFieldAlphaTexture, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutEffect, "Env Mapping", bgem.EnvironmentMapping, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Env Mapping Mask Scale", bgem.EnvironmentMappingMaskScale, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutEffect, "Blood Enabled", bgem.BloodEnabled, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Effect Lighting Enabled", bgem.EffectLightingEnabled, (control) => { OnChanged(); });
-
-                ControlFactory.CreateControl(layoutEffect, "Falloff Enabled", bgem.FalloffEnabled, (control) =>
+                if (config.GameVersion == GameVersion.FO4)
                 {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
+                    ControlFactory.SetVisible("Subsurface Lighting Rolloff", enabled);
+                }
 
-                    ControlFactory.SetVisible("Falloff Start Angle", enabled);
-                    ControlFactory.SetVisible("Falloff Stop Angle", enabled);
-                    ControlFactory.SetVisible("Falloff Start Opacity", enabled);
-                    ControlFactory.SetVisible("Falloff Stop Opacity", enabled);
+                OnChanged();
+            });
 
-                    OnChanged();
-                });
+            ControlFactory.CreateControl(layoutMaterial, "Subsurface Lighting Rolloff", bgsm.SubsurfaceLightingRolloff, (control) => { OnChanged(); });
 
-                ControlFactory.CreateControl(layoutEffect, "Falloff Color Enabled", bgem.FalloffColorEnabled, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Grayscale To Palette Alpha", bgem.GrayscaleToPaletteAlpha, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Translucency", bgsm.Translucency, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Transl. Thick Object", bgsm.TranslucencyThickObject, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Transl. Alb+Subsurf Color", bgsm.TranslucencyMixAlbedoWithSubsurfaceColor, (control) => { OnChanged(); });
 
-                ControlFactory.CreateControl(layoutEffect, "Soft Enabled", bgem.SoftEnabled, (control) =>
+            var translucencySubsurfaceColor = Color.FromArgb((int)bgsm.TranslucencySubsurfaceColor);
+            ControlFactory.CreateControl(layoutMaterial, "Transl. Subsurface Color", translucencySubsurfaceColor, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Transl. Transmissive Scale", bgsm.TranslucencyTransmissiveScale, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Transl. Turbulence", bgsm.TranslucencyTurbulence, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Specular Enabled", bgsm.SpecularEnabled, (control) =>
+            {
+                bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                ControlFactory.SetVisible("Specular Color", enabled);
+                ControlFactory.SetVisible("Specular Multiplier", enabled);
+
+                OnChanged();
+            });
+
+            var specularColor = Color.FromArgb((int)bgsm.SpecularColor);
+            ControlFactory.CreateControl(layoutMaterial, "Specular Color", specularColor, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Specular Multiplier", bgsm.SpecularMult, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Smoothness", bgsm.Smoothness, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Fresnel Power", bgsm.FresnelPower, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Wet Spec Scale", bgsm.WetnessControlSpecScale, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Wet Spec Power Scale", bgsm.WetnessControlSpecPowerScale, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Wet Spec Min Var", bgsm.WetnessControlSpecMinvar, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Wet Env Map Scale", bgsm.WetnessControlEnvMapScale, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Wet Fresnel Power", bgsm.WetnessControlFresnelPower, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Wet Metalness", bgsm.WetnessControlMetalness, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "PBR", bgsm.PBR, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Custom Porosity", bgsm.CustomPorosity, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Porosity Value", bgsm.PorosityValue, (control) => { OnChanged(); });
+
+            ControlFactory.CreateFileControl(layoutMaterial, "Root Material Path", FileControl.FileType.Material, bgsm.RootMaterialPath, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Aniso Lighting", bgsm.AnisoLighting, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Emittance Enabled", bgsm.EmitEnabled, (control) =>
+            {
+                bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                ControlFactory.SetVisible("Emittance Color", enabled);
+                ControlFactory.SetVisible("Emittance Multiplier", enabled);
+
+                OnChanged();
+            });
+
+            var emittanceColor = Color.FromArgb((int)bgsm.EmittanceColor);
+            ControlFactory.CreateControl(layoutMaterial, "Emittance Color", emittanceColor, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Emittance Multiplier", bgsm.EmittanceMult, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Model Space Normals", bgsm.ModelSpaceNormals, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "External Emittance", bgsm.ExternalEmittance, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Lum Emittance", bgsm.LumEmittance, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Adaptative Emissive", bgsm.UseAdaptativeEmissive, (control) =>
+            {
+                bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                if (config.GameVersion == GameVersion.FO76)
                 {
-                    bool enabled = Convert.ToBoolean(control.GetProperty());
+                    ControlFactory.SetVisible("Adapt. Em. Exposure Offset", enabled);
+                    ControlFactory.SetVisible("Adapt. Em. Final Exposure Min", enabled);
+                    ControlFactory.SetVisible("Adapt. Em. Final Exposure Max", enabled);
+                }
 
-                    ControlFactory.SetVisible("Soft Depth", enabled);
+                OnChanged();
+            });
 
-                    OnChanged();
-                });
+            ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Exposure Offset", bgsm.AdaptativeEmissive_ExposureOffset, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Final Exposure Min", bgsm.AdaptativeEmissive_FinalExposureMin, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Final Exposure Max", bgsm.AdaptativeEmissive_FinalExposureMax, (control) => { OnChanged(); });
 
-                var baseColor = Color.FromArgb((int)bgem.BaseColor);
-                ControlFactory.CreateControl(layoutEffect, "Base Color", baseColor, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Back Lighting", bgsm.BackLighting, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Receive Shadows", bgsm.ReceiveShadows, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Hide Secret", bgsm.HideSecret, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Cast Shadows", bgsm.CastShadows, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Dissolve Fade", bgsm.DissolveFade, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Assume Shadowmask", bgsm.AssumeShadowmask, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Glowmap", bgsm.Glowmap, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Environment Map Window", bgsm.EnvironmentMappingWindow, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Environment Map Eye", bgsm.EnvironmentMappingEye, (control) => { OnChanged(); });
 
-                ControlFactory.CreateControl(layoutEffect, "Base Color Scale", bgem.BaseColorScale, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Falloff Start Angle", bgem.FalloffStartAngle, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Falloff Stop Angle", bgem.FalloffStopAngle, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Falloff Start Opacity", bgem.FalloffStartOpacity, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Falloff Stop Opacity", bgem.FalloffStopOpacity, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Lighting Influence", bgem.LightingInfluence, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Envmap Min LOD", bgem.EnvmapMinLOD, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Soft Depth", bgem.SoftDepth, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Hair", bgsm.Hair, (control) =>
+            {
+                bool enabled = Convert.ToBoolean(control.GetProperty());
 
-                var emitColor = Color.FromArgb((int)bgem.EmittanceColor);
-                ControlFactory.CreateControl(layoutEffect, "Emit Color", emitColor, (control) => { OnChanged(); });
+                ControlFactory.SetVisible("Hair Tint Color", enabled);
 
-                ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Exposure Offset", bgem.AdaptativeEmissive_ExposureOffset, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Final Exp. Min", bgem.AdaptativeEmissive_FinalExposureMin, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Final Exp. Max", bgem.AdaptativeEmissive_FinalExposureMax, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Effect Glowmap", bgem.Glowmap, (control) => { OnChanged(); });
-                ControlFactory.CreateControl(layoutEffect, "Effect PBR Specular", bgem.EffectPbrSpecular, (control) => { OnChanged(); });
-            }
+                OnChanged();
+            });
+
+            var hairTintColor = Color.FromArgb((int)bgsm.HairTintColor);
+            ControlFactory.CreateControl(layoutMaterial, "Hair Tint Color", hairTintColor, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Tree", bgsm.Tree, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Facegen", bgsm.Facegen, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Skin Tint", bgsm.SkinTint, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Tessellate", bgsm.Tessellate, (control) =>
+            {
+                bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                if (config.GameVersion == GameVersion.FO4)
+                {
+                    ControlFactory.SetVisible("Displacement Tex Bias", enabled);
+                    ControlFactory.SetVisible("Displacement Tex Scale", enabled);
+                    ControlFactory.SetVisible("Tessellation PN Scale", enabled);
+                    ControlFactory.SetVisible("Tessellation Base Factor", enabled);
+                    ControlFactory.SetVisible("Tessellation Fade Distance", enabled);
+                }
+
+                OnChanged();
+            });
+
+            ControlFactory.CreateControl(layoutMaterial, "Displacement Tex Bias", bgsm.DisplacementTextureBias, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Displacement Tex Scale", bgsm.DisplacementTextureScale, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Tessellation PN Scale", bgsm.TessellationPnScale, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Tessellation Base Factor", bgsm.TessellationBaseFactor, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Tessellation Fade Distance", bgsm.TessellationFadeDistance, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Grayscale To Palette Scale", bgsm.GrayscaleToPaletteScale, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Skew Specular Alpha", bgsm.SkewSpecularAlpha, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutMaterial, "Terrain", bgsm.Terrain, (control) =>
+            {
+                bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                if (config.GameVersion == GameVersion.FO76)
+                {
+                    ControlFactory.SetVisible("Unk Int 1 BGSM", enabled);
+                    ControlFactory.SetVisible("Terrain Threshold Falloff", enabled);
+                    ControlFactory.SetVisible("Terrain Tiling Distance", enabled);
+                    ControlFactory.SetVisible("Terrain Rotation Angle", enabled);
+                }
+
+                OnChanged();
+            });
+
+            ControlFactory.CreateControl(layoutMaterial, "Unk Int 1 BGSM", bgsm.UnkInt1, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Terrain Threshold Falloff", bgsm.TerrainThresholdFalloff, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Terrain Tiling Distance", bgsm.TerrainTilingDistance, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutMaterial, "Terrain Rotation Angle", bgsm.TerrainRotationAngle, (control) => { OnChanged(); });
+
+            var bgem = file as BGEM;
+            if (bgem == null)
+                bgem = new BGEM();
+
+            ControlFactory.CreateFileControl(layoutEffect, "Base Texture", FileControl.FileType.Texture, bgem.BaseTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Grayscale Texture", FileControl.FileType.Texture, bgem.GrayscaleTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Envmap Texture", FileControl.FileType.Texture, bgem.EnvmapTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Normal Texture", FileControl.FileType.Texture, bgem.NormalTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Envmap Mask Texture", FileControl.FileType.Texture, bgem.EnvmapMaskTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Specular Texture", FileControl.FileType.Texture, bgem.SpecularTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Lighting Texture", FileControl.FileType.Texture, bgem.LightingTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Glow Texture", FileControl.FileType.Texture, bgem.GlowTexture, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutEffect, "Env Mapping", bgem.EnvironmentMapping, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Env Mapping Mask Scale", bgem.EnvironmentMappingMaskScale, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutEffect, "Blood Enabled", bgem.BloodEnabled, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Effect Lighting Enabled", bgem.EffectLightingEnabled, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutEffect, "Falloff Enabled", bgem.FalloffEnabled, (control) =>
+            {
+                bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                ControlFactory.SetVisible("Falloff Start Angle", enabled);
+                ControlFactory.SetVisible("Falloff Stop Angle", enabled);
+                ControlFactory.SetVisible("Falloff Start Opacity", enabled);
+                ControlFactory.SetVisible("Falloff Stop Opacity", enabled);
+
+                OnChanged();
+            });
+
+            ControlFactory.CreateControl(layoutEffect, "Falloff Color Enabled", bgem.FalloffColorEnabled, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Grayscale To Palette Alpha", bgem.GrayscaleToPaletteAlpha, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutEffect, "Soft Enabled", bgem.SoftEnabled, (control) =>
+            {
+                bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                ControlFactory.SetVisible("Soft Depth", enabled);
+
+                OnChanged();
+            });
+
+            var baseColor = Color.FromArgb((int)bgem.BaseColor);
+            ControlFactory.CreateControl(layoutEffect, "Base Color", baseColor, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutEffect, "Base Color Scale", bgem.BaseColorScale, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Falloff Start Angle", bgem.FalloffStartAngle, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Falloff Stop Angle", bgem.FalloffStopAngle, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Falloff Start Opacity", bgem.FalloffStartOpacity, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Falloff Stop Opacity", bgem.FalloffStopOpacity, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Lighting Influence", bgem.LightingInfluence, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Envmap Min LOD", bgem.EnvmapMinLOD, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Soft Depth", bgem.SoftDepth, (control) => { OnChanged(); });
+
+            var emitColor = Color.FromArgb((int)bgem.EmittanceColor);
+            ControlFactory.CreateControl(layoutEffect, "Emit Color", emitColor, (control) => { OnChanged(); });
+
+            ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Exposure Offset", bgem.AdaptativeEmissive_ExposureOffset, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Final Exp. Min", bgem.AdaptativeEmissive_FinalExposureMin, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Final Exp. Max", bgem.AdaptativeEmissive_FinalExposureMax, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Effect Glowmap", bgem.Glowmap, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Effect PBR Specular", bgem.EffectPbrSpecular, (control) => { OnChanged(); });
 
             SetControlVisibility();
         }
@@ -759,8 +742,8 @@ namespace Material_Editor
                     ControlFactory.SetVisible("Depth Bias", false);
                     ControlFactory.SetVisible("Mask Writes", false);
 
+                    ControlFactory.SetVisible("Environment", true);
                     ControlFactory.SetVisible("Inner Layer", true);
-                    ControlFactory.SetVisible("Wrinkles", true);
                     ControlFactory.SetVisible("Displacement", true);
                     ControlFactory.SetVisible("Specular", false);
                     ControlFactory.SetVisible("Lighting", false);
@@ -830,8 +813,8 @@ namespace Material_Editor
                     ControlFactory.SetVisible("Depth Bias", true);
                     ControlFactory.SetVisible("Mask Writes", true);
 
+                    ControlFactory.SetVisible("Environment", false);
                     ControlFactory.SetVisible("Inner Layer", false);
-                    ControlFactory.SetVisible("Wrinkles", false);
                     ControlFactory.SetVisible("Displacement", false);
                     ControlFactory.SetVisible("Specular", true);
                     ControlFactory.SetVisible("Lighting", true);
@@ -911,7 +894,7 @@ namespace Material_Editor
             switch (config.GameVersion)
             {
                 case GameVersion.FO4:
-                    file.Version = 1;
+                    file.Version = 2;
                     break;
 
                 case GameVersion.FO76:
@@ -1260,8 +1243,8 @@ namespace Material_Editor
                 control = ControlFactory.Find("Lighting Texture");
                 if (control != null) bgem.LightingTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Distance Field Alpha Texture");
-                if (control != null) bgem.DistanceFieldAlphaTexture = Convert.ToString(control.GetProperty());
+                control = ControlFactory.Find("Glow Texture");
+                if (control != null) bgem.GlowTexture = Convert.ToString(control.GetProperty());
 
                 control = ControlFactory.Find("Env Mapping");
                 if (control != null) bgem.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
