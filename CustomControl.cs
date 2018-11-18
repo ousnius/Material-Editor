@@ -41,6 +41,7 @@ namespace Material_Editor
             foreach (var control in customControls)
             {
                 control.Value.Parent.Controls.Remove(control.Value);
+                control.Value.Dispose();
             }
 
             customControls.Clear();
