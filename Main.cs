@@ -63,15 +63,9 @@ namespace Material_Editor
             layoutMaterial.Enabled = true;
             layoutEffect.Enabled = true;
 
-            layoutGeneral.SuspendLayout();
-            layoutMaterial.SuspendLayout();
-            layoutEffect.SuspendLayout();
-
+            SuspendAll();
             CreateMaterialControls();
-
-            layoutGeneral.ResumeLayout(true);
-            layoutMaterial.ResumeLayout(true);
-            layoutEffect.ResumeLayout(true);
+            ResumeAll();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -272,7 +266,11 @@ namespace Material_Editor
             if (config.GameVersion != selectedVersion)
             {
                 config.GameVersion = selectedVersion;
+
+                SuspendAll();
                 SetControlVisibility();
+                ResumeAll();
+
                 OnChanged();
             }
         }
@@ -332,10 +330,25 @@ namespace Material_Editor
             toolTipPopping = false;
         }
 
+        private void SuspendAll()
+        {
+            SuspendLayout();
+            layoutGeneral.SuspendLayout();
+            layoutMaterial.SuspendLayout();
+            layoutEffect.SuspendLayout();
+        }
+
+        private void ResumeAll()
+        {
+            ResumeLayout();
+            layoutGeneral.ResumeLayout();
+            layoutMaterial.ResumeLayout();
+            layoutEffect.ResumeLayout();
+        }
 
         private void TabScroll(object sender, ScrollEventArgs e)
         {
-            TabPage tab = (TabPage)sender;
+            var tab = (TabPage)sender;
             tab.Update();
         }
 
@@ -351,18 +364,12 @@ namespace Material_Editor
 
         private void Main_ResizeBegin(object sender, EventArgs e)
         {
-            SuspendLayout();
-            layoutGeneral.SuspendLayout();
-            layoutMaterial.SuspendLayout();
-            layoutEffect.SuspendLayout();
+            SuspendAll();
         }
 
         private void Main_ResizeEnd(object sender, EventArgs e)
         {
-            ResumeLayout(true);
-            layoutGeneral.ResumeLayout(true);
-            layoutMaterial.ResumeLayout(true);
-            layoutEffect.ResumeLayout(true);
+            ResumeAll();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -932,10 +939,6 @@ namespace Material_Editor
 
         private void SetControlVisibility()
         {
-            layoutGeneral.SuspendLayout();
-            layoutMaterial.SuspendLayout();
-            layoutEffect.SuspendLayout();
-
             switch (config.GameVersion)
             {
                 case GameVersion.FO4:
@@ -1082,10 +1085,6 @@ namespace Material_Editor
             }
 
             ControlFactory.RunChangedCallbacks();
-
-            layoutGeneral.ResumeLayout();
-            layoutMaterial.ResumeLayout();
-            layoutEffect.ResumeLayout();
         }
 
         private void GetMaterialValues(BaseMaterialFile file)
@@ -1553,15 +1552,9 @@ namespace Material_Editor
                     return;
                 }
 
-                layoutGeneral.SuspendLayout();
-                layoutMaterial.SuspendLayout();
-                layoutEffect.SuspendLayout();
-
+                SuspendAll();
                 CreateMaterialControls(material);
-
-                layoutGeneral.ResumeLayout(true);
-                layoutMaterial.ResumeLayout(true);
-                layoutEffect.ResumeLayout(true);
+                ResumeAll();
 
                 workFileName = fileName;
 
