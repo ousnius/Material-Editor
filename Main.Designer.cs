@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +53,7 @@
             this.layoutEffect = new System.Windows.Forms.TableLayoutPanel();
             this.textureFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.listVersion = new System.Windows.Forms.ComboBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -222,7 +224,7 @@
             this.tabPageMaterial.Controls.Add(this.layoutMaterial);
             this.tabPageMaterial.Location = new System.Drawing.Point(4, 22);
             this.tabPageMaterial.Name = "tabPageMaterial";
-            this.tabPageMaterial.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageMaterial.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageMaterial.Size = new System.Drawing.Size(517, 480);
             this.tabPageMaterial.TabIndex = 0;
             this.tabPageMaterial.Text = "Material";
@@ -250,7 +252,7 @@
             this.tabPageEffect.Controls.Add(this.layoutEffect);
             this.tabPageEffect.Location = new System.Drawing.Point(4, 22);
             this.tabPageEffect.Name = "tabPageEffect";
-            this.tabPageEffect.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageEffect.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageEffect.Size = new System.Drawing.Size(517, 480);
             this.tabPageEffect.TabIndex = 1;
             this.tabPageEffect.Text = "Effect";
@@ -287,6 +289,15 @@
             this.listVersion.Size = new System.Drawing.Size(142, 21);
             this.listVersion.TabIndex = 3;
             this.listVersion.SelectedIndexChanged += new System.EventHandler(this.listVersion_SelectedIndexChanged);
+            // 
+            // toolTip
+            // 
+            this.toolTip.AutoPopDelay = 5000;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.toolTip.ToolTipTitle = "Info";
+            this.toolTip.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip_Popup);
             // 
             // Main
             // 
@@ -349,6 +360,7 @@
         private System.Windows.Forms.TableLayoutPanel layoutEffect;
         private System.Windows.Forms.TableLayoutPanel layoutMaterial;
         private System.Windows.Forms.ComboBox listVersion;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

@@ -7,11 +7,23 @@ namespace Material_Editor
 {
     public class CustomControl : UserControl
     {
+        public string CurrentToolTip;
         protected Action<CustomControl> ChangedCallback;
 
         public virtual object GetProperty()
         {
             return null;
+        }
+
+        public void SetTooltip(ToolTip parentTooltip, string toolTip)
+        {
+            CurrentToolTip = toolTip;
+            parentTooltip.SetToolTip(this, CurrentToolTip);
+
+            foreach (Control c in Controls)
+            {
+                parentTooltip.SetToolTip(c, CurrentToolTip);
+            }
         }
 
         public void RunChangedCallback()
@@ -46,6 +58,15 @@ namespace Material_Editor
         {
             if (customControls.ContainsKey(name))
                 customControls[name].Visible = visible;
+        }
+
+        public static void SetTooltip(string name, ToolTip parentTooltip, string toolTip)
+        {
+            if (customControls.ContainsKey(name))
+            {
+                var control = customControls[name];
+                control.SetTooltip(parentTooltip, toolTip);
+            }
         }
 
         public static void RunChangedCallbacks()

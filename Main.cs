@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Json;
 using System.Threading;
 using System.Globalization;
 using System.Configuration;
+using System.Linq;
 
 namespace Material_Editor
 {
@@ -26,6 +27,7 @@ namespace Material_Editor
         private Config config = new Config();
         private string workFileName;
         private bool changed;
+        private bool toolTipPopping;
 
         public Main()
         {
@@ -263,7 +265,73 @@ namespace Material_Editor
             var about = new AboutDialog();
             about.ShowDialog();
         }
-        
+
+        private void listVersion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedVersion = (GameVersion)listVersion.SelectedIndex;
+            if (config.GameVersion != selectedVersion)
+            {
+                config.GameVersion = selectedVersion;
+                SetControlVisibility();
+                OnChanged();
+            }
+        }
+
+        private void toolTip_Popup(object sender, PopupEventArgs e)
+        {
+            if (toolTipPopping)
+                return;
+
+            toolTipPopping = true;
+
+            var control = e.AssociatedControl as CustomControl;
+            if (control == null)
+            {
+                control = e.AssociatedControl.Parent as CustomControl;
+            }
+
+            if (control != null)
+            {
+                var currentToolTip = control.CurrentToolTip;
+                if (currentToolTip != null)
+                {
+                    var newToolTip = currentToolTip;
+
+                    var controlType = control.GetType();
+                    if (controlType == typeof(ColorControl))
+                    {
+                        var knownColorLookup = Enum.GetValues(typeof(KnownColor))
+                            .Cast<KnownColor>()
+                            .Select(Color.FromKnownColor)
+                            .Where(c => !c.IsSystemColor)
+                            .ToLookup(c => c.ToArgb());
+
+                        var colorControl = control as ColorControl;
+                        var currentColor = colorControl.CurrentColor;
+                        var knownColors = knownColorLookup[currentColor.ToArgb()];
+                        if (knownColors.Count() > 0)
+                        {
+                            var colorList = knownColors.Aggregate("", (str, obj) => str + obj.Name + ", ").TrimEnd(' ', ',');
+                            newToolTip = $"{currentToolTip}{Environment.NewLine}Color: {currentColor.R}, {currentColor.G}, {currentColor.B} ({colorList})";
+                        }
+                        else
+                        {
+                            newToolTip = $"{currentToolTip}{Environment.NewLine}Color: {currentColor.R}, {currentColor.G}, {currentColor.B}";
+                        }
+                    }
+                    else if (controlType == typeof(FileControl))
+                    {
+                        var fileControl = control as FileControl;
+                        newToolTip = $"{currentToolTip}{Environment.NewLine}File Type: {fileControl.CurrentFileType}";
+                    }
+
+                    toolTip.SetToolTip(e.AssociatedControl, newToolTip);
+                }
+            }
+
+            toolTipPopping = false;
+        }
+
 
         private void TabScroll(object sender, ScrollEventArgs e)
         {
@@ -385,17 +453,6 @@ namespace Material_Editor
                 {
                     MessageBox.Show("Format not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-        }
-
-        private void listVersion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var selectedVersion = (GameVersion)listVersion.SelectedIndex;
-            if (config.GameVersion != selectedVersion)
-            {
-                config.GameVersion = selectedVersion;
-                SetControlVisibility();
-                OnChanged();
             }
         }
         #endregion
@@ -726,7 +783,151 @@ namespace Material_Editor
             ControlFactory.CreateControl(layoutEffect, "Effect Glowmap", bgem.Glowmap, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutEffect, "Effect PBR Specular", bgem.EffectPbrSpecular, (control) => { OnChanged(); });
 
+            CreateTooltips();
             SetControlVisibility();
+        }
+
+        private void CreateTooltips()
+        {
+            toolTip.RemoveAll();
+
+            ControlFactory.SetTooltip("Tile U", toolTip, "Tile the U texture coordinate (wrapping/repeating the texture).");
+            ControlFactory.SetTooltip("Tile V", toolTip, "Tile the V texture coordinate (wrapping/repeating the texture).");
+            ControlFactory.SetTooltip("Offset U", toolTip, "Offset the U texture coordinate.");
+            ControlFactory.SetTooltip("Offset V", toolTip, "Offset the V texture coordinate.");
+            ControlFactory.SetTooltip("Scale U", toolTip, "Scale the U texture coordinate.");
+            ControlFactory.SetTooltip("Scale V", toolTip, "Scale the V texture coordinate.");
+            ControlFactory.SetTooltip("Alpha", toolTip, "Fixed alpha value that applies to the entire mesh (unrelated to texture alpha).");
+            ControlFactory.SetTooltip("Alpha Blend Mode", toolTip, "Defines the mode at which alpha is blended into other meshes.");
+            ControlFactory.SetTooltip("Alpha Test Reference", toolTip, "Reference value to do alpha testing for. Transparency happens when alpha is below or exceeds the reference value (depending on modes).");
+            ControlFactory.SetTooltip("Alpha Test", toolTip, "Toggle alpha testing using the reference value.");
+            ControlFactory.SetTooltip("Z Buffer Write", toolTip, "The mesh writes to the z-buffer to make others aware of its depth.");
+            ControlFactory.SetTooltip("Z Buffer Test", toolTip, "The mesh tests the z-buffer to take note of other meshes depth.");
+            ControlFactory.SetTooltip("Screen Space Reflections", toolTip, "Toggle screen space reflections.");
+            ControlFactory.SetTooltip("Wetness Control SSR", toolTip, "Toggle wetness control for screen space reflections.");
+            ControlFactory.SetTooltip("Decal", toolTip, "Toggle decal rendering.");
+            ControlFactory.SetTooltip("Two Sided", toolTip, "Renders both sides of all faces of the mesh (double sided).");
+            ControlFactory.SetTooltip("Decal No Fade", toolTip, "Toggle decal rendering without fade.");
+            ControlFactory.SetTooltip("Non Occluder", toolTip, "Don't perform occlusion (line-of-sight).");
+            ControlFactory.SetTooltip("Refraction", toolTip, "Toggle refraction of light.");
+            ControlFactory.SetTooltip("Refraction Falloff", toolTip, "Toggles refraction falloff.");
+            ControlFactory.SetTooltip("Refraction Power", toolTip, "Power of the refraction.");
+            ControlFactory.SetTooltip("Environment Mapping", toolTip, "Toggle environment mapping.");
+            ControlFactory.SetTooltip("Environment Mask Scale", toolTip, "Scale for the environment mask.");
+            ControlFactory.SetTooltip("Depth Bias", toolTip, "Toggle depth bias to prevent z-fighting.");
+            ControlFactory.SetTooltip("Grayscale To Palette Color", toolTip, "Toggle mapping of grayscale to palette colors.");
+            ControlFactory.SetTooltip("Mask Writes", toolTip, "Masks writing of certain lighting properties.");
+
+            ControlFactory.SetTooltip("Diffuse", toolTip, "Diffuse texture slot.");
+            ControlFactory.SetTooltip("Normal", toolTip, "Normal map slot.");
+            ControlFactory.SetTooltip("Smooth Spec", toolTip, "Smoothness/specular mask slot.");
+            ControlFactory.SetTooltip("Greyscale", toolTip, "Greyscale (palette/lookup/heightmap) texture slot.");
+            ControlFactory.SetTooltip("Environment", toolTip, "Environment map slot.");
+            ControlFactory.SetTooltip("Glow", toolTip, "Glow map or other specialty slot.");
+            ControlFactory.SetTooltip("Inner Layer", toolTip, "Inner layer mask slot.");
+            ControlFactory.SetTooltip("Wrinkles", toolTip, "Wrinkles texture slot.");
+            ControlFactory.SetTooltip("Displacement", toolTip, "Displacement texture slot.");
+            ControlFactory.SetTooltip("Specular", toolTip, "PBR specular texture slot.");
+            ControlFactory.SetTooltip("Lighting", toolTip, "PBR lighting texture slot.");
+            ControlFactory.SetTooltip("Flow", toolTip, "PBR flow texture slot.");
+            ControlFactory.SetTooltip("Distance Field Alpha", toolTip, "Distance field alpha texture slot.");
+            ControlFactory.SetTooltip("Enable Editor Alpha Ref", toolTip, "Toggle editor alpha testing reference.");
+            ControlFactory.SetTooltip("Rim Lighting", toolTip, "Toggle rim lighting effect.");
+            ControlFactory.SetTooltip("Rim Power", toolTip, "Power of the rim lighting.");
+            ControlFactory.SetTooltip("Backlight Power", toolTip, "Power of the back lighting.");
+            ControlFactory.SetTooltip("Subsurface Lighting", toolTip, "Toggle subsurface lighting effect.");
+            ControlFactory.SetTooltip("Subsurface Lighting Rolloff", toolTip, "Rolloff of the subsurface lighting.");
+            ControlFactory.SetTooltip("Translucency", toolTip, "Toggle translucency simulation.");
+            ControlFactory.SetTooltip("Transl. Thick Object", toolTip, "Object on which the material is applied is thick (or a billboard if not). Used for correct shadowing.");
+            ControlFactory.SetTooltip("Transl. Alb+Subsurf Color", toolTip, "Multiply the subsurface color with the albedo instead of just outputting the specified color.");
+            ControlFactory.SetTooltip("Transl. Subsurface Color", toolTip, "Color tint of the subsurface matter.");
+            ControlFactory.SetTooltip("Transl. Transmissive Scale", toolTip, "Simulate amount of light collision inside the material.");
+            ControlFactory.SetTooltip("Transl. Turbulence", toolTip, "Turbulence for translucency.");
+            ControlFactory.SetTooltip("Specular Enabled", toolTip, "Toggle specular effect.");
+            ControlFactory.SetTooltip("Specular Color", toolTip, "Color for the specular effect.");
+            ControlFactory.SetTooltip("Specular Multiplier", toolTip, "Multiplier for the specular effect.");
+            ControlFactory.SetTooltip("Smoothness", toolTip, "Smoothness of the specular effect.");
+            ControlFactory.SetTooltip("Fresnel Power", toolTip, "Power of the fresnel reflection and transmission (specular).");
+            ControlFactory.SetTooltip("Wet Spec Scale", toolTip, "Scale of the wetness specular.");
+            ControlFactory.SetTooltip("Wet Spec Power Scale", toolTip, "Power scale of the wetness specular.");
+            ControlFactory.SetTooltip("Wet Spec Min Var", toolTip, "Minimum variance of the wetness specular.");
+            ControlFactory.SetTooltip("Wet Env Map Scale", toolTip, "Environment map scale of the wetness effect.");
+            ControlFactory.SetTooltip("Wet Fresnel Power", toolTip, "Fresnel power of the wetness effect.");
+            ControlFactory.SetTooltip("Wet Metalness", toolTip, "Metalness of the wetness effect.");
+            ControlFactory.SetTooltip("PBR", toolTip, "Enables native PBR rendering. Requires diffuse, normal, specular and lighting texture (flow optional).");
+            ControlFactory.SetTooltip("Custom Porosity", toolTip, "Toggle custom porosity for PBR.");
+            ControlFactory.SetTooltip("Porosity Value", toolTip, "Custom porosity value for PBR.");
+            ControlFactory.SetTooltip("Root Material Path", toolTip, "Template/root file of the current material.");
+            ControlFactory.SetTooltip("Aniso Lighting", toolTip, "Toggle anisotropic lighting.");
+            ControlFactory.SetTooltip("Emittance Enabled", toolTip, "Toggle emittance effect.");
+            ControlFactory.SetTooltip("Emittance Color", toolTip, "Color for the emittance effect.");
+            ControlFactory.SetTooltip("Emittance Multiplier", toolTip, "Multiplier for the emittance effect.");
+            ControlFactory.SetTooltip("Model Space Normals", toolTip, "Toggle model space normals rendering.");
+            ControlFactory.SetTooltip("External Emittance", toolTip, "Toggle external emittance effect.");
+            ControlFactory.SetTooltip("Lum Emittance", toolTip, "Luminous emittance value (in Lux) of the luminous flux emitted from the surface.");
+            ControlFactory.SetTooltip("Adaptative Emissive", toolTip, "Use stable emissive over physically based emittance. If unchecked, uses luminous emittance.");
+            ControlFactory.SetTooltip("Adapt. Em. Exposure Offset", toolTip, "Exposure offset applied while exposing the emissive object.");
+            ControlFactory.SetTooltip("Adapt. Em. Final Exposure Min", toolTip, "Minimum amount of exposure on the emissive object.");
+            ControlFactory.SetTooltip("Adapt. Em. Final Exposure Max", toolTip, "Maximum amount of exposure on the emissive object.");
+            ControlFactory.SetTooltip("Back Lighting", toolTip, "Toggle back lighting effect.");
+            ControlFactory.SetTooltip("Receive Shadows", toolTip, "Toggle if this mesh receives shadows.");
+            ControlFactory.SetTooltip("Hide Secret", toolTip, "Toggle hide secret.");
+            ControlFactory.SetTooltip("Cast Shadows", toolTip, "Toggle shadow casting for this mesh.");
+            ControlFactory.SetTooltip("Dissolve Fade", toolTip, "Toggle dissolve fade.");
+            ControlFactory.SetTooltip("Assume Shadowmask", toolTip, "Toggle assuming shadowmask.");
+            ControlFactory.SetTooltip("Glowmap", toolTip, "Toggle making use of a glowmap for emittance.");
+            ControlFactory.SetTooltip("Environment Map Window", toolTip, "Toggle environment map window.");
+            ControlFactory.SetTooltip("Environment Map Eye", toolTip, "Toggle environment map eye.");
+            ControlFactory.SetTooltip("Hair", toolTip, "Toggle hair rendering.");
+            ControlFactory.SetTooltip("Hair Tint Color", toolTip, "Color for the hair tinting.");
+            ControlFactory.SetTooltip("Tree", toolTip, "Toggle tree rendering.");
+            ControlFactory.SetTooltip("Facegen", toolTip, "Toggle facegen rendering.");
+            ControlFactory.SetTooltip("Skin Tint", toolTip, "Toggle skin tint rendering.");
+            ControlFactory.SetTooltip("Tessellate", toolTip, "Toggle tessellation effect.");
+            ControlFactory.SetTooltip("Displacement Tex Bias", toolTip, "Bias for the displacement texture.");
+            ControlFactory.SetTooltip("Displacement Tex Scale", toolTip, "Scale for the displacement texture.");
+            ControlFactory.SetTooltip("Tessellation PN Scale", toolTip, "PN (point normal) scale for the tessellation effect.");
+            ControlFactory.SetTooltip("Tessellation Base Factor", toolTip, "Base factor for the tessellation effect.");
+            ControlFactory.SetTooltip("Tessellation Fade Distance", toolTip, "Fade distance for the tessellation effect.");
+            ControlFactory.SetTooltip("Grayscale To Palette Scale", toolTip, "Scale for the grayscale to palette mapping.");
+            ControlFactory.SetTooltip("Skew Specular Alpha", toolTip, "Toggle skew specular alpha.");
+            ControlFactory.SetTooltip("Terrain", toolTip, "Toggle terrain rendering.");
+            ControlFactory.SetTooltip("Unk Int 1 BGSM", toolTip, "Unknown value.");
+            ControlFactory.SetTooltip("Terrain Threshold Falloff", toolTip, "Softness of the terrain blending.");
+            ControlFactory.SetTooltip("Terrain Tiling Distance", toolTip, "Tiling distance of the terrain.");
+            ControlFactory.SetTooltip("Terrain Rotation Angle", toolTip, "Rotation angle of the terrain.");
+
+            ControlFactory.SetTooltip("Base Texture", toolTip, "Base texture slot.");
+            ControlFactory.SetTooltip("Grayscale Texture", toolTip, "Grayscale texture slot.");
+            ControlFactory.SetTooltip("Envmap Texture", toolTip, "Environment map slot.");
+            ControlFactory.SetTooltip("Normal Texture", toolTip, "Normal map slot.");
+            ControlFactory.SetTooltip("Envmap Mask Texture", toolTip, "Environment map mask slot.");
+            ControlFactory.SetTooltip("Specular Texture", toolTip, "PBR specular texture slot.");
+            ControlFactory.SetTooltip("Lighting Texture", toolTip, "PBR lighting texture slot.");
+            ControlFactory.SetTooltip("Glow Texture", toolTip, "PBR emissive palette slot.");
+            ControlFactory.SetTooltip("Env Mapping", toolTip, "Toggle environment mapping effect.");
+            ControlFactory.SetTooltip("Env Mapping Mask Scale", toolTip, "Scale for the environment mapping mask.");
+            ControlFactory.SetTooltip("Blood Enabled", toolTip, "Toggle blood rendering.");
+            ControlFactory.SetTooltip("Effect Lighting Enabled", toolTip, "Toggle effect lighting.");
+            ControlFactory.SetTooltip("Falloff Enabled", toolTip, "Toggle falloff settings driving alpha.");
+            ControlFactory.SetTooltip("Falloff Color Enabled", toolTip, "Toggle falloff settings driving color.");
+            ControlFactory.SetTooltip("Grayscale To Palette Alpha", toolTip, "Toggle grayscale to palette alpha mapping.");
+            ControlFactory.SetTooltip("Soft Enabled", toolTip, "Toggle softness effect.");
+            ControlFactory.SetTooltip("Base Color", toolTip, "Base color of the effect.");
+            ControlFactory.SetTooltip("Base Color Scale", toolTip, "Scale of the base color.");
+            ControlFactory.SetTooltip("Falloff Start Angle", toolTip, "Start angle of the falloff.");
+            ControlFactory.SetTooltip("Falloff Stop Angle", toolTip, "Stop angle of the falloff.");
+            ControlFactory.SetTooltip("Falloff Start Opacity", toolTip, "Start opacity of the falloff.");
+            ControlFactory.SetTooltip("Falloff Stop Opacity", toolTip, "Stop opacity of the falloff.");
+            ControlFactory.SetTooltip("Lighting Influence", toolTip, "Lighting influence value of the material.");
+            ControlFactory.SetTooltip("Envmap Min LOD", toolTip, "Minimum LOD for environment mapping.");
+            ControlFactory.SetTooltip("Soft Depth", toolTip, "Softness depth value of the material.");
+            ControlFactory.SetTooltip("Emit Color", toolTip, "Color for the PBR emittance effect.");
+            ControlFactory.SetTooltip("Adaptative Em. Exposure Offset", toolTip, "Exposure offset applied while exposing the emissive object.");
+            ControlFactory.SetTooltip("Adaptative Em. Final Exp. Min", toolTip, "Minimum amount of exposure on the emissive object.");
+            ControlFactory.SetTooltip("Adaptative Em. Final Exp. Max", toolTip, "Maximum amount of exposure on the emissive object.");
+            ControlFactory.SetTooltip("Effect Glowmap", toolTip, "Toggle glowmap.");
+            ControlFactory.SetTooltip("Effect PBR Specular", toolTip, "Toggle PBR specular effect.");
         }
 
         private void SetControlVisibility()

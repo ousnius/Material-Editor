@@ -11,7 +11,7 @@ namespace Material_Editor
             Material
         }
 
-        private FileType CurrentFileType;
+        public FileType CurrentFileType;
 
         public FileControl(string label, Action<CustomControl> changedCallback, FileType fileType = FileType.Texture, string initialPath = "")
         {

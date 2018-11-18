@@ -6,24 +6,29 @@ namespace Material_Editor
 {
     public partial class ColorControl : CustomControl
     {
+        public Color CurrentColor = Color.White;
+
         public ColorControl(string label, Action<CustomControl> changedCallback, Color initialColor)
         {
             InitializeComponent();
 
             lbLabel.Text = label;
             ChangedCallback = changedCallback;
-            btColor.BackColor = initialColor;
-            colorDialog.Color = initialColor;
+
+            CurrentColor = initialColor;
+            btColor.BackColor = CurrentColor;
+            colorDialog.Color = CurrentColor;
         }
 
         private void btColor_Click(object sender, EventArgs e)
         {
             var btColor = sender as Button;
-            colorDialog.Color = btColor.BackColor;
+            colorDialog.Color = CurrentColor;
 
             if (colorDialog.ShowDialog() == DialogResult.OK)
             {
-                btColor.BackColor = colorDialog.Color;
+                CurrentColor = colorDialog.Color;
+                btColor.BackColor = CurrentColor;
                 RunChangedCallback();
             }
         }
