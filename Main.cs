@@ -1166,10 +1166,10 @@ namespace Material_Editor
             if (control != null) file.RefractionPower = Convert.ToSingle(control.GetProperty());
 
             control = ControlFactory.Find("Environment Mapping");
-            if (control != null) file.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
+            if (control != null && control.Visible) file.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
 
             control = ControlFactory.Find("Environment Mask Scale");
-            if (control != null) file.EnvironmentMappingMaskScale = Convert.ToSingle(control.GetProperty());
+            if (control != null && control.Visible) file.EnvironmentMappingMaskScale = Convert.ToSingle(control.GetProperty());
 
             control = ControlFactory.Find("Depth Bias");
             if (control != null) file.DepthBias = Convert.ToBoolean(control.GetProperty());
@@ -1447,10 +1447,10 @@ namespace Material_Editor
                 if (control != null) bgem.GlowTexture = Convert.ToString(control.GetProperty());
 
                 control = ControlFactory.Find("Env Mapping");
-                if (control != null) bgem.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
+                if (control != null && control.Visible) bgem.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
 
                 control = ControlFactory.Find("Env Mapping Mask Scale");
-                if (control != null) bgem.EnvironmentMappingMaskScale = Convert.ToSingle(control.GetProperty());
+                if (control != null && control.Visible) bgem.EnvironmentMappingMaskScale = Convert.ToSingle(control.GetProperty());
 
                 control = ControlFactory.Find("Blood Enabled");
                 if (control != null) bgem.BloodEnabled = Convert.ToBoolean(control.GetProperty());
