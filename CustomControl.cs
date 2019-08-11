@@ -8,6 +8,7 @@ namespace Material_Editor
     public class CustomControl : UserControl
     {
         public string CurrentToolTip;
+        public bool Serialize = true;
         protected Action<CustomControl> ChangedCallback;
 
         public virtual object GetProperty()
@@ -55,10 +56,20 @@ namespace Material_Editor
             return null;
         }
 
-        public static void SetVisible(string name, bool visible)
+        public static void SetVisible(string name, bool visible, bool serialize = true)
         {
             if (customControls.ContainsKey(name))
-                customControls[name].Visible = visible;
+            {
+                var control = customControls[name];
+                control.Visible = visible;
+                control.Serialize = serialize;
+            }
+        }
+
+        public static void SetSerialize(string name, bool visible)
+        {
+            if (customControls.ContainsKey(name))
+                customControls[name].Serialize = visible;
         }
 
         public static void SetTooltip(string name, ToolTip parentTooltip, string toolTip)
