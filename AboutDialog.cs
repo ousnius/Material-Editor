@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Material_Editor
@@ -14,7 +15,7 @@ namespace Material_Editor
         {
             try
             {
-                System.Diagnostics.Process.Start(e.LinkText);
+                Process.Start(new ProcessStartInfo(e.LinkText) { UseShellExecute = true });
             }
             catch (Exception ex)
             {

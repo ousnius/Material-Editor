@@ -35,6 +35,9 @@ $RECYCLE.BIN/
 .Spotlight-V100
 .Trashes
 
+# Visual Studio cache/options directory
+.vs/
+
 # Directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop
