@@ -38,11 +38,11 @@
             this.btColor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btColor.BackColor = System.Drawing.Color.White;
-            this.btColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btColor.Location = new System.Drawing.Point(165, 0);
+            this.btColor.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.btColor.Location = new System.Drawing.Point(192, 0);
             this.btColor.Margin = new System.Windows.Forms.Padding(0);
             this.btColor.Name = "btColor";
-            this.btColor.Size = new System.Drawing.Size(282, 20);
+            this.btColor.Size = new System.Drawing.Size(329, 26);
             this.btColor.TabIndex = 1;
             this.btColor.UseVisualStyleBackColor = false;
             this.btColor.Click += new System.EventHandler(this.btColor_Click);
@@ -51,10 +51,10 @@
             // 
             this.lbLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbLabel.Location = new System.Drawing.Point(3, 3);
+            this.lbLabel.Location = new System.Drawing.Point(4, 4);
             this.lbLabel.Margin = new System.Windows.Forms.Padding(0);
             this.lbLabel.Name = "lbLabel";
-            this.lbLabel.Size = new System.Drawing.Size(150, 13);
+            this.lbLabel.Size = new System.Drawing.Size(175, 17);
             this.lbLabel.TabIndex = 0;
             this.lbLabel.Text = "Label";
             // 
@@ -64,13 +64,13 @@
             // 
             // ColorControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.btColor);
             this.Controls.Add(this.lbLabel);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ColorControl";
-            this.Size = new System.Drawing.Size(450, 21);
+            this.Size = new System.Drawing.Size(525, 27);
             this.ResumeLayout(false);
 
         }
