@@ -49,12 +49,12 @@
             // btFile
             // 
             this.btFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btFile.Location = new System.Drawing.Point(427, 0);
+            this.btFile.Location = new System.Drawing.Point(425, 0);
             this.btFile.Name = "btFile";
-            this.btFile.Size = new System.Drawing.Size(20, 20);
+            this.btFile.Size = new System.Drawing.Size(25, 20);
             this.btFile.TabIndex = 57;
             this.btFile.TabStop = false;
-            this.btFile.Text = ".";
+            this.btFile.Text = "...";
             this.btFile.UseVisualStyleBackColor = true;
             this.btFile.Click += new System.EventHandler(this.btFile_Click);
             // 
@@ -62,6 +62,7 @@
             // 
             this.tbFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbFile.Font = new System.Drawing.Font("Consolas", 10F);
             this.tbFile.Location = new System.Drawing.Point(165, 0);
             this.tbFile.MaxLength = 260;
             this.tbFile.Name = "tbFile";
@@ -72,7 +73,7 @@
             // textureFileDialog
             // 
             this.textureFileDialog.DefaultExt = "dds";
-            this.textureFileDialog.Filter = "Texture File (.dds)|*.dds";
+            this.textureFileDialog.Filter = "Texture File (*.dds;*.tga)|*.dds;*.tga";
             this.textureFileDialog.Title = "Choose a texture file...";
             // 
             // materialFileDialog
