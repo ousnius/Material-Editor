@@ -54,6 +54,7 @@
             this.textureFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.listVersion = new System.Windows.Forms.ComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.listMatType = new System.Windows.Forms.ComboBox();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -69,7 +70,7 @@
             this.toolStripMenuItem1});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(525, 24);
+            this.menuStrip.Size = new System.Drawing.Size(564, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -188,16 +189,16 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
-            this.tabControl.Size = new System.Drawing.Size(525, 506);
+            this.tabControl.Size = new System.Drawing.Size(564, 531);
             this.tabControl.TabIndex = 2;
             // 
             // tabPageGeneral
             // 
             this.tabPageGeneral.AutoScroll = true;
             this.tabPageGeneral.Controls.Add(this.layoutGeneral);
-            this.tabPageGeneral.Location = new System.Drawing.Point(4, 22);
+            this.tabPageGeneral.Location = new System.Drawing.Point(4, 26);
             this.tabPageGeneral.Name = "tabPageGeneral";
-            this.tabPageGeneral.Size = new System.Drawing.Size(517, 480);
+            this.tabPageGeneral.Size = new System.Drawing.Size(556, 501);
             this.tabPageGeneral.TabIndex = 2;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.ToolTipText = "Affects both BGSM and BGEM files.";
@@ -215,17 +216,17 @@
             this.layoutGeneral.Name = "layoutGeneral";
             this.layoutGeneral.RowCount = 1;
             this.layoutGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutGeneral.Size = new System.Drawing.Size(510, 474);
+            this.layoutGeneral.Size = new System.Drawing.Size(550, 495);
             this.layoutGeneral.TabIndex = 1;
             // 
             // tabPageMaterial
             // 
             this.tabPageMaterial.AutoScroll = true;
             this.tabPageMaterial.Controls.Add(this.layoutMaterial);
-            this.tabPageMaterial.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMaterial.Location = new System.Drawing.Point(4, 26);
             this.tabPageMaterial.Name = "tabPageMaterial";
             this.tabPageMaterial.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMaterial.Size = new System.Drawing.Size(517, 480);
+            this.tabPageMaterial.Size = new System.Drawing.Size(556, 501);
             this.tabPageMaterial.TabIndex = 0;
             this.tabPageMaterial.Text = "Material";
             this.tabPageMaterial.ToolTipText = "Affects only BGSM files.";
@@ -243,17 +244,17 @@
             this.layoutMaterial.Name = "layoutMaterial";
             this.layoutMaterial.RowCount = 1;
             this.layoutMaterial.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutMaterial.Size = new System.Drawing.Size(502, 474);
+            this.layoutMaterial.Size = new System.Drawing.Size(550, 495);
             this.layoutMaterial.TabIndex = 1;
             // 
             // tabPageEffect
             // 
             this.tabPageEffect.AutoScroll = true;
             this.tabPageEffect.Controls.Add(this.layoutEffect);
-            this.tabPageEffect.Location = new System.Drawing.Point(4, 22);
+            this.tabPageEffect.Location = new System.Drawing.Point(4, 26);
             this.tabPageEffect.Name = "tabPageEffect";
             this.tabPageEffect.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEffect.Size = new System.Drawing.Size(517, 480);
+            this.tabPageEffect.Size = new System.Drawing.Size(556, 501);
             this.tabPageEffect.TabIndex = 1;
             this.tabPageEffect.Text = "Effect";
             this.tabPageEffect.ToolTipText = "Affects only BGEM files.";
@@ -271,7 +272,7 @@
             this.layoutEffect.Name = "layoutEffect";
             this.layoutEffect.RowCount = 1;
             this.layoutEffect.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutEffect.Size = new System.Drawing.Size(502, 474);
+            this.layoutEffect.Size = new System.Drawing.Size(550, 495);
             this.layoutEffect.TabIndex = 1;
             // 
             // textureFileDialog
@@ -286,7 +287,7 @@
             this.listVersion.FormattingEnabled = true;
             this.listVersion.Location = new System.Drawing.Point(7, 26);
             this.listVersion.Name = "listVersion";
-            this.listVersion.Size = new System.Drawing.Size(142, 21);
+            this.listVersion.Size = new System.Drawing.Size(89, 25);
             this.listVersion.TabIndex = 3;
             this.listVersion.SelectedIndexChanged += new System.EventHandler(this.listVersion_SelectedIndexChanged);
             // 
@@ -299,20 +300,34 @@
             this.toolTip.ToolTipTitle = "Info";
             this.toolTip.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip_Popup);
             // 
+            // listMatType
+            // 
+            this.listMatType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.listMatType.FormattingEnabled = true;
+            this.listMatType.Items.AddRange(new object[] {
+            "Material (*.bgsm)",
+            "Effect (*.bgem)"});
+            this.listMatType.Location = new System.Drawing.Point(102, 26);
+            this.listMatType.Name = "listMatType";
+            this.listMatType.Size = new System.Drawing.Size(148, 25);
+            this.listMatType.TabIndex = 4;
+            this.listMatType.SelectedIndexChanged += new System.EventHandler(this.listMatType_SelectedIndexChanged);
+            // 
             // Main
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(525, 561);
+            this.ClientSize = new System.Drawing.Size(564, 586);
+            this.Controls.Add(this.listMatType);
             this.Controls.Add(this.listVersion);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.menuStrip);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.MinimumSize = new System.Drawing.Size(532, 241);
+            this.MinimumSize = new System.Drawing.Size(580, 260);
             this.Name = "Main";
             this.Text = "Material Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Closing);
@@ -361,6 +376,7 @@
         private System.Windows.Forms.TableLayoutPanel layoutMaterial;
         private System.Windows.Forms.ComboBox listVersion;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.ComboBox listMatType;
     }
 }
 

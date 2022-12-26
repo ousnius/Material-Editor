@@ -22,41 +22,70 @@ namespace Material_Editor
         FO76
     }
 
+    public enum MaterialType
+    {
+        Material,
+        Effect
+    }
+
     public partial class Main : Form
     {
         private Config config = new Config();
-        private string workFileName;
+        private string workFilePath;
         private bool changed;
         private bool toolTipPopping;
+
+        private string WorkFileName
+        {
+            get
+            {
+                if (workFilePath != null)
+                {
+                    int nameIndex = workFilePath.LastIndexOf('\\');
+                    if (nameIndex != -1)
+                        return workFilePath.Substring(nameIndex + 1, workFilePath.Length - nameIndex - 1);
+                    else
+                        return workFilePath;
+                }
+
+                return null;
+            }
+        }
+
+        private MaterialType CurrentMaterialType
+        {
+            get { return (MaterialType)listMatType.SelectedIndex; }
+        }
 
         public Main()
         {
             InitializeComponent();
             ReadSettings();
+        }
 
-            string[] args = Environment.GetCommandLineArgs();
-            if (args.Length > 1 && !string.IsNullOrEmpty(args[1]))
+        private string ChangeFileExtension(string filePath)
+        {
+            if (filePath == null)
+                return null;
+
+            string ext;
+            switch (CurrentMaterialType)
             {
-                string fileName = args[1];
-                if (fileName.ToLower().EndsWith(".bgsm"))
-                {
-                    OpenMaterial(fileName, BGSM.Signature);
-                }
-                else if (fileName.ToLower().EndsWith(".bgem"))
-                {
-                    OpenMaterial(fileName, BGEM.Signature);
-                }
-                else
-                {
-                    MessageBox.Show("File extension not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                case MaterialType.Effect:
+                    ext = ".bgem";
+                    break;
+                default:
+                    ext = ".bgsm";
+                    break;
             }
+            return Path.ChangeExtension(filePath, ext);
         }
 
         #region UI
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            workFileName = string.Empty;
+            workFilePath = null;
+            Text = "Material Editor";
 
             saveAsToolStripMenuItem.Enabled = true;
             closeToolStripMenuItem.Enabled = true;
@@ -91,24 +120,27 @@ namespace Material_Editor
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(workFileName))
+            if (string.IsNullOrEmpty(workFilePath))
             {
                 saveAsToolStripMenuItem_Click(null, null);
             }
 
             BaseMaterialFile material;
-            if (workFileName.ToLower().EndsWith(".bgsm"))
-                material = new BGSM();
-            else if (workFileName.ToLower().EndsWith(".bgem"))
-                material = new BGEM();
-            else
-                return;
+            switch (CurrentMaterialType)
+            {
+                case MaterialType.Effect:
+                    material = new BGEM();
+                    break;
+                default:
+                    material = new BGSM();
+                    break;
+            }
 
             GetMaterialValues(material);
 
             try
             {
-                using (var file = new FileStream(workFileName, FileMode.Create))
+                using (var file = new FileStream(workFilePath, FileMode.Create))
                 {
                     if (serializeToJSONToolStripMenuItem.Checked)
                     {
@@ -126,7 +158,7 @@ namespace Material_Editor
                         }
                         catch
                         {
-                            MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", workFileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", workFilePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         finally
                         {
@@ -137,7 +169,7 @@ namespace Material_Editor
                     {
                         if (!material.Save(file))
                         {
-                            MessageBox.Show(string.Format("Failed to save file '{0}'!", workFileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(string.Format("Failed to save file '{0}'!", workFilePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                     }
@@ -145,46 +177,48 @@ namespace Material_Editor
             }
             catch
             {
-                MessageBox.Show(string.Format("Failed to save file '{0}'!", workFileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(string.Format("Failed to save file '{0}'!", workFilePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            int nameIndex = workFileName.LastIndexOf('\\');
-            Text = workFileName.Substring(nameIndex + 1, workFileName.Length - nameIndex - 1);
+            Text = WorkFileName;
             changed = false;
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog.AddExtension = false;
-            saveFileDialog.DefaultExt = "";
-            if (!string.IsNullOrEmpty(workFileName))
+            var matType = CurrentMaterialType;
+            switch (matType)
             {
-                int fileIndex = workFileName.LastIndexOf('\\');
-                if (fileIndex >= 0)
-                {
-                    string fileName = workFileName.Substring(fileIndex + 1, workFileName.Length - fileIndex - 1);
-                    saveFileDialog.FileName = fileName;
-                }
+                case MaterialType.Effect:
+                    saveFileDialog.Filter = "Effect File (.bgem)|*.bgem";
+                    break;
+                default:
+                    saveFileDialog.Filter = "Material File (.bgsm)|*.bgsm";
+                    break;
+            }
+
+            string fileName = WorkFileName;
+            if (fileName != null)
+            {
+                saveFileDialog.FileName = ChangeFileExtension(fileName);
             }
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string fileName = saveFileDialog.FileName;
+                string filePath = saveFileDialog.FileName;
 
                 BaseMaterialFile material;
-                if (fileName.ToLower().EndsWith(".bgsm"))
-                    material = new BGSM();
-                else if (fileName.ToLower().EndsWith(".bgem"))
+                if (CurrentMaterialType == MaterialType.Effect)
                     material = new BGEM();
                 else
-                    return;
+                    material = new BGSM();
 
                 GetMaterialValues(material);
 
                 try
                 {
-                    using (var file = new FileStream(fileName, FileMode.Create))
+                    using (var file = new FileStream(filePath, FileMode.Create))
                     {
                         if (serializeToJSONToolStripMenuItem.Checked)
                         {
@@ -202,7 +236,7 @@ namespace Material_Editor
                             }
                             catch
                             {
-                                MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", fileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", filePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             finally
                             {
@@ -213,7 +247,7 @@ namespace Material_Editor
                         {
                             if (!material.Save(file))
                             {
-                                MessageBox.Show(string.Format("Failed to save file '{0}'!", fileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show(string.Format("Failed to save file '{0}'!", filePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
                         }
@@ -221,23 +255,22 @@ namespace Material_Editor
                 }
                 catch
                 {
-                    MessageBox.Show(string.Format("Failed to save file '{0}'!", fileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(string.Format("Failed to save file '{0}'!", filePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                workFileName = fileName;
+                workFilePath = filePath;
 
                 saveToolStripMenuItem.Enabled = true;
 
-                int nameIndex = workFileName.LastIndexOf('\\');
-                Text = workFileName.Substring(nameIndex + 1, workFileName.Length - nameIndex - 1);
+                Text = WorkFileName;
                 changed = false;
             }
         }
 
         private void closeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            workFileName = string.Empty;
+            workFilePath = string.Empty;
 
             saveToolStripMenuItem.Enabled = false;
             saveAsToolStripMenuItem.Enabled = false;
@@ -272,6 +305,31 @@ namespace Material_Editor
                 SetControlVisibility();
                 ResumeAll();
 
+                OnChanged();
+            }
+        }
+
+        private void listMatType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tabControl.TabPages.Remove(tabPageMaterial);
+            tabControl.TabPages.Remove(tabPageEffect);
+
+            switch (CurrentMaterialType)
+            {
+                case MaterialType.Material:
+                    tabControl.TabPages.Add(tabPageMaterial);
+                    tabControl.SelectTab(tabPageMaterial);
+                    break;
+                case MaterialType.Effect:
+                    tabControl.TabPages.Add(tabPageEffect);
+                    tabControl.SelectTab(tabPageEffect);
+                    break;
+            }
+
+            string filePath = ChangeFileExtension(workFilePath);
+            if (filePath != workFilePath)
+            {
+                workFilePath = filePath;
                 OnChanged();
             }
         }
@@ -355,10 +413,9 @@ namespace Material_Editor
 
         private void OnChanged()
         {
-            if (!string.IsNullOrEmpty(workFileName))
+            if (!string.IsNullOrEmpty(workFilePath))
             {
-                int nameIndex = workFileName.LastIndexOf('\\');
-                Text = "*" + workFileName.Substring(nameIndex + 1, workFileName.Length - nameIndex - 1);
+                Text = $"*{WorkFileName}";
                 changed = true;
             }
         }
@@ -378,6 +435,26 @@ namespace Material_Editor
             var items = Enum.GetNames(typeof(GameVersion));
             listVersion.Items.AddRange(items);
             listVersion.SelectedIndex = (int)config.GameVersion;
+
+            listMatType.SelectedIndex = 0;
+
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length > 1 && !string.IsNullOrEmpty(args[1]))
+            {
+                string fileName = args[1];
+                if (fileName.ToLower().EndsWith(".bgsm"))
+                {
+                    OpenMaterial(fileName, BGSM.Signature);
+                }
+                else if (fileName.ToLower().EndsWith(".bgem"))
+                {
+                    OpenMaterial(fileName, BGEM.Signature);
+                }
+                else
+                {
+                    MessageBox.Show("File extension not supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void ReadSettings()
@@ -1555,11 +1632,17 @@ namespace Material_Editor
                     return;
                 }
 
+                workFilePath = fileName;
+
                 SuspendAll();
                 CreateMaterialControls(material);
-                ResumeAll();
 
-                workFileName = fileName;
+                if (signature == BGSM.Signature)
+                    listMatType.SelectedIndex = (int)MaterialType.Material;
+                else if (signature == BGEM.Signature)
+                    listMatType.SelectedIndex = (int)MaterialType.Effect;
+
+                ResumeAll();
 
                 saveToolStripMenuItem.Enabled = true;
                 saveAsToolStripMenuItem.Enabled = true;
