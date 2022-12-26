@@ -36,19 +36,19 @@ namespace Material_Editor
             switch (CurrentFileType)
             {
                 case FileType.Texture:
-                    if (textureFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        fileName = textureFileDialog.FileName;
-                        filePrefix = @"\textures\";
-                    }
+                    if (textureFileDialog.ShowDialog() != DialogResult.OK)
+                        return;
+
+                    fileName = textureFileDialog.FileName;
+                    filePrefix = @"\textures\";
                     break;
 
                 case FileType.Material:
-                    if (materialFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        fileName = materialFileDialog.FileName;
-                        filePrefix = @"\materials\";
-                    }
+                    if (materialFileDialog.ShowDialog() != DialogResult.OK)
+                        return;
+
+                    fileName = materialFileDialog.FileName;
+                    filePrefix = @"\materials\";
                     break;
             }
 
