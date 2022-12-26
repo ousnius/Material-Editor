@@ -18,9 +18,9 @@ namespace Material_Editor
             InitializeComponent();
 
             lbLabel.Text = label;
-            ChangedCallback = changedCallback;
             CurrentFileType = fileType;
             tbFile.Text = initialPath;
+            ChangedCallback = changedCallback;
         }
 
         private void tbFile_TextChanged(object sender, EventArgs e)

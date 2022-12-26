@@ -13,11 +13,12 @@ namespace Material_Editor
             InitializeComponent();
 
             lbLabel.Text = label;
-            ChangedCallback = changedCallback;
 
             CurrentColor = initialColor;
             btColor.BackColor = CurrentColor;
             colorDialog.Color = CurrentColor;
+
+            ChangedCallback = changedCallback;
         }
 
         private void btColor_Click(object sender, EventArgs e)

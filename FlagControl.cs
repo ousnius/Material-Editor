@@ -11,7 +11,6 @@ namespace Material_Editor
             InitializeComponent();
 
             lbLabel.Text = label;
-            ChangedCallback = changedCallback;
             checkedList.Items.AddRange(entries);
 
             for (int i = 0; i < checkedList.Items.Count; i++)
@@ -21,6 +20,8 @@ namespace Material_Editor
                     checkedList.SetItemChecked(i, true);
                 }
             }
+
+            ChangedCallback = changedCallback;
         }
 
         public override object GetProperty()

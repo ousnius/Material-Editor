@@ -10,8 +10,8 @@ namespace Material_Editor
             InitializeComponent();
 
             lbLabel.Text = label;
-            ChangedCallback = changedCallback;
             check.Checked = initialChecked;
+            ChangedCallback = changedCallback;
         }
 
         private void check_CheckedChanged(object sender, EventArgs e)

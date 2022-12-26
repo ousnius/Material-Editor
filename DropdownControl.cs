@@ -11,9 +11,9 @@ namespace Material_Editor
             InitializeComponent();
 
             lbLabel.Text = label;
-            ChangedCallback = changedCallback;
             dropdown.Items.AddRange(entries);
             dropdown.SelectedIndex = selection;
+            ChangedCallback = changedCallback;
         }
 
         private void dropdown_SelectedIndexChanged(object sender, EventArgs e)

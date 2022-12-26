@@ -29,7 +29,7 @@ namespace Material_Editor
 
         public void RunChangedCallback()
         {
-            ChangedCallback(this);
+            ChangedCallback?.Invoke(this);
         }
     }
 
