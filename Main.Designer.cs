@@ -70,7 +70,7 @@
             this.toolStripMenuItem1});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(564, 24);
+            this.menuStrip.Size = new System.Drawing.Size(624, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -189,7 +189,7 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.ShowToolTips = true;
-            this.tabControl.Size = new System.Drawing.Size(564, 531);
+            this.tabControl.Size = new System.Drawing.Size(624, 531);
             this.tabControl.TabIndex = 2;
             // 
             // tabPageGeneral
@@ -198,7 +198,7 @@
             this.tabPageGeneral.Controls.Add(this.layoutGeneral);
             this.tabPageGeneral.Location = new System.Drawing.Point(4, 26);
             this.tabPageGeneral.Name = "tabPageGeneral";
-            this.tabPageGeneral.Size = new System.Drawing.Size(556, 501);
+            this.tabPageGeneral.Size = new System.Drawing.Size(616, 501);
             this.tabPageGeneral.TabIndex = 2;
             this.tabPageGeneral.Text = "General";
             this.tabPageGeneral.ToolTipText = "Affects both BGSM and BGEM files.";
@@ -216,7 +216,7 @@
             this.layoutGeneral.Name = "layoutGeneral";
             this.layoutGeneral.RowCount = 1;
             this.layoutGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutGeneral.Size = new System.Drawing.Size(550, 495);
+            this.layoutGeneral.Size = new System.Drawing.Size(610, 495);
             this.layoutGeneral.TabIndex = 1;
             // 
             // tabPageMaterial
@@ -319,7 +319,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(564, 586);
+            this.ClientSize = new System.Drawing.Size(624, 586);
             this.Controls.Add(this.listMatType);
             this.Controls.Add(this.listVersion);
             this.Controls.Add(this.tabControl);
@@ -327,7 +327,7 @@
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.MinimumSize = new System.Drawing.Size(580, 260);
+            this.MinimumSize = new System.Drawing.Size(640, 260);
             this.Name = "Main";
             this.Text = "Material Editor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Closing);
