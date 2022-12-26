@@ -541,6 +541,14 @@ namespace Material_Editor
         #endregion
 
         #region Material
+        private static Color UIntToColor(uint value)
+        {
+            return Color.FromArgb(255,
+                (byte)((value >> 16) & 0xFF),
+                (byte)((value >> 8) & 0xFF),
+                (byte)(value & 0xFF));
+        }
+
         private void CreateMaterialControls(BaseMaterialFile file = null)
         {
             if (file == null)
@@ -658,7 +666,7 @@ namespace Material_Editor
             ControlFactory.CreateControl(layoutMaterial, "Transl. Thick Object", bgsm.TranslucencyThickObject, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutMaterial, "Transl. Alb+Subsurf Color", bgsm.TranslucencyMixAlbedoWithSubsurfaceColor, (control) => { OnChanged(); });
 
-            var translucencySubsurfaceColor = Color.FromArgb((int)bgsm.TranslucencySubsurfaceColor);
+            var translucencySubsurfaceColor = UIntToColor(bgsm.TranslucencySubsurfaceColor);
             ControlFactory.CreateControl(layoutMaterial, "Transl. Subsurface Color", translucencySubsurfaceColor, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutMaterial, "Transl. Transmissive Scale", bgsm.TranslucencyTransmissiveScale, (control) => { OnChanged(); });
@@ -674,7 +682,7 @@ namespace Material_Editor
                 OnChanged();
             });
 
-            var specularColor = Color.FromArgb((int)bgsm.SpecularColor);
+            var specularColor = UIntToColor(bgsm.SpecularColor);
             ControlFactory.CreateControl(layoutMaterial, "Specular Color", specularColor, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutMaterial, "Specular Multiplier", bgsm.SpecularMult, (control) => { OnChanged(); });
@@ -705,7 +713,7 @@ namespace Material_Editor
                 OnChanged();
             });
 
-            var emittanceColor = Color.FromArgb((int)bgsm.EmittanceColor);
+            var emittanceColor = UIntToColor(bgsm.EmittanceColor);
             ControlFactory.CreateControl(layoutMaterial, "Emittance Color", emittanceColor, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutMaterial, "Emittance Multiplier", bgsm.EmittanceMult, (control) => { OnChanged(); });
@@ -751,7 +759,7 @@ namespace Material_Editor
                 OnChanged();
             });
 
-            var hairTintColor = Color.FromArgb((int)bgsm.HairTintColor);
+            var hairTintColor = UIntToColor(bgsm.HairTintColor);
             ControlFactory.CreateControl(layoutMaterial, "Hair Tint Color", hairTintColor, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutMaterial, "Tree", bgsm.Tree, (control) => { OnChanged(); });
@@ -845,7 +853,7 @@ namespace Material_Editor
                 OnChanged();
             });
 
-            var baseColor = Color.FromArgb((int)bgem.BaseColor);
+            var baseColor = UIntToColor(bgem.BaseColor);
             ControlFactory.CreateControl(layoutEffect, "Base Color", baseColor, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutEffect, "Base Color Scale", bgem.BaseColorScale, (control) => { OnChanged(); });
@@ -857,7 +865,7 @@ namespace Material_Editor
             ControlFactory.CreateControl(layoutEffect, "Envmap Min LOD", bgem.EnvmapMinLOD, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutEffect, "Soft Depth", bgem.SoftDepth, (control) => { OnChanged(); });
 
-            var emitColor = Color.FromArgb((int)bgem.EmittanceColor);
+            var emitColor = UIntToColor(bgem.EmittanceColor);
             ControlFactory.CreateControl(layoutEffect, "Emit Color", emitColor, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Exposure Offset", bgem.AdaptativeEmissive_ExposureOffset, (control) => { OnChanged(); });
