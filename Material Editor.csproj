@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <RootNamespace>Material_Editor</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>Material_Editor.Program</StartupObject>
