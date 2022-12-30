@@ -1643,13 +1643,19 @@ namespace Material_Editor
                 workFilePath = fileName;
 
                 SuspendAll();
-                CreateMaterialControls(material);
+                ControlFactory.ClearControls();
+
+                if (material.Version > 2 && material.Version <= 20)
+                    listVersion.SelectedIndex = (int)GameVersion.FO76;
+                else
+                    listVersion.SelectedIndex = (int)GameVersion.FO4;
 
                 if (signature == BGSM.Signature)
                     listMatType.SelectedIndex = (int)MaterialType.Material;
                 else if (signature == BGEM.Signature)
                     listMatType.SelectedIndex = (int)MaterialType.Effect;
 
+                CreateMaterialControls(material);
                 ResumeAll();
 
                 saveToolStripMenuItem.Enabled = true;
