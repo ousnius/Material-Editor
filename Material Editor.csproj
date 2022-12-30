@@ -19,7 +19,6 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
-    <ApplicationDefaultFont>Segoe UI, 10pt</ApplicationDefaultFont>
   </PropertyGroup>
 
   <ItemGroup>

@@ -14,6 +14,7 @@ namespace Material_Editor
     public struct Config
     {
         public GameVersion GameVersion;
+        public Font Font;
     }
 
     public enum GameVersion
@@ -288,6 +289,21 @@ namespace Material_Editor
             Close();
         }
 
+        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fontDialog = new FontDialog()
+            {
+                Font = config.Font ?? Font
+            };
+
+            var result = fontDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                config.Font = fontDialog.Font;
+                MessageBox.Show("Changing the font requires a restart of the application.", "Restart required", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var about = new AboutDialog();
@@ -432,6 +448,8 @@ namespace Material_Editor
 
         private void Main_Load(object sender, EventArgs e)
         {
+            Font = config.Font;
+
             var items = Enum.GetNames(typeof(GameVersion));
             listVersion.Items.AddRange(items);
             listVersion.SelectedIndex = (int)config.GameVersion;
@@ -468,6 +486,22 @@ namespace Material_Editor
                 {
                     Enum.TryParse(gameVersion, out config.GameVersion);
                 }
+
+                var fontName = appSettings.Get("FontName");
+                var fontSizeStr = appSettings.Get("FontSize");
+                if (fontName != null && fontSizeStr != null)
+                {
+                    if (!float.TryParse(fontSizeStr, CultureInfo.InvariantCulture, out float fontSize))
+                        fontSize = 10.0f;
+
+                    config.Font = new Font(fontName, fontSize);
+                }
+                else
+                {
+                    config.Font = Font;
+                }
+
+                Application.SetDefaultFont(config.Font);
             }
             catch { }
         }
@@ -483,6 +517,18 @@ namespace Material_Editor
                     gameVersion.Value = Convert.ToString(config.GameVersion);
                 else
                     configFile.AppSettings.Settings.Add("GameVersion", Convert.ToString(config.GameVersion));
+
+                var fontName = configFile.AppSettings.Settings["FontName"];
+                if (fontName != null)
+                    fontName.Value = config.Font.Name;
+                else
+                    configFile.AppSettings.Settings.Add("FontName", config.Font.Name);
+
+                var fontSize = configFile.AppSettings.Settings["FontSize"];
+                if (fontSize != null)
+                    fontSize.Value = config.Font.Size.ToString(CultureInfo.InvariantCulture);
+                else
+                    configFile.AppSettings.Settings.Add("FontSize", config.Font.Size.ToString(CultureInfo.InvariantCulture));
 
                 configFile.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);

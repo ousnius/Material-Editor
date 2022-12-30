@@ -55,6 +55,8 @@
             this.listVersion = new System.Windows.Forms.ComboBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.listMatType = new System.Windows.Forms.ComboBox();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageGeneral.SuspendLayout();
@@ -67,6 +69,7 @@
             this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
+            this.optionsToolStripMenuItem,
             this.toolStripMenuItem1});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -226,7 +229,7 @@
             this.tabPageMaterial.Location = new System.Drawing.Point(4, 26);
             this.tabPageMaterial.Name = "tabPageMaterial";
             this.tabPageMaterial.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMaterial.Size = new System.Drawing.Size(556, 501);
+            this.tabPageMaterial.Size = new System.Drawing.Size(616, 501);
             this.tabPageMaterial.TabIndex = 0;
             this.tabPageMaterial.Text = "Material";
             this.tabPageMaterial.ToolTipText = "Affects only BGSM files.";
@@ -254,7 +257,7 @@
             this.tabPageEffect.Location = new System.Drawing.Point(4, 26);
             this.tabPageEffect.Name = "tabPageEffect";
             this.tabPageEffect.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEffect.Size = new System.Drawing.Size(556, 501);
+            this.tabPageEffect.Size = new System.Drawing.Size(616, 501);
             this.tabPageEffect.TabIndex = 1;
             this.tabPageEffect.Text = "Effect";
             this.tabPageEffect.ToolTipText = "Affects only BGEM files.";
@@ -312,6 +315,21 @@
             this.listMatType.Size = new System.Drawing.Size(148, 25);
             this.listMatType.TabIndex = 4;
             this.listMatType.SelectedIndexChanged += new System.EventHandler(this.listMatType_SelectedIndexChanged);
+            // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fontToolStripMenuItem.Text = "Font...";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -377,6 +395,8 @@
         private System.Windows.Forms.ComboBox listVersion;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ComboBox listMatType;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
     }
 }
 
