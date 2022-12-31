@@ -6,10 +6,11 @@ namespace Material_Editor
 {
     public partial class FlagControl : CustomControl
     {
-        public FlagControl(string label, Action<CustomControl> changedCallback, object[] entries, int flagValue)
-        {
-            InitializeComponent();
+        private Label lbLabel;
+        private CheckedListBox checkedList;
 
+        public FlagControl(string label, Action<CustomControl> changedCallback, object[] entries, int flagValue) : base(label)
+        {
             lbLabel.Text = label;
             checkedList.Items.AddRange(entries);
 
@@ -22,6 +23,41 @@ namespace Material_Editor
             }
 
             ChangedCallback = changedCallback;
+        }
+
+        public override void CreateControls()
+        {
+            lbLabel = new Label
+            {
+                Anchor = AnchorStyles.Top | AnchorStyles.Left,
+                AutoSize = true,
+                Name = "lbLabel",
+                TabIndex = 0,
+                Text = "Label",
+                Tag = this
+            };
+
+            checkedList = new CheckedListBox
+            {
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
+                ColumnWidth = 150,
+                FormattingEnabled = true,
+                MultiColumn = true,
+                Name = "checkedList",
+                TabIndex = 1,
+                Tag = this
+            };
+            checkedList.SelectedIndexChanged += new EventHandler(checkedList_SelectedIndexChanged);
+        }
+
+        public override Label LabelControl
+        {
+            get { return lbLabel; }
+        }
+
+        public override Control Control
+        {
+            get { return checkedList; }
         }
 
         public override object GetProperty()

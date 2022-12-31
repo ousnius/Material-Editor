@@ -5,6 +5,12 @@ namespace Material_Editor
 {
     public partial class FileControl : CustomControl
     {
+        private Label lbLabel;
+        private TextBox tbFile;
+        private Button btFile;
+        private OpenFileDialog textureFileDialog;
+        private OpenFileDialog materialFileDialog;
+
         public enum FileType
         {
             Texture,
@@ -13,14 +19,63 @@ namespace Material_Editor
 
         public FileType CurrentFileType;
 
-        public FileControl(string label, Action<CustomControl> changedCallback, FileType fileType = FileType.Texture, string initialPath = "")
+        public FileControl(string label, System.Drawing.Font font, Action<CustomControl> changedCallback, FileType fileType = FileType.Texture, string initialPath = "") : base(label)
         {
-            InitializeComponent();
-
             lbLabel.Text = label;
             CurrentFileType = fileType;
+            tbFile.Font = font;
             tbFile.Text = initialPath;
             ChangedCallback = changedCallback;
+        }
+
+        public override void CreateControls()
+        {
+            lbLabel = new Label
+            {
+                Anchor = AnchorStyles.Top | AnchorStyles.Left,
+                AutoSize = true,
+                Name = "lbLabel",
+                Text = "Label",
+                Tag = this
+            };
+
+            tbFile = new TextBox
+            {
+                AutoSize = true,
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
+                MaxLength = 260,
+                Name = "tbFile",
+                PlaceholderText = "<no texture>",
+                TabIndex = 0,
+                Tag = this
+            };
+            tbFile.TextChanged += new EventHandler(tbFile_TextChanged);
+
+            btFile = new Button
+            {
+                AutoSize = true,
+                Anchor = AnchorStyles.Top | AnchorStyles.Right,
+                Name = "btFile",
+                TabStop = false,
+                Text = "...",
+                Size = new System.Drawing.Size(35, 20),
+                Tag = this
+            };
+            btFile.Click += new EventHandler(btFile_Click);
+
+            textureFileDialog = new OpenFileDialog
+            {
+                DefaultExt = "dds",
+                Filter = "Texture File (*.dds;*.tga)|*.dds;*.tga",
+                Title = "Choose a texture file..."
+            };
+
+            materialFileDialog = new OpenFileDialog
+            {
+                DefaultExt = "bgsm",
+                Filter = "Material File (*.bgsm;*.bgem)|*.bgsm;*.bgem",
+                Title = "Choose a material file..."
+            };
         }
 
         private void tbFile_TextChanged(object sender, EventArgs e)
@@ -70,6 +125,21 @@ namespace Material_Editor
 
             tbFile.Text = fileName.Trim().Replace('\\', '/');
             RunChangedCallback();
+        }
+
+        public override Label LabelControl
+        {
+            get { return lbLabel; }
+        }
+
+        public override Control Control
+        {
+            get { return tbFile; }
+        }
+
+        public override Control ExtraControl
+        {
+            get { return btFile; }
         }
 
         public override object GetProperty()

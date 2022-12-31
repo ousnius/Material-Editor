@@ -5,10 +5,11 @@ namespace Material_Editor
 {
     public partial class NumberControl : CustomControl
     {
-        private NumberControl(string label, Action<CustomControl> changedCallback, decimal initialValue, int decimalPlaces, decimal increment, decimal minValue, decimal maxValue)
-        {
-            InitializeComponent();
+        private Label lbLabel;
+        private NumericUpDown num;
 
+        private NumberControl(string label, Action<CustomControl> changedCallback, decimal initialValue, int decimalPlaces, decimal increment, decimal minValue, decimal maxValue) : base(label)
+        {
             lbLabel.Text = label;
             ChangedCallback = changedCallback;
 
@@ -17,6 +18,43 @@ namespace Material_Editor
             num.DecimalPlaces = decimalPlaces;
             num.Increment = increment;
             num.Value = initialValue;
+        }
+
+        public override void CreateControls()
+        {
+            lbLabel = new Label
+            {
+                Anchor = AnchorStyles.Top | AnchorStyles.Left,
+                AutoSize = true,
+                Name = "lbLabel",
+                Text = "Label",
+                Tag = this
+            };
+
+            num = new NumericUpDown
+            {
+                Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
+                DecimalPlaces = 5,
+                Increment = new decimal(new int[] {
+                    1,
+                    0,
+                    0,
+                    65536}),
+                Maximum = new decimal(new int[] {
+                    100000000,
+                    0,
+                    0,
+                    0}),
+                Minimum = new decimal(new int[] {
+                    100000000,
+                    0,
+                    0,
+                    -2147483648}),
+                Name = "num",
+                TabIndex = 0,
+                Tag = this
+            };
+            num.ValueChanged += new EventHandler(num_ValueChanged);
         }
 
         public static NumberControl ForInteger(string label, Action<CustomControl> changedCallback, decimal initialValue = 0, decimal minValue = int.MinValue, decimal maxValue = int.MaxValue)
@@ -32,6 +70,16 @@ namespace Material_Editor
         private void num_ValueChanged(object sender, EventArgs e)
         {
             RunChangedCallback();
+        }
+
+        public override Label LabelControl
+        {
+            get { return lbLabel; }
+        }
+
+        public override Control Control
+        {
+            get { return num; }
         }
 
         public override object GetProperty()

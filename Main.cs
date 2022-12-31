@@ -357,28 +357,21 @@ namespace Material_Editor
             }
         }
 
-        private void toolTip_Popup(object sender, PopupEventArgs e)
+        private void toolTip_Popup(object sender, PopupEventArgs ea)
         {
             if (toolTipPopping)
                 return;
 
             toolTipPopping = true;
 
-            var control = e.AssociatedControl as CustomControl;
-            if (control == null)
+            if (ea.AssociatedControl.Tag is CustomControl customControl)
             {
-                control = e.AssociatedControl.Parent as CustomControl;
-            }
-
-            if (control != null)
-            {
-                var currentToolTip = control.CurrentToolTip;
-                if (currentToolTip != null)
+                var baseToolTip = customControl.BaseToolTip;
+                if (baseToolTip != null)
                 {
-                    var newToolTip = currentToolTip;
+                    var newToolTip = baseToolTip;
 
-                    var controlType = control.GetType();
-                    if (controlType == typeof(ColorControl))
+                    if (ea.AssociatedControl.Tag is ColorControl colorControl)
                     {
                         var knownColorLookup = Enum.GetValues(typeof(KnownColor))
                             .Cast<KnownColor>()
@@ -386,26 +379,24 @@ namespace Material_Editor
                             .Where(c => !c.IsSystemColor)
                             .ToLookup(c => c.ToArgb());
 
-                        var colorControl = control as ColorControl;
                         var currentColor = colorControl.CurrentColor;
                         var knownColors = knownColorLookup[currentColor.ToArgb()];
                         if (knownColors.Count() > 0)
                         {
                             var colorList = knownColors.Aggregate("", (str, obj) => str + obj.Name + ", ").TrimEnd(' ', ',');
-                            newToolTip = $"{currentToolTip}{Environment.NewLine}Color: {currentColor.R}, {currentColor.G}, {currentColor.B} ({colorList})";
+                            newToolTip += $"{Environment.NewLine}Color: {currentColor.R}, {currentColor.G}, {currentColor.B} ({colorList})";
                         }
                         else
                         {
-                            newToolTip = $"{currentToolTip}{Environment.NewLine}Color: {currentColor.R}, {currentColor.G}, {currentColor.B}";
+                            newToolTip += $"{Environment.NewLine}Color: {currentColor.R}, {currentColor.G}, {currentColor.B}";
                         }
                     }
-                    else if (controlType == typeof(FileControl))
+                    else if (ea.AssociatedControl.Tag is FileControl fileControl)
                     {
-                        var fileControl = control as FileControl;
-                        newToolTip = $"{currentToolTip}{Environment.NewLine}File Type: {fileControl.CurrentFileType}";
+                        newToolTip += $"{Environment.NewLine}File Type: {fileControl.CurrentFileType}";
                     }
 
-                    toolTip.SetToolTip(e.AssociatedControl, newToolTip);
+                    toolTip.SetToolTip(ea.AssociatedControl, newToolTip);
                 }
             }
 
@@ -607,6 +598,8 @@ namespace Material_Editor
             if (file == null)
                 file = new BGSM();
 
+            var fileFont = new Font("Consolas", Font.Size, FontStyle.Regular, GraphicsUnit.Point);
+
             ControlFactory.ClearControls();
 
             ControlFactory.CreateControl(layoutGeneral, "Tile U", file.TileU, (control) => { OnChanged(); });
@@ -670,19 +663,19 @@ namespace Material_Editor
             if (bgsm == null)
                 bgsm = new BGSM();
 
-            ControlFactory.CreateFileControl(layoutMaterial, "Diffuse", FileControl.FileType.Texture, bgsm.DiffuseTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Normal", FileControl.FileType.Texture, bgsm.NormalTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Smooth Spec", FileControl.FileType.Texture, bgsm.SmoothSpecTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Greyscale", FileControl.FileType.Texture, bgsm.GreyscaleTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Environment", FileControl.FileType.Texture, bgsm.EnvmapTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Glow", FileControl.FileType.Texture, bgsm.GlowTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Inner Layer", FileControl.FileType.Texture, bgsm.InnerLayerTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Wrinkles", FileControl.FileType.Texture, bgsm.WrinklesTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Displacement", FileControl.FileType.Texture, bgsm.DisplacementTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Specular", FileControl.FileType.Texture, bgsm.SpecularTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Lighting", FileControl.FileType.Texture, bgsm.LightingTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Flow", FileControl.FileType.Texture, bgsm.FlowTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutMaterial, "Distance Field Alpha", FileControl.FileType.Texture, bgsm.DistanceFieldAlphaTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Diffuse", fileFont, FileControl.FileType.Texture, bgsm.DiffuseTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Normal", fileFont, FileControl.FileType.Texture, bgsm.NormalTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Smooth Spec", fileFont, FileControl.FileType.Texture, bgsm.SmoothSpecTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Greyscale", fileFont, FileControl.FileType.Texture, bgsm.GreyscaleTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Environment", fileFont, FileControl.FileType.Texture, bgsm.EnvmapTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Glow", fileFont, FileControl.FileType.Texture, bgsm.GlowTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Inner Layer", fileFont, FileControl.FileType.Texture, bgsm.InnerLayerTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Wrinkles", fileFont, FileControl.FileType.Texture, bgsm.WrinklesTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Displacement", fileFont, FileControl.FileType.Texture, bgsm.DisplacementTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Specular", fileFont, FileControl.FileType.Texture, bgsm.SpecularTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Lighting", fileFont, FileControl.FileType.Texture, bgsm.LightingTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Flow", fileFont, FileControl.FileType.Texture, bgsm.FlowTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Distance Field Alpha", fileFont, FileControl.FileType.Texture, bgsm.DistanceFieldAlphaTexture, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutMaterial, "Enable Editor Alpha Ref", bgsm.EnableEditorAlphaRef, (control) => { OnChanged(); });
 
@@ -752,7 +745,7 @@ namespace Material_Editor
             ControlFactory.CreateControl(layoutMaterial, "Custom Porosity", bgsm.CustomPorosity, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutMaterial, "Porosity Value", bgsm.PorosityValue, (control) => { OnChanged(); });
 
-            ControlFactory.CreateFileControl(layoutMaterial, "Root Material Path", FileControl.FileType.Material, bgsm.RootMaterialPath, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutMaterial, "Root Material Path", fileFont, FileControl.FileType.Material, bgsm.RootMaterialPath, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutMaterial, "Aniso Lighting", bgsm.AnisoLighting, (control) => { OnChanged(); });
 
@@ -867,14 +860,14 @@ namespace Material_Editor
             if (bgem == null)
                 bgem = new BGEM();
 
-            ControlFactory.CreateFileControl(layoutEffect, "Base Texture", FileControl.FileType.Texture, bgem.BaseTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutEffect, "Grayscale Texture", FileControl.FileType.Texture, bgem.GrayscaleTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutEffect, "Envmap Texture", FileControl.FileType.Texture, bgem.EnvmapTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutEffect, "Normal Texture", FileControl.FileType.Texture, bgem.NormalTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutEffect, "Envmap Mask Texture", FileControl.FileType.Texture, bgem.EnvmapMaskTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutEffect, "Specular Texture", FileControl.FileType.Texture, bgem.SpecularTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutEffect, "Lighting Texture", FileControl.FileType.Texture, bgem.LightingTexture, (control) => { OnChanged(); });
-            ControlFactory.CreateFileControl(layoutEffect, "Glow Texture", FileControl.FileType.Texture, bgem.GlowTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Base Texture", fileFont, FileControl.FileType.Texture, bgem.BaseTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Grayscale Texture", fileFont, FileControl.FileType.Texture, bgem.GrayscaleTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Envmap Texture", fileFont, FileControl.FileType.Texture, bgem.EnvmapTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Normal Texture", fileFont, FileControl.FileType.Texture, bgem.NormalTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Envmap Mask Texture", fileFont, FileControl.FileType.Texture, bgem.EnvmapMaskTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Specular Texture", fileFont, FileControl.FileType.Texture, bgem.SpecularTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Lighting Texture", fileFont, FileControl.FileType.Texture, bgem.LightingTexture, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Glow Texture", fileFont, FileControl.FileType.Texture, bgem.GlowTexture, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutEffect, "Env Mapping", bgem.EnvironmentMapping, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutEffect, "Env Mapping Mask Scale", bgem.EnvironmentMappingMaskScale, (control) => { OnChanged(); });

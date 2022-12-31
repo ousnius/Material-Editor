@@ -1,35 +1,82 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Material_Editor
 {
-    public class CustomControl : UserControl
+    public abstract class CustomControl : IDisposable
     {
-        public string CurrentToolTip;
+        public readonly string Name;
         public bool Serialize = true;
+        public string BaseToolTip;
         protected Action<CustomControl> ChangedCallback;
+
+        public CustomControl(string label)
+        {
+            Name = label;
+            CreateControls();
+        }
+
+        public virtual Label LabelControl
+        {
+            get { return null; }
+        }
+
+        public virtual Control Control
+        {
+            get { return null; }
+        }
+
+        public virtual Control ExtraControl
+        {
+            get { return null; }
+        }
+
+        public virtual void CreateControls() { }
 
         public virtual object GetProperty()
         {
             return null;
         }
 
+        public void SetVisible(bool visible)
+        {
+            if (LabelControl != null)
+                LabelControl.Visible = visible;
+
+            if (Control != null)
+                Control.Visible = visible;
+
+            if (ExtraControl != null)
+                ExtraControl.Visible = visible;
+        }
+
         public void SetTooltip(ToolTip parentTooltip, string toolTip)
         {
-            CurrentToolTip = toolTip;
-            parentTooltip.SetToolTip(this, CurrentToolTip);
+            BaseToolTip = toolTip;
 
-            foreach (Control c in Controls)
-            {
-                parentTooltip.SetToolTip(c, CurrentToolTip);
-            }
+            if (LabelControl != null)
+                parentTooltip.SetToolTip(LabelControl, toolTip);
+
+            if (Control != null)
+                parentTooltip.SetToolTip(Control, toolTip);
+
+            if (ExtraControl != null)
+                parentTooltip.SetToolTip(ExtraControl, toolTip);
         }
 
         public void RunChangedCallback()
         {
             ChangedCallback?.Invoke(this);
+        }
+
+        public void Dispose()
+        {
+            LabelControl?.Dispose();
+            Control?.Dispose();
+            ExtraControl?.Dispose();
         }
     }
 
@@ -41,7 +88,18 @@ namespace Material_Editor
         {
             foreach (var control in customControls)
             {
-                control.Value.Parent.Controls.Remove(control.Value);
+                (control.Value.Control.Parent as TableLayoutPanel).RowCount = 0;
+                (control.Value.Control.Parent as TableLayoutPanel).RowStyles.Clear();
+
+                if (control.Value.LabelControl != null)
+                    control.Value.LabelControl.Parent.Controls.Remove(control.Value.LabelControl);
+
+                if (control.Value.Control != null)
+                    control.Value.Control.Parent.Controls.Remove(control.Value.Control);
+
+                if (control.Value.ExtraControl != null)
+                    control.Value.ExtraControl.Parent.Controls.Remove(control.Value.ExtraControl);
+
                 control.Value.Dispose();
             }
 
@@ -61,7 +119,7 @@ namespace Material_Editor
             if (customControls.ContainsKey(name))
             {
                 var control = customControls[name];
-                control.Visible = visible;
+                control.SetVisible(visible);
                 control.Serialize = serialize;
             }
         }
@@ -89,7 +147,7 @@ namespace Material_Editor
             }
         }
 
-        public static CustomControl CreateControl(Control parent, string label, object property, Action<CustomControl> changedCallback)
+        public static CustomControl CreateControl(TableLayoutPanel parent, string label, object property, Action<CustomControl> changedCallback)
         {
             CustomControl control = null;
 
@@ -133,33 +191,41 @@ namespace Material_Editor
 
             if (control != null)
             {
-                control.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-                parent.Controls.Add(control);
-                customControls.Add(label, control);
+                AddCustomControl(parent, label, control);
             }
 
             return control;
         }
 
-        public static CustomControl CreateDropdownControl(Control parent, string label, object[] entries, int selection, Action<CustomControl> changedCallback)
+        public static void AddCustomControl(TableLayoutPanel parent, string label, CustomControl control)
+        {
+            parent.RowCount++;
+            parent.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+
+            parent.Controls.Add(control.LabelControl, 0, parent.RowCount - 1);
+            parent.Controls.Add(control.Control, 1, parent.RowCount - 1);
+
+            if (control.ExtraControl != null)
+                parent.Controls.Add(control.ExtraControl, 2, parent.RowCount - 1);
+
+            customControls.Add(label, control);
+        }
+
+        public static CustomControl CreateDropdownControl(TableLayoutPanel parent, string label, object[] entries, int selection, Action<CustomControl> changedCallback)
         {
             var control = new DropdownControl(label, changedCallback, entries, selection);
-            control.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            parent.Controls.Add(control);
-            customControls.Add(label, control);
+            AddCustomControl(parent, label, control);
             return control;
         }
 
-        public static CustomControl CreateFlagControl(Control parent, string label, object[] entries, int flagValue, Action<CustomControl> changedCallback)
+        public static CustomControl CreateFlagControl(TableLayoutPanel parent, string label, object[] entries, int flagValue, Action<CustomControl> changedCallback)
         {
             var control = new FlagControl(label, changedCallback, entries, flagValue);
-            control.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            parent.Controls.Add(control);
-            customControls.Add(label, control);
+            AddCustomControl(parent, label, control);
             return control;
         }
 
-        public static CustomControl CreateFileControl(Control parent, string label, FileControl.FileType fileType, string filePath, Action<CustomControl> changedCallback)
+        public static CustomControl CreateFileControl(TableLayoutPanel parent, string label, Font font, FileControl.FileType fileType, string filePath, Action<CustomControl> changedCallback)
         {
             CustomControl control = null;
 
@@ -167,19 +233,17 @@ namespace Material_Editor
             {
                 default:
                 case FileControl.FileType.Texture:
-                    control = new FileControl(label, changedCallback, FileControl.FileType.Texture, filePath);
+                    control = new FileControl(label, font, changedCallback, FileControl.FileType.Texture, filePath);
                     break;
 
                 case FileControl.FileType.Material:
-                    control = new FileControl(label, changedCallback, FileControl.FileType.Material, filePath);
+                    control = new FileControl(label, font, changedCallback, FileControl.FileType.Material, filePath);
                     break;
             }
 
             if (control != null)
             {
-                control.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-                parent.Controls.Add(control);
-                customControls.Add(label, control);
+                AddCustomControl(parent, label, control);
             }
 
             return control;

@@ -213,12 +213,12 @@
             this.layoutGeneral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.layoutGeneral.AutoSize = true;
-            this.layoutGeneral.ColumnCount = 1;
+            this.layoutGeneral.ColumnCount = 3;
+            this.layoutGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.layoutGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100));
             this.layoutGeneral.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.layoutGeneral.Location = new System.Drawing.Point(3, 3);
             this.layoutGeneral.Name = "layoutGeneral";
-            this.layoutGeneral.RowCount = 1;
-            this.layoutGeneral.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.layoutGeneral.Size = new System.Drawing.Size(610, 495);
             this.layoutGeneral.TabIndex = 1;
             // 
@@ -241,13 +241,13 @@
             this.layoutMaterial.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.layoutMaterial.AutoSize = true;
-            this.layoutMaterial.ColumnCount = 1;
+            this.layoutMaterial.ColumnCount = 3;
+            this.layoutMaterial.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.layoutMaterial.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100));
             this.layoutMaterial.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.layoutMaterial.Location = new System.Drawing.Point(3, 3);
             this.layoutMaterial.Name = "layoutMaterial";
-            this.layoutMaterial.RowCount = 1;
-            this.layoutMaterial.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutMaterial.Size = new System.Drawing.Size(550, 495);
+            this.layoutMaterial.Size = new System.Drawing.Size(610, 495);
             this.layoutMaterial.TabIndex = 1;
             // 
             // tabPageEffect
@@ -269,13 +269,13 @@
             this.layoutEffect.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.layoutEffect.AutoSize = true;
-            this.layoutEffect.ColumnCount = 1;
+            this.layoutEffect.ColumnCount = 3;
+            this.layoutEffect.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.layoutEffect.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100));
             this.layoutEffect.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.layoutEffect.Location = new System.Drawing.Point(3, 3);
             this.layoutEffect.Name = "layoutEffect";
-            this.layoutEffect.RowCount = 1;
-            this.layoutEffect.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.layoutEffect.Size = new System.Drawing.Size(550, 495);
+            this.layoutEffect.Size = new System.Drawing.Size(610, 495);
             this.layoutEffect.TabIndex = 1;
             // 
             // textureFileDialog
