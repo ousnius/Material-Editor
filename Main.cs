@@ -293,6 +293,13 @@ namespace Material_Editor
         {
             var fontDialog = new FontDialog()
             {
+                AllowScriptChange = false,
+                AllowVectorFonts = false,
+                AllowVerticalFonts = false,
+                FontMustExist = true,
+                ShowColor = false,
+                ShowEffects = false,
+                MaxSize = 14,
                 Font = config.Font ?? Font
             };
 
