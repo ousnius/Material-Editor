@@ -23,8 +23,16 @@ namespace Material_Editor
         {
             lbLabel.Text = label;
             CurrentFileType = fileType;
+
             tbFile.Font = font;
             tbFile.Text = initialPath;
+            tbFile.PlaceholderText = fileType switch
+            {
+                FileType.Texture => "<no texture>",
+                FileType.Material => "<no material>",
+                _ => "<no file>",
+            };
+
             ChangedCallback = changedCallback;
         }
 
@@ -45,7 +53,6 @@ namespace Material_Editor
                 Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
                 MaxLength = 260,
                 Name = "tbFile",
-                PlaceholderText = "<no texture>",
                 TabIndex = 0,
                 Tag = this
             };
