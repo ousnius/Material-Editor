@@ -1129,7 +1129,7 @@ namespace Material_Editor
 
                     ControlFactory.SetVisible("Specular Texture", false);
                     ControlFactory.SetVisible("Lighting Texture", false);
-                    ControlFactory.SetVisible("Distance Field Alpha Texture", false);
+                    ControlFactory.SetVisible("Glow Texture", false);
 
                     ControlFactory.SetVisible("Environment Mapping", true);
                     ControlFactory.SetVisible("Environment Mask Scale", true);
@@ -1202,7 +1202,7 @@ namespace Material_Editor
 
                     ControlFactory.SetVisible("Specular Texture", true);
                     ControlFactory.SetVisible("Lighting Texture", true);
-                    ControlFactory.SetVisible("Distance Field Alpha Texture", true);
+                    ControlFactory.SetVisible("Glow Texture", true);
 
                     ControlFactory.SetVisible("Environment Mapping", false, false);
                     ControlFactory.SetVisible("Environment Mask Scale", false, false);
