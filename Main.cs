@@ -869,6 +869,18 @@ namespace Material_Editor
             ControlFactory.CreateFileControl(layoutEffect, "Lighting Texture", fileFont, FileControl.FileType.Texture, bgem.LightingTexture, (control) => { OnChanged(); });
             ControlFactory.CreateFileControl(layoutEffect, "Glow Texture", fileFont, FileControl.FileType.Texture, bgem.GlowTexture, (control) => { OnChanged(); });
 
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 1 (v21 BGEM)", bgem.UnknownByte_v21_1, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 2 (v21 BGEM)", bgem.UnknownByte_v21_2, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 3 (v21 BGEM)", bgem.UnknownByte_v21_3, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 4 (v21 BGEM)", bgem.UnknownByte_v21_4, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 5 (v21 BGEM)", bgem.UnknownByte_v21_5, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 6 (v21 BGEM)", bgem.UnknownByte_v21_6, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 7 (v21 BGEM)", bgem.UnknownByte_v21_7, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 8 (v21 BGEM)", bgem.UnknownByte_v21_8, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 9 (v21 BGEM)", bgem.UnknownByte_v21_9, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 10 (v21 BGEM)", bgem.UnknownByte_v21_10, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 11 (v21 BGEM)", bgem.UnknownByte_v21_11, (control) => { OnChanged(); });
+
             ControlFactory.CreateControl(layoutEffect, "Env Mapping", bgem.EnvironmentMapping, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutEffect, "Env Mapping Mask Scale", bgem.EnvironmentMappingMaskScale, (control) => { OnChanged(); });
 
@@ -1579,6 +1591,29 @@ namespace Material_Editor
 
                 control = ControlFactory.Find("Glow Texture");
                 if (control != null) bgem.GlowTexture = Convert.ToString(control.GetProperty());
+
+                control = ControlFactory.Find("Unknown Byte 1 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_1 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 2 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_2 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 3 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_3 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 4 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_4 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 5 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_5 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 6 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_6 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 7 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_7 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 8 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_8 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 9 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_9 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 10 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_10 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Unknown Byte 11 (v21 BGEM)");
+                if (control != null) bgem.UnknownByte_v21_11 = Convert.ToByte(control.GetProperty());
 
                 control = ControlFactory.Find("Env Mapping");
                 if (control != null && control.Serialize) bgem.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
