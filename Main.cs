@@ -1691,7 +1691,13 @@ namespace Material_Editor
                 SuspendAll();
                 ControlFactory.ClearControls();
 
-                if (material.Version > 2 && material.Version <= 20)
+                if (material.Version > 21)
+                {
+                    MessageBox.Show($"Version {material.Version} not currently supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (material.Version > 2 && material.Version <= 21)
                     listVersion.SelectedIndex = (int)GameVersion.FO76;
                 else
                     listVersion.SelectedIndex = (int)GameVersion.FO4;
