@@ -36,6 +36,11 @@ namespace Material_Editor
         private bool changed;
         private bool toolTipPopping;
 
+        private BaseMaterialFile currentMaterial;
+
+        private const int DefaultVersionFO4 = 2;
+        private const int DefaultVersionFO76 = 20;
+
         private string WorkFileName
         {
             get
@@ -95,7 +100,16 @@ namespace Material_Editor
             layoutEffect.Enabled = true;
 
             SuspendAll();
+
             CreateMaterialControls();
+
+            if (currentMaterial.Version > 2 && currentMaterial.Version <= 21)
+                listVersion.SelectedIndex = (int)GameVersion.FO76;
+            else
+                listVersion.SelectedIndex = (int)GameVersion.FO4;
+
+            listMatType.SelectedIndex = (int)MaterialType.Material;
+
             ResumeAll();
         }
 
@@ -182,7 +196,8 @@ namespace Material_Editor
                 return;
             }
 
-            Text = WorkFileName;
+            currentMaterial = material;
+            Text = GetTitleText();
             changed = false;
         }
 
@@ -264,7 +279,8 @@ namespace Material_Editor
 
                 saveToolStripMenuItem.Enabled = true;
 
-                Text = WorkFileName;
+                currentMaterial = material;
+                Text = GetTitleText();
                 changed = false;
             }
         }
@@ -323,6 +339,21 @@ namespace Material_Editor
             if (config.GameVersion != selectedVersion)
             {
                 config.GameVersion = selectedVersion;
+
+                if (currentMaterial != null)
+                {
+                    switch (selectedVersion)
+                    {
+                        case GameVersion.FO4:
+                            if (currentMaterial.Version > 2)
+                                currentMaterial.Version = DefaultVersionFO4;
+                            break;
+                        case GameVersion.FO76:
+                            if (currentMaterial.Version <= 2)
+                                currentMaterial.Version = DefaultVersionFO76;
+                            break;
+                    }
+                }
 
                 SuspendAll();
                 SetControlVisibility();
@@ -429,7 +460,7 @@ namespace Material_Editor
         {
             if (!string.IsNullOrEmpty(workFilePath))
             {
-                Text = $"*{WorkFileName}";
+                Text = $"*{GetTitleText()}";
                 changed = true;
             }
         }
@@ -582,6 +613,14 @@ namespace Material_Editor
                 }
             }
         }
+
+        private string GetTitleText()
+        {
+            if (currentMaterial != null)
+                return $"{WorkFileName} (Version {currentMaterial.Version})";
+            else
+                return $"{WorkFileName}";
+        }
         #endregion
 
         #region Material
@@ -596,7 +635,22 @@ namespace Material_Editor
         private void CreateMaterialControls(BaseMaterialFile file = null)
         {
             if (file == null)
+            {
                 file = new BGSM();
+
+                switch (config.GameVersion)
+                {
+                    case GameVersion.FO4:
+                        file.Version = DefaultVersionFO4;
+                        break;
+
+                    case GameVersion.FO76:
+                        file.Version = DefaultVersionFO76;
+                        break;
+                }
+            }
+
+            currentMaterial = file;
 
             var fileFont = new Font("Consolas", Font.Size, FontStyle.Regular, GraphicsUnit.Point);
 
@@ -661,7 +715,20 @@ namespace Material_Editor
 
             var bgsm = file as BGSM;
             if (bgsm == null)
+            {
                 bgsm = new BGSM();
+
+                switch (config.GameVersion)
+                {
+                    case GameVersion.FO4:
+                        bgsm.Version = DefaultVersionFO4;
+                        break;
+
+                    case GameVersion.FO76:
+                        bgsm.Version = DefaultVersionFO76;
+                        break;
+                }
+            }
 
             ControlFactory.CreateFileControl(layoutMaterial, "Diffuse", fileFont, FileControl.FileType.Texture, bgsm.DiffuseTexture, (control) => { OnChanged(); });
             ControlFactory.CreateFileControl(layoutMaterial, "Normal", fileFont, FileControl.FileType.Texture, bgsm.NormalTexture, (control) => { OnChanged(); });
@@ -858,7 +925,20 @@ namespace Material_Editor
 
             var bgem = file as BGEM;
             if (bgem == null)
+            {
                 bgem = new BGEM();
+
+                switch (config.GameVersion)
+                {
+                    case GameVersion.FO4:
+                        bgem.Version = DefaultVersionFO4;
+                        break;
+
+                    case GameVersion.FO76:
+                        bgem.Version = DefaultVersionFO76;
+                        break;
+                }
+            }
 
             ControlFactory.CreateFileControl(layoutEffect, "Base Texture", fileFont, FileControl.FileType.Texture, bgem.BaseTexture, (control) => { OnChanged(); });
             ControlFactory.CreateFileControl(layoutEffect, "Grayscale Texture", fileFont, FileControl.FileType.Texture, bgem.GrayscaleTexture, (control) => { OnChanged(); });
@@ -1235,17 +1315,24 @@ namespace Material_Editor
 
         private void GetMaterialValues(BaseMaterialFile file)
         {
-            CustomControl control = null;
+            CustomControl control;
 
-            switch (config.GameVersion)
+            if (currentMaterial != null)
             {
-                case GameVersion.FO4:
-                    file.Version = 2;
-                    break;
+                file.Version = currentMaterial.Version;
+            }
+            else
+            {
+                switch (config.GameVersion)
+                {
+                    case GameVersion.FO4:
+                        file.Version = DefaultVersionFO4;
+                        break;
 
-                case GameVersion.FO76:
-                    file.Version = 20;
-                    break;
+                    case GameVersion.FO76:
+                        file.Version = DefaultVersionFO76;
+                        break;
+                }
             }
 
             control = ControlFactory.Find("Tile U");
@@ -1721,18 +1808,20 @@ namespace Material_Editor
                     return;
                 }
 
-                workFilePath = fileName;
-
-                SuspendAll();
-                ControlFactory.ClearControls();
-
                 if (material.Version > 21)
                 {
                     MessageBox.Show($"Version {material.Version} not currently supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                if (material.Version > 2 && material.Version <= 21)
+                workFilePath = fileName;
+
+                SuspendAll();
+                ControlFactory.ClearControls();
+
+                CreateMaterialControls(material);
+
+                if (currentMaterial.Version > 2 && currentMaterial.Version <= 21)
                     listVersion.SelectedIndex = (int)GameVersion.FO76;
                 else
                     listVersion.SelectedIndex = (int)GameVersion.FO4;
@@ -1742,7 +1831,6 @@ namespace Material_Editor
                 else if (signature == BGEM.Signature)
                     listMatType.SelectedIndex = (int)MaterialType.Effect;
 
-                CreateMaterialControls(material);
                 ResumeAll();
 
                 saveToolStripMenuItem.Enabled = true;
@@ -1752,8 +1840,7 @@ namespace Material_Editor
                 layoutMaterial.Enabled = true;
                 layoutEffect.Enabled = true;
 
-                int nameIndex = fileName.LastIndexOf('\\');
-                Text = fileName.Substring(nameIndex + 1, fileName.Length - nameIndex - 1);
+                Text = GetTitleText();
                 changed = false;
             }
         }
