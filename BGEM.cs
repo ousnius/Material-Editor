@@ -136,6 +136,19 @@ namespace Material_Editor
 
         [DataMember(Name = "bEffectPbrSpecular")]
         public bool EffectPbrSpecular { get; set; }
+
+        // New unknown data from version 21 BGEM
+        public byte UnknownByte_v21_1 { get; set; }
+        public byte UnknownByte_v21_2 { get; set; }
+        public byte UnknownByte_v21_3 { get; set; }
+        public byte UnknownByte_v21_4 { get; set; }
+        public byte UnknownByte_v21_5 { get; set; }
+        public byte UnknownByte_v21_6 { get; set; }
+        public byte UnknownByte_v21_7 { get; set; }
+        public byte UnknownByte_v21_8 { get; set; }
+        public byte UnknownByte_v21_9 { get; set; }
+        public byte UnknownByte_v21_10 { get; set; }
+        public byte UnknownByte_v21_11 { get; set; }
         #endregion
 
         public override void Deserialize(BinaryReader input)
@@ -153,6 +166,21 @@ namespace Material_Editor
                 SpecularTexture = ReadString(input);
                 LightingTexture = ReadString(input);
                 GlowTexture = ReadString(input);
+            }
+
+            if (Version >= 21)
+            {
+                UnknownByte_v21_1 = input.ReadByte();
+                UnknownByte_v21_2 = input.ReadByte();
+                UnknownByte_v21_3 = input.ReadByte();
+                UnknownByte_v21_4 = input.ReadByte();
+                UnknownByte_v21_5 = input.ReadByte();
+                UnknownByte_v21_6 = input.ReadByte();
+                UnknownByte_v21_7 = input.ReadByte();
+                UnknownByte_v21_8 = input.ReadByte();
+                UnknownByte_v21_9 = input.ReadByte();
+                UnknownByte_v21_10 = input.ReadByte();
+                UnknownByte_v21_11 = input.ReadByte();
             }
 
             if (Version >= 10)
@@ -218,6 +246,21 @@ namespace Material_Editor
                 WriteString(output, SpecularTexture);
                 WriteString(output, LightingTexture);
                 WriteString(output, GlowTexture);
+            }
+
+            if (Version >= 21)
+            {
+                output.Write(UnknownByte_v21_1);
+                output.Write(UnknownByte_v21_2);
+                output.Write(UnknownByte_v21_3);
+                output.Write(UnknownByte_v21_4);
+                output.Write(UnknownByte_v21_5);
+                output.Write(UnknownByte_v21_6);
+                output.Write(UnknownByte_v21_7);
+                output.Write(UnknownByte_v21_8);
+                output.Write(UnknownByte_v21_9);
+                output.Write(UnknownByte_v21_10);
+                output.Write(UnknownByte_v21_11);
             }
 
             if (Version >= 10)
