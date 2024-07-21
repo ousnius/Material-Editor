@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
     <RootNamespace>Material_Editor</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>Material_Editor.Program</StartupObject>
@@ -19,6 +19,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
   </PropertyGroup>
 
   <ItemGroup>
