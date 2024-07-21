@@ -1,8 +1,7 @@
-﻿using System;
-using System.IO;
+﻿using System.Diagnostics;
 using System.Runtime.Serialization;
 
-namespace Material_Editor
+namespace MaterialLib
 {
     [DataContract]
     public class BGEM : BaseMaterialFile
@@ -22,6 +21,7 @@ namespace Material_Editor
             SpecularTexture = "";
             LightingTexture = "";
             GlowTexture = "";
+
             BaseColor = 0xFFFFFFFFu;
             BaseColorScale = 1.0f;
             FalloffStartAngle = 1.0f;
@@ -29,6 +29,14 @@ namespace Material_Editor
             LightingInfluence = 1.0f;
             SoftDepth = 100.0f;
             EmittanceColor = 0xFFFFFFFFu;
+
+            GlassRoughnessScratch = "";
+            GlassDirtOverlay = "";
+
+            GlassFresnelColor = 0xFFFFFFFFu;
+            GlassRefractionScaleBase = 0.05f;
+            GlassBlurScaleBase = 0.4f;
+            GlassBlurScaleFactor = 1.0f;
         }
         #endregion
 
@@ -39,28 +47,28 @@ namespace Material_Editor
 
         #region Properties
         [DataMember(Name = "sBaseTexture")]
-        public string BaseTexture { get; set; }
+        public string? BaseTexture { get; set; }
 
         [DataMember(Name = "sGrayscaleTexture")]
-        public string GrayscaleTexture { get; set; }
+        public string? GrayscaleTexture { get; set; }
 
         [DataMember(Name = "sEnvmapTexture")]
-        public string EnvmapTexture { get; set; }
+        public string? EnvmapTexture { get; set; }
 
         [DataMember(Name = "sNormalTexture")]
-        public string NormalTexture { get; set; }
+        public string? NormalTexture { get; set; }
 
         [DataMember(Name = "sEnvmapMaskTexture")]
-        public string EnvmapMaskTexture { get; set; }
+        public string? EnvmapMaskTexture { get; set; }
 
         [DataMember(Name = "sSpecularTexture")]
-        public string SpecularTexture { get; set; }
+        public string? SpecularTexture { get; set; }
 
         [DataMember(Name = "sLightingTexture")]
-        public string LightingTexture { get; set; }
+        public string? LightingTexture { get; set; }
 
         [DataMember(Name = "sGlowTexture")]
-        public string GlowTexture { get; set; }
+        public string? GlowTexture { get; set; }
 
         [DataMember(Name = "bBloodEnabled")]
         public bool BloodEnabled { get; set; }
@@ -83,7 +91,7 @@ namespace Material_Editor
         public uint BaseColor { get; set; }
 
         [DataMember(Name = "cBaseColor")]
-        string BaseColorString
+        private string BaseColorString
         {
             get { return Color.FromUInt32(BaseColor).ToHexString(); }
             set { BaseColor = Color.FromHexString(value).ToUInt32(); }
@@ -116,7 +124,7 @@ namespace Material_Editor
         public uint EmittanceColor { get; set; }
 
         [DataMember(Name = "cEmittanceColor")]
-        string EmittanceColorString
+        private string EmittanceColorString
         {
             get { return Color.FromUInt32(EmittanceColor).ToHexString(); }
             set { EmittanceColor = Color.FromHexString(value).ToUInt32(); }
@@ -137,18 +145,32 @@ namespace Material_Editor
         [DataMember(Name = "bEffectPbrSpecular")]
         public bool EffectPbrSpecular { get; set; }
 
-        // New unknown data from version 21 BGEM
-        public byte UnknownByte_v21_1 { get; set; }
-        public byte UnknownByte_v21_2 { get; set; }
-        public byte UnknownByte_v21_3 { get; set; }
-        public byte UnknownByte_v21_4 { get; set; }
-        public byte UnknownByte_v21_5 { get; set; }
-        public byte UnknownByte_v21_6 { get; set; }
-        public byte UnknownByte_v21_7 { get; set; }
-        public byte UnknownByte_v21_8 { get; set; }
-        public byte UnknownByte_v21_9 { get; set; }
-        public byte UnknownByte_v21_10 { get; set; }
-        public byte UnknownByte_v21_11 { get; set; }
+        [DataMember(Name = "sGlassRoughnessScratch")]
+        public string? GlassRoughnessScratch { get; set; }
+
+        [DataMember(Name = "sGlassDirtOverlay")]
+        public string? GlassDirtOverlay { get; set; }
+
+        [DataMember(Name = "bGlassEnabled")]
+        public bool GlassEnabled { get; set; }
+
+        public uint GlassFresnelColor { get; set; }
+
+        [DataMember(Name = "cGlassFresnelColor")]
+        private string GlassFresnelColorString
+        {
+            get { return Color.FromUInt32(GlassFresnelColor).ToHexString(); }
+            set { GlassFresnelColor = Color.FromHexString(value).ToUInt32(); }
+        }
+
+        [DataMember(Name = "fGlassRefractionScaleBase")]
+        public float GlassRefractionScaleBase { get; set; }
+
+        [DataMember(Name = "fGlassBlurScaleBase")]
+        public float GlassBlurScaleBase { get; set; }
+
+        [DataMember(Name = "fGlassBlurScaleFactor")]
+        public float GlassBlurScaleFactor { get; set; }
         #endregion
 
         public override void Deserialize(BinaryReader input)
@@ -170,17 +192,22 @@ namespace Material_Editor
 
             if (Version >= 21)
             {
-                UnknownByte_v21_1 = input.ReadByte();
-                UnknownByte_v21_2 = input.ReadByte();
-                UnknownByte_v21_3 = input.ReadByte();
-                UnknownByte_v21_4 = input.ReadByte();
-                UnknownByte_v21_5 = input.ReadByte();
-                UnknownByte_v21_6 = input.ReadByte();
-                UnknownByte_v21_7 = input.ReadByte();
-                UnknownByte_v21_8 = input.ReadByte();
-                UnknownByte_v21_9 = input.ReadByte();
-                UnknownByte_v21_10 = input.ReadByte();
-                UnknownByte_v21_11 = input.ReadByte();
+                GlassRoughnessScratch = ReadString(input);
+                GlassDirtOverlay = ReadString(input);
+                GlassEnabled = input.ReadBoolean();
+
+                if (GlassEnabled)
+                {
+                    GlassFresnelColor = Color.Read(input).ToUInt32(); // 1.0, 1.0, 1.0
+
+                    // FIXME: Order might be wrong
+                    GlassBlurScaleBase = input.ReadSingle(); // Occurring values: 0.05, 0.005, 0.01, -0.09, 0.0
+
+                    if (Version >= 22)
+                        GlassBlurScaleFactor = input.ReadSingle(); // Occurring values: 1.0, 0.0
+
+                    GlassRefractionScaleBase = input.ReadSingle(); // Occurring values: 0.4, 0.1, 0.01, 0.0
+                }
             }
 
             if (Version >= 10)
@@ -250,17 +277,22 @@ namespace Material_Editor
 
             if (Version >= 21)
             {
-                output.Write(UnknownByte_v21_1);
-                output.Write(UnknownByte_v21_2);
-                output.Write(UnknownByte_v21_3);
-                output.Write(UnknownByte_v21_4);
-                output.Write(UnknownByte_v21_5);
-                output.Write(UnknownByte_v21_6);
-                output.Write(UnknownByte_v21_7);
-                output.Write(UnknownByte_v21_8);
-                output.Write(UnknownByte_v21_9);
-                output.Write(UnknownByte_v21_10);
-                output.Write(UnknownByte_v21_11);
+                WriteString(output, GlassRoughnessScratch);
+                WriteString(output, GlassDirtOverlay);
+                output.Write(GlassEnabled);
+
+                if (GlassEnabled)
+                {
+                    Color.FromUInt32(GlassFresnelColor).Write(output);
+
+                    // FIXME: Order might be wrong
+                    output.Write(GlassBlurScaleBase);
+
+                    if (Version >= 22)
+                        output.Write(GlassBlurScaleFactor);
+
+                    output.Write(GlassRefractionScaleBase);
+                }
             }
 
             if (Version >= 10)

@@ -23,7 +23,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="MaterialLib.Tests\**" />
+    <Compile Remove="MaterialLib\**" />
+    <EmbeddedResource Remove="MaterialLib.Tests\**" />
+    <EmbeddedResource Remove="MaterialLib\**" />
+    <None Remove="MaterialLib.Tests\**" />
+    <None Remove="MaterialLib\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="MaterialLib\MaterialLib.csproj" />
   </ItemGroup>
 
   <ItemGroup>

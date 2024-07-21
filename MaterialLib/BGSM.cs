@@ -1,8 +1,6 @@
-﻿using System;
-using System.IO;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
-namespace Material_Editor
+namespace MaterialLib
 {
     [DataContract]
     public class BGSM : BaseMaterialFile
@@ -58,43 +56,43 @@ namespace Material_Editor
 
         #region Properties
         [DataMember(Name = "sDiffuseTexture")]
-        public string DiffuseTexture { get; set; }
+        public string? DiffuseTexture { get; set; }
 
         [DataMember(Name = "sNormalTexture")]
-        public string NormalTexture { get; set; }
+        public string? NormalTexture { get; set; }
 
         [DataMember(Name = "sSmoothSpecTexture")]
-        public string SmoothSpecTexture { get; set; }
+        public string? SmoothSpecTexture { get; set; }
 
         [DataMember(Name = "sGreyscaleTexture")]
-        public string GreyscaleTexture { get; set; }
+        public string? GreyscaleTexture { get; set; }
 
         [DataMember(Name = "sEnvmapTexture")]
-        public string EnvmapTexture { get; set; }
+        public string? EnvmapTexture { get; set; }
 
         [DataMember(Name = "sGlowTexture")]
-        public string GlowTexture { get; set; }
+        public string? GlowTexture { get; set; }
 
         [DataMember(Name = "sInnerLayerTexture")]
-        public string InnerLayerTexture { get; set; }
+        public string? InnerLayerTexture { get; set; }
 
         [DataMember(Name = "sWrinklesTexture")]
-        public string WrinklesTexture { get; set; }
+        public string? WrinklesTexture { get; set; }
 
         [DataMember(Name = "sDisplacementTexture")]
-        public string DisplacementTexture { get; set; }
+        public string? DisplacementTexture { get; set; }
 
         [DataMember(Name = "sSpecularTexture")]
-        public string SpecularTexture { get; set; }
+        public string? SpecularTexture { get; set; }
 
         [DataMember(Name = "sLightingTexture")]
-        public string LightingTexture { get; set; }
+        public string? LightingTexture { get; set; }
 
         [DataMember(Name = "sFlowTexture")]
-        public string FlowTexture { get; set; }
+        public string? FlowTexture { get; set; }
 
         [DataMember(Name = "sDistanceFieldAlphaTexture")]
-        public string DistanceFieldAlphaTexture { get; set; }
+        public string? DistanceFieldAlphaTexture { get; set; }
 
         [DataMember(Name = "bEnableEditorAlphaRef")]
         public bool EnableEditorAlphaRef { get; set; }
@@ -120,7 +118,7 @@ namespace Material_Editor
         public uint SpecularColor { get; set; }
 
         [DataMember(Name = "cSpecularColor")]
-        string SpecularColorString
+        private string SpecularColorString
         {
             get { return Color.FromUInt32(SpecularColor).ToHexString(); }
             set { SpecularColor = Color.FromHexString(value).ToUInt32(); }
@@ -154,7 +152,7 @@ namespace Material_Editor
         public float WetnessControlMetalness { get; set; }
 
         [DataMember(Name = "sRootMaterialPath")]
-        public string RootMaterialPath { get; set; }
+        public string? RootMaterialPath { get; set; }
 
         [DataMember(Name = "bAnisoLighting")]
         public bool AnisoLighting { get; set; }
@@ -165,7 +163,7 @@ namespace Material_Editor
         public uint EmittanceColor { get; set; }
 
         [DataMember(Name = "cEmittanceColor")]
-        string EmittanceColorString
+        private string EmittanceColorString
         {
             get { return Color.FromUInt32(EmittanceColor).ToHexString(); }
             set { EmittanceColor = Color.FromHexString(value).ToUInt32(); }
@@ -213,7 +211,7 @@ namespace Material_Editor
         public uint HairTintColor { get; set; }
 
         [DataMember(Name = "cHairTintColor")]
-        string HairTintColorString
+        private string HairTintColorString
         {
             get { return Color.FromUInt32(HairTintColor).ToHexString(); }
             set { HairTintColor = Color.FromHexString(value).ToUInt32(); }
@@ -258,7 +256,7 @@ namespace Material_Editor
         public uint TranslucencySubsurfaceColor { get; set; }
 
         [DataMember(Name = "cTranslucencySubsurfaceColor")]
-        string TranslucencySubsurfaceColorString
+        private string TranslucencySubsurfaceColorString
         {
             get { return Color.FromUInt32(TranslucencySubsurfaceColor).ToHexString(); }
             set { TranslucencySubsurfaceColor = Color.FromHexString(value).ToUInt32(); }

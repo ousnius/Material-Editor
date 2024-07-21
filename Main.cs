@@ -1,13 +1,14 @@
-﻿using System;
-using System.Text;
-using System.Drawing;
-using System.Windows.Forms;
-using System.IO;
-using System.Runtime.Serialization.Json;
-using System.Threading;
-using System.Globalization;
+﻿using MaterialLib;
+using System;
 using System.Configuration;
+using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Material_Editor
 {
@@ -103,7 +104,7 @@ namespace Material_Editor
 
             CreateMaterialControls();
 
-            if (currentMaterial.Version > 2 && currentMaterial.Version <= 21)
+            if (currentMaterial.Version > 2 && currentMaterial.Version <= 22)
                 listVersion.SelectedIndex = (int)GameVersion.FO76;
             else
                 listVersion.SelectedIndex = (int)GameVersion.FO4;
@@ -949,17 +950,28 @@ namespace Material_Editor
             ControlFactory.CreateFileControl(layoutEffect, "Lighting Texture", fileFont, FileControl.FileType.Texture, bgem.LightingTexture, (control) => { OnChanged(); });
             ControlFactory.CreateFileControl(layoutEffect, "Glow Texture", fileFont, FileControl.FileType.Texture, bgem.GlowTexture, (control) => { OnChanged(); });
 
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 1 (v21 BGEM)", bgem.UnknownByte_v21_1, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 2 (v21 BGEM)", bgem.UnknownByte_v21_2, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 3 (v21 BGEM)", bgem.UnknownByte_v21_3, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 4 (v21 BGEM)", bgem.UnknownByte_v21_4, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 5 (v21 BGEM)", bgem.UnknownByte_v21_5, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 6 (v21 BGEM)", bgem.UnknownByte_v21_6, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 7 (v21 BGEM)", bgem.UnknownByte_v21_7, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 8 (v21 BGEM)", bgem.UnknownByte_v21_8, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 9 (v21 BGEM)", bgem.UnknownByte_v21_9, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 10 (v21 BGEM)", bgem.UnknownByte_v21_10, (control) => { OnChanged(); });
-            ControlFactory.CreateControl(layoutEffect, "Unknown Byte 11 (v21 BGEM)", bgem.UnknownByte_v21_11, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Glass Roughness Scratch", fileFont, FileControl.FileType.Texture, bgem.GlassRoughnessScratch, (control) => { OnChanged(); });
+            ControlFactory.CreateFileControl(layoutEffect, "Glass Dirt Overlay", fileFont, FileControl.FileType.Texture, bgem.GlassDirtOverlay, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Glass Enabled", bgem.GlassEnabled, (control) =>
+            {
+                bool enabled = Convert.ToBoolean(control.GetProperty());
+
+                if (config.GameVersion == GameVersion.FO76)
+                {
+                    ControlFactory.SetVisible("Glass Fresnel Color", enabled);
+                    ControlFactory.SetVisible("Glass Blur Scale Base", enabled);
+                    ControlFactory.SetVisible("Glass Blur Scale Factor", enabled);
+                    ControlFactory.SetVisible("Glass Refraction Scale Base", enabled);
+                }
+
+                OnChanged();
+            });
+
+            var glassFresnelColor = UIntToColor(bgem.GlassFresnelColor);
+            ControlFactory.CreateControl(layoutEffect, "Glass Fresnel Color", glassFresnelColor, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Glass Blur Scale Base", bgem.GlassBlurScaleBase, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Glass Blur Scale Factor", bgem.GlassBlurScaleFactor, (control) => { OnChanged(); });
+            ControlFactory.CreateControl(layoutEffect, "Glass Refraction Scale Base", bgem.GlassRefractionScaleBase, (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutEffect, "Env Mapping", bgem.EnvironmentMapping, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutEffect, "Env Mapping Mask Scale", bgem.EnvironmentMappingMaskScale, (control) => { OnChanged(); });
@@ -1157,6 +1169,15 @@ namespace Material_Editor
             ControlFactory.SetTooltip("Adaptative Em. Final Exp. Max", toolTip, "Maximum amount of exposure on the emissive object.");
             ControlFactory.SetTooltip("Effect Glowmap", toolTip, "Toggle glowmap.");
             ControlFactory.SetTooltip("Effect PBR Specular", toolTip, "Toggle PBR specular effect.");
+
+            ControlFactory.SetTooltip("Glass Roughness Scratch", toolTip, "Path to the roughness(R) and scratch(G) texture.");
+            ControlFactory.SetTooltip("Glass Dirt Overlay", toolTip, "Path to the dirt overlay texture.");
+
+            ControlFactory.SetTooltip("Glass Enabled", toolTip, "Glass rendering enabled");
+            ControlFactory.SetTooltip("Glass Fresnel Color", toolTip, "Glass fresnel color.");
+            ControlFactory.SetTooltip("Glass Blur Scale Base", toolTip, "Possibly glass blur scale base. Might be a different property.");
+            ControlFactory.SetTooltip("Glass Blur Scale Factor", toolTip, "Possibly glass blur scale factor. Might be a different property.");
+            ControlFactory.SetTooltip("Glass Refraction Scale Base", toolTip, "Possibly glass refraction scale base. Might be a different property.");
         }
 
         private void SetControlVisibility()
@@ -1234,6 +1255,15 @@ namespace Material_Editor
                     ControlFactory.SetVisible("Adaptative Em. Final Exp. Max", false);
                     ControlFactory.SetVisible("Effect Glowmap", false);
                     ControlFactory.SetVisible("Effect PBR Specular", false);
+
+                    ControlFactory.SetVisible("Glass Roughness Scratch", false);
+                    ControlFactory.SetVisible("Glass Dirt Overlay", false);
+
+                    ControlFactory.SetVisible("Glass Enabled", false);
+                    ControlFactory.SetVisible("Glass Fresnel Color", false);
+                    ControlFactory.SetVisible("Glass Blur Scale Base", false);
+                    ControlFactory.SetVisible("Glass Blur Scale Factor", false);
+                    ControlFactory.SetVisible("Glass Refraction Scale Base", false);
                     break;
 
                 case GameVersion.FO76:
@@ -1307,6 +1337,15 @@ namespace Material_Editor
                     ControlFactory.SetVisible("Adaptative Em. Final Exp. Max", true);
                     ControlFactory.SetVisible("Effect Glowmap", true);
                     ControlFactory.SetVisible("Effect PBR Specular", true);
+
+                    ControlFactory.SetVisible("Glass Roughness Scratch", true);
+                    ControlFactory.SetVisible("Glass Dirt Overlay", true);
+
+                    ControlFactory.SetVisible("Glass Enabled", true);
+                    ControlFactory.SetVisible("Glass Fresnel Color", true);
+                    ControlFactory.SetVisible("Glass Blur Scale Base", true);
+                    ControlFactory.SetVisible("Glass Blur Scale Factor", true);
+                    ControlFactory.SetVisible("Glass Refraction Scale Base", true);
                     break;
             }
 
@@ -1679,28 +1718,22 @@ namespace Material_Editor
                 control = ControlFactory.Find("Glow Texture");
                 if (control != null) bgem.GlowTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Unknown Byte 1 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_1 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 2 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_2 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 3 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_3 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 4 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_4 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 5 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_5 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 6 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_6 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 7 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_7 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 8 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_8 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 9 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_9 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 10 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_10 = Convert.ToByte(control.GetProperty());
-                control = ControlFactory.Find("Unknown Byte 11 (v21 BGEM)");
-                if (control != null) bgem.UnknownByte_v21_11 = Convert.ToByte(control.GetProperty());
+                control = ControlFactory.Find("Glass Roughness Scratch");
+                if (control != null) bgem.GlassRoughnessScratch = Convert.ToString(control.GetProperty());
+
+                control = ControlFactory.Find("Glass Dirt Overlay");
+                if (control != null) bgem.GlassDirtOverlay = Convert.ToString(control.GetProperty());
+
+                control = ControlFactory.Find("Glass Enabled");
+                if (control != null) bgem.GlassEnabled = Convert.ToBoolean(control.GetProperty());
+                control = ControlFactory.Find("Glass Fresnel Color");
+                if (control != null) bgem.GlassFresnelColor = (uint)((Color)control.GetProperty()).ToArgb();
+                control = ControlFactory.Find("Glass Blur Scale Base");
+                if (control != null) bgem.GlassBlurScaleBase = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Glass Blur Scale Factor");
+                if (control != null) bgem.GlassBlurScaleFactor = Convert.ToSingle(control.GetProperty());
+                control = ControlFactory.Find("Glass Refraction Scale Base");
+                if (control != null) bgem.GlassRefractionScaleBase = Convert.ToSingle(control.GetProperty());
 
                 control = ControlFactory.Find("Env Mapping");
                 if (control != null && control.Serialize) bgem.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
@@ -1808,7 +1841,7 @@ namespace Material_Editor
                     return;
                 }
 
-                if (material.Version > 21)
+                if (material.Version > 22)
                 {
                     MessageBox.Show($"Version {material.Version} not currently supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -1821,7 +1854,7 @@ namespace Material_Editor
 
                 CreateMaterialControls(material);
 
-                if (currentMaterial.Version > 2 && currentMaterial.Version <= 21)
+                if (currentMaterial.Version > 2 && currentMaterial.Version <= 22)
                     listVersion.SelectedIndex = (int)GameVersion.FO76;
                 else
                     listVersion.SelectedIndex = (int)GameVersion.FO4;

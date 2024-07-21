@@ -1,9 +1,7 @@
-﻿using System;
-using System.IO;
+﻿using System.Globalization;
 using System.Runtime.Serialization;
-using System.Globalization;
 
-namespace Material_Editor
+namespace MaterialLib
 {
     [DataContract]
     public abstract class BaseMaterialFile
@@ -60,13 +58,12 @@ namespace Material_Editor
         public AlphaBlendModeType AlphaBlendMode { get; set; }
 
         [DataMember(Name = "eAlphaBlendMode")]
-        string AlphaBlendModeString
+        private string AlphaBlendModeString
         {
             get { return AlphaBlendMode.ToString(); }
             set
             {
-                AlphaBlendModeType mode;
-                AlphaBlendMode = Enum.TryParse(value, true, out mode) ? mode : AlphaBlendModeType.None;
+                AlphaBlendMode = Enum.TryParse(value, true, out AlphaBlendModeType mode) ? mode : AlphaBlendModeType.None;
             }
         }
 
@@ -122,42 +119,42 @@ namespace Material_Editor
         public bool GrayscaleToPaletteColor { get; set; }
 
         [DataMember(Name = "bWriteMaskAlbedo")]
-        bool WriteMaskAlbedo
+        private bool WriteMaskAlbedo
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.ALBEDO); }
             set { MaskWrites |= MaskWriteFlags.ALBEDO; }
         }
 
         [DataMember(Name = "bWriteMaskNormal")]
-        bool WriteMaskNormal
+        private bool WriteMaskNormal
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.NORMAL); }
             set { MaskWrites |= MaskWriteFlags.NORMAL; }
         }
 
         [DataMember(Name = "bWriteMaskSpecular")]
-        bool WriteMaskSpecular
+        private bool WriteMaskSpecular
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.SPECULAR); }
             set { MaskWrites |= MaskWriteFlags.SPECULAR; }
         }
 
         [DataMember(Name = "bWriteMaskAmbientOcclusion")]
-        bool WriteMaskAmbientOcclusion
+        private bool WriteMaskAmbientOcclusion
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.AMBIENT_OCCLUSION); }
             set { MaskWrites |= MaskWriteFlags.AMBIENT_OCCLUSION; }
         }
 
         [DataMember(Name = "bWriteMaskEmissive")]
-        bool WriteMaskEmissive
+        private bool WriteMaskEmissive
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.EMISSIVE); }
             set { MaskWrites |= MaskWriteFlags.EMISSIVE; }
         }
 
         [DataMember(Name = "bWriteMaskGloss")]
-        bool WriteMaskGloss
+        private bool WriteMaskGloss
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.GLOSS); }
             set { MaskWrites |= MaskWriteFlags.GLOSS; }
@@ -292,10 +289,8 @@ namespace Material_Editor
         {
             try
             {
-                using (BinaryReader reader = new BinaryReader(file))
-                {
-                    Deserialize(reader);
-                }
+                using BinaryReader reader = new(file);
+                Deserialize(reader);
             }
             catch
             {
@@ -309,11 +304,9 @@ namespace Material_Editor
         {
             try
             {
-                using (BinaryWriter writer = new BinaryWriter(file))
-                {
-                    Serialize(writer);
-                    writer.Flush();
-                }
+                using BinaryWriter writer = new(file);
+                Serialize(writer);
+                writer.Flush();
             }
             catch
             {
@@ -326,7 +319,7 @@ namespace Material_Editor
         protected static string ReadString(BinaryReader input)
         {
             var length = input.ReadUInt32();
-            string str = new string(input.ReadChars((int)length));
+            string str = new(input.ReadChars((int)length));
 
             int index = str.LastIndexOf('\0');
             if (index >= 0)
@@ -335,11 +328,20 @@ namespace Material_Editor
             return str;
         }
 
-        protected static void WriteString(BinaryWriter output, string str)
+        protected static void WriteString(BinaryWriter output, string? str)
         {
-            var length = str.Length + 1;
-            output.Write(length);
-            output.Write((str + "\0").ToCharArray());
+            if (str != null)
+            {
+                int length = str.Length + 1;
+                output.Write(length);
+                output.Write((str + "\0").ToCharArray());
+            }
+            else
+            {
+                int length = 1;
+                output.Write(length);
+                output.Write("\0".ToCharArray());
+            }
         }
 
         public enum AlphaBlendModeType
@@ -413,18 +415,11 @@ namespace Material_Editor
                 throw new NotSupportedException();
         }
 
-        protected struct Color
+        protected readonly struct Color(float r, float g, float b)
         {
-            public readonly float R;
-            public readonly float G;
-            public readonly float B;
-
-            public Color(float r, float g, float b)
-            {
-                R = r;
-                G = g;
-                B = b;
-            }
+            public readonly float R = r;
+            public readonly float G = g;
+            public readonly float B = b;
 
             public uint ToUInt32()
             {
@@ -456,8 +451,8 @@ namespace Material_Editor
             public static Color FromHexString(string str)
             {
                 var text = str.ToLowerInvariant();
-                if (text.StartsWith("#") == true)
-                    text = text.Substring(1);
+                if (text.StartsWith('#'))
+                    text = text[1..];
 
                 if (text == "000")
                     return FromUInt32(0x000000u);
