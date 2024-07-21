@@ -70,12 +70,10 @@ namespace MaterialLib.Tests
             Assert.Equal("Shared/FlatGray01_d.dds", bgem.BaseTexture);
         }
 
-        //[Fact(Skip = "Optional")]
-        [Fact]
+        [Fact(Skip = "Optional")]
         public void DeserializeFiles()
         {
-            //const string path = @"<enter directory>";
-            const string path = @"C:\Users\ousnius\Downloads\FO76 materials";
+            const string path = @"<enter directory>";
 
             var directory = new DirectoryInfo(path);
             var masks = new[] { "*.bgsm", "*.bgem" };
