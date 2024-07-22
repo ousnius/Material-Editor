@@ -22,7 +22,7 @@ namespace Material_Editor
             get { return btColor; }
         }
 
-        public ColorControl(string label, Action<CustomControl> changedCallback, Color initialColor) : base(label)
+        public ColorControl(string label, Func<CustomControl, bool> visibilityCallback, Action<CustomControl> changedCallback, Color initialColor) : base(label)
         {
             lbLabel.Text = label;
 
@@ -30,6 +30,7 @@ namespace Material_Editor
             btColor.BackColor = CurrentColor;
             colorDialog.Color = CurrentColor;
 
+            VisibilityCallback = visibilityCallback;
             ChangedCallback = changedCallback;
         }
 
@@ -71,7 +72,7 @@ namespace Material_Editor
             {
                 CurrentColor = colorDialog.Color;
                 btColor.BackColor = CurrentColor;
-                RunChangedCallback();
+                InvokeChangedCallback();
             }
         }
 

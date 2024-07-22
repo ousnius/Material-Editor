@@ -19,7 +19,7 @@ namespace Material_Editor
 
         public FileType CurrentFileType;
 
-        public FileControl(string label, System.Drawing.Font font, Action<CustomControl> changedCallback, FileType fileType = FileType.Texture, string initialPath = "") : base(label)
+        public FileControl(string label, System.Drawing.Font font, Func<CustomControl, bool> visibilityCallback, Action<CustomControl> changedCallback, FileType fileType = FileType.Texture, string initialPath = "") : base(label)
         {
             lbLabel.Text = label;
             CurrentFileType = fileType;
@@ -33,6 +33,7 @@ namespace Material_Editor
                 _ => "<no file>",
             };
 
+            VisibilityCallback = visibilityCallback;
             ChangedCallback = changedCallback;
         }
 
@@ -87,7 +88,7 @@ namespace Material_Editor
 
         private void TbFile_TextChanged(object sender, EventArgs e)
         {
-            RunChangedCallback();
+            InvokeChangedCallback();
         }
 
         private void BtFile_Click(object sender, EventArgs e)
@@ -131,7 +132,7 @@ namespace Material_Editor
             }
 
             tbFile.Text = fileName.Trim().Replace('\\', '/');
-            RunChangedCallback();
+            InvokeChangedCallback();
         }
 
         public override Label LabelControl

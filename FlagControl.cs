@@ -8,7 +8,7 @@ namespace Material_Editor
         private Label lbLabel;
         private CheckedListBox checkedList;
 
-        public FlagControl(string label, Action<CustomControl> changedCallback, object[] entries, int flagValue) : base(label)
+        public FlagControl(string label, Func<CustomControl, bool> visibilityCallback, Action<CustomControl> changedCallback, object[] entries, int flagValue) : base(label)
         {
             lbLabel.Text = label;
             checkedList.Items.AddRange(entries);
@@ -21,6 +21,7 @@ namespace Material_Editor
                 }
             }
 
+            VisibilityCallback = visibilityCallback;
             ChangedCallback = changedCallback;
         }
 
@@ -76,7 +77,7 @@ namespace Material_Editor
 
         private void CheckedList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RunChangedCallback();
+            InvokeChangedCallback();
         }
     }
 }

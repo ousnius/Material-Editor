@@ -18,10 +18,12 @@ namespace Material_Editor
             get { return check; }
         }
 
-        public CheckControl(string label, Action<CustomControl> changedCallback, bool initialChecked = false) : base(label)
+        public CheckControl(string label, Func<CustomControl, bool> visibilityCallback, Action<CustomControl> changedCallback, bool initialChecked = false) : base(label)
         {
             lbLabel.Text = label;
             check.Checked = initialChecked;
+
+            VisibilityCallback = visibilityCallback;
             ChangedCallback = changedCallback;
         }
 
@@ -64,7 +66,7 @@ namespace Material_Editor
                 check.Text = "Off";
             }
 
-            RunChangedCallback();
+            InvokeChangedCallback();
         }
 
         public override object GetProperty()

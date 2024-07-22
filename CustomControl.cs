@@ -10,6 +10,8 @@ namespace Material_Editor
         public readonly string Name;
         public bool Serialize = true;
         public string BaseToolTip;
+
+        protected Func<CustomControl, bool> VisibilityCallback;
         protected Action<CustomControl> ChangedCallback;
 
         public CustomControl(string label)
@@ -66,7 +68,12 @@ namespace Material_Editor
                 parentTooltip.SetToolTip(ExtraControl, toolTip);
         }
 
-        public void RunChangedCallback()
+        public bool ShouldBeVisible()
+        {
+            return VisibilityCallback?.Invoke(this) ?? true;
+        }
+
+        public void InvokeChangedCallback()
         {
             ChangedCallback?.Invoke(this);
         }
@@ -83,6 +90,8 @@ namespace Material_Editor
     public static class ControlFactory
     {
         private static readonly Dictionary<string, CustomControl> customControls = [];
+
+        public static Action<CustomControl> DefaultChangedCallback;
 
         public static void ClearControls()
         {
@@ -107,6 +116,18 @@ namespace Material_Editor
                 return value;
 
             return null;
+        }
+
+        public static bool GetProperty(string name, out object property)
+        {
+            if (customControls.TryGetValue(name, out CustomControl control))
+            {
+                property = control.GetProperty();
+                return true;
+            }
+
+            property = null;
+            return false;
         }
 
         public static void SetVisible(string name, bool visible, bool serialize = true)
@@ -134,54 +155,60 @@ namespace Material_Editor
             }
         }
 
-        public static void RunChangedCallbacks()
+        public static void UpdateVisibility()
         {
             foreach (var control in customControls)
             {
-                control.Value.RunChangedCallback();
+                control.Value.SetVisible(control.Value.ShouldBeVisible());
             }
         }
 
-        public static CustomControl CreateControl(TableLayoutPanel parent, string label, object property, Action<CustomControl> changedCallback)
+        public static void UpdateVisibility(string name)
+        {
+            if (customControls.TryGetValue(name, out CustomControl control))
+                control.SetVisible(control.ShouldBeVisible());
+        }
+
+        public static CustomControl CreateControl(TableLayoutPanel parent, string label, object property, Func<CustomControl, bool> visibilityCallback = null, Action<CustomControl> changedCallback = null)
         {
             CustomControl control = null;
 
             var type = property.GetType();
             if (type == typeof(int))
             {
-                control = NumberControl.ForInteger(label, changedCallback, (int)property);
+                control = NumberControl.ForInteger(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, (int)property);
             }
             else if (type == typeof(uint))
             {
-                control = NumberControl.ForInteger(label, changedCallback, (uint)property, uint.MinValue, uint.MaxValue);
+                control = NumberControl.ForInteger(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, (uint)property, uint.MinValue, uint.MaxValue);
             }
             else if (type == typeof(short))
             {
-                control = NumberControl.ForInteger(label, changedCallback, (short)property, short.MinValue, short.MaxValue);
+                control = NumberControl.ForInteger(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, (short)property, short.MinValue, short.MaxValue);
             }
             else if (type == typeof(ushort))
             {
-                control = NumberControl.ForInteger(label, changedCallback, (ushort)property, ushort.MinValue, ushort.MaxValue);
+                control = NumberControl.ForInteger(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, (ushort)property, ushort.MinValue, ushort.MaxValue);
             }
             else if (type == typeof(byte))
             {
-                control = NumberControl.ForInteger(label, changedCallback, (byte)property, byte.MinValue, byte.MaxValue);
+                control = NumberControl.ForInteger(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, (byte)property, byte.MinValue, byte.MaxValue);
             }
             else if (type == typeof(decimal) || type == typeof(float) || type == typeof(double))
             {
-                control = NumberControl.ForDecimal(label, changedCallback, Convert.ToDecimal(property));
+                control = NumberControl.ForDecimal(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, Convert.ToDecimal(property));
             }
             else if (type == typeof(bool))
             {
-                control = new CheckControl(label, changedCallback, (bool)property);
+                control = new CheckControl(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, (bool)property);
             }
             else if (type == typeof(Color))
             {
-                control = new ColorControl(label, changedCallback, (Color)property);
+                control = new ColorControl(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, (Color)property);
             }
             else if (type == typeof(object[]))
             {
-                control = new DropdownControl(label, changedCallback, property as object[], 0);
+                control = new DropdownControl(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, property as object[], 0);
             }
 
             if (control != null)
@@ -206,28 +233,28 @@ namespace Material_Editor
             customControls.Add(label, control);
         }
 
-        public static CustomControl CreateDropdownControl(TableLayoutPanel parent, string label, object[] entries, int selection, Action<CustomControl> changedCallback)
+        public static CustomControl CreateDropdownControl(TableLayoutPanel parent, string label, object[] entries, int selection, Func<CustomControl, bool> visibilityCallback = null, Action<CustomControl> changedCallback = null)
         {
-            var control = new DropdownControl(label, changedCallback, entries, selection);
+            var control = new DropdownControl(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, entries, selection);
             AddCustomControl(parent, label, control);
             return control;
         }
 
-        public static CustomControl CreateFlagControl(TableLayoutPanel parent, string label, object[] entries, int flagValue, Action<CustomControl> changedCallback)
+        public static CustomControl CreateFlagControl(TableLayoutPanel parent, string label, object[] entries, int flagValue, Func<CustomControl, bool> visibilityCallback = null, Action<CustomControl> changedCallback = null)
         {
-            var control = new FlagControl(label, changedCallback, entries, flagValue);
+            var control = new FlagControl(label, visibilityCallback, changedCallback ?? DefaultChangedCallback, entries, flagValue);
             AddCustomControl(parent, label, control);
             return control;
         }
 
-        public static CustomControl CreateFileControl(TableLayoutPanel parent, string label, Font font, FileControl.FileType fileType, string filePath, Action<CustomControl> changedCallback)
+        public static CustomControl CreateFileControl(TableLayoutPanel parent, string label, Font font, FileControl.FileType fileType, string filePath, Func<CustomControl, bool> visibilityCallback = null, Action<CustomControl> changedCallback = null)
         {
             CustomControl control = null;
 
             control = fileType switch
             {
-                FileControl.FileType.Material => new FileControl(label, font, changedCallback, FileControl.FileType.Material, filePath),
-                _ => new FileControl(label, font, changedCallback, FileControl.FileType.Texture, filePath),
+                FileControl.FileType.Material => new FileControl(label, font, visibilityCallback, changedCallback ?? DefaultChangedCallback, FileControl.FileType.Material, filePath),
+                _ => new FileControl(label, font, visibilityCallback, changedCallback ?? DefaultChangedCallback, FileControl.FileType.Texture, filePath),
             };
 
             if (control != null)

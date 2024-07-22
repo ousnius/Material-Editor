@@ -8,11 +8,13 @@ namespace Material_Editor
         private Label lbLabel;
         private ComboBox dropdown;
 
-        public DropdownControl(string label, Action<CustomControl> changedCallback, object[] entries, int selection) : base(label)
+        public DropdownControl(string label, Func<CustomControl, bool> visibilityCallback, Action<CustomControl> changedCallback, object[] entries, int selection) : base(label)
         {
             lbLabel.Text = label;
             dropdown.Items.AddRange(entries);
             dropdown.SelectedIndex = selection;
+
+            VisibilityCallback = visibilityCallback;
             ChangedCallback = changedCallback;
         }
 
@@ -42,7 +44,7 @@ namespace Material_Editor
 
         private void Dropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RunChangedCallback();
+            InvokeChangedCallback();
         }
 
         public override Label LabelControl

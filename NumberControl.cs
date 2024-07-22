@@ -8,9 +8,10 @@ namespace Material_Editor
         private Label lbLabel;
         private NumericUpDown num;
 
-        private NumberControl(string label, Action<CustomControl> changedCallback, decimal initialValue, int decimalPlaces, decimal increment, decimal minValue, decimal maxValue) : base(label)
+        private NumberControl(string label, Func<CustomControl, bool> visibilityCallback, Action<CustomControl> changedCallback, decimal initialValue, int decimalPlaces, decimal increment, decimal minValue, decimal maxValue) : base(label)
         {
             lbLabel.Text = label;
+            VisibilityCallback = visibilityCallback;
             ChangedCallback = changedCallback;
 
             num.Minimum = minValue;
@@ -45,19 +46,19 @@ namespace Material_Editor
             num.ValueChanged += new EventHandler(Num_ValueChanged);
         }
 
-        public static NumberControl ForInteger(string label, Action<CustomControl> changedCallback, decimal initialValue = 0, decimal minValue = int.MinValue, decimal maxValue = int.MaxValue)
+        public static NumberControl ForInteger(string label, Func<CustomControl, bool> visibilityCallback, Action<CustomControl> changedCallback, decimal initialValue = 0, decimal minValue = int.MinValue, decimal maxValue = int.MaxValue)
         {
-            return new NumberControl(label, changedCallback, initialValue, 0, 1, minValue, maxValue);
+            return new NumberControl(label, visibilityCallback, changedCallback, initialValue, 0, 1, minValue, maxValue);
         }
 
-        public static NumberControl ForDecimal(string label, Action<CustomControl> changedCallback, decimal initialValue = 0, int decimalPlaces = 5, decimal increment = 0.1M, decimal minValue = -100000000, decimal maxValue = 100000000)
+        public static NumberControl ForDecimal(string label, Func<CustomControl, bool> visibilityCallback, Action<CustomControl> changedCallback, decimal initialValue = 0, int decimalPlaces = 5, decimal increment = 0.1M, decimal minValue = -100000000, decimal maxValue = 100000000)
         {
-            return new NumberControl(label, changedCallback, initialValue, decimalPlaces, increment, minValue, maxValue);
+            return new NumberControl(label, visibilityCallback, changedCallback, initialValue, decimalPlaces, increment, minValue, maxValue);
         }
 
         private void Num_ValueChanged(object sender, EventArgs e)
         {
-            RunChangedCallback();
+            InvokeChangedCallback();
         }
 
         public override Label LabelControl
