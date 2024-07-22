@@ -661,7 +661,7 @@ namespace Material_Editor
 
         private bool RefractionVisibility(CustomControl _)
         {
-            if (ControlFactory.GetProperty("Refraction", out var property))
+            if (ControlFactory.GetProperty(ControlNames.Refraction, out var property))
                 return Convert.ToBoolean(property);
             else
                 return true;
@@ -669,7 +669,7 @@ namespace Material_Editor
 
         private bool SpecularColorAndMultiplierVisibility(CustomControl _)
         {
-            if (!ControlFactory.GetProperty("Specular Enabled", out var property))
+            if (!ControlFactory.GetProperty(ControlNames.SpecularEnabled, out var property))
                 return false;
 
             return Convert.ToBoolean(property);
@@ -677,7 +677,7 @@ namespace Material_Editor
 
         private bool EmittanceColorAndMultiplierVisibility(CustomControl _)
         {
-            if (!ControlFactory.GetProperty("Emittance Enabled", out var property))
+            if (!ControlFactory.GetProperty(ControlNames.EmittanceEnabled, out var property))
                 return false;
 
             return Convert.ToBoolean(property);
@@ -685,7 +685,7 @@ namespace Material_Editor
 
         private bool HairTintColorVisibility(CustomControl _)
         {
-            if (!ControlFactory.GetProperty("Hair", out var property))
+            if (!ControlFactory.GetProperty(ControlNames.Hair, out var property))
                 return false;
 
             return Convert.ToBoolean(property);
@@ -693,7 +693,7 @@ namespace Material_Editor
 
         private bool FalloffVisibility(CustomControl _)
         {
-            if (!ControlFactory.GetProperty("Falloff Enabled", out var property))
+            if (!ControlFactory.GetProperty(ControlNames.FalloffEnabled, out var property))
                 return false;
 
             return Convert.ToBoolean(property);
@@ -701,7 +701,7 @@ namespace Material_Editor
 
         private bool SoftDepthVisibility(CustomControl _)
         {
-            if (!ControlFactory.GetProperty("Soft Enabled", out var property))
+            if (!ControlFactory.GetProperty(ControlNames.SoftEnabled, out var property))
                 return false;
 
             return Convert.ToBoolean(property);
@@ -732,57 +732,57 @@ namespace Material_Editor
             ControlFactory.ClearControls();
             ControlFactory.DefaultChangedCallback = (control) => OnChanged();
 
-            ControlFactory.CreateControl(layoutGeneral, "Tile U", file.TileU);
-            ControlFactory.CreateControl(layoutGeneral, "Tile V", file.TileV);
-            ControlFactory.CreateControl(layoutGeneral, "Offset U", file.UOffset);
-            ControlFactory.CreateControl(layoutGeneral, "Offset V", file.VOffset);
-            ControlFactory.CreateControl(layoutGeneral, "Scale U", file.UScale);
-            ControlFactory.CreateControl(layoutGeneral, "Scale V", file.VScale);
-            ControlFactory.CreateControl(layoutGeneral, "Alpha", file.Alpha);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.TileU, file.TileU);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.TileV, file.TileV);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.OffsetU, file.UOffset);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.OffsetV, file.VOffset);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.ScaleU, file.UScale);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.ScaleV, file.VScale);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.Alpha, file.Alpha);
 
             int alphaBlendMode = (int)file.AlphaBlendMode;
             if (alphaBlendMode < 0 || alphaBlendMode > 4)
                 alphaBlendMode = 0;
 
-            ControlFactory.CreateDropdownControl(layoutGeneral, "Alpha Blend Mode",
+            ControlFactory.CreateDropdownControl(layoutGeneral, ControlNames.AlphaBlendMode,
                 ["Unknown", "None", "Standard", "Additive", "Multiplicative"], alphaBlendMode);
 
-            ControlFactory.CreateControl(layoutGeneral, "Alpha Test Reference", file.AlphaTestRef);
-            ControlFactory.CreateControl(layoutGeneral, "Alpha Test", file.AlphaTest);
-            ControlFactory.CreateControl(layoutGeneral, "Z Buffer Write", file.ZBufferWrite);
-            ControlFactory.CreateControl(layoutGeneral, "Z Buffer Test", file.ZBufferTest);
-            ControlFactory.CreateControl(layoutGeneral, "Screen Space Reflections", file.ScreenSpaceReflections);
-            ControlFactory.CreateControl(layoutGeneral, "Wetness Control SSR", file.WetnessControlScreenSpaceReflections);
-            ControlFactory.CreateControl(layoutGeneral, "Decal", file.Decal);
-            ControlFactory.CreateControl(layoutGeneral, "Two Sided", file.TwoSided);
-            ControlFactory.CreateControl(layoutGeneral, "Decal No Fade", file.DecalNoFade);
-            ControlFactory.CreateControl(layoutGeneral, "Non Occluder", file.NonOccluder);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.AlphaTestReference, file.AlphaTestRef);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.AlphaTest, file.AlphaTest);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.ZBufferWrite, file.ZBufferWrite);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.ZBufferTest, file.ZBufferTest);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.ScreenSpaceReflections, file.ScreenSpaceReflections);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.WetnessControlSSR, file.WetnessControlScreenSpaceReflections);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.Decal, file.Decal);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.TwoSided, file.TwoSided);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.DecalNoFade, file.DecalNoFade);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.NonOccluder, file.NonOccluder);
 
-            ControlFactory.CreateControl(layoutGeneral, "Refraction", file.Refraction, null, (control) =>
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.Refraction, file.Refraction, null, (control) =>
             {
-                ControlFactory.UpdateVisibility("Refraction Falloff");
-                ControlFactory.UpdateVisibility("Refraction Power");
+                ControlFactory.UpdateVisibility(ControlNames.RefractionFalloff);
+                ControlFactory.UpdateVisibility(ControlNames.RefractionPower);
                 OnChanged();
             });
-            ControlFactory.CreateControl(layoutGeneral, "Refraction Falloff", file.RefractionFalloff, RefractionVisibility);
-            ControlFactory.CreateControl(layoutGeneral, "Refraction Power", file.RefractionPower, RefractionVisibility);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.RefractionFalloff, file.RefractionFalloff, RefractionVisibility);
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.RefractionPower, file.RefractionPower, RefractionVisibility);
 
-            ControlFactory.CreateControl(layoutGeneral, "Environment Mapping", file.EnvironmentMapping, (control) => { return file.Version < 10; }, (control) =>
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.EnvironmentMapping, file.EnvironmentMapping, (control) => { return file.Version < 10; }, (control) =>
             {
-                ControlFactory.UpdateVisibility("Environment Mask Scale");
+                ControlFactory.UpdateVisibility(ControlNames.EnvironmentMaskScale);
                 OnChanged();
             });
 
-            ControlFactory.CreateControl(layoutGeneral, "Environment Mask Scale", file.EnvironmentMappingMaskScale, (control) =>
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.EnvironmentMaskScale, file.EnvironmentMappingMaskScale, (control) =>
             {
-                if (!ControlFactory.GetProperty("Environment Mapping", out var property))
+                if (!ControlFactory.GetProperty(ControlNames.EnvironmentMapping, out var property))
                     return false;
 
                 return Convert.ToBoolean(property) && file.Version < 10;
             });
-            ControlFactory.CreateControl(layoutGeneral, "Depth Bias", file.DepthBias, (control) => { return file.Version >= 10; });
-            ControlFactory.CreateControl(layoutGeneral, "Grayscale To Palette Color", file.GrayscaleToPaletteColor);
-            ControlFactory.CreateFlagControl(layoutGeneral, "Mask Writes", Enum.GetNames(typeof(BaseMaterialFile.MaskWriteFlags)), (int)file.MaskWrites, (control) => { return file.Version >= 6; });
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.DepthBias, file.DepthBias, (control) => { return file.Version >= 10; });
+            ControlFactory.CreateControl(layoutGeneral, ControlNames.GrayscaleToPaletteColor, file.GrayscaleToPaletteColor);
+            ControlFactory.CreateFlagControl(layoutGeneral, ControlNames.MaskWrites, Enum.GetNames(typeof(BaseMaterialFile.MaskWriteFlags)), (int)file.MaskWrites, (control) => { return file.Version >= 6; });
 
             if (file is not BGSM bgsm)
             {
@@ -800,186 +800,186 @@ namespace Material_Editor
                 }
             }
 
-            ControlFactory.CreateFileControl(layoutMaterial, "Diffuse", fileFont, FileControl.FileType.Texture, bgsm.DiffuseTexture);
-            ControlFactory.CreateFileControl(layoutMaterial, "Normal", fileFont, FileControl.FileType.Texture, bgsm.NormalTexture);
-            ControlFactory.CreateFileControl(layoutMaterial, "Smooth Spec", fileFont, FileControl.FileType.Texture, bgsm.SmoothSpecTexture);
-            ControlFactory.CreateFileControl(layoutMaterial, "Greyscale", fileFont, FileControl.FileType.Texture, bgsm.GreyscaleTexture);
-            ControlFactory.CreateFileControl(layoutMaterial, "Environment", fileFont, FileControl.FileType.Texture, bgsm.EnvmapTexture, (control) => { return file.Version <= 2; });
-            ControlFactory.CreateFileControl(layoutMaterial, "Glow", fileFont, FileControl.FileType.Texture, bgsm.GlowTexture);
-            ControlFactory.CreateFileControl(layoutMaterial, "Inner Layer", fileFont, FileControl.FileType.Texture, bgsm.InnerLayerTexture, (control) => { return file.Version <= 2; });
-            ControlFactory.CreateFileControl(layoutMaterial, "Wrinkles", fileFont, FileControl.FileType.Texture, bgsm.WrinklesTexture);
-            ControlFactory.CreateFileControl(layoutMaterial, "Displacement", fileFont, FileControl.FileType.Texture, bgsm.DisplacementTexture, (control) => { return file.Version <= 2; });
-            ControlFactory.CreateFileControl(layoutMaterial, "Specular", fileFont, FileControl.FileType.Texture, bgsm.SpecularTexture, (control) => { return file.Version > 2; });
-            ControlFactory.CreateFileControl(layoutMaterial, "Lighting", fileFont, FileControl.FileType.Texture, bgsm.LightingTexture, (control) => { return file.Version > 2; });
-            ControlFactory.CreateFileControl(layoutMaterial, "Flow", fileFont, FileControl.FileType.Texture, bgsm.FlowTexture, (control) => { return file.Version > 2; });
-            ControlFactory.CreateFileControl(layoutMaterial, "Distance Field Alpha", fileFont, FileControl.FileType.Texture, bgsm.DistanceFieldAlphaTexture, (control) => { return file.Version > 2; });
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Diffuse, fileFont, FileControl.FileType.Texture, bgsm.DiffuseTexture);
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Normal, fileFont, FileControl.FileType.Texture, bgsm.NormalTexture);
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.SmoothSpec, fileFont, FileControl.FileType.Texture, bgsm.SmoothSpecTexture);
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Greyscale, fileFont, FileControl.FileType.Texture, bgsm.GreyscaleTexture);
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Environment, fileFont, FileControl.FileType.Texture, bgsm.EnvmapTexture, (control) => { return file.Version <= 2; });
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Glow, fileFont, FileControl.FileType.Texture, bgsm.GlowTexture);
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.InnerLayer, fileFont, FileControl.FileType.Texture, bgsm.InnerLayerTexture, (control) => { return file.Version <= 2; });
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Wrinkles, fileFont, FileControl.FileType.Texture, bgsm.WrinklesTexture);
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Displacement, fileFont, FileControl.FileType.Texture, bgsm.DisplacementTexture, (control) => { return file.Version <= 2; });
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Specular, fileFont, FileControl.FileType.Texture, bgsm.SpecularTexture, (control) => { return file.Version > 2; });
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Lighting, fileFont, FileControl.FileType.Texture, bgsm.LightingTexture, (control) => { return file.Version > 2; });
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.Flow, fileFont, FileControl.FileType.Texture, bgsm.FlowTexture, (control) => { return file.Version > 2; });
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.DistanceFieldAlpha, fileFont, FileControl.FileType.Texture, bgsm.DistanceFieldAlphaTexture, (control) => { return file.Version > 2; });
 
-            ControlFactory.CreateControl(layoutMaterial, "Enable Editor Alpha Ref", bgsm.EnableEditorAlphaRef);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.EnableEditorAlphaRef, bgsm.EnableEditorAlphaRef);
 
-            ControlFactory.CreateControl(layoutMaterial, "Rim Lighting", bgsm.RimLighting, (control) => { return file.Version < 8; }, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.RimLighting, bgsm.RimLighting, (control) => { return file.Version < 8; }, (control) =>
             {
-                ControlFactory.UpdateVisibility("Rim Power");
+                ControlFactory.UpdateVisibility(ControlNames.RimPower);
                 OnChanged();
             });
 
-            ControlFactory.CreateControl(layoutMaterial, "Rim Power", bgsm.RimPower, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.RimPower, bgsm.RimPower, (control) =>
             {
-                if (!ControlFactory.GetProperty("Rim Lighting", out var property))
+                if (!ControlFactory.GetProperty(ControlNames.RimLighting, out var property))
                     return false;
 
                 return Convert.ToBoolean(property) && file.Version < 8;
             });
-            ControlFactory.CreateControl(layoutMaterial, "Backlight Power", bgsm.BackLightPower, (control) => { return file.Version < 8; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.BacklightPower, bgsm.BackLightPower, (control) => { return file.Version < 8; });
 
-            ControlFactory.CreateControl(layoutMaterial, "Subsurface Lighting", bgsm.SubsurfaceLighting, (control) => { return file.Version < 8; }, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.SubsurfaceLighting, bgsm.SubsurfaceLighting, (control) => { return file.Version < 8; }, (control) =>
             {
-                ControlFactory.UpdateVisibility("Subsurface Lighting Rolloff");
+                ControlFactory.UpdateVisibility(ControlNames.SubsurfaceLightingRolloff);
                 OnChanged();
             });
 
-            ControlFactory.CreateControl(layoutMaterial, "Subsurface Lighting Rolloff", bgsm.SubsurfaceLightingRolloff, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.SubsurfaceLightingRolloff, bgsm.SubsurfaceLightingRolloff, (control) =>
             {
-                if (!ControlFactory.GetProperty("Subsurface Lighting", out var property))
+                if (!ControlFactory.GetProperty(ControlNames.SubsurfaceLighting, out var property))
                     return false;
 
                 return Convert.ToBoolean(property) && file.Version < 8;
             });
 
-            ControlFactory.CreateControl(layoutMaterial, "Translucency", bgsm.Translucency, (control) => { return file.Version >= 8; });
-            ControlFactory.CreateControl(layoutMaterial, "Transl. Thick Object", bgsm.TranslucencyThickObject, (control) => { return file.Version >= 8; });
-            ControlFactory.CreateControl(layoutMaterial, "Transl. Alb+Subsurf Color", bgsm.TranslucencyMixAlbedoWithSubsurfaceColor, (control) => { return file.Version >= 8; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.Translucency, bgsm.Translucency, (control) => { return file.Version >= 8; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TranslucencyThickObject, bgsm.TranslucencyThickObject, (control) => { return file.Version >= 8; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TranslucencyAlbSubsurfColor, bgsm.TranslucencyMixAlbedoWithSubsurfaceColor, (control) => { return file.Version >= 8; });
 
             var translucencySubsurfaceColor = UIntToColor(bgsm.TranslucencySubsurfaceColor);
-            ControlFactory.CreateControl(layoutMaterial, "Transl. Subsurface Color", translucencySubsurfaceColor, (control) => { return file.Version >= 8; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TranslucencySubsurfaceColor, translucencySubsurfaceColor, (control) => { return file.Version >= 8; });
 
-            ControlFactory.CreateControl(layoutMaterial, "Transl. Transmissive Scale", bgsm.TranslucencyTransmissiveScale, (control) => { return file.Version >= 8; });
-            ControlFactory.CreateControl(layoutMaterial, "Transl. Turbulence", bgsm.TranslucencyTurbulence, (control) => { return file.Version >= 8; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TranslucencyTransmissiveScale, bgsm.TranslucencyTransmissiveScale, (control) => { return file.Version >= 8; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TranslucencyTurbulence, bgsm.TranslucencyTurbulence, (control) => { return file.Version >= 8; });
 
-            ControlFactory.CreateControl(layoutMaterial, "Specular Enabled", bgsm.SpecularEnabled, null, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.SpecularEnabled, bgsm.SpecularEnabled, null, (control) =>
             {
-                ControlFactory.UpdateVisibility("Specular Color");
-                ControlFactory.UpdateVisibility("Specular Multiplier");
+                ControlFactory.UpdateVisibility(ControlNames.SpecularColor);
+                ControlFactory.UpdateVisibility(ControlNames.SpecularMultiplier);
                 OnChanged();
             });
 
             var specularColor = UIntToColor(bgsm.SpecularColor);
-            ControlFactory.CreateControl(layoutMaterial, "Specular Color", specularColor, SpecularColorAndMultiplierVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.SpecularColor, specularColor, SpecularColorAndMultiplierVisibility);
 
-            ControlFactory.CreateControl(layoutMaterial, "Specular Multiplier", bgsm.SpecularMult, SpecularColorAndMultiplierVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Smoothness", bgsm.Smoothness);
-            ControlFactory.CreateControl(layoutMaterial, "Fresnel Power", bgsm.FresnelPower);
-            ControlFactory.CreateControl(layoutMaterial, "Wet Spec Scale", bgsm.WetnessControlSpecScale);
-            ControlFactory.CreateControl(layoutMaterial, "Wet Spec Power Scale", bgsm.WetnessControlSpecPowerScale);
-            ControlFactory.CreateControl(layoutMaterial, "Wet Spec Min Var", bgsm.WetnessControlSpecMinvar);
-            ControlFactory.CreateControl(layoutMaterial, "Wet Env Map Scale", bgsm.WetnessControlEnvMapScale, (control) => { return file.Version < 10; });
-            ControlFactory.CreateControl(layoutMaterial, "Wet Fresnel Power", bgsm.WetnessControlFresnelPower);
-            ControlFactory.CreateControl(layoutMaterial, "Wet Metalness", bgsm.WetnessControlMetalness);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.SpecularMultiplier, bgsm.SpecularMult, SpecularColorAndMultiplierVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.Smoothness, bgsm.Smoothness);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.FresnelPower, bgsm.FresnelPower);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.WetSpecScale, bgsm.WetnessControlSpecScale);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.WetSpecPowerScale, bgsm.WetnessControlSpecPowerScale);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.WetSpecMinVar, bgsm.WetnessControlSpecMinvar);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.WetEnvMapScale, bgsm.WetnessControlEnvMapScale, (control) => { return file.Version < 10; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.WetFresnelPower, bgsm.WetnessControlFresnelPower);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.WetMetalness, bgsm.WetnessControlMetalness);
 
-            ControlFactory.CreateControl(layoutMaterial, "PBR", bgsm.PBR, (control) => { return file.Version > 2; });
-            ControlFactory.CreateControl(layoutMaterial, "Custom Porosity", bgsm.CustomPorosity, (control) => { return file.Version >= 9; });
-            ControlFactory.CreateControl(layoutMaterial, "Porosity Value", bgsm.PorosityValue, (control) => { return file.Version >= 9; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.PBR, bgsm.PBR, (control) => { return file.Version > 2; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.CustomPorosity, bgsm.CustomPorosity, (control) => { return file.Version >= 9; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.PorosityValue, bgsm.PorosityValue, (control) => { return file.Version >= 9; });
 
-            ControlFactory.CreateFileControl(layoutMaterial, "Root Material Path", fileFont, FileControl.FileType.Material, bgsm.RootMaterialPath);
+            ControlFactory.CreateFileControl(layoutMaterial, ControlNames.RootMaterialPath, fileFont, FileControl.FileType.Material, bgsm.RootMaterialPath);
 
-            ControlFactory.CreateControl(layoutMaterial, "Aniso Lighting", bgsm.AnisoLighting);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.AnisoLighting, bgsm.AnisoLighting);
 
-            ControlFactory.CreateControl(layoutMaterial, "Emittance Enabled", bgsm.EmitEnabled, null, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.EmittanceEnabled, bgsm.EmitEnabled, null, (control) =>
             {
-                ControlFactory.UpdateVisibility("Emittance Color");
-                ControlFactory.UpdateVisibility("Emittance Multiplier");
+                ControlFactory.UpdateVisibility(ControlNames.EmittanceColor);
+                ControlFactory.UpdateVisibility(ControlNames.EmittanceMultiplier);
                 OnChanged();
             });
 
             var emittanceColor = UIntToColor(bgsm.EmittanceColor);
-            ControlFactory.CreateControl(layoutMaterial, "Emittance Color", emittanceColor, EmittanceColorAndMultiplierVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.EmittanceColor, emittanceColor, EmittanceColorAndMultiplierVisibility);
 
-            ControlFactory.CreateControl(layoutMaterial, "Emittance Multiplier", bgsm.EmittanceMult, EmittanceColorAndMultiplierVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Model Space Normals", bgsm.ModelSpaceNormals);
-            ControlFactory.CreateControl(layoutMaterial, "External Emittance", bgsm.ExternalEmittance);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.EmittanceMultiplier, bgsm.EmittanceMult, EmittanceColorAndMultiplierVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.ModelSpaceNormals, bgsm.ModelSpaceNormals);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.ExternalEmittance, bgsm.ExternalEmittance);
 
-            ControlFactory.CreateControl(layoutMaterial, "Lum Emittance", bgsm.LumEmittance, (control) => { return file.Version >= 12; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.LumEmittance, bgsm.LumEmittance, (control) => { return file.Version >= 12; });
 
-            ControlFactory.CreateControl(layoutMaterial, "Adaptative Emissive", bgsm.UseAdaptativeEmissive, (control) => { return file.Version >= 13; }, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.AdaptativeEmissive, bgsm.UseAdaptativeEmissive, (control) => { return file.Version >= 13; }, (control) =>
             {
-                ControlFactory.UpdateVisibility("Adapt. Em. Exposure Offset");
-                ControlFactory.UpdateVisibility("Adapt. Em. Final Exposure Min");
-                ControlFactory.UpdateVisibility("Adapt. Em. Final Exposure Max");
+                ControlFactory.UpdateVisibility(ControlNames.AdaptEmissiveExposureOffset);
+                ControlFactory.UpdateVisibility(ControlNames.AdaptEmissiveFinalExposureMin);
+                ControlFactory.UpdateVisibility(ControlNames.AdaptEmissiveFinalExposureMax);
                 OnChanged();
             });
 
             bool AdaptativeEmissiveVisibility(CustomControl _)
             {
-                if (!ControlFactory.GetProperty("Adaptative Emissive", out var property))
+                if (!ControlFactory.GetProperty(ControlNames.AdaptativeEmissive, out var property))
                     return false;
 
                 return Convert.ToBoolean(property) && file.Version >= 13;
             }
 
-            ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Exposure Offset", bgsm.AdaptativeEmissive_ExposureOffset, AdaptativeEmissiveVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Final Exposure Min", bgsm.AdaptativeEmissive_FinalExposureMin, AdaptativeEmissiveVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Adapt. Em. Final Exposure Max", bgsm.AdaptativeEmissive_FinalExposureMax, AdaptativeEmissiveVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.AdaptEmissiveExposureOffset, bgsm.AdaptativeEmissive_ExposureOffset, AdaptativeEmissiveVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.AdaptEmissiveFinalExposureMin, bgsm.AdaptativeEmissive_FinalExposureMin, AdaptativeEmissiveVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.AdaptEmissiveFinalExposureMax, bgsm.AdaptativeEmissive_FinalExposureMax, AdaptativeEmissiveVisibility);
 
-            ControlFactory.CreateControl(layoutMaterial, "Back Lighting", bgsm.BackLighting, (control) => { return file.Version < 8; });
-            ControlFactory.CreateControl(layoutMaterial, "Receive Shadows", bgsm.ReceiveShadows);
-            ControlFactory.CreateControl(layoutMaterial, "Hide Secret", bgsm.HideSecret);
-            ControlFactory.CreateControl(layoutMaterial, "Cast Shadows", bgsm.CastShadows);
-            ControlFactory.CreateControl(layoutMaterial, "Dissolve Fade", bgsm.DissolveFade);
-            ControlFactory.CreateControl(layoutMaterial, "Assume Shadowmask", bgsm.AssumeShadowmask);
-            ControlFactory.CreateControl(layoutMaterial, "Glowmap", bgsm.Glowmap);
-            ControlFactory.CreateControl(layoutMaterial, "Environment Map Window", bgsm.EnvironmentMappingWindow, (control) => { return file.Version < 7; });
-            ControlFactory.CreateControl(layoutMaterial, "Environment Map Eye", bgsm.EnvironmentMappingEye, (control) => { return file.Version < 7; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.BackLighting, bgsm.BackLighting, (control) => { return file.Version < 8; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.ReceiveShadows, bgsm.ReceiveShadows);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.HideSecret, bgsm.HideSecret);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.CastShadows, bgsm.CastShadows);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.DissolveFade, bgsm.DissolveFade);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.AssumeShadowmask, bgsm.AssumeShadowmask);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.Glowmap, bgsm.Glowmap);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.EnvironmentMapWindow, bgsm.EnvironmentMappingWindow, (control) => { return file.Version < 7; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.EnvironmentMapEye, bgsm.EnvironmentMappingEye, (control) => { return file.Version < 7; });
 
-            ControlFactory.CreateControl(layoutMaterial, "Hair", bgsm.Hair, null, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.Hair, bgsm.Hair, null, (control) =>
             {
-                ControlFactory.UpdateVisibility("Hair Tint Color");
+                ControlFactory.UpdateVisibility(ControlNames.HairTintColor);
                 OnChanged();
             });
 
             var hairTintColor = UIntToColor(bgsm.HairTintColor);
-            ControlFactory.CreateControl(layoutMaterial, "Hair Tint Color", hairTintColor, HairTintColorVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.HairTintColor, hairTintColor, HairTintColorVisibility);
 
-            ControlFactory.CreateControl(layoutMaterial, "Tree", bgsm.Tree);
-            ControlFactory.CreateControl(layoutMaterial, "Facegen", bgsm.Facegen);
-            ControlFactory.CreateControl(layoutMaterial, "Skin Tint", bgsm.SkinTint);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.Tree, bgsm.Tree);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.Facegen, bgsm.Facegen);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.SkinTint, bgsm.SkinTint);
 
-            ControlFactory.CreateControl(layoutMaterial, "Tessellate", bgsm.Tessellate, null, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.Tessellate, bgsm.Tessellate, null, (control) =>
             {
-                ControlFactory.UpdateVisibility("Displacement Tex Bias");
-                ControlFactory.UpdateVisibility("Displacement Tex Scale");
-                ControlFactory.UpdateVisibility("Tessellation PN Scale");
-                ControlFactory.UpdateVisibility("Tessellation Base Factor");
-                ControlFactory.UpdateVisibility("Tessellation Fade Distance");
+                ControlFactory.UpdateVisibility(ControlNames.DisplacementTexBias);
+                ControlFactory.UpdateVisibility(ControlNames.DisplacementTexScale);
+                ControlFactory.UpdateVisibility(ControlNames.TessellationPNScale);
+                ControlFactory.UpdateVisibility(ControlNames.TessellationBaseFactor);
+                ControlFactory.UpdateVisibility(ControlNames.TessellationFadeDistance);
                 OnChanged();
             });
 
             bool TessellateVisibility(CustomControl _)
             {
-                if (!ControlFactory.GetProperty("Tessellate", out var property))
+                if (!ControlFactory.GetProperty(ControlNames.Tessellate, out var property))
                     return false;
 
                 return Convert.ToBoolean(property) && file.Version < 3;
             }
 
-            ControlFactory.CreateControl(layoutMaterial, "Displacement Tex Bias", bgsm.DisplacementTextureBias, TessellateVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Displacement Tex Scale", bgsm.DisplacementTextureScale, TessellateVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Tessellation PN Scale", bgsm.TessellationPnScale, TessellateVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Tessellation Base Factor", bgsm.TessellationBaseFactor, TessellateVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Tessellation Fade Distance", bgsm.TessellationFadeDistance, TessellateVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Grayscale To Palette Scale", bgsm.GrayscaleToPaletteScale);
-            ControlFactory.CreateControl(layoutMaterial, "Skew Specular Alpha", bgsm.SkewSpecularAlpha, (control) => { return file.Version >= 1; });
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.DisplacementTexBias, bgsm.DisplacementTextureBias, TessellateVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.DisplacementTexScale, bgsm.DisplacementTextureScale, TessellateVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TessellationPNScale, bgsm.TessellationPnScale, TessellateVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TessellationBaseFactor, bgsm.TessellationBaseFactor, TessellateVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TessellationFadeDistance, bgsm.TessellationFadeDistance, TessellateVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.GrayscaleToPaletteScale, bgsm.GrayscaleToPaletteScale);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.SkewSpecularAlpha, bgsm.SkewSpecularAlpha, (control) => { return file.Version >= 1; });
 
-            ControlFactory.CreateControl(layoutMaterial, "Terrain", bgsm.Terrain, (control) => { return file.Version >= 3; }, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.Terrain, bgsm.Terrain, (control) => { return file.Version >= 3; }, (control) =>
             {
-                ControlFactory.UpdateVisibility("Unk Int 1 BGSM");
-                ControlFactory.UpdateVisibility("Terrain Threshold Falloff");
-                ControlFactory.UpdateVisibility("Terrain Tiling Distance");
-                ControlFactory.UpdateVisibility("Terrain Rotation Angle");
+                ControlFactory.UpdateVisibility(ControlNames.UnkInt1BGSM);
+                ControlFactory.UpdateVisibility(ControlNames.TerrainThresholdFalloff);
+                ControlFactory.UpdateVisibility(ControlNames.TerrainTilingDistance);
+                ControlFactory.UpdateVisibility(ControlNames.TerrainRotationAngle);
                 OnChanged();
             });
 
-            ControlFactory.CreateControl(layoutMaterial, "Unk Int 1 BGSM", bgsm.UnkInt1, (control) =>
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.UnkInt1BGSM, bgsm.UnkInt1, (control) =>
             {
-                if (!ControlFactory.GetProperty("Terrain", out var property))
+                if (!ControlFactory.GetProperty(ControlNames.Terrain, out var property))
                     return false;
 
                 return Convert.ToBoolean(property) && file.Version == 3;
@@ -987,15 +987,15 @@ namespace Material_Editor
 
             bool TerrainVisibility(CustomControl _)
             {
-                if (!ControlFactory.GetProperty("Terrain", out var property))
+                if (!ControlFactory.GetProperty(ControlNames.Terrain, out var property))
                     return false;
 
                 return Convert.ToBoolean(property) && file.Version >= 3;
             }
 
-            ControlFactory.CreateControl(layoutMaterial, "Terrain Threshold Falloff", bgsm.TerrainThresholdFalloff, TerrainVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Terrain Tiling Distance", bgsm.TerrainTilingDistance, TerrainVisibility);
-            ControlFactory.CreateControl(layoutMaterial, "Terrain Rotation Angle", bgsm.TerrainRotationAngle, TerrainVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TerrainThresholdFalloff, bgsm.TerrainThresholdFalloff, TerrainVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TerrainTilingDistance, bgsm.TerrainTilingDistance, TerrainVisibility);
+            ControlFactory.CreateControl(layoutMaterial, ControlNames.TerrainRotationAngle, bgsm.TerrainRotationAngle, TerrainVisibility);
 
             if (file is not BGEM bgem)
             {
@@ -1013,29 +1013,29 @@ namespace Material_Editor
                 }
             }
 
-            ControlFactory.CreateFileControl(layoutEffect, "Base Texture", fileFont, FileControl.FileType.Texture, bgem.BaseTexture);
-            ControlFactory.CreateFileControl(layoutEffect, "Grayscale Texture", fileFont, FileControl.FileType.Texture, bgem.GrayscaleTexture);
-            ControlFactory.CreateFileControl(layoutEffect, "Envmap Texture", fileFont, FileControl.FileType.Texture, bgem.EnvmapTexture);
-            ControlFactory.CreateFileControl(layoutEffect, "Normal Texture", fileFont, FileControl.FileType.Texture, bgem.NormalTexture);
-            ControlFactory.CreateFileControl(layoutEffect, "Envmap Mask Texture", fileFont, FileControl.FileType.Texture, bgem.EnvmapMaskTexture);
-            ControlFactory.CreateFileControl(layoutEffect, "Specular Texture", fileFont, FileControl.FileType.Texture, bgem.SpecularTexture, (control) => { return file.Version >= 11; });
-            ControlFactory.CreateFileControl(layoutEffect, "Lighting Texture", fileFont, FileControl.FileType.Texture, bgem.LightingTexture, (control) => { return file.Version >= 11; });
-            ControlFactory.CreateFileControl(layoutEffect, "Glow Texture", fileFont, FileControl.FileType.Texture, bgem.GlowTexture, (control) => { return file.Version >= 11; });
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.BaseTexture, fileFont, FileControl.FileType.Texture, bgem.BaseTexture);
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.GrayscaleTexture, fileFont, FileControl.FileType.Texture, bgem.GrayscaleTexture);
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.EnvmapTexture, fileFont, FileControl.FileType.Texture, bgem.EnvmapTexture);
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.NormalTexture, fileFont, FileControl.FileType.Texture, bgem.NormalTexture);
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.EnvmapMaskTexture, fileFont, FileControl.FileType.Texture, bgem.EnvmapMaskTexture);
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.SpecularTexture, fileFont, FileControl.FileType.Texture, bgem.SpecularTexture, (control) => { return file.Version >= 11; });
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.LightingTexture, fileFont, FileControl.FileType.Texture, bgem.LightingTexture, (control) => { return file.Version >= 11; });
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.GlowTexture, fileFont, FileControl.FileType.Texture, bgem.GlowTexture, (control) => { return file.Version >= 11; });
 
-            ControlFactory.CreateFileControl(layoutEffect, "Glass Roughness Scratch", fileFont, FileControl.FileType.Texture, bgem.GlassRoughnessScratch, (control) => { return file.Version >= 21; });
-            ControlFactory.CreateFileControl(layoutEffect, "Glass Dirt Overlay", fileFont, FileControl.FileType.Texture, bgem.GlassDirtOverlay, (control) => { return file.Version >= 21; });
-            ControlFactory.CreateControl(layoutEffect, "Glass Enabled", bgem.GlassEnabled, (control) => { return file.Version >= 21; }, (control) =>
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.GlassRoughnessScratch, fileFont, FileControl.FileType.Texture, bgem.GlassRoughnessScratch, (control) => { return file.Version >= 21; });
+            ControlFactory.CreateFileControl(layoutEffect, ControlNames.GlassDirtOverlay, fileFont, FileControl.FileType.Texture, bgem.GlassDirtOverlay, (control) => { return file.Version >= 21; });
+            ControlFactory.CreateControl(layoutEffect, ControlNames.GlassEnabled, bgem.GlassEnabled, (control) => { return file.Version >= 21; }, (control) =>
             {
-                ControlFactory.UpdateVisibility("Glass Fresnel Color");
-                ControlFactory.UpdateVisibility("Glass Blur Scale Base");
-                ControlFactory.UpdateVisibility("Glass Blur Scale Factor");
-                ControlFactory.UpdateVisibility("Glass Refraction Scale Base");
+                ControlFactory.UpdateVisibility(ControlNames.GlassFresnelColor);
+                ControlFactory.UpdateVisibility(ControlNames.GlassBlurScaleBase);
+                ControlFactory.UpdateVisibility(ControlNames.GlassBlurScaleFactor);
+                ControlFactory.UpdateVisibility(ControlNames.GlassRefractionScaleBase);
                 OnChanged();
             });
 
             bool GlassVisibilityV21(CustomControl _)
             {
-                if (!ControlFactory.GetProperty("Glass Enabled", out var property))
+                if (!ControlFactory.GetProperty(ControlNames.GlassEnabled, out var property))
                     return false;
 
                 return Convert.ToBoolean(property) && file.Version >= 21;
@@ -1043,62 +1043,62 @@ namespace Material_Editor
 
             bool GlassVisibilityV22(CustomControl _)
             {
-                if (!ControlFactory.GetProperty("Glass Enabled", out var property))
+                if (!ControlFactory.GetProperty(ControlNames.GlassEnabled, out var property))
                     return false;
 
                 return Convert.ToBoolean(property) && file.Version >= 22;
             }
 
             var glassFresnelColor = UIntToColor(bgem.GlassFresnelColor);
-            ControlFactory.CreateControl(layoutEffect, "Glass Fresnel Color", glassFresnelColor, GlassVisibilityV21);
-            ControlFactory.CreateControl(layoutEffect, "Glass Blur Scale Base", bgem.GlassBlurScaleBase, GlassVisibilityV21);
-            ControlFactory.CreateControl(layoutEffect, "Glass Blur Scale Factor", bgem.GlassBlurScaleFactor, GlassVisibilityV22);
-            ControlFactory.CreateControl(layoutEffect, "Glass Refraction Scale Base", bgem.GlassRefractionScaleBase, GlassVisibilityV21);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.GlassFresnelColor, glassFresnelColor, GlassVisibilityV21);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.GlassBlurScaleBase, bgem.GlassBlurScaleBase, GlassVisibilityV21);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.GlassBlurScaleFactor, bgem.GlassBlurScaleFactor, GlassVisibilityV22);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.GlassRefractionScaleBase, bgem.GlassRefractionScaleBase, GlassVisibilityV21);
 
-            ControlFactory.CreateControl(layoutEffect, "Env Mapping", bgem.EnvironmentMapping, (control) => { return file.Version >= 10; });
-            ControlFactory.CreateControl(layoutEffect, "Env Mapping Mask Scale", bgem.EnvironmentMappingMaskScale, (control) => { return file.Version >= 10; });
+            ControlFactory.CreateControl(layoutEffect, ControlNames.EnvMapping, bgem.EnvironmentMapping, (control) => { return file.Version >= 10; });
+            ControlFactory.CreateControl(layoutEffect, ControlNames.EnvMappingMaskScale, bgem.EnvironmentMappingMaskScale, (control) => { return file.Version >= 10; });
 
-            ControlFactory.CreateControl(layoutEffect, "Blood Enabled", bgem.BloodEnabled);
-            ControlFactory.CreateControl(layoutEffect, "Effect Lighting Enabled", bgem.EffectLightingEnabled);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.BloodEnabled, bgem.BloodEnabled);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.EffectLightingEnabled, bgem.EffectLightingEnabled);
 
-            ControlFactory.CreateControl(layoutEffect, "Falloff Enabled", bgem.FalloffEnabled, null, (control) =>
+            ControlFactory.CreateControl(layoutEffect, ControlNames.FalloffEnabled, bgem.FalloffEnabled, null, (control) =>
             {
-                ControlFactory.UpdateVisibility("Falloff Start Angle");
-                ControlFactory.UpdateVisibility("Falloff Stop Angle");
-                ControlFactory.UpdateVisibility("Falloff Start Opacity");
-                ControlFactory.UpdateVisibility("Falloff Stop Opacity");
+                ControlFactory.UpdateVisibility(ControlNames.FalloffStartAngle);
+                ControlFactory.UpdateVisibility(ControlNames.FalloffStopAngle);
+                ControlFactory.UpdateVisibility(ControlNames.FalloffStartOpacity);
+                ControlFactory.UpdateVisibility(ControlNames.FalloffStopOpacity);
                 OnChanged();
             });
 
-            ControlFactory.CreateControl(layoutEffect, "Falloff Color Enabled", bgem.FalloffColorEnabled);
-            ControlFactory.CreateControl(layoutEffect, "Grayscale To Palette Alpha", bgem.GrayscaleToPaletteAlpha);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.FalloffColorEnabled, bgem.FalloffColorEnabled);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.GrayscaleToPaletteAlpha, bgem.GrayscaleToPaletteAlpha);
 
-            ControlFactory.CreateControl(layoutEffect, "Soft Enabled", bgem.SoftEnabled, null, (control) =>
+            ControlFactory.CreateControl(layoutEffect, ControlNames.SoftEnabled, bgem.SoftEnabled, null, (control) =>
             {
-                ControlFactory.UpdateVisibility("Soft Depth");
+                ControlFactory.UpdateVisibility(ControlNames.SoftDepth);
                 OnChanged();
             });
 
             var baseColor = UIntToColor(bgem.BaseColor);
-            ControlFactory.CreateControl(layoutEffect, "Base Color", baseColor);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.BaseColor, baseColor);
 
-            ControlFactory.CreateControl(layoutEffect, "Base Color Scale", bgem.BaseColorScale);
-            ControlFactory.CreateControl(layoutEffect, "Falloff Start Angle", bgem.FalloffStartAngle, FalloffVisibility);
-            ControlFactory.CreateControl(layoutEffect, "Falloff Stop Angle", bgem.FalloffStopAngle, FalloffVisibility);
-            ControlFactory.CreateControl(layoutEffect, "Falloff Start Opacity", bgem.FalloffStartOpacity, FalloffVisibility);
-            ControlFactory.CreateControl(layoutEffect, "Falloff Stop Opacity", bgem.FalloffStopOpacity, FalloffVisibility);
-            ControlFactory.CreateControl(layoutEffect, "Lighting Influence", bgem.LightingInfluence);
-            ControlFactory.CreateControl(layoutEffect, "Envmap Min LOD", bgem.EnvmapMinLOD);
-            ControlFactory.CreateControl(layoutEffect, "Soft Depth", bgem.SoftDepth, SoftDepthVisibility);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.BaseColorScale, bgem.BaseColorScale);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.FalloffStartAngle, bgem.FalloffStartAngle, FalloffVisibility);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.FalloffStopAngle, bgem.FalloffStopAngle, FalloffVisibility);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.FalloffStartOpacity, bgem.FalloffStartOpacity, FalloffVisibility);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.FalloffStopOpacity, bgem.FalloffStopOpacity, FalloffVisibility);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.LightingInfluence, bgem.LightingInfluence);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.EnvmapMinLOD, bgem.EnvmapMinLOD);
+            ControlFactory.CreateControl(layoutEffect, ControlNames.SoftDepth, bgem.SoftDepth, SoftDepthVisibility);
 
             var emitColor = UIntToColor(bgem.EmittanceColor);
-            ControlFactory.CreateControl(layoutEffect, "Emit Color", emitColor, (control) => { return file.Version >= 11; });
+            ControlFactory.CreateControl(layoutEffect, ControlNames.EmitColor, emitColor, (control) => { return file.Version >= 11; });
 
-            ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Exposure Offset", bgem.AdaptativeEmissive_ExposureOffset, (control) => { return file.Version >= 15; });
-            ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Final Exp. Min", bgem.AdaptativeEmissive_FinalExposureMin, (control) => { return file.Version >= 15; });
-            ControlFactory.CreateControl(layoutEffect, "Adaptative Em. Final Exp. Max", bgem.AdaptativeEmissive_FinalExposureMax, (control) => { return file.Version >= 15; });
-            ControlFactory.CreateControl(layoutEffect, "Effect Glowmap", bgem.Glowmap, (control) => { return file.Version >= 16; });
-            ControlFactory.CreateControl(layoutEffect, "Effect PBR Specular", bgem.EffectPbrSpecular, (control) => { return file.Version >= 20; });
+            ControlFactory.CreateControl(layoutEffect, ControlNames.AdaptativeEmissiveExposureOffset, bgem.AdaptativeEmissive_ExposureOffset, (control) => { return file.Version >= 15; });
+            ControlFactory.CreateControl(layoutEffect, ControlNames.AdaptativeEmissiveFinalExposureMin, bgem.AdaptativeEmissive_FinalExposureMin, (control) => { return file.Version >= 15; });
+            ControlFactory.CreateControl(layoutEffect, ControlNames.AdaptativeEmissiveFinalExposureMax, bgem.AdaptativeEmissive_FinalExposureMax, (control) => { return file.Version >= 15; });
+            ControlFactory.CreateControl(layoutEffect, ControlNames.EffectGlowmap, bgem.Glowmap, (control) => { return file.Version >= 16; });
+            ControlFactory.CreateControl(layoutEffect, ControlNames.EffectPBRSpecular, bgem.EffectPbrSpecular, (control) => { return file.Version >= 20; });
 
             CreateTooltips();
             ControlFactory.UpdateVisibility();
@@ -1108,152 +1108,152 @@ namespace Material_Editor
         {
             toolTip.RemoveAll();
 
-            ControlFactory.SetTooltip("Tile U", toolTip, "Tile the U texture coordinate (wrapping/repeating the texture).");
-            ControlFactory.SetTooltip("Tile V", toolTip, "Tile the V texture coordinate (wrapping/repeating the texture).");
-            ControlFactory.SetTooltip("Offset U", toolTip, "Offset the U texture coordinate.");
-            ControlFactory.SetTooltip("Offset V", toolTip, "Offset the V texture coordinate.");
-            ControlFactory.SetTooltip("Scale U", toolTip, "Scale the U texture coordinate.");
-            ControlFactory.SetTooltip("Scale V", toolTip, "Scale the V texture coordinate.");
-            ControlFactory.SetTooltip("Alpha", toolTip, "Fixed alpha value that applies to the entire mesh (unrelated to texture alpha).");
-            ControlFactory.SetTooltip("Alpha Blend Mode", toolTip, "Defines the mode at which alpha is blended into other meshes.");
-            ControlFactory.SetTooltip("Alpha Test Reference", toolTip, "Reference value to do alpha testing for. Transparency happens when alpha is below or exceeds the reference value (depending on modes).");
-            ControlFactory.SetTooltip("Alpha Test", toolTip, "Toggle alpha testing using the reference value.");
-            ControlFactory.SetTooltip("Z Buffer Write", toolTip, "The mesh writes to the z-buffer to make others aware of its depth.");
-            ControlFactory.SetTooltip("Z Buffer Test", toolTip, "The mesh tests the z-buffer to take note of other meshes depth.");
-            ControlFactory.SetTooltip("Screen Space Reflections", toolTip, "Toggle screen space reflections.");
-            ControlFactory.SetTooltip("Wetness Control SSR", toolTip, "Toggle wetness control for screen space reflections.");
-            ControlFactory.SetTooltip("Decal", toolTip, "Toggle decal rendering.");
-            ControlFactory.SetTooltip("Two Sided", toolTip, "Renders both sides of all faces of the mesh (double sided).");
-            ControlFactory.SetTooltip("Decal No Fade", toolTip, "Toggle decal rendering without fade.");
-            ControlFactory.SetTooltip("Non Occluder", toolTip, "Don't perform occlusion (line-of-sight).");
-            ControlFactory.SetTooltip("Refraction", toolTip, "Toggle refraction of light.");
-            ControlFactory.SetTooltip("Refraction Falloff", toolTip, "Toggles refraction falloff.");
-            ControlFactory.SetTooltip("Refraction Power", toolTip, "Power of the refraction.");
-            ControlFactory.SetTooltip("Environment Mapping", toolTip, "Toggle environment mapping.");
-            ControlFactory.SetTooltip("Environment Mask Scale", toolTip, "Scale for the environment mask.");
-            ControlFactory.SetTooltip("Depth Bias", toolTip, "Toggle depth bias to prevent z-fighting.");
-            ControlFactory.SetTooltip("Grayscale To Palette Color", toolTip, "Toggle mapping of grayscale to palette colors.");
-            ControlFactory.SetTooltip("Mask Writes", toolTip, "Masks writing of certain lighting properties.");
+            ControlFactory.SetTooltip(ControlNames.TileU, toolTip, "Tile the U texture coordinate (wrapping/repeating the texture).");
+            ControlFactory.SetTooltip(ControlNames.TileV, toolTip, "Tile the V texture coordinate (wrapping/repeating the texture).");
+            ControlFactory.SetTooltip(ControlNames.OffsetU, toolTip, "Offset the U texture coordinate.");
+            ControlFactory.SetTooltip(ControlNames.OffsetV, toolTip, "Offset the V texture coordinate.");
+            ControlFactory.SetTooltip(ControlNames.ScaleU, toolTip, "Scale the U texture coordinate.");
+            ControlFactory.SetTooltip(ControlNames.ScaleV, toolTip, "Scale the V texture coordinate.");
+            ControlFactory.SetTooltip(ControlNames.Alpha, toolTip, "Fixed alpha value that applies to the entire mesh (unrelated to texture alpha).");
+            ControlFactory.SetTooltip(ControlNames.AlphaBlendMode, toolTip, "Defines the mode at which alpha is blended into other meshes.");
+            ControlFactory.SetTooltip(ControlNames.AlphaTestReference, toolTip, "Reference value to do alpha testing for. Transparency happens when alpha is below or exceeds the reference value (depending on modes).");
+            ControlFactory.SetTooltip(ControlNames.AlphaTest, toolTip, "Toggle alpha testing using the reference value.");
+            ControlFactory.SetTooltip(ControlNames.ZBufferWrite, toolTip, "The mesh writes to the z-buffer to make others aware of its depth.");
+            ControlFactory.SetTooltip(ControlNames.ZBufferTest, toolTip, "The mesh tests the z-buffer to take note of other meshes depth.");
+            ControlFactory.SetTooltip(ControlNames.ScreenSpaceReflections, toolTip, "Toggle screen space reflections.");
+            ControlFactory.SetTooltip(ControlNames.WetnessControlSSR, toolTip, "Toggle wetness control for screen space reflections.");
+            ControlFactory.SetTooltip(ControlNames.Decal, toolTip, "Toggle decal rendering.");
+            ControlFactory.SetTooltip(ControlNames.TwoSided, toolTip, "Renders both sides of all faces of the mesh (double sided).");
+            ControlFactory.SetTooltip(ControlNames.DecalNoFade, toolTip, "Toggle decal rendering without fade.");
+            ControlFactory.SetTooltip(ControlNames.NonOccluder, toolTip, "Don't perform occlusion (line-of-sight).");
+            ControlFactory.SetTooltip(ControlNames.Refraction, toolTip, "Toggle refraction of light.");
+            ControlFactory.SetTooltip(ControlNames.RefractionFalloff, toolTip, "Toggles refraction falloff.");
+            ControlFactory.SetTooltip(ControlNames.RefractionPower, toolTip, "Power of the refraction.");
+            ControlFactory.SetTooltip(ControlNames.EnvironmentMapping, toolTip, "Toggle environment mapping.");
+            ControlFactory.SetTooltip(ControlNames.EnvironmentMaskScale, toolTip, "Scale for the environment mask.");
+            ControlFactory.SetTooltip(ControlNames.DepthBias, toolTip, "Toggle depth bias to prevent z-fighting.");
+            ControlFactory.SetTooltip(ControlNames.GrayscaleToPaletteColor, toolTip, "Toggle mapping of grayscale to palette colors.");
+            ControlFactory.SetTooltip(ControlNames.MaskWrites, toolTip, "Masks writing of certain lighting properties.");
 
-            ControlFactory.SetTooltip("Diffuse", toolTip, "Diffuse texture slot.");
-            ControlFactory.SetTooltip("Normal", toolTip, "Normal map slot.");
-            ControlFactory.SetTooltip("Smooth Spec", toolTip, "Smoothness/specular mask slot.");
-            ControlFactory.SetTooltip("Greyscale", toolTip, "Greyscale (palette/lookup/heightmap) texture slot.");
-            ControlFactory.SetTooltip("Environment", toolTip, "Environment map slot.");
-            ControlFactory.SetTooltip("Glow", toolTip, "Glow map or other specialty slot.");
-            ControlFactory.SetTooltip("Inner Layer", toolTip, "Inner layer mask slot.");
-            ControlFactory.SetTooltip("Wrinkles", toolTip, "Wrinkles texture slot.");
-            ControlFactory.SetTooltip("Displacement", toolTip, "Displacement texture slot.");
-            ControlFactory.SetTooltip("Specular", toolTip, "PBR specular texture slot.");
-            ControlFactory.SetTooltip("Lighting", toolTip, "PBR lighting texture slot.");
-            ControlFactory.SetTooltip("Flow", toolTip, "PBR flow texture slot.");
-            ControlFactory.SetTooltip("Distance Field Alpha", toolTip, "Distance field alpha texture slot.");
-            ControlFactory.SetTooltip("Enable Editor Alpha Ref", toolTip, "Toggle editor alpha testing reference.");
-            ControlFactory.SetTooltip("Rim Lighting", toolTip, "Toggle rim lighting effect.");
-            ControlFactory.SetTooltip("Rim Power", toolTip, "Power of the rim lighting.");
-            ControlFactory.SetTooltip("Backlight Power", toolTip, "Power of the back lighting.");
-            ControlFactory.SetTooltip("Subsurface Lighting", toolTip, "Toggle subsurface lighting effect.");
-            ControlFactory.SetTooltip("Subsurface Lighting Rolloff", toolTip, "Rolloff of the subsurface lighting.");
-            ControlFactory.SetTooltip("Translucency", toolTip, "Toggle translucency simulation.");
-            ControlFactory.SetTooltip("Transl. Thick Object", toolTip, "Object on which the material is applied is thick (or a billboard if not). Used for correct shadowing.");
-            ControlFactory.SetTooltip("Transl. Alb+Subsurf Color", toolTip, "Multiply the subsurface color with the albedo instead of just outputting the specified color.");
-            ControlFactory.SetTooltip("Transl. Subsurface Color", toolTip, "Color tint of the subsurface matter.");
-            ControlFactory.SetTooltip("Transl. Transmissive Scale", toolTip, "Simulate amount of light collision inside the material.");
-            ControlFactory.SetTooltip("Transl. Turbulence", toolTip, "Turbulence for translucency.");
-            ControlFactory.SetTooltip("Specular Enabled", toolTip, "Toggle specular effect.");
-            ControlFactory.SetTooltip("Specular Color", toolTip, "Color for the specular effect.");
-            ControlFactory.SetTooltip("Specular Multiplier", toolTip, "Multiplier for the specular effect.");
-            ControlFactory.SetTooltip("Smoothness", toolTip, "Smoothness of the specular effect.");
-            ControlFactory.SetTooltip("Fresnel Power", toolTip, "Power of the fresnel reflection and transmission (specular).");
-            ControlFactory.SetTooltip("Wet Spec Scale", toolTip, "Scale of the wetness specular.");
-            ControlFactory.SetTooltip("Wet Spec Power Scale", toolTip, "Power scale of the wetness specular.");
-            ControlFactory.SetTooltip("Wet Spec Min Var", toolTip, "Minimum variance of the wetness specular.");
-            ControlFactory.SetTooltip("Wet Env Map Scale", toolTip, "Environment map scale of the wetness effect.");
-            ControlFactory.SetTooltip("Wet Fresnel Power", toolTip, "Fresnel power of the wetness effect.");
-            ControlFactory.SetTooltip("Wet Metalness", toolTip, "Metalness of the wetness effect.");
-            ControlFactory.SetTooltip("PBR", toolTip, "Enables native PBR rendering. Requires diffuse, normal, specular and lighting texture (flow optional).");
-            ControlFactory.SetTooltip("Custom Porosity", toolTip, "Toggle custom porosity for PBR.");
-            ControlFactory.SetTooltip("Porosity Value", toolTip, "Custom porosity value for PBR.");
-            ControlFactory.SetTooltip("Root Material Path", toolTip, "Template/root file of the current material.");
-            ControlFactory.SetTooltip("Aniso Lighting", toolTip, "Toggle anisotropic lighting.");
-            ControlFactory.SetTooltip("Emittance Enabled", toolTip, "Toggle emittance effect.");
-            ControlFactory.SetTooltip("Emittance Color", toolTip, "Color for the emittance effect.");
-            ControlFactory.SetTooltip("Emittance Multiplier", toolTip, "Multiplier for the emittance effect.");
-            ControlFactory.SetTooltip("Model Space Normals", toolTip, "Toggle model space normals rendering.");
-            ControlFactory.SetTooltip("External Emittance", toolTip, "Toggle external emittance effect.");
-            ControlFactory.SetTooltip("Lum Emittance", toolTip, "Luminous emittance value (in Lux) of the luminous flux emitted from the surface.");
-            ControlFactory.SetTooltip("Adaptative Emissive", toolTip, "Use stable emissive over physically based emittance. If unchecked, uses luminous emittance.");
-            ControlFactory.SetTooltip("Adapt. Em. Exposure Offset", toolTip, "Exposure offset applied while exposing the emissive object.");
-            ControlFactory.SetTooltip("Adapt. Em. Final Exposure Min", toolTip, "Minimum amount of exposure on the emissive object.");
-            ControlFactory.SetTooltip("Adapt. Em. Final Exposure Max", toolTip, "Maximum amount of exposure on the emissive object.");
-            ControlFactory.SetTooltip("Back Lighting", toolTip, "Toggle back lighting effect.");
-            ControlFactory.SetTooltip("Receive Shadows", toolTip, "Toggle if this mesh receives shadows.");
-            ControlFactory.SetTooltip("Hide Secret", toolTip, "Toggle hide secret.");
-            ControlFactory.SetTooltip("Cast Shadows", toolTip, "Toggle shadow casting for this mesh.");
-            ControlFactory.SetTooltip("Dissolve Fade", toolTip, "Toggle dissolve fade.");
-            ControlFactory.SetTooltip("Assume Shadowmask", toolTip, "Toggle assuming shadowmask.");
-            ControlFactory.SetTooltip("Glowmap", toolTip, "Toggle making use of a glowmap for emittance.");
-            ControlFactory.SetTooltip("Environment Map Window", toolTip, "Toggle environment map window.");
-            ControlFactory.SetTooltip("Environment Map Eye", toolTip, "Toggle environment map eye.");
-            ControlFactory.SetTooltip("Hair", toolTip, "Toggle hair rendering.");
-            ControlFactory.SetTooltip("Hair Tint Color", toolTip, "Color for the hair tinting.");
-            ControlFactory.SetTooltip("Tree", toolTip, "Toggle tree rendering.");
-            ControlFactory.SetTooltip("Facegen", toolTip, "Toggle facegen rendering.");
-            ControlFactory.SetTooltip("Skin Tint", toolTip, "Toggle skin tint rendering.");
-            ControlFactory.SetTooltip("Tessellate", toolTip, "Toggle tessellation effect.");
-            ControlFactory.SetTooltip("Displacement Tex Bias", toolTip, "Bias for the displacement texture.");
-            ControlFactory.SetTooltip("Displacement Tex Scale", toolTip, "Scale for the displacement texture.");
-            ControlFactory.SetTooltip("Tessellation PN Scale", toolTip, "PN (point normal) scale for the tessellation effect.");
-            ControlFactory.SetTooltip("Tessellation Base Factor", toolTip, "Base factor for the tessellation effect.");
-            ControlFactory.SetTooltip("Tessellation Fade Distance", toolTip, "Fade distance for the tessellation effect.");
-            ControlFactory.SetTooltip("Grayscale To Palette Scale", toolTip, "Scale for the grayscale to palette mapping.");
-            ControlFactory.SetTooltip("Skew Specular Alpha", toolTip, "Toggle skew specular alpha.");
-            ControlFactory.SetTooltip("Terrain", toolTip, "Toggle terrain rendering.");
-            ControlFactory.SetTooltip("Unk Int 1 BGSM", toolTip, "Unknown value.");
-            ControlFactory.SetTooltip("Terrain Threshold Falloff", toolTip, "Softness of the terrain blending.");
-            ControlFactory.SetTooltip("Terrain Tiling Distance", toolTip, "Tiling distance of the terrain.");
-            ControlFactory.SetTooltip("Terrain Rotation Angle", toolTip, "Rotation angle of the terrain.");
+            ControlFactory.SetTooltip(ControlNames.Diffuse, toolTip, "Diffuse texture slot.");
+            ControlFactory.SetTooltip(ControlNames.Normal, toolTip, "Normal map slot.");
+            ControlFactory.SetTooltip(ControlNames.SmoothSpec, toolTip, "Smoothness/specular mask slot.");
+            ControlFactory.SetTooltip(ControlNames.Greyscale, toolTip, "Greyscale (palette/lookup/heightmap) texture slot.");
+            ControlFactory.SetTooltip(ControlNames.Environment, toolTip, "Environment map slot.");
+            ControlFactory.SetTooltip(ControlNames.Glow, toolTip, "Glow map or other specialty slot.");
+            ControlFactory.SetTooltip(ControlNames.InnerLayer, toolTip, "Inner layer mask slot.");
+            ControlFactory.SetTooltip(ControlNames.Wrinkles, toolTip, "Wrinkles texture slot.");
+            ControlFactory.SetTooltip(ControlNames.Displacement, toolTip, "Displacement texture slot.");
+            ControlFactory.SetTooltip(ControlNames.Specular, toolTip, "PBR specular texture slot.");
+            ControlFactory.SetTooltip(ControlNames.Lighting, toolTip, "PBR lighting texture slot.");
+            ControlFactory.SetTooltip(ControlNames.Flow, toolTip, "PBR flow texture slot.");
+            ControlFactory.SetTooltip(ControlNames.DistanceFieldAlpha, toolTip, "Distance field alpha texture slot.");
+            ControlFactory.SetTooltip(ControlNames.EnableEditorAlphaRef, toolTip, "Toggle editor alpha testing reference.");
+            ControlFactory.SetTooltip(ControlNames.RimLighting, toolTip, "Toggle rim lighting effect.");
+            ControlFactory.SetTooltip(ControlNames.RimPower, toolTip, "Power of the rim lighting.");
+            ControlFactory.SetTooltip(ControlNames.BacklightPower, toolTip, "Power of the back lighting.");
+            ControlFactory.SetTooltip(ControlNames.SubsurfaceLighting, toolTip, "Toggle subsurface lighting effect.");
+            ControlFactory.SetTooltip(ControlNames.SubsurfaceLightingRolloff, toolTip, "Rolloff of the subsurface lighting.");
+            ControlFactory.SetTooltip(ControlNames.Translucency, toolTip, "Toggle translucency simulation.");
+            ControlFactory.SetTooltip(ControlNames.TranslucencyThickObject, toolTip, "Object on which the material is applied is thick (or a billboard if not). Used for correct shadowing.");
+            ControlFactory.SetTooltip(ControlNames.TranslucencyAlbSubsurfColor, toolTip, "Multiply the subsurface color with the albedo instead of just outputting the specified color.");
+            ControlFactory.SetTooltip(ControlNames.TranslucencySubsurfaceColor, toolTip, "Color tint of the subsurface matter.");
+            ControlFactory.SetTooltip(ControlNames.TranslucencyTransmissiveScale, toolTip, "Simulate amount of light collision inside the material.");
+            ControlFactory.SetTooltip(ControlNames.TranslucencyTurbulence, toolTip, "Turbulence for translucency.");
+            ControlFactory.SetTooltip(ControlNames.SpecularEnabled, toolTip, "Toggle specular effect.");
+            ControlFactory.SetTooltip(ControlNames.SpecularColor, toolTip, "Color for the specular effect.");
+            ControlFactory.SetTooltip(ControlNames.SpecularMultiplier, toolTip, "Multiplier for the specular effect.");
+            ControlFactory.SetTooltip(ControlNames.Smoothness, toolTip, "Smoothness of the specular effect.");
+            ControlFactory.SetTooltip(ControlNames.FresnelPower, toolTip, "Power of the fresnel reflection and transmission (specular).");
+            ControlFactory.SetTooltip(ControlNames.WetSpecScale, toolTip, "Scale of the wetness specular.");
+            ControlFactory.SetTooltip(ControlNames.WetSpecPowerScale, toolTip, "Power scale of the wetness specular.");
+            ControlFactory.SetTooltip(ControlNames.WetSpecMinVar, toolTip, "Minimum variance of the wetness specular.");
+            ControlFactory.SetTooltip(ControlNames.WetEnvMapScale, toolTip, "Environment map scale of the wetness effect.");
+            ControlFactory.SetTooltip(ControlNames.WetFresnelPower, toolTip, "Fresnel power of the wetness effect.");
+            ControlFactory.SetTooltip(ControlNames.WetMetalness, toolTip, "Metalness of the wetness effect.");
+            ControlFactory.SetTooltip(ControlNames.PBR, toolTip, "Enables native PBR rendering. Requires diffuse, normal, specular and lighting texture (flow optional).");
+            ControlFactory.SetTooltip(ControlNames.CustomPorosity, toolTip, "Toggle custom porosity for PBR.");
+            ControlFactory.SetTooltip(ControlNames.PorosityValue, toolTip, "Custom porosity value for PBR.");
+            ControlFactory.SetTooltip(ControlNames.RootMaterialPath, toolTip, "Template/root file of the current material.");
+            ControlFactory.SetTooltip(ControlNames.AnisoLighting, toolTip, "Toggle anisotropic lighting.");
+            ControlFactory.SetTooltip(ControlNames.EmittanceEnabled, toolTip, "Toggle emittance effect.");
+            ControlFactory.SetTooltip(ControlNames.EmittanceColor, toolTip, "Color for the emittance effect.");
+            ControlFactory.SetTooltip(ControlNames.EmittanceMultiplier, toolTip, "Multiplier for the emittance effect.");
+            ControlFactory.SetTooltip(ControlNames.ModelSpaceNormals, toolTip, "Toggle model space normals rendering.");
+            ControlFactory.SetTooltip(ControlNames.ExternalEmittance, toolTip, "Toggle external emittance effect.");
+            ControlFactory.SetTooltip(ControlNames.LumEmittance, toolTip, "Luminous emittance value (in Lux) of the luminous flux emitted from the surface.");
+            ControlFactory.SetTooltip(ControlNames.AdaptativeEmissive, toolTip, "Use stable emissive over physically based emittance. If unchecked, uses luminous emittance.");
+            ControlFactory.SetTooltip(ControlNames.AdaptEmissiveExposureOffset, toolTip, "Exposure offset applied while exposing the emissive object.");
+            ControlFactory.SetTooltip(ControlNames.AdaptEmissiveFinalExposureMin, toolTip, "Minimum amount of exposure on the emissive object.");
+            ControlFactory.SetTooltip(ControlNames.AdaptEmissiveFinalExposureMax, toolTip, "Maximum amount of exposure on the emissive object.");
+            ControlFactory.SetTooltip(ControlNames.BackLighting, toolTip, "Toggle back lighting effect.");
+            ControlFactory.SetTooltip(ControlNames.ReceiveShadows, toolTip, "Toggle if this mesh receives shadows.");
+            ControlFactory.SetTooltip(ControlNames.HideSecret, toolTip, "Toggle hide secret.");
+            ControlFactory.SetTooltip(ControlNames.CastShadows, toolTip, "Toggle shadow casting for this mesh.");
+            ControlFactory.SetTooltip(ControlNames.DissolveFade, toolTip, "Toggle dissolve fade.");
+            ControlFactory.SetTooltip(ControlNames.AssumeShadowmask, toolTip, "Toggle assuming shadowmask.");
+            ControlFactory.SetTooltip(ControlNames.Glowmap, toolTip, "Toggle making use of a glowmap for emittance.");
+            ControlFactory.SetTooltip(ControlNames.EnvironmentMapWindow, toolTip, "Toggle environment map window.");
+            ControlFactory.SetTooltip(ControlNames.EnvironmentMapEye, toolTip, "Toggle environment map eye.");
+            ControlFactory.SetTooltip(ControlNames.Hair, toolTip, "Toggle hair rendering.");
+            ControlFactory.SetTooltip(ControlNames.HairTintColor, toolTip, "Color for the hair tinting.");
+            ControlFactory.SetTooltip(ControlNames.Tree, toolTip, "Toggle tree rendering.");
+            ControlFactory.SetTooltip(ControlNames.Facegen, toolTip, "Toggle facegen rendering.");
+            ControlFactory.SetTooltip(ControlNames.SkinTint, toolTip, "Toggle skin tint rendering.");
+            ControlFactory.SetTooltip(ControlNames.Tessellate, toolTip, "Toggle tessellation effect.");
+            ControlFactory.SetTooltip(ControlNames.DisplacementTexBias, toolTip, "Bias for the displacement texture.");
+            ControlFactory.SetTooltip(ControlNames.DisplacementTexScale, toolTip, "Scale for the displacement texture.");
+            ControlFactory.SetTooltip(ControlNames.TessellationPNScale, toolTip, "PN (point normal) scale for the tessellation effect.");
+            ControlFactory.SetTooltip(ControlNames.TessellationBaseFactor, toolTip, "Base factor for the tessellation effect.");
+            ControlFactory.SetTooltip(ControlNames.TessellationFadeDistance, toolTip, "Fade distance for the tessellation effect.");
+            ControlFactory.SetTooltip(ControlNames.GrayscaleToPaletteScale, toolTip, "Scale for the grayscale to palette mapping.");
+            ControlFactory.SetTooltip(ControlNames.SkewSpecularAlpha, toolTip, "Toggle skew specular alpha.");
+            ControlFactory.SetTooltip(ControlNames.Terrain, toolTip, "Toggle terrain rendering.");
+            ControlFactory.SetTooltip(ControlNames.UnkInt1BGSM, toolTip, "Unknown value.");
+            ControlFactory.SetTooltip(ControlNames.TerrainThresholdFalloff, toolTip, "Softness of the terrain blending.");
+            ControlFactory.SetTooltip(ControlNames.TerrainTilingDistance, toolTip, "Tiling distance of the terrain.");
+            ControlFactory.SetTooltip(ControlNames.TerrainRotationAngle, toolTip, "Rotation angle of the terrain.");
 
-            ControlFactory.SetTooltip("Base Texture", toolTip, "Base texture slot.");
-            ControlFactory.SetTooltip("Grayscale Texture", toolTip, "Grayscale texture slot.");
-            ControlFactory.SetTooltip("Envmap Texture", toolTip, "Environment map slot.");
-            ControlFactory.SetTooltip("Normal Texture", toolTip, "Normal map slot.");
-            ControlFactory.SetTooltip("Envmap Mask Texture", toolTip, "Environment map mask slot.");
-            ControlFactory.SetTooltip("Specular Texture", toolTip, "PBR specular texture slot.");
-            ControlFactory.SetTooltip("Lighting Texture", toolTip, "PBR lighting texture slot.");
-            ControlFactory.SetTooltip("Glow Texture", toolTip, "PBR emissive palette slot.");
-            ControlFactory.SetTooltip("Env Mapping", toolTip, "Toggle environment mapping effect.");
-            ControlFactory.SetTooltip("Env Mapping Mask Scale", toolTip, "Scale for the environment mapping mask.");
-            ControlFactory.SetTooltip("Blood Enabled", toolTip, "Toggle blood rendering.");
-            ControlFactory.SetTooltip("Effect Lighting Enabled", toolTip, "Toggle effect lighting.");
-            ControlFactory.SetTooltip("Falloff Enabled", toolTip, "Toggle falloff settings driving alpha.");
-            ControlFactory.SetTooltip("Falloff Color Enabled", toolTip, "Toggle falloff settings driving color.");
-            ControlFactory.SetTooltip("Grayscale To Palette Alpha", toolTip, "Toggle grayscale to palette alpha mapping.");
-            ControlFactory.SetTooltip("Soft Enabled", toolTip, "Toggle softness effect.");
-            ControlFactory.SetTooltip("Base Color", toolTip, "Base color of the effect.");
-            ControlFactory.SetTooltip("Base Color Scale", toolTip, "Scale of the base color.");
-            ControlFactory.SetTooltip("Falloff Start Angle", toolTip, "Start angle of the falloff.");
-            ControlFactory.SetTooltip("Falloff Stop Angle", toolTip, "Stop angle of the falloff.");
-            ControlFactory.SetTooltip("Falloff Start Opacity", toolTip, "Start opacity of the falloff.");
-            ControlFactory.SetTooltip("Falloff Stop Opacity", toolTip, "Stop opacity of the falloff.");
-            ControlFactory.SetTooltip("Lighting Influence", toolTip, "Lighting influence value of the material.");
-            ControlFactory.SetTooltip("Envmap Min LOD", toolTip, "Minimum LOD for environment mapping.");
-            ControlFactory.SetTooltip("Soft Depth", toolTip, "Softness depth value of the material.");
-            ControlFactory.SetTooltip("Emit Color", toolTip, "Color for the PBR emittance effect.");
-            ControlFactory.SetTooltip("Adaptative Em. Exposure Offset", toolTip, "Exposure offset applied while exposing the emissive object.");
-            ControlFactory.SetTooltip("Adaptative Em. Final Exp. Min", toolTip, "Minimum amount of exposure on the emissive object.");
-            ControlFactory.SetTooltip("Adaptative Em. Final Exp. Max", toolTip, "Maximum amount of exposure on the emissive object.");
-            ControlFactory.SetTooltip("Effect Glowmap", toolTip, "Toggle glowmap.");
-            ControlFactory.SetTooltip("Effect PBR Specular", toolTip, "Toggle PBR specular effect.");
+            ControlFactory.SetTooltip(ControlNames.BaseTexture, toolTip, "Base texture slot.");
+            ControlFactory.SetTooltip(ControlNames.GrayscaleTexture, toolTip, "Grayscale texture slot.");
+            ControlFactory.SetTooltip(ControlNames.EnvmapTexture, toolTip, "Environment map slot.");
+            ControlFactory.SetTooltip(ControlNames.NormalTexture, toolTip, "Normal map slot.");
+            ControlFactory.SetTooltip(ControlNames.EnvmapMaskTexture, toolTip, "Environment map mask slot.");
+            ControlFactory.SetTooltip(ControlNames.SpecularTexture, toolTip, "PBR specular texture slot.");
+            ControlFactory.SetTooltip(ControlNames.LightingTexture, toolTip, "PBR lighting texture slot.");
+            ControlFactory.SetTooltip(ControlNames.GlowTexture, toolTip, "PBR emissive palette slot.");
+            ControlFactory.SetTooltip(ControlNames.EnvMapping, toolTip, "Toggle environment mapping effect.");
+            ControlFactory.SetTooltip(ControlNames.EnvMappingMaskScale, toolTip, "Scale for the environment mapping mask.");
+            ControlFactory.SetTooltip(ControlNames.BloodEnabled, toolTip, "Toggle blood rendering.");
+            ControlFactory.SetTooltip(ControlNames.EffectLightingEnabled, toolTip, "Toggle effect lighting.");
+            ControlFactory.SetTooltip(ControlNames.FalloffEnabled, toolTip, "Toggle falloff settings driving alpha.");
+            ControlFactory.SetTooltip(ControlNames.FalloffColorEnabled, toolTip, "Toggle falloff settings driving color.");
+            ControlFactory.SetTooltip(ControlNames.GrayscaleToPaletteAlpha, toolTip, "Toggle grayscale to palette alpha mapping.");
+            ControlFactory.SetTooltip(ControlNames.SoftEnabled, toolTip, "Toggle softness effect.");
+            ControlFactory.SetTooltip(ControlNames.BaseColor, toolTip, "Base color of the effect.");
+            ControlFactory.SetTooltip(ControlNames.BaseColorScale, toolTip, "Scale of the base color.");
+            ControlFactory.SetTooltip(ControlNames.FalloffStartAngle, toolTip, "Start angle of the falloff.");
+            ControlFactory.SetTooltip(ControlNames.FalloffStopAngle, toolTip, "Stop angle of the falloff.");
+            ControlFactory.SetTooltip(ControlNames.FalloffStartOpacity, toolTip, "Start opacity of the falloff.");
+            ControlFactory.SetTooltip(ControlNames.FalloffStopOpacity, toolTip, "Stop opacity of the falloff.");
+            ControlFactory.SetTooltip(ControlNames.LightingInfluence, toolTip, "Lighting influence value of the material.");
+            ControlFactory.SetTooltip(ControlNames.EnvmapMinLOD, toolTip, "Minimum LOD for environment mapping.");
+            ControlFactory.SetTooltip(ControlNames.SoftDepth, toolTip, "Softness depth value of the material.");
+            ControlFactory.SetTooltip(ControlNames.EmitColor, toolTip, "Color for the PBR emittance effect.");
+            ControlFactory.SetTooltip(ControlNames.AdaptativeEmissiveExposureOffset, toolTip, "Exposure offset applied while exposing the emissive object.");
+            ControlFactory.SetTooltip(ControlNames.AdaptativeEmissiveFinalExposureMin, toolTip, "Minimum amount of exposure on the emissive object.");
+            ControlFactory.SetTooltip(ControlNames.AdaptativeEmissiveFinalExposureMax, toolTip, "Maximum amount of exposure on the emissive object.");
+            ControlFactory.SetTooltip(ControlNames.EffectGlowmap, toolTip, "Toggle glowmap.");
+            ControlFactory.SetTooltip(ControlNames.EffectPBRSpecular, toolTip, "Toggle PBR specular effect.");
 
-            ControlFactory.SetTooltip("Glass Roughness Scratch", toolTip, "Path to the roughness(R) and scratch(G) texture.");
-            ControlFactory.SetTooltip("Glass Dirt Overlay", toolTip, "Path to the dirt overlay texture.");
+            ControlFactory.SetTooltip(ControlNames.GlassRoughnessScratch, toolTip, "Path to the roughness(R) and scratch(G) texture.");
+            ControlFactory.SetTooltip(ControlNames.GlassDirtOverlay, toolTip, "Path to the dirt overlay texture.");
 
-            ControlFactory.SetTooltip("Glass Enabled", toolTip, "Glass rendering enabled");
-            ControlFactory.SetTooltip("Glass Fresnel Color", toolTip, "Glass fresnel color.");
-            ControlFactory.SetTooltip("Glass Blur Scale Base", toolTip, "Possibly glass blur scale base. Might be a different property.");
-            ControlFactory.SetTooltip("Glass Blur Scale Factor", toolTip, "Possibly glass blur scale factor. Might be a different property.");
-            ControlFactory.SetTooltip("Glass Refraction Scale Base", toolTip, "Possibly glass refraction scale base. Might be a different property.");
+            ControlFactory.SetTooltip(ControlNames.GlassEnabled, toolTip, "Glass rendering enabled");
+            ControlFactory.SetTooltip(ControlNames.GlassFresnelColor, toolTip, "Glass fresnel color.");
+            ControlFactory.SetTooltip(ControlNames.GlassBlurScaleBase, toolTip, "Possibly glass blur scale base. Might be a different property.");
+            ControlFactory.SetTooltip(ControlNames.GlassBlurScaleFactor, toolTip, "Possibly glass blur scale factor. Might be a different property.");
+            ControlFactory.SetTooltip(ControlNames.GlassRefractionScaleBase, toolTip, "Possibly glass refraction scale base. Might be a different property.");
         }
 
         private void GetMaterialValues(BaseMaterialFile file)
@@ -1278,434 +1278,434 @@ namespace Material_Editor
                 }
             }
 
-            control = ControlFactory.Find("Tile U");
+            control = ControlFactory.Find(ControlNames.TileU);
             if (control != null) file.TileU = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Tile V");
+            control = ControlFactory.Find(ControlNames.TileV);
             if (control != null) file.TileV = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Offset U");
+            control = ControlFactory.Find(ControlNames.OffsetU);
             if (control != null) file.UOffset = Convert.ToSingle(control.GetProperty());
 
-            control = ControlFactory.Find("Offset V");
+            control = ControlFactory.Find(ControlNames.OffsetV);
             if (control != null) file.VOffset = Convert.ToSingle(control.GetProperty());
 
-            control = ControlFactory.Find("Scale U");
+            control = ControlFactory.Find(ControlNames.ScaleU);
             if (control != null) file.UScale = Convert.ToSingle(control.GetProperty());
 
-            control = ControlFactory.Find("Scale V");
+            control = ControlFactory.Find(ControlNames.ScaleV);
             if (control != null) file.VScale = Convert.ToSingle(control.GetProperty());
 
-            control = ControlFactory.Find("Alpha");
+            control = ControlFactory.Find(ControlNames.Alpha);
             if (control != null) file.Alpha = Convert.ToSingle(control.GetProperty());
 
-            control = ControlFactory.Find("Alpha Blend Mode");
+            control = ControlFactory.Find(ControlNames.AlphaBlendMode);
             if (control != null) file.AlphaBlendMode = (BaseMaterialFile.AlphaBlendModeType)Convert.ToInt32(control.GetProperty());
 
-            control = ControlFactory.Find("Alpha Test Reference");
+            control = ControlFactory.Find(ControlNames.AlphaTestReference);
             if (control != null) file.AlphaTestRef = Convert.ToByte(control.GetProperty());
 
-            control = ControlFactory.Find("Alpha Test");
+            control = ControlFactory.Find(ControlNames.AlphaTest);
             if (control != null) file.AlphaTest = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Z Buffer Write");
+            control = ControlFactory.Find(ControlNames.ZBufferWrite);
             if (control != null) file.ZBufferWrite = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Z Buffer Test");
+            control = ControlFactory.Find(ControlNames.ZBufferTest);
             if (control != null) file.ZBufferTest = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Screen Space Reflections");
+            control = ControlFactory.Find(ControlNames.ScreenSpaceReflections);
             if (control != null) file.ScreenSpaceReflections = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Wetness Control SSR");
+            control = ControlFactory.Find(ControlNames.WetnessControlSSR);
             if (control != null) file.WetnessControlScreenSpaceReflections = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Decal");
+            control = ControlFactory.Find(ControlNames.Decal);
             if (control != null) file.Decal = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Two Sided");
+            control = ControlFactory.Find(ControlNames.TwoSided);
             if (control != null) file.TwoSided = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Decal No Fade");
+            control = ControlFactory.Find(ControlNames.DecalNoFade);
             if (control != null) file.DecalNoFade = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Non Occluder");
+            control = ControlFactory.Find(ControlNames.NonOccluder);
             if (control != null) file.NonOccluder = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Refraction");
+            control = ControlFactory.Find(ControlNames.Refraction);
             if (control != null) file.Refraction = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Refraction Falloff");
+            control = ControlFactory.Find(ControlNames.RefractionFalloff);
             if (control != null) file.RefractionFalloff = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Refraction Power");
+            control = ControlFactory.Find(ControlNames.RefractionPower);
             if (control != null) file.RefractionPower = Convert.ToSingle(control.GetProperty());
 
-            control = ControlFactory.Find("Environment Mapping");
+            control = ControlFactory.Find(ControlNames.EnvironmentMapping);
             if (control != null && control.Serialize) file.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Environment Mask Scale");
+            control = ControlFactory.Find(ControlNames.EnvironmentMaskScale);
             if (control != null && control.Serialize) file.EnvironmentMappingMaskScale = Convert.ToSingle(control.GetProperty());
 
-            control = ControlFactory.Find("Depth Bias");
+            control = ControlFactory.Find(ControlNames.DepthBias);
             if (control != null) file.DepthBias = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Grayscale To Palette Color");
+            control = ControlFactory.Find(ControlNames.GrayscaleToPaletteColor);
             if (control != null) file.GrayscaleToPaletteColor = Convert.ToBoolean(control.GetProperty());
 
-            control = ControlFactory.Find("Mask Writes");
+            control = ControlFactory.Find(ControlNames.MaskWrites);
             if (control != null) file.MaskWrites = (BaseMaterialFile.MaskWriteFlags)control.GetProperty();
 
             if (file.GetType() == typeof(BGSM))
             {
                 BGSM bgsm = (BGSM)file;
 
-                control = ControlFactory.Find("Diffuse");
+                control = ControlFactory.Find(ControlNames.Diffuse);
                 if (control != null) bgsm.DiffuseTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Normal");
+                control = ControlFactory.Find(ControlNames.Normal);
                 if (control != null) bgsm.NormalTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Smooth Spec");
+                control = ControlFactory.Find(ControlNames.SmoothSpec);
                 if (control != null) bgsm.SmoothSpecTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Greyscale");
+                control = ControlFactory.Find(ControlNames.Greyscale);
                 if (control != null) bgsm.GreyscaleTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Environment");
+                control = ControlFactory.Find(ControlNames.Environment);
                 if (control != null) bgsm.EnvmapTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Glow");
+                control = ControlFactory.Find(ControlNames.Glow);
                 if (control != null) bgsm.GlowTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Inner Layer");
+                control = ControlFactory.Find(ControlNames.InnerLayer);
                 if (control != null) bgsm.InnerLayerTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Wrinkles");
+                control = ControlFactory.Find(ControlNames.Wrinkles);
                 if (control != null) bgsm.WrinklesTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Displacement");
+                control = ControlFactory.Find(ControlNames.Displacement);
                 if (control != null) bgsm.DisplacementTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Specular");
+                control = ControlFactory.Find(ControlNames.Specular);
                 if (control != null) bgsm.SpecularTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Lighting");
+                control = ControlFactory.Find(ControlNames.Lighting);
                 if (control != null) bgsm.LightingTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Flow");
+                control = ControlFactory.Find(ControlNames.Flow);
                 if (control != null) bgsm.FlowTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Distance Field Alpha");
+                control = ControlFactory.Find(ControlNames.DistanceFieldAlpha);
                 if (control != null) bgsm.DistanceFieldAlphaTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Enable Editor Alpha Ref");
+                control = ControlFactory.Find(ControlNames.EnableEditorAlphaRef);
                 if (control != null) bgsm.EnableEditorAlphaRef = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Translucency");
+                control = ControlFactory.Find(ControlNames.Translucency);
                 if (control != null) bgsm.Translucency = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Transl. Thick Object");
+                control = ControlFactory.Find(ControlNames.TranslucencyThickObject);
                 if (control != null) bgsm.TranslucencyThickObject = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Transl. Alb+Subsurf Color");
+                control = ControlFactory.Find(ControlNames.TranslucencyAlbSubsurfColor);
                 if (control != null) bgsm.TranslucencyMixAlbedoWithSubsurfaceColor = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Transl. Subsurface Color");
+                control = ControlFactory.Find(ControlNames.TranslucencySubsurfaceColor);
                 if (control != null) bgsm.TranslucencySubsurfaceColor = (uint)((Color)control.GetProperty()).ToArgb();
 
-                control = ControlFactory.Find("Transl. Transmissive Scale");
+                control = ControlFactory.Find(ControlNames.TranslucencyTransmissiveScale);
                 if (control != null) bgsm.TranslucencyTransmissiveScale = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Transl. Turbulence");
+                control = ControlFactory.Find(ControlNames.TranslucencyTurbulence);
                 if (control != null) bgsm.TranslucencyTurbulence = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Rim Lighting");
+                control = ControlFactory.Find(ControlNames.RimLighting);
                 if (control != null) bgsm.RimLighting = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Rim Power");
+                control = ControlFactory.Find(ControlNames.RimPower);
                 if (control != null) bgsm.RimPower = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Backlight Power");
+                control = ControlFactory.Find(ControlNames.BacklightPower);
                 if (control != null) bgsm.BackLightPower = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Subsurface Lighting");
+                control = ControlFactory.Find(ControlNames.SubsurfaceLighting);
                 if (control != null) bgsm.SubsurfaceLighting = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Subsurface Lighting Rolloff");
+                control = ControlFactory.Find(ControlNames.SubsurfaceLightingRolloff);
                 if (control != null) bgsm.SubsurfaceLightingRolloff = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Specular Enabled");
+                control = ControlFactory.Find(ControlNames.SpecularEnabled);
                 if (control != null) bgsm.SpecularEnabled = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Specular Color");
+                control = ControlFactory.Find(ControlNames.SpecularColor);
                 if (control != null) bgsm.SpecularColor = (uint)((Color)control.GetProperty()).ToArgb();
 
-                control = ControlFactory.Find("Specular Multiplier");
+                control = ControlFactory.Find(ControlNames.SpecularMultiplier);
                 if (control != null) bgsm.SpecularMult = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Smoothness");
+                control = ControlFactory.Find(ControlNames.Smoothness);
                 if (control != null) bgsm.Smoothness = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Fresnel Power");
+                control = ControlFactory.Find(ControlNames.FresnelPower);
                 if (control != null) bgsm.FresnelPower = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Wet Spec Scale");
+                control = ControlFactory.Find(ControlNames.WetSpecScale);
                 if (control != null) bgsm.WetnessControlSpecScale = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Wet Spec Power Scale");
+                control = ControlFactory.Find(ControlNames.WetSpecPowerScale);
                 if (control != null) bgsm.WetnessControlSpecPowerScale = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Wet Spec Min Var");
+                control = ControlFactory.Find(ControlNames.WetSpecMinVar);
                 if (control != null) bgsm.WetnessControlSpecMinvar = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Wet Env Map Scale");
+                control = ControlFactory.Find(ControlNames.WetEnvMapScale);
                 if (control != null) bgsm.WetnessControlEnvMapScale = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Wet Fresnel Power");
+                control = ControlFactory.Find(ControlNames.WetFresnelPower);
                 if (control != null) bgsm.WetnessControlFresnelPower = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Wet Metalness");
+                control = ControlFactory.Find(ControlNames.WetMetalness);
                 if (control != null) bgsm.WetnessControlMetalness = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("PBR");
+                control = ControlFactory.Find(ControlNames.PBR);
                 if (control != null) bgsm.PBR = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Custom Porosity");
+                control = ControlFactory.Find(ControlNames.CustomPorosity);
                 if (control != null) bgsm.CustomPorosity = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Porosity Value");
+                control = ControlFactory.Find(ControlNames.PorosityValue);
                 if (control != null) bgsm.PorosityValue = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Root Material Path");
+                control = ControlFactory.Find(ControlNames.RootMaterialPath);
                 if (control != null) bgsm.RootMaterialPath = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Aniso Lighting");
+                control = ControlFactory.Find(ControlNames.AnisoLighting);
                 if (control != null) bgsm.AnisoLighting = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Emittance Enabled");
+                control = ControlFactory.Find(ControlNames.EmittanceEnabled);
                 if (control != null) bgsm.EmitEnabled = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Emittance Color");
+                control = ControlFactory.Find(ControlNames.EmittanceColor);
                 if (control != null) bgsm.EmittanceColor = (uint)((Color)control.GetProperty()).ToArgb();
 
-                control = ControlFactory.Find("Emittance Multiplier");
+                control = ControlFactory.Find(ControlNames.EmittanceMultiplier);
                 if (control != null) bgsm.EmittanceMult = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Model Space Normals");
+                control = ControlFactory.Find(ControlNames.ModelSpaceNormals);
                 if (control != null) bgsm.ModelSpaceNormals = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("External Emittance");
+                control = ControlFactory.Find(ControlNames.ExternalEmittance);
                 if (control != null) bgsm.ExternalEmittance = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Lum Emittance");
+                control = ControlFactory.Find(ControlNames.LumEmittance);
                 if (control != null) bgsm.LumEmittance = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Adaptative Emissive");
+                control = ControlFactory.Find(ControlNames.AdaptativeEmissive);
                 if (control != null) bgsm.UseAdaptativeEmissive = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Adapt. Em. Exposure Offset");
+                control = ControlFactory.Find(ControlNames.AdaptEmissiveExposureOffset);
                 if (control != null) bgsm.AdaptativeEmissive_ExposureOffset = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Adapt. Em. Final Exposure Min");
+                control = ControlFactory.Find(ControlNames.AdaptEmissiveFinalExposureMin);
                 if (control != null) bgsm.AdaptativeEmissive_FinalExposureMin = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Adapt. Em. Final Exposure Max");
+                control = ControlFactory.Find(ControlNames.AdaptEmissiveFinalExposureMax);
                 if (control != null) bgsm.AdaptativeEmissive_FinalExposureMax = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Back Lighting");
+                control = ControlFactory.Find(ControlNames.BackLighting);
                 if (control != null) bgsm.BackLighting = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Receive Shadows");
+                control = ControlFactory.Find(ControlNames.ReceiveShadows);
                 if (control != null) bgsm.ReceiveShadows = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Hide Secret");
+                control = ControlFactory.Find(ControlNames.HideSecret);
                 if (control != null) bgsm.HideSecret = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Cast Shadows");
+                control = ControlFactory.Find(ControlNames.CastShadows);
                 if (control != null) bgsm.CastShadows = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Dissolve Fade");
+                control = ControlFactory.Find(ControlNames.DissolveFade);
                 if (control != null) bgsm.DissolveFade = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Assume Shadowmask");
+                control = ControlFactory.Find(ControlNames.AssumeShadowmask);
                 if (control != null) bgsm.AssumeShadowmask = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Glowmap");
+                control = ControlFactory.Find(ControlNames.Glowmap);
                 if (control != null) bgsm.Glowmap = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Environment Map Window");
+                control = ControlFactory.Find(ControlNames.EnvironmentMapWindow);
                 if (control != null) bgsm.EnvironmentMappingWindow = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Environment Map Eye");
+                control = ControlFactory.Find(ControlNames.EnvironmentMapEye);
                 if (control != null) bgsm.EnvironmentMappingEye = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Hair");
+                control = ControlFactory.Find(ControlNames.Hair);
                 if (control != null) bgsm.Hair = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Hair Tint Color");
+                control = ControlFactory.Find(ControlNames.HairTintColor);
                 if (control != null) bgsm.HairTintColor = (uint)((Color)control.GetProperty()).ToArgb();
 
-                control = ControlFactory.Find("Tree");
+                control = ControlFactory.Find(ControlNames.Tree);
                 if (control != null) bgsm.Tree = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Facegen");
+                control = ControlFactory.Find(ControlNames.Facegen);
                 if (control != null) bgsm.Facegen = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Skin Tint");
+                control = ControlFactory.Find(ControlNames.SkinTint);
                 if (control != null) bgsm.SkinTint = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Tessellate");
+                control = ControlFactory.Find(ControlNames.Tessellate);
                 if (control != null) bgsm.Tessellate = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Displacement Tex Bias");
+                control = ControlFactory.Find(ControlNames.DisplacementTexBias);
                 if (control != null) bgsm.DisplacementTextureBias = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Displacement Tex Scale");
+                control = ControlFactory.Find(ControlNames.DisplacementTexScale);
                 if (control != null) bgsm.DisplacementTextureScale = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Tessellation PN Scale");
+                control = ControlFactory.Find(ControlNames.TessellationPNScale);
                 if (control != null) bgsm.TessellationPnScale = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Tessellation Base Factor");
+                control = ControlFactory.Find(ControlNames.TessellationBaseFactor);
                 if (control != null) bgsm.TessellationBaseFactor = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Tessellation Fade Distance");
+                control = ControlFactory.Find(ControlNames.TessellationFadeDistance);
                 if (control != null) bgsm.TessellationFadeDistance = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Grayscale To Palette Scale");
+                control = ControlFactory.Find(ControlNames.GrayscaleToPaletteScale);
                 if (control != null) bgsm.GrayscaleToPaletteScale = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Skew Specular Alpha");
+                control = ControlFactory.Find(ControlNames.SkewSpecularAlpha);
                 if (control != null) bgsm.SkewSpecularAlpha = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Terrain");
+                control = ControlFactory.Find(ControlNames.Terrain);
                 if (control != null) bgsm.Terrain = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Unk Int 1 BGSM");
+                control = ControlFactory.Find(ControlNames.UnkInt1BGSM);
                 if (control != null) bgsm.UnkInt1 = Convert.ToUInt32(control.GetProperty());
 
-                control = ControlFactory.Find("Terrain Threshold Falloff");
+                control = ControlFactory.Find(ControlNames.TerrainThresholdFalloff);
                 if (control != null) bgsm.TerrainThresholdFalloff = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Terrain Tiling Distance");
+                control = ControlFactory.Find(ControlNames.TerrainTilingDistance);
                 if (control != null) bgsm.TerrainTilingDistance = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Terrain Rotation Angle");
+                control = ControlFactory.Find(ControlNames.TerrainRotationAngle);
                 if (control != null) bgsm.TerrainRotationAngle = Convert.ToSingle(control.GetProperty());
             }
             else if (file.GetType() == typeof(BGEM))
             {
                 BGEM bgem = (BGEM)file;
 
-                control = ControlFactory.Find("Base Texture");
+                control = ControlFactory.Find(ControlNames.BaseTexture);
                 if (control != null) bgem.BaseTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Grayscale Texture");
+                control = ControlFactory.Find(ControlNames.GrayscaleTexture);
                 if (control != null) bgem.GrayscaleTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Envmap Texture");
+                control = ControlFactory.Find(ControlNames.EnvmapTexture);
                 if (control != null) bgem.EnvmapTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Normal Texture");
+                control = ControlFactory.Find(ControlNames.NormalTexture);
                 if (control != null) bgem.NormalTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Envmap Mask Texture");
+                control = ControlFactory.Find(ControlNames.EnvmapMaskTexture);
                 if (control != null) bgem.EnvmapMaskTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Specular Texture");
+                control = ControlFactory.Find(ControlNames.SpecularTexture);
                 if (control != null) bgem.SpecularTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Lighting Texture");
+                control = ControlFactory.Find(ControlNames.LightingTexture);
                 if (control != null) bgem.LightingTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Glow Texture");
+                control = ControlFactory.Find(ControlNames.GlowTexture);
                 if (control != null) bgem.GlowTexture = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Glass Roughness Scratch");
+                control = ControlFactory.Find(ControlNames.GlassRoughnessScratch);
                 if (control != null) bgem.GlassRoughnessScratch = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Glass Dirt Overlay");
+                control = ControlFactory.Find(ControlNames.GlassDirtOverlay);
                 if (control != null) bgem.GlassDirtOverlay = Convert.ToString(control.GetProperty());
 
-                control = ControlFactory.Find("Glass Enabled");
+                control = ControlFactory.Find(ControlNames.GlassEnabled);
                 if (control != null) bgem.GlassEnabled = Convert.ToBoolean(control.GetProperty());
-                control = ControlFactory.Find("Glass Fresnel Color");
+                control = ControlFactory.Find(ControlNames.GlassFresnelColor);
                 if (control != null) bgem.GlassFresnelColor = (uint)((Color)control.GetProperty()).ToArgb();
-                control = ControlFactory.Find("Glass Blur Scale Base");
+                control = ControlFactory.Find(ControlNames.GlassBlurScaleBase);
                 if (control != null) bgem.GlassBlurScaleBase = Convert.ToSingle(control.GetProperty());
-                control = ControlFactory.Find("Glass Blur Scale Factor");
+                control = ControlFactory.Find(ControlNames.GlassBlurScaleFactor);
                 if (control != null) bgem.GlassBlurScaleFactor = Convert.ToSingle(control.GetProperty());
-                control = ControlFactory.Find("Glass Refraction Scale Base");
+                control = ControlFactory.Find(ControlNames.GlassRefractionScaleBase);
                 if (control != null) bgem.GlassRefractionScaleBase = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Env Mapping");
+                control = ControlFactory.Find(ControlNames.EnvMapping);
                 if (control != null && control.Serialize) bgem.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Env Mapping Mask Scale");
+                control = ControlFactory.Find(ControlNames.EnvMappingMaskScale);
                 if (control != null && control.Serialize) bgem.EnvironmentMappingMaskScale = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Blood Enabled");
+                control = ControlFactory.Find(ControlNames.BloodEnabled);
                 if (control != null) bgem.BloodEnabled = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Effect Lighting Enabled");
+                control = ControlFactory.Find(ControlNames.EffectLightingEnabled);
                 if (control != null) bgem.EffectLightingEnabled = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Falloff Enabled");
+                control = ControlFactory.Find(ControlNames.FalloffEnabled);
                 if (control != null) bgem.FalloffEnabled = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Falloff Color Enabled");
+                control = ControlFactory.Find(ControlNames.FalloffColorEnabled);
                 if (control != null) bgem.FalloffColorEnabled = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Grayscale To Palette Alpha");
+                control = ControlFactory.Find(ControlNames.GrayscaleToPaletteAlpha);
                 if (control != null) bgem.GrayscaleToPaletteAlpha = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Soft Enabled");
+                control = ControlFactory.Find(ControlNames.SoftEnabled);
                 if (control != null) bgem.SoftEnabled = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Base Color");
+                control = ControlFactory.Find(ControlNames.BaseColor);
                 if (control != null) bgem.BaseColor = (uint)((Color)control.GetProperty()).ToArgb();
 
-                control = ControlFactory.Find("Base Color Scale");
+                control = ControlFactory.Find(ControlNames.BaseColorScale);
                 if (control != null) bgem.BaseColorScale = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Falloff Start Angle");
+                control = ControlFactory.Find(ControlNames.FalloffStartAngle);
                 if (control != null) bgem.FalloffStartAngle = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Falloff Stop Angle");
+                control = ControlFactory.Find(ControlNames.FalloffStopAngle);
                 if (control != null) bgem.FalloffStopAngle = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Falloff Start Opacity");
+                control = ControlFactory.Find(ControlNames.FalloffStartOpacity);
                 if (control != null) bgem.FalloffStartOpacity = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Falloff Stop Opacity");
+                control = ControlFactory.Find(ControlNames.FalloffStopOpacity);
                 if (control != null) bgem.FalloffStopOpacity = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Lighting Influence");
+                control = ControlFactory.Find(ControlNames.LightingInfluence);
                 if (control != null) bgem.LightingInfluence = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Envmap Min LOD");
+                control = ControlFactory.Find(ControlNames.EnvmapMinLOD);
                 if (control != null) bgem.EnvmapMinLOD = Convert.ToByte(control.GetProperty());
 
-                control = ControlFactory.Find("Soft Depth");
+                control = ControlFactory.Find(ControlNames.SoftDepth);
                 if (control != null) bgem.SoftDepth = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Emit Color");
+                control = ControlFactory.Find(ControlNames.EmitColor);
                 if (control != null) bgem.EmittanceColor = (uint)((Color)control.GetProperty()).ToArgb();
 
-                control = ControlFactory.Find("Adaptative Em. Exposure Offset");
+                control = ControlFactory.Find(ControlNames.AdaptativeEmissiveExposureOffset);
                 if (control != null) bgem.AdaptativeEmissive_ExposureOffset = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Adaptative Em. Final Exp. Min");
+                control = ControlFactory.Find(ControlNames.AdaptativeEmissiveFinalExposureMin);
                 if (control != null) bgem.AdaptativeEmissive_FinalExposureMin = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Adaptative Em. Final Exp. Max");
+                control = ControlFactory.Find(ControlNames.AdaptativeEmissiveFinalExposureMax);
                 if (control != null) bgem.AdaptativeEmissive_FinalExposureMax = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find("Effect Glowmap");
+                control = ControlFactory.Find(ControlNames.EffectGlowmap);
                 if (control != null) bgem.Glowmap = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find("Effect PBR Specular");
+                control = ControlFactory.Find(ControlNames.EffectPBRSpecular);
                 if (control != null) bgem.EffectPbrSpecular = Convert.ToBoolean(control.GetProperty());
             }
         }
