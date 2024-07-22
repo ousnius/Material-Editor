@@ -54,7 +54,7 @@ namespace Material_Editor
                 UseVisualStyleBackColor = false,
                 Tag = this
             };
-            btColor.Click += new EventHandler(btColor_Click);
+            btColor.Click += new EventHandler(BtColor_Click);
 
             colorDialog = new ColorDialog
             {
@@ -62,7 +62,7 @@ namespace Material_Editor
             };
         }
 
-        private void btColor_Click(object sender, EventArgs e)
+        private void BtColor_Click(object sender, EventArgs e)
         {
             var btColor = sender as Button;
             colorDialog.Color = CurrentColor;

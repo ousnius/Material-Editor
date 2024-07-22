@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
 namespace MaterialLib
 {
@@ -91,6 +90,7 @@ namespace MaterialLib
         public uint BaseColor { get; set; }
 
         [DataMember(Name = "cBaseColor")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private string BaseColorString
         {
             get { return Color.FromUInt32(BaseColor).ToHexString(); }
@@ -124,6 +124,7 @@ namespace MaterialLib
         public uint EmittanceColor { get; set; }
 
         [DataMember(Name = "cEmittanceColor")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private string EmittanceColorString
         {
             get { return Color.FromUInt32(EmittanceColor).ToHexString(); }
@@ -157,6 +158,7 @@ namespace MaterialLib
         public uint GlassFresnelColor { get; set; }
 
         [DataMember(Name = "cGlassFresnelColor")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private string GlassFresnelColorString
         {
             get { return Color.FromUInt32(GlassFresnelColor).ToHexString(); }

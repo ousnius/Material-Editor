@@ -46,7 +46,7 @@
             this.aboutText.Size = new System.Drawing.Size(278, 53);
             this.aboutText.TabIndex = 0;
             this.aboutText.Text = "MATERIAL EDITOR\nby ousnius\nhttps://github.com/ousnius/Material-Editor";
-            this.aboutText.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.aboutText_LinkClicked);
+            this.aboutText.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.AboutText_LinkClicked);
             // 
             // AboutDialog
             // 

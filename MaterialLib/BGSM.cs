@@ -118,6 +118,7 @@ namespace MaterialLib
         public uint SpecularColor { get; set; }
 
         [DataMember(Name = "cSpecularColor")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private string SpecularColorString
         {
             get { return Color.FromUInt32(SpecularColor).ToHexString(); }
@@ -163,6 +164,7 @@ namespace MaterialLib
         public uint EmittanceColor { get; set; }
 
         [DataMember(Name = "cEmittanceColor")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private string EmittanceColorString
         {
             get { return Color.FromUInt32(EmittanceColor).ToHexString(); }
@@ -211,6 +213,7 @@ namespace MaterialLib
         public uint HairTintColor { get; set; }
 
         [DataMember(Name = "cHairTintColor")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private string HairTintColorString
         {
             get { return Color.FromUInt32(HairTintColor).ToHexString(); }
@@ -256,6 +259,7 @@ namespace MaterialLib
         public uint TranslucencySubsurfaceColor { get; set; }
 
         [DataMember(Name = "cTranslucencySubsurfaceColor")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private string TranslucencySubsurfaceColorString
         {
             get { return Color.FromUInt32(TranslucencySubsurfaceColor).ToHexString(); }

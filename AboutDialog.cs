@@ -11,7 +11,7 @@ namespace Material_Editor
             InitializeComponent();
         }
 
-        private void aboutText_LinkClicked(object sender, LinkClickedEventArgs e)
+        private void AboutText_LinkClicked(object sender, LinkClickedEventArgs e)
         {
             try
             {

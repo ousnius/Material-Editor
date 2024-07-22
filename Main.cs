@@ -32,7 +32,7 @@ namespace Material_Editor
 
     public partial class Main : Form
     {
-        private Config config = new Config();
+        private Config config = new();
         private string workFilePath;
         private bool changed;
         private bool toolTipPopping;
@@ -74,22 +74,16 @@ namespace Material_Editor
         {
             if (filePath == null)
                 return null;
-
-            string ext;
-            switch (CurrentMaterialType)
+            string ext = CurrentMaterialType switch
             {
-                case MaterialType.Effect:
-                    ext = ".bgem";
-                    break;
-                default:
-                    ext = ".bgsm";
-                    break;
-            }
+                MaterialType.Effect => ".bgem",
+                _ => ".bgsm",
+            };
             return Path.ChangeExtension(filePath, ext);
         }
 
         #region UI
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        private void NewToolStripMenuItem_Click(object sender, EventArgs e)
         {
             workFilePath = null;
             Text = "Material Editor";
@@ -114,7 +108,7 @@ namespace Material_Editor
             ResumeAll();
         }
 
-        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -134,60 +128,50 @@ namespace Material_Editor
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(workFilePath))
             {
-                saveAsToolStripMenuItem_Click(null, null);
+                SaveAsToolStripMenuItem_Click(null, null);
             }
 
-            BaseMaterialFile material;
-            switch (CurrentMaterialType)
+            BaseMaterialFile material = CurrentMaterialType switch
             {
-                case MaterialType.Effect:
-                    material = new BGEM();
-                    break;
-                default:
-                    material = new BGSM();
-                    break;
-            }
-
+                MaterialType.Effect => new BGEM(),
+                _ => new BGSM(),
+            };
             GetMaterialValues(material);
 
             try
             {
-                using (var file = new FileStream(workFilePath, FileMode.Create))
+                using var file = new FileStream(workFilePath, FileMode.Create);
+                if (serializeToJSONToolStripMenuItem.Checked)
                 {
-                    if (serializeToJSONToolStripMenuItem.Checked)
-                    {
-                        var currentCulture = Thread.CurrentThread.CurrentCulture;
-                        Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+                    var currentCulture = Thread.CurrentThread.CurrentCulture;
+                    Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 
-                        try
-                        {
-                            using (var writer = JsonReaderWriterFactory.CreateJsonWriter(file, Encoding.UTF8, true, true, "  "))
-                            {
-                                var ser = new DataContractJsonSerializer(material.GetType(), new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true });
-                                ser.WriteObject(writer, material);
-                                writer.Flush();
-                            }
-                        }
-                        catch
-                        {
-                            MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", workFilePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        finally
-                        {
-                            Thread.CurrentThread.CurrentCulture = currentCulture;
-                        }
-                    }
-                    else
+                    try
                     {
-                        if (!material.Save(file))
-                        {
-                            MessageBox.Show(string.Format("Failed to save file '{0}'!", workFilePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
-                        }
+                        using var writer = JsonReaderWriterFactory.CreateJsonWriter(file, Encoding.UTF8, true, true, "  ");
+                        var ser = new DataContractJsonSerializer(material.GetType(), new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true });
+                        ser.WriteObject(writer, material);
+                        writer.Flush();
+                    }
+                    catch
+                    {
+                        MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", workFilePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        Thread.CurrentThread.CurrentCulture = currentCulture;
+                    }
+                }
+                else
+                {
+                    if (!material.Save(file))
+                    {
+                        MessageBox.Show(string.Format("Failed to save file '{0}'!", workFilePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
                 }
             }
@@ -202,19 +186,14 @@ namespace Material_Editor
             changed = false;
         }
 
-        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var matType = CurrentMaterialType;
-            switch (matType)
+            saveFileDialog.Filter = matType switch
             {
-                case MaterialType.Effect:
-                    saveFileDialog.Filter = "Effect File (.bgem)|*.bgem";
-                    break;
-                default:
-                    saveFileDialog.Filter = "Material File (.bgsm)|*.bgsm";
-                    break;
-            }
-
+                MaterialType.Effect => "Effect File (.bgem)|*.bgem",
+                _ => "Material File (.bgsm)|*.bgsm",
+            };
             string fileName = WorkFileName;
             if (fileName != null)
             {
@@ -235,38 +214,34 @@ namespace Material_Editor
 
                 try
                 {
-                    using (var file = new FileStream(filePath, FileMode.Create))
+                    using var file = new FileStream(filePath, FileMode.Create);
+                    if (serializeToJSONToolStripMenuItem.Checked)
                     {
-                        if (serializeToJSONToolStripMenuItem.Checked)
-                        {
-                            var currentCulture = Thread.CurrentThread.CurrentCulture;
-                            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+                        var currentCulture = Thread.CurrentThread.CurrentCulture;
+                        Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 
-                            try
-                            {
-                                using (var writer = JsonReaderWriterFactory.CreateJsonWriter(file, Encoding.UTF8, true, true, "  "))
-                                {
-                                    var ser = new DataContractJsonSerializer(material.GetType(), new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true });
-                                    ser.WriteObject(writer, material);
-                                    writer.Flush();
-                                }
-                            }
-                            catch
-                            {
-                                MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", filePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            finally
-                            {
-                                Thread.CurrentThread.CurrentCulture = currentCulture;
-                            }
-                        }
-                        else
+                        try
                         {
-                            if (!material.Save(file))
-                            {
-                                MessageBox.Show(string.Format("Failed to save file '{0}'!", filePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                return;
-                            }
+                            using var writer = JsonReaderWriterFactory.CreateJsonWriter(file, Encoding.UTF8, true, true, "  ");
+                            var ser = new DataContractJsonSerializer(material.GetType(), new DataContractJsonSerializerSettings { UseSimpleDictionaryFormat = true });
+                            ser.WriteObject(writer, material);
+                            writer.Flush();
+                        }
+                        catch
+                        {
+                            MessageBox.Show(string.Format("Failed to serialize to JSON data for file '{0}'!", filePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            Thread.CurrentThread.CurrentCulture = currentCulture;
+                        }
+                    }
+                    else
+                    {
+                        if (!material.Save(file))
+                        {
+                            MessageBox.Show(string.Format("Failed to save file '{0}'!", filePath), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
                 }
@@ -286,7 +261,7 @@ namespace Material_Editor
             }
         }
 
-        private void closeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             workFilePath = string.Empty;
 
@@ -301,12 +276,12 @@ namespace Material_Editor
             changed = false;
         }
 
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void fontToolStripMenuItem_Click(object sender, EventArgs e)
+        private void FontToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var fontDialog = new FontDialog()
             {
@@ -328,13 +303,13 @@ namespace Material_Editor
             }
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var about = new AboutDialog();
             about.ShowDialog();
         }
 
-        private void listVersion_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListVersion_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedVersion = (GameVersion)listVersion.SelectedIndex;
             if (config.GameVersion != selectedVersion)
@@ -364,7 +339,7 @@ namespace Material_Editor
             }
         }
 
-        private void listMatType_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListMatType_SelectedIndexChanged(object sender, EventArgs e)
         {
             tabControl.TabPages.Remove(tabPageMaterial);
             tabControl.TabPages.Remove(tabPageEffect);
@@ -389,7 +364,7 @@ namespace Material_Editor
             }
         }
 
-        private void toolTip_Popup(object sender, PopupEventArgs ea)
+        private void ToolTip_Popup(object sender, PopupEventArgs ea)
         {
             if (toolTipPopping)
                 return;
@@ -413,7 +388,7 @@ namespace Material_Editor
 
                         var currentColor = colorControl.CurrentColor;
                         var knownColors = knownColorLookup[currentColor.ToArgb()];
-                        if (knownColors.Count() > 0)
+                        if (knownColors.Any())
                         {
                             var colorList = knownColors.Aggregate("", (str, obj) => str + obj.Name + ", ").TrimEnd(' ', ',');
                             newToolTip += $"{Environment.NewLine}Color: {currentColor.R}, {currentColor.G}, {currentColor.B} ({colorList})";
@@ -514,7 +489,8 @@ namespace Material_Editor
                 var gameVersion = appSettings["GameVersion"];
                 if (gameVersion != null)
                 {
-                    Enum.TryParse(gameVersion, out config.GameVersion);
+                    if (!Enum.TryParse(gameVersion, out config.GameVersion))
+                        config.GameVersion = GameVersion.FO4;
                 }
 
                 var fontName = appSettings.Get("FontName");
@@ -575,7 +551,7 @@ namespace Material_Editor
 
                 if (res == DialogResult.Yes)
                 {
-                    saveToolStripMenuItem_Click(null, null);
+                    SaveToolStripMenuItem_Click(null, null);
                 }
                 else if (res == DialogResult.Cancel)
                 {
@@ -670,7 +646,7 @@ namespace Material_Editor
                 alphaBlendMode = 0;
 
             ControlFactory.CreateDropdownControl(layoutGeneral, "Alpha Blend Mode",
-                new[] { "Unknown", "None", "Standard", "Additive", "Multiplicative" }, alphaBlendMode,
+                ["Unknown", "None", "Standard", "Additive", "Multiplicative"], alphaBlendMode,
                 (control) => { OnChanged(); });
 
             ControlFactory.CreateControl(layoutGeneral, "Alpha Test Reference", file.AlphaTestRef, (control) => { OnChanged(); });
@@ -714,8 +690,7 @@ namespace Material_Editor
             ControlFactory.CreateControl(layoutGeneral, "Grayscale To Palette Color", file.GrayscaleToPaletteColor, (control) => { OnChanged(); });
             ControlFactory.CreateFlagControl(layoutGeneral, "Mask Writes", Enum.GetNames(typeof(BaseMaterialFile.MaskWriteFlags)), (int)file.MaskWrites, (control) => { OnChanged(); });
 
-            var bgsm = file as BGSM;
-            if (bgsm == null)
+            if (file is not BGSM bgsm)
             {
                 bgsm = new BGSM();
 
@@ -924,8 +899,7 @@ namespace Material_Editor
             ControlFactory.CreateControl(layoutMaterial, "Terrain Tiling Distance", bgsm.TerrainTilingDistance, (control) => { OnChanged(); });
             ControlFactory.CreateControl(layoutMaterial, "Terrain Rotation Angle", bgsm.TerrainRotationAngle, (control) => { OnChanged(); });
 
-            var bgem = file as BGEM;
-            if (bgem == null)
+            if (file is not BGEM bgem)
             {
                 bgem = new BGEM();
 
@@ -1816,66 +1790,64 @@ namespace Material_Editor
             else
                 return;
 
-            using (FileStream file = new FileStream(fileName, FileMode.Open))
+            using FileStream file = new(fileName, FileMode.Open);
+            char start = Convert.ToChar(file.ReadByte());
+            file.Position = 0;
+
+            // Check for JSON
+            if (start == '{' || start == '[')
             {
-                char start = Convert.ToChar(file.ReadByte());
-                file.Position = 0;
-
-                // Check for JSON
-                if (start == '{' || start == '[')
+                try
                 {
-                    try
-                    {
-                        var ser = new DataContractJsonSerializer(material.GetType());
-                        if (signature == BGSM.Signature)
-                            material = (BGSM)ser.ReadObject(file);
-                        else if (signature == BGEM.Signature)
-                            material = (BGEM)ser.ReadObject(file);
-                    }
-                    catch (Exception) { }
+                    var ser = new DataContractJsonSerializer(material.GetType());
+                    if (signature == BGSM.Signature)
+                        material = (BGSM)ser.ReadObject(file);
+                    else if (signature == BGEM.Signature)
+                        material = (BGEM)ser.ReadObject(file);
                 }
-                // Try binary
-                else if (!material.Open(file))
-                {
-                    MessageBox.Show(string.Format("Failed to open file '{0}'!", fileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (material.Version > 22)
-                {
-                    MessageBox.Show($"Version {material.Version} not currently supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                workFilePath = fileName;
-
-                SuspendAll();
-                ControlFactory.ClearControls();
-
-                CreateMaterialControls(material);
-
-                if (currentMaterial.Version > 2 && currentMaterial.Version <= 22)
-                    listVersion.SelectedIndex = (int)GameVersion.FO76;
-                else
-                    listVersion.SelectedIndex = (int)GameVersion.FO4;
-
-                if (signature == BGSM.Signature)
-                    listMatType.SelectedIndex = (int)MaterialType.Material;
-                else if (signature == BGEM.Signature)
-                    listMatType.SelectedIndex = (int)MaterialType.Effect;
-
-                ResumeAll();
-
-                saveToolStripMenuItem.Enabled = true;
-                saveAsToolStripMenuItem.Enabled = true;
-                closeToolStripMenuItem.Enabled = true;
-                layoutGeneral.Enabled = true;
-                layoutMaterial.Enabled = true;
-                layoutEffect.Enabled = true;
-
-                Text = GetTitleText();
-                changed = false;
+                catch (Exception) { }
             }
+            // Try binary
+            else if (!material.Open(file))
+            {
+                MessageBox.Show(string.Format("Failed to open file '{0}'!", fileName), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (material.Version > 22)
+            {
+                MessageBox.Show($"Version {material.Version} not currently supported!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            workFilePath = fileName;
+
+            SuspendAll();
+            ControlFactory.ClearControls();
+
+            CreateMaterialControls(material);
+
+            if (currentMaterial.Version > 2 && currentMaterial.Version <= 22)
+                listVersion.SelectedIndex = (int)GameVersion.FO76;
+            else
+                listVersion.SelectedIndex = (int)GameVersion.FO4;
+
+            if (signature == BGSM.Signature)
+                listMatType.SelectedIndex = (int)MaterialType.Material;
+            else if (signature == BGEM.Signature)
+                listMatType.SelectedIndex = (int)MaterialType.Effect;
+
+            ResumeAll();
+
+            saveToolStripMenuItem.Enabled = true;
+            saveAsToolStripMenuItem.Enabled = true;
+            closeToolStripMenuItem.Enabled = true;
+            layoutGeneral.Enabled = true;
+            layoutMaterial.Enabled = true;
+            layoutEffect.Enabled = true;
+
+            Text = GetTitleText();
+            changed = false;
         }
         #endregion
     }

@@ -47,10 +47,10 @@ namespace Material_Editor
                 Text = "Off",
                 Tag = this
             };
-            check.CheckedChanged += new EventHandler(check_CheckedChanged);
+            check.CheckedChanged += new EventHandler(Check_CheckedChanged);
         }
 
-        private void check_CheckedChanged(object sender, EventArgs e)
+        private void Check_CheckedChanged(object sender, EventArgs e)
         {
             var check = sender as CheckBox;
             if (check.Checked)

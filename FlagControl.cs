@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Material_Editor
@@ -47,7 +46,7 @@ namespace Material_Editor
                 TabIndex = 1,
                 Tag = this
             };
-            checkedList.SelectedIndexChanged += new EventHandler(checkedList_SelectedIndexChanged);
+            checkedList.SelectedIndexChanged += new EventHandler(CheckedList_SelectedIndexChanged);
         }
 
         public override Label LabelControl
@@ -75,7 +74,7 @@ namespace Material_Editor
             return flagValue;
         }
 
-        private void checkedList_SelectedIndexChanged(object sender, EventArgs e)
+        private void CheckedList_SelectedIndexChanged(object sender, EventArgs e)
         {
             RunChangedCallback();
         }

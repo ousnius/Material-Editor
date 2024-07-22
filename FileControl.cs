@@ -56,7 +56,7 @@ namespace Material_Editor
                 TabIndex = 0,
                 Tag = this
             };
-            tbFile.TextChanged += new EventHandler(tbFile_TextChanged);
+            tbFile.TextChanged += new EventHandler(TbFile_TextChanged);
 
             btFile = new Button
             {
@@ -68,7 +68,7 @@ namespace Material_Editor
                 Size = new System.Drawing.Size(35, 20),
                 Tag = this
             };
-            btFile.Click += new EventHandler(btFile_Click);
+            btFile.Click += new EventHandler(BtFile_Click);
 
             textureFileDialog = new OpenFileDialog
             {
@@ -85,12 +85,12 @@ namespace Material_Editor
             };
         }
 
-        private void tbFile_TextChanged(object sender, EventArgs e)
+        private void TbFile_TextChanged(object sender, EventArgs e)
         {
             RunChangedCallback();
         }
 
-        private void btFile_Click(object sender, EventArgs e)
+        private void BtFile_Click(object sender, EventArgs e)
         {
             string fileName = "";
             string filePrefix = "";
@@ -114,11 +114,11 @@ namespace Material_Editor
                     break;
             }
 
-            int index = fileName.ToLower().IndexOf(filePrefix);
+            int index = fileName.IndexOf(filePrefix, StringComparison.CurrentCultureIgnoreCase);
             if (index >= 0 && fileName.Length - 1 > index + 10)
             {
                 // Found directory
-                fileName = fileName.Substring(index + 10);
+                fileName = fileName[(index + 10)..];
             }
             else
             {
@@ -126,7 +126,7 @@ namespace Material_Editor
                 index = fileName.LastIndexOf('\\');
                 if (index >= 0 && fileName.Length - 1 > index + 1)
                 {
-                    fileName = fileName.Substring(index + 1);
+                    fileName = fileName[(index + 1)..];
                 }
             }
 

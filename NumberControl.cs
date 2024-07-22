@@ -35,26 +35,14 @@ namespace Material_Editor
             {
                 Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right,
                 DecimalPlaces = 5,
-                Increment = new decimal(new int[] {
-                    1,
-                    0,
-                    0,
-                    65536}),
-                Maximum = new decimal(new int[] {
-                    100000000,
-                    0,
-                    0,
-                    0}),
-                Minimum = new decimal(new int[] {
-                    100000000,
-                    0,
-                    0,
-                    -2147483648}),
+                Increment = 0.1M,
+                Maximum = 100000000M,
+                Minimum = -100000000M,
                 Name = "num",
                 TabIndex = 0,
                 Tag = this
             };
-            num.ValueChanged += new EventHandler(num_ValueChanged);
+            num.ValueChanged += new EventHandler(Num_ValueChanged);
         }
 
         public static NumberControl ForInteger(string label, Action<CustomControl> changedCallback, decimal initialValue = 0, decimal minValue = int.MinValue, decimal maxValue = int.MaxValue)
@@ -67,7 +55,7 @@ namespace Material_Editor
             return new NumberControl(label, changedCallback, initialValue, decimalPlaces, increment, minValue, maxValue);
         }
 
-        private void num_ValueChanged(object sender, EventArgs e)
+        private void Num_ValueChanged(object sender, EventArgs e)
         {
             RunChangedCallback();
         }

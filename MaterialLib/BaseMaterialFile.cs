@@ -58,6 +58,7 @@ namespace MaterialLib
         public AlphaBlendModeType AlphaBlendMode { get; set; }
 
         [DataMember(Name = "eAlphaBlendMode")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private string AlphaBlendModeString
         {
             get { return AlphaBlendMode.ToString(); }
@@ -119,6 +120,7 @@ namespace MaterialLib
         public bool GrayscaleToPaletteColor { get; set; }
 
         [DataMember(Name = "bWriteMaskAlbedo")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private bool WriteMaskAlbedo
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.ALBEDO); }
@@ -126,6 +128,7 @@ namespace MaterialLib
         }
 
         [DataMember(Name = "bWriteMaskNormal")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private bool WriteMaskNormal
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.NORMAL); }
@@ -133,6 +136,7 @@ namespace MaterialLib
         }
 
         [DataMember(Name = "bWriteMaskSpecular")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private bool WriteMaskSpecular
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.SPECULAR); }
@@ -140,6 +144,7 @@ namespace MaterialLib
         }
 
         [DataMember(Name = "bWriteMaskAmbientOcclusion")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private bool WriteMaskAmbientOcclusion
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.AMBIENT_OCCLUSION); }
@@ -147,6 +152,7 @@ namespace MaterialLib
         }
 
         [DataMember(Name = "bWriteMaskEmissive")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private bool WriteMaskEmissive
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.EMISSIVE); }
@@ -154,6 +160,7 @@ namespace MaterialLib
         }
 
         [DataMember(Name = "bWriteMaskGloss")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used by JSON serialization.")]
         private bool WriteMaskGloss
         {
             get { return MaskWrites.HasFlag(MaskWriteFlags.GLOSS); }

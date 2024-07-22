@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Material_Editor
@@ -77,12 +76,13 @@ namespace Material_Editor
             LabelControl?.Dispose();
             Control?.Dispose();
             ExtraControl?.Dispose();
+            GC.SuppressFinalize(this);
         }
     }
 
     public static class ControlFactory
     {
-        private static Dictionary<string, CustomControl> customControls = new Dictionary<string, CustomControl>();
+        private static readonly Dictionary<string, CustomControl> customControls = [];
 
         public static void ClearControls()
         {
@@ -91,14 +91,9 @@ namespace Material_Editor
                 (control.Value.Control.Parent as TableLayoutPanel).RowCount = 0;
                 (control.Value.Control.Parent as TableLayoutPanel).RowStyles.Clear();
 
-                if (control.Value.LabelControl != null)
-                    control.Value.LabelControl.Parent.Controls.Remove(control.Value.LabelControl);
-
-                if (control.Value.Control != null)
-                    control.Value.Control.Parent.Controls.Remove(control.Value.Control);
-
-                if (control.Value.ExtraControl != null)
-                    control.Value.ExtraControl.Parent.Controls.Remove(control.Value.ExtraControl);
+                control.Value.LabelControl?.Parent.Controls.Remove(control.Value.LabelControl);
+                control.Value.Control?.Parent.Controls.Remove(control.Value.Control);
+                control.Value.ExtraControl?.Parent.Controls.Remove(control.Value.ExtraControl);
 
                 control.Value.Dispose();
             }
@@ -108,17 +103,17 @@ namespace Material_Editor
         
         public static CustomControl Find(string name)
         {
-            if (customControls.ContainsKey(name))
-                return customControls[name];
+            if (customControls.TryGetValue(name, out CustomControl value))
+                return value;
 
             return null;
         }
 
         public static void SetVisible(string name, bool visible, bool serialize = true)
         {
-            if (customControls.ContainsKey(name))
+            if (customControls.TryGetValue(name, out CustomControl value))
             {
-                var control = customControls[name];
+                var control = value;
                 control.SetVisible(visible);
                 control.Serialize = serialize;
             }
@@ -126,15 +121,15 @@ namespace Material_Editor
 
         public static void SetSerialize(string name, bool visible)
         {
-            if (customControls.ContainsKey(name))
-                customControls[name].Serialize = visible;
+            if (customControls.TryGetValue(name, out CustomControl value))
+                value.Serialize = visible;
         }
 
         public static void SetTooltip(string name, ToolTip parentTooltip, string toolTip)
         {
-            if (customControls.ContainsKey(name))
+            if (customControls.TryGetValue(name, out CustomControl value))
             {
-                var control = customControls[name];
+                var control = value;
                 control.SetTooltip(parentTooltip, toolTip);
             }
         }
@@ -229,17 +224,11 @@ namespace Material_Editor
         {
             CustomControl control = null;
 
-            switch (fileType)
+            control = fileType switch
             {
-                default:
-                case FileControl.FileType.Texture:
-                    control = new FileControl(label, font, changedCallback, FileControl.FileType.Texture, filePath);
-                    break;
-
-                case FileControl.FileType.Material:
-                    control = new FileControl(label, font, changedCallback, FileControl.FileType.Material, filePath);
-                    break;
-            }
+                FileControl.FileType.Material => new FileControl(label, font, changedCallback, FileControl.FileType.Material, filePath),
+                _ => new FileControl(label, font, changedCallback, FileControl.FileType.Texture, filePath),
+            };
 
             if (control != null)
             {

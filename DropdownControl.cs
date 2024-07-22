@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Material_Editor
@@ -38,10 +37,10 @@ namespace Material_Editor
                 TabIndex = 1,
                 Tag = this
             };
-            dropdown.SelectedIndexChanged += new EventHandler(dropdown_SelectedIndexChanged);
+            dropdown.SelectedIndexChanged += new EventHandler(Dropdown_SelectedIndexChanged);
         }
 
-        private void dropdown_SelectedIndexChanged(object sender, EventArgs e)
+        private void Dropdown_SelectedIndexChanged(object sender, EventArgs e)
         {
             RunChangedCallback();
         }
