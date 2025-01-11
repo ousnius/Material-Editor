@@ -1639,11 +1639,14 @@ namespace Material_Editor
                 control = ControlFactory.Find(ControlNames.GlassRefractionScaleBase);
                 if (control != null) bgem.GlassRefractionScaleBase = Convert.ToSingle(control.GetProperty());
 
-                control = ControlFactory.Find(ControlNames.EnvMapping);
-                if (control != null && control.Serialize) bgem.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
+                if (file.Version >= 10)
+                {
+                    control = ControlFactory.Find(ControlNames.EnvMapping);
+                    if (control != null && control.Serialize) bgem.EnvironmentMapping = Convert.ToBoolean(control.GetProperty());
 
-                control = ControlFactory.Find(ControlNames.EnvMappingMaskScale);
-                if (control != null && control.Serialize) bgem.EnvironmentMappingMaskScale = Convert.ToSingle(control.GetProperty());
+                    control = ControlFactory.Find(ControlNames.EnvMappingMaskScale);
+                    if (control != null && control.Serialize) bgem.EnvironmentMappingMaskScale = Convert.ToSingle(control.GetProperty());
+                }
 
                 control = ControlFactory.Find(ControlNames.BloodEnabled);
                 if (control != null) bgem.BloodEnabled = Convert.ToBoolean(control.GetProperty());
