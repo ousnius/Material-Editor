@@ -10,10 +10,10 @@
     <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>disable</Nullable>
-    <Copyright>Copyright © 2015 - 2024</Copyright>
+    <Copyright>Copyright © 2015 - 2025</Copyright>
     <Company>ousnius</Company>
     <Authors>ousnius</Authors>
-    <Version>1.9.0</Version>
+    <Version>1.9.1</Version>
     <PackageProjectUrl>https://github.com/ousnius/Material-Editor</PackageProjectUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
