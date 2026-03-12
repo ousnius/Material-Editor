@@ -41,12 +41,17 @@
             exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            themeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            defaultThemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            darkThemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            overwriteFilesByFieldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             openFileDialog = new System.Windows.Forms.OpenFileDialog();
             saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             colorDialog = new System.Windows.Forms.ColorDialog();
-            tabControl = new System.Windows.Forms.TabControl();
+            tabControl = new Material_Editor.ThemedTabControl();
             tabPageGeneral = new System.Windows.Forms.TabPage();
             layoutGeneral = new System.Windows.Forms.TableLayoutPanel();
             tabPageMaterial = new System.Windows.Forms.TabPage();
@@ -69,7 +74,7 @@
             // menuStrip
             // 
             menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, optionsToolStripMenuItem, toolStripMenuItem1 });
+            menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, toolsToolStripMenuItem, optionsToolStripMenuItem, toolStripMenuItem1 });
             menuStrip.Location = new System.Drawing.Point(0, 0);
             menuStrip.Name = "menuStrip";
             menuStrip.Size = new System.Drawing.Size(624, 24);
@@ -142,9 +147,23 @@
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += ExitToolStripMenuItem_Click;
             // 
+            // toolsToolStripMenuItem
+            // 
+            toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { overwriteFilesByFieldToolStripMenuItem });
+            toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            toolsToolStripMenuItem.Text = "Tools";
+            // 
+            // overwriteFilesByFieldToolStripMenuItem
+            // 
+            overwriteFilesByFieldToolStripMenuItem.Name = "overwriteFilesByFieldToolStripMenuItem";
+            overwriteFilesByFieldToolStripMenuItem.Size = new System.Drawing.Size(257, 22);
+            overwriteFilesByFieldToolStripMenuItem.Text = "Overwrite Files by Field...";
+            overwriteFilesByFieldToolStripMenuItem.Click += OverwriteFilesByFieldToolStripMenuItem_Click;
+            // 
             // optionsToolStripMenuItem
             // 
-            optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { fontToolStripMenuItem });
+            optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { fontToolStripMenuItem, themeToolStripMenuItem });
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             optionsToolStripMenuItem.Text = "Options";
@@ -155,6 +174,27 @@
             fontToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             fontToolStripMenuItem.Text = "Font...";
             fontToolStripMenuItem.Click += FontToolStripMenuItem_Click;
+            // 
+            // themeToolStripMenuItem
+            // 
+            themeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { defaultThemeToolStripMenuItem, darkThemeToolStripMenuItem });
+            themeToolStripMenuItem.Name = "themeToolStripMenuItem";
+            themeToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            themeToolStripMenuItem.Text = "Theme";
+            // 
+            // defaultThemeToolStripMenuItem
+            // 
+            defaultThemeToolStripMenuItem.Name = "defaultThemeToolStripMenuItem";
+            defaultThemeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            defaultThemeToolStripMenuItem.Text = "Default";
+            defaultThemeToolStripMenuItem.Click += DefaultThemeToolStripMenuItem_Click;
+            // 
+            // windowsThemeToolStripMenuItem
+            // 
+            darkThemeToolStripMenuItem.Name = "darkThemeToolStripMenuItem";
+            darkThemeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            darkThemeToolStripMenuItem.Text = "Pip-boy3000";
+            darkThemeToolStripMenuItem.Click += DarkThemeToolStripMenuItem_Click;
             // 
             // toolStripMenuItem1
             // 
@@ -207,7 +247,7 @@
             tabPageGeneral.TabIndex = 2;
             tabPageGeneral.Text = "General";
             tabPageGeneral.ToolTipText = "Affects both BGSM and BGEM files.";
-            tabPageGeneral.UseVisualStyleBackColor = true;
+            tabPageGeneral.UseVisualStyleBackColor = false;
             tabPageGeneral.Scroll += TabScroll;
             // 
             // layoutGeneral
@@ -234,7 +274,7 @@
             tabPageMaterial.TabIndex = 0;
             tabPageMaterial.Text = "Material";
             tabPageMaterial.ToolTipText = "Affects only BGSM files.";
-            tabPageMaterial.UseVisualStyleBackColor = true;
+            tabPageMaterial.UseVisualStyleBackColor = false;
             tabPageMaterial.Scroll += TabScroll;
             // 
             // layoutMaterial
@@ -261,7 +301,7 @@
             tabPageEffect.TabIndex = 1;
             tabPageEffect.Text = "Effect";
             tabPageEffect.ToolTipText = "Affects only BGEM files.";
-            tabPageEffect.UseVisualStyleBackColor = true;
+            tabPageEffect.UseVisualStyleBackColor = false;
             tabPageEffect.Scroll += TabScroll;
             // 
             // layoutEffect
@@ -385,7 +425,7 @@
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.TabControl tabControl;
+        private ThemedTabControl tabControl;
         private System.Windows.Forms.TabPage tabPageMaterial;
         private System.Windows.Forms.TabPage tabPageGeneral;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -400,7 +440,12 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ComboBox listMatType;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem overwriteFilesByFieldToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem themeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem defaultThemeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem darkThemeToolStripMenuItem;
         private System.Windows.Forms.ComboBox listVersion;
         private System.Windows.Forms.Label lbVersion;
     }
