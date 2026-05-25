@@ -1,5 +1,6 @@
 ﻿using MaterialLib;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.Globalization;
@@ -16,6 +17,7 @@ namespace Material_Editor
     {
         public Game GameVersion;
         public Font Font;
+        public UITheme Theme;
     }
 
     public enum Game
@@ -32,12 +34,18 @@ namespace Material_Editor
 
     public partial class Main : Form
     {
-        private Config config = new();
+        private static ThemePalette GetPalette(UITheme theme)
+        {
+            return ThemeManager.GetPalette(theme);
+        }
+
+        private Config config;
         private string workFilePath;
         private bool changed;
         private bool toolTipPopping;
 
         private BaseMaterialFile currentMaterial;
+        private BaseMaterialFile originalMaterial;
 
         private const int DefaultVersionFO4 = 2;
         private const int DefaultVersionFO76 = 21;
@@ -64,10 +72,20 @@ namespace Material_Editor
             get { return (MaterialType)listMatType.SelectedIndex; }
         }
 
-        public Main()
+        public Main() : this(LoadConfig())
         {
+        }
+
+        public Main(Config initialConfig)
+        {
+            config = initialConfig;
             InitializeComponent();
-            ReadSettings();
+            tabControl.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tabControl.PaletteProvider = () => GetPalette(config.Theme);
+            tabControl.Paint += TabControl_Paint;
+            ApplyConfigFont();
+            ApplyTheme();
+            UpdateThemeMenuChecks();
         }
 
         private string ChangeFileExtension(string filePath)
@@ -188,6 +206,7 @@ namespace Material_Editor
             }
 
             currentMaterial = material;
+            originalMaterial = CloneMaterial(currentMaterial);
             Text = GetTitleText();
             changed = false;
         }
@@ -262,14 +281,56 @@ namespace Material_Editor
                 saveToolStripMenuItem.Enabled = true;
 
                 currentMaterial = material;
+                originalMaterial = CloneMaterial(currentMaterial);
                 Text = GetTitleText();
                 changed = false;
             }
         }
 
+        private void OverwriteFilesByFieldToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (currentMaterial == null)
+            {
+                MessageBox.Show("Open or create a material before using the overwrite tool.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var currentState = CaptureCurrentMaterialState();
+            if (currentState == null)
+                return;
+
+            var descriptors = MaterialFieldRegistry.GetDescriptors(currentState);
+            if (descriptors.Count == 0)
+            {
+                MessageBox.Show("No writable fields are available for the current material.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            var baseline = originalMaterial ?? CloneMaterial(currentState) ?? currentState;
+
+            var palette = GetPalette(config.Theme);
+            using var fieldSelection = new FieldSelectionDialog(descriptors, baseline, currentState, palette);
+            if (fieldSelection.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            if (fieldSelection.SelectedFields == null || fieldSelection.SelectedFields.Count == 0)
+                return;
+
+            using var targetDialog = new TargetFileSelectionDialog(palette);
+            if (targetDialog.ShowDialog(this) != DialogResult.OK)
+                return;
+
+            var tool = new FieldOverwriteTool();
+            var results = tool.Run(currentState, fieldSelection.SelectedFields, targetDialog.TargetFiles, targetDialog.BackupBeforeWrite);
+
+            using var summary = new OverwriteSummaryDialog(results, palette);
+            summary.ShowDialog(this);
+        }
+
         private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             currentMaterial = null;
+            originalMaterial = null;
             workFilePath = string.Empty;
 
             saveToolStripMenuItem.Enabled = false;
@@ -310,8 +371,19 @@ namespace Material_Editor
             if (result == DialogResult.OK)
             {
                 config.Font = fontDialog.Font;
+                ApplyConfigFont();
                 MessageBox.Show("Changing the font requires a restart of the application.", "Restart required", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void DefaultThemeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetTheme(UITheme.Default);
+        }
+
+        private void DarkThemeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetTheme(UITheme.PipBoy3000);
         }
 
         private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -407,10 +479,65 @@ namespace Material_Editor
                     break;
             }
 
-            if (currentMaterial != null)
-                listVersion.SelectedItem = (int)currentMaterial.Version;
-            else
-                listVersion.SelectedItem = defaultVersion;
+            uint targetVersion = currentMaterial?.Version ?? (uint)defaultVersion;
+            SelectVersionInDropdown(targetVersion);
+        }
+
+        private void SelectVersionInDropdown(uint version)
+        {
+            for (int i = 0; i < listVersion.Items.Count; i++)
+            {
+                if (TryGetVersionValue(listVersion.Items[i], out var itemVersion) && itemVersion == version)
+                {
+                    listVersion.SelectedIndex = i;
+                    return;
+                }
+            }
+
+            listVersion.SelectedIndex = AddMissingVersionItem(version);
+        }
+
+        private int AddMissingVersionItem(uint version)
+        {
+            listVersion.Items.Add(version);
+            return listVersion.Items.Count - 1;
+        }
+
+        private static bool TryGetVersionValue(object value, out uint version)
+        {
+            version = 0;
+
+            if (value is uint u)
+            {
+                version = u;
+                return true;
+            }
+
+            if (value is int i)
+            {
+                version = (uint)i;
+                return true;
+            }
+
+            if (value is string s && uint.TryParse(s, NumberStyles.Integer, CultureInfo.InvariantCulture, out var parsed))
+            {
+                version = parsed;
+                return true;
+            }
+
+            if (value is IConvertible convertible)
+            {
+                try
+                {
+                    version = convertible.ToUInt32(CultureInfo.InvariantCulture);
+                    return true;
+                }
+                catch
+                {
+                }
+            }
+
+            return false;
         }
 
         private void ToolTip_Popup(object sender, PopupEventArgs ea)
@@ -502,7 +629,7 @@ namespace Material_Editor
 
         private void Main_Load(object sender, EventArgs e)
         {
-            Font = config.Font;
+            ApplyConfigFont();
 
             var items = Enum.GetNames(typeof(Game));
             listGame.Items.AddRange(items);
@@ -530,36 +657,64 @@ namespace Material_Editor
             }
         }
 
-        private void ReadSettings()
+        internal static Config LoadConfig()
         {
+            var loadedConfig = new Config
+            {
+                GameVersion = Game.FO4,
+                Font = new Font("Segoe UI", 9f),
+                Theme = UITheme.Default
+            };
+
             try
             {
                 var appSettings = ConfigurationManager.AppSettings;
 
                 var gameVersion = appSettings["GameVersion"];
-                if (gameVersion != null)
+                if (gameVersion != null && Enum.TryParse(gameVersion, out Game parsedGame))
                 {
-                    if (!Enum.TryParse(gameVersion, out config.GameVersion))
-                        config.GameVersion = Game.FO4;
+                    loadedConfig.GameVersion = parsedGame;
                 }
 
-                var fontName = appSettings.Get("FontName");
-                var fontSizeStr = appSettings.Get("FontSize");
-                if (fontName != null && fontSizeStr != null)
+                var fontName = appSettings["FontName"];
+                var fontSizeStr = appSettings["FontSize"];
+                var themeValue = appSettings["Theme"];
+                if (!string.IsNullOrEmpty(fontName) && !string.IsNullOrEmpty(fontSizeStr))
                 {
-                    if (!float.TryParse(fontSizeStr, CultureInfo.InvariantCulture, out float fontSize))
+                    if (!float.TryParse(fontSizeStr, NumberStyles.Float, CultureInfo.InvariantCulture, out float fontSize))
                         fontSize = 10.0f;
 
-                    config.Font = new Font(fontName, fontSize);
-                }
-                else
-                {
-                    config.Font = Font;
+                    try
+                    {
+                        loadedConfig.Font = new Font(fontName, fontSize);
+                    }
+                    catch
+                    {
+                        loadedConfig.Font = new Font("Segoe UI", 9f);
+                    }
                 }
 
-                Application.SetDefaultFont(config.Font);
+                if (!string.IsNullOrEmpty(themeValue) && Enum.TryParse(themeValue, true, out UITheme parsedTheme))
+                {
+                    loadedConfig.Theme = parsedTheme;
+                }
             }
-            catch { }
+            catch
+            {
+            }
+
+            if (loadedConfig.Font == null)
+                loadedConfig.Font = new Font("Segoe UI", 9f);
+
+            return loadedConfig;
+        }
+
+        private void ApplyConfigFont()
+        {
+            if (config.Font != null)
+            {
+                Font = config.Font;
+            }
         }
 
         private void WriteSettings()
@@ -586,10 +741,318 @@ namespace Material_Editor
                 else
                     configFile.AppSettings.Settings.Add("FontSize", config.Font.Size.ToString(CultureInfo.InvariantCulture));
 
+                var themeSetting = configFile.AppSettings.Settings["Theme"];
+                if (themeSetting != null)
+                    themeSetting.Value = config.Theme.ToString();
+                else
+                    configFile.AppSettings.Settings.Add("Theme", config.Theme.ToString());
+
                 configFile.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
             }
             catch { }
+        }
+
+        private void ApplyTheme()
+        {
+            var palette = GetPalette(config.Theme);
+
+            BackColor = palette.FormBackground;
+            ForeColor = palette.Foreground;
+            tabControl.DrawMode = config.Theme == UITheme.Default ? TabDrawMode.Normal : TabDrawMode.OwnerDrawFixed;
+            tabControl.ShouldPaintBody = () => config.Theme != UITheme.Default;
+
+            if (config.Theme == UITheme.Default)
+            {
+                ApplyDefaultThemeAppearance();
+            }
+            else
+            {
+                ApplyCustomThemeAppearance(palette);
+            }
+
+            tabControl.Invalidate();
+        }
+
+        private void ApplyCustomThemeAppearance(ThemePalette palette)
+        {
+            CheckControl.OffForegroundProvider = () => Color.White;
+            ApplyThemeToControl(tabControl, palette, palette.ControlBackground);
+            ApplyThemeToControl(layoutGeneral, palette, palette.PanelBackground);
+            ApplyThemeToControl(layoutMaterial, palette, palette.PanelBackground);
+            ApplyThemeToControl(layoutEffect, palette, palette.PanelBackground);
+            ApplyThemeToToolStrip(menuStrip, palette);
+            ApplyComboTheme(listGame, palette);
+            ApplyComboTheme(listMatType, palette);
+            ApplyComboTheme(listVersion, palette);
+            foreach (TabPage page in tabControl.TabPages)
+                page.BackColor = palette.PanelBackground;
+
+            ApplyDropdownTheme(ControlNames.AlphaBlendMode, palette);
+        }
+
+        private void ApplyDefaultThemeAppearance()
+        {
+            CheckControl.OffForegroundProvider = () => Color.Red;
+            ResetControlAppearance(tabControl);
+            ResetControlAppearance(layoutGeneral);
+            ResetControlAppearance(layoutMaterial);
+            ResetControlAppearance(layoutEffect);
+            ResetComboAppearance(listGame);
+            ResetComboAppearance(listMatType);
+            ResetComboAppearance(listVersion);
+            ResetToolStripAppearance(menuStrip);
+            foreach (TabPage page in tabControl.TabPages)
+            {
+                page.ResetBackColor();
+                page.ResetForeColor();
+            }
+        }
+
+        private void ResetControlAppearance(Control control)
+        {
+            if (control == null)
+                return;
+
+            control.ResetBackColor();
+            control.ResetForeColor();
+
+            switch (control)
+            {
+                case Button button:
+                    button.FlatStyle = FlatStyle.Standard;
+                    button.FlatAppearance.BorderSize = 1;
+                    button.FlatAppearance.BorderColor = SystemColors.ControlDark;
+                    button.UseVisualStyleBackColor = true;
+                    break;
+                case TextBoxBase textBox:
+                    textBox.BorderStyle = BorderStyle.Fixed3D;
+                    break;
+                case ComboBox comboChild:
+                    ResetComboAppearance(comboChild);
+                    break;
+                case CheckBox checkBox:
+                    checkBox.UseVisualStyleBackColor = true;
+                    if (checkBox.Tag is CheckControl)
+                        CheckControl.UpdateCheckVisual(checkBox);
+                    break;
+                case NumericUpDown numeric:
+                    numeric.ResetBackColor();
+                    numeric.ResetForeColor();
+                    break;
+            }
+
+            foreach (Control child in control.Controls)
+            {
+                ResetControlAppearance(child);
+            }
+        }
+
+        private void ResetComboAppearance(ComboBox combo)
+        {
+            if (combo == null)
+                return;
+
+            combo.FlatStyle = FlatStyle.Standard;
+            combo.DrawMode = DrawMode.Normal;
+            combo.DrawItem -= ComboBox_DrawItem;
+            combo.ResetBackColor();
+            combo.ResetForeColor();
+        }
+
+        private void ResetToolStripAppearance(ToolStrip toolStrip)
+        {
+            if (toolStrip == null)
+                return;
+
+            toolStrip.BackColor = SystemColors.Control;
+            toolStrip.ForeColor = SystemColors.ControlText;
+            foreach (ToolStripItem item in toolStrip.Items)
+            {
+                item.BackColor = SystemColors.Control;
+                item.ForeColor = SystemColors.ControlText;
+            }
+        }
+
+        private void ApplyThemeToControl(Control control, ThemePalette palette, Color backgroundOverride)
+        {
+            if (control == null)
+                return;
+
+            control.BackColor = backgroundOverride;
+            control.ForeColor = palette.Foreground;
+            StyleControl(control, palette, backgroundOverride);
+
+            foreach (Control child in control.Controls)
+            {
+                var childBack = child is TabPage ? palette.PanelBackground : backgroundOverride;
+                ApplyThemeToControl(child, palette, childBack);
+            }
+        }
+
+        private static void StyleControl(Control control, ThemePalette palette, Color background)
+        {
+            switch (control)
+            {
+                case Button button:
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.FlatAppearance.BorderSize = 1;
+                    button.FlatAppearance.BorderColor = palette.Accent.IsEmpty ? Color.Gray : palette.Accent;
+                    if (button.Tag is ColorControl colorControl)
+                        button.BackColor = colorControl.CurrentColor;
+                    else
+                        button.BackColor = background;
+                    if (ShouldOverrideForeColor(button))
+                        button.ForeColor = palette.Foreground;
+                    break;
+                case TextBoxBase textBox:
+                    textBox.BorderStyle = BorderStyle.FixedSingle;
+                    textBox.BackColor = background;
+                    if (ShouldOverrideForeColor(textBox))
+                        textBox.ForeColor = palette.Foreground;
+                    break;
+                case ComboBox combo:
+                    combo.FlatStyle = FlatStyle.Flat;
+                    combo.BackColor = background;
+                    if (ShouldOverrideForeColor(combo))
+                        combo.ForeColor = palette.Foreground;
+                    break;
+                case NumericUpDown numeric:
+                    numeric.BackColor = background;
+                    numeric.ForeColor = palette.Foreground;
+                    break;
+                case CheckBox checkBox:
+                    checkBox.BackColor = background;
+                    if (ShouldOverrideForeColor(checkBox))
+                        checkBox.ForeColor = palette.Foreground;
+                    CheckControl.UpdateCheckVisual(checkBox);
+                    break;
+                case ListView listView:
+                    listView.BackColor = palette.PanelBackground;
+                    listView.ForeColor = palette.Foreground;
+                    listView.BorderStyle = BorderStyle.FixedSingle;
+                    listView.OwnerDraw = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private static bool ShouldOverrideForeColor(Control control)
+        {
+            var color = control.ForeColor;
+            return color == Color.Empty || color == SystemColors.ControlText || color == SystemColors.WindowText || color == Color.Black;
+        }
+
+        private void ApplyComboTheme(ComboBox combo, ThemePalette palette)
+        {
+            if (combo == null)
+                return;
+
+            combo.FlatStyle = FlatStyle.Flat;
+            combo.BackColor = palette.ControlBackground;
+            if (ShouldOverrideForeColor(combo))
+                combo.ForeColor = palette.Foreground;
+            combo.DrawMode = DrawMode.OwnerDrawFixed;
+            combo.DrawItem -= ComboBox_DrawItem;
+            combo.DrawItem += ComboBox_DrawItem;
+        }
+
+        private void ApplyDropdownTheme(string controlName, ThemePalette palette)
+        {
+            var combo = ControlFactory.Find(controlName)?.Control as ComboBox;
+            if (combo != null)
+            {
+                ApplyComboTheme(combo, palette);
+            }
+        }
+
+        private void ComboBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (sender is ComboBox combo)
+            {
+                var palette = GetPalette(config.Theme);
+                var bounds = e.Bounds;
+                var isSelected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
+                var background = isSelected
+                    ? palette.Accent.IsEmpty ? palette.MenuBackground : palette.Accent
+                    : palette.PanelBackground;
+
+                using var brush = new SolidBrush(background);
+                e.Graphics.FillRectangle(brush, bounds);
+
+                if (e.Index >= 0)
+                {
+                    var text = combo.Items[e.Index]?.ToString() ?? string.Empty;
+                    TextRenderer.DrawText(e.Graphics, text, combo.Font, bounds, palette.Foreground, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+                }
+                else
+                {
+                    var text = combo.Text ?? string.Empty;
+                    TextRenderer.DrawText(e.Graphics, text, combo.Font, bounds, palette.Foreground, TextFormatFlags.Left | TextFormatFlags.VerticalCenter);
+                }
+            }
+        }
+        
+        private void ApplyThemeToToolStrip(ToolStrip toolStrip, ThemePalette palette)
+        {
+            if (toolStrip == null)
+                return;
+
+            toolStrip.BackColor = palette.MenuBackground;
+            toolStrip.ForeColor = palette.Foreground;
+
+            foreach (ToolStripItem item in toolStrip.Items)
+            {
+                item.BackColor = palette.MenuBackground;
+                item.ForeColor = palette.Foreground;
+            }
+        }
+
+        private void TabControl_Paint(object sender, PaintEventArgs e)
+        {
+            if (tabControl == null)
+                return;
+
+            var palette = GetPalette(config.Theme);
+            var tabHeaderHeight = tabControl.TabCount > 0 ? tabControl.GetTabRect(0).Bottom : 0;
+            var headerArea = new Rectangle(0, 0, tabControl.ClientRectangle.Width, tabHeaderHeight);
+            var display = new Rectangle(0, tabHeaderHeight, tabControl.ClientRectangle.Width, tabControl.ClientRectangle.Height - tabHeaderHeight);
+
+            if (config.Theme == UITheme.Default)
+            {
+                using var borderPen = new Pen(ControlPaint.Light(SystemColors.ControlDark, 0.2f));
+                e.Graphics.DrawRectangle(borderPen, display);
+                return;
+            }
+
+            using (var headerBrush = new SolidBrush(ControlPaint.Dark(palette.PanelBackground, 0.05f)))
+            {
+                e.Graphics.FillRectangle(headerBrush, headerArea);
+            }
+
+            using (var bodyBrush = new SolidBrush(palette.PanelBackground))
+            {
+                e.Graphics.FillRectangle(bodyBrush, display);
+            }
+        }
+
+        private void SetTheme(UITheme theme)
+        {
+            if (config.Theme == theme)
+                return;
+
+            config.Theme = theme;
+            ApplyTheme();
+            UpdateThemeMenuChecks();
+        }
+
+        private void UpdateThemeMenuChecks()
+        {
+            if (defaultThemeToolStripMenuItem != null)
+                defaultThemeToolStripMenuItem.Checked = config.Theme == UITheme.Default;
+            if (darkThemeToolStripMenuItem != null)
+                darkThemeToolStripMenuItem.Checked = config.Theme == UITheme.PipBoy3000;
         }
 
         private void Main_Closing(object sender, FormClosingEventArgs e)
@@ -1102,6 +1565,65 @@ namespace Material_Editor
 
             CreateTooltips();
             ControlFactory.UpdateVisibility();
+            ApplyTheme();
+            originalMaterial = CloneMaterial(currentMaterial);
+        }
+
+        private BaseMaterialFile CaptureCurrentMaterialState()
+        {
+            if (currentMaterial == null)
+                return null;
+
+            BaseMaterialFile snapshot = CurrentMaterialType switch
+            {
+                MaterialType.Effect => new BGEM(),
+                _ => new BGSM(),
+            };
+
+            GetMaterialValues(snapshot);
+            return snapshot;
+        }
+
+        private BaseMaterialFile CloneMaterial(BaseMaterialFile source)
+        {
+            if (source == null)
+                return null;
+
+            string tempPath = null;
+            try
+            {
+                tempPath = Path.GetTempFileName();
+                using var stream = new FileStream(tempPath, FileMode.Create, FileAccess.ReadWrite, FileShare.None);
+                if (!source.Save(stream))
+                    return source;
+
+                stream.Position = 0;
+                var clone = (BaseMaterialFile)Activator.CreateInstance(source.GetType());
+                if (clone == null)
+                    return source;
+
+                if (!clone.Open(stream))
+                    return source;
+
+                return clone;
+            }
+            catch
+            {
+                return source;
+            }
+            finally
+            {
+                if (!string.IsNullOrEmpty(tempPath))
+                {
+                    try
+                    {
+                        File.Delete(tempPath);
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
         }
 
         private void CreateTooltips()

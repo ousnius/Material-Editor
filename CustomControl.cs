@@ -118,6 +118,19 @@ namespace Material_Editor
             return null;
         }
 
+        public static IEnumerable<string> GetRegisteredNames()
+        {
+            return customControls.Keys;
+        }
+
+        public static string GetTooltip(string name)
+        {
+            if (customControls.TryGetValue(name, out CustomControl control))
+                return control.BaseToolTip;
+
+            return null;
+        }
+
         public static bool GetProperty(string name, out object property)
         {
             if (customControls.TryGetValue(name, out CustomControl control))
